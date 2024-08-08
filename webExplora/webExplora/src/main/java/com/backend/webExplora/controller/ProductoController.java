@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.backend.webExplora.dto.entrada.ProductoEntradaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.service.IProductoService;
-@CrossOrigin (origins = "http://localhost:8081")
+
+@CrossOrigin (origins = "http://localhost:5173")  
 @RestController
 @RequestMapping("/api/productos")
 @Validated

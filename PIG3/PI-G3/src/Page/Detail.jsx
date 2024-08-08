@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Components/Button" 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios'
 
 const Detail = () => {
+  const [tour,setTour] = useState(null);
+  const { id } = useParams();
+
+
+  const url = `http://localhost:8081/api/productos/${id}`;
+  useEffect(()=>{
+    axios(url)
+    .then(res => setTour(res.data))
+  },[id])
+
   return (
     <main className="container-detail">
       {/* ESTA SECTION ES VA DESDES EL TITULO HASTA EL PRECIO */}
-      <h4>Parque Nacional y Viaje en Tren Fin del Mundo Tour Guiado</h4>
+      <h4>{tour.name}</h4>
       <section className="section-one">
         
         <div className="img-detail">
           <div>
-            <img className="img-big" src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/03/52/47.jpg" alt="tren" /> {/* ESTA IMG SE TRA DE LA API */}
+            <img className="img-big" src={tour.imagenUrl}alt="tren" /> {/* ESTA IMG SE TRA DE LA API */}
           </div>
           <div className="container-img-small">
             <img className="img-small" src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/03/52/47.jpg" alt="tren" />{/* ESTA IMG SE TRA DE LA API */}
@@ -27,18 +40,18 @@ const Detail = () => {
             and scrambled it to make a type specimen book. 
           </span>
           <Button className={"btn-text"}>LEER MENOS</Button>
-          <p>Desde:$ <span className="prince-info-booking">115.191</span> por adulto</p> {/* EL PRECIO SE TRAE DESDE LA API */}
+          <p>Desde:$ <span className="prince-info-booking">{tour.precio}</span> por adulto</p> {/* EL PRECIO SE TRAE DESDE LA API */}
           </div>
           
           <div className="card-booking">
             <span>Reserva tu lugar</span>
               <input type="text" placeholder="Sabado,17 de Agosto" /> {/* la info del placeholder viene de la api */}
-              <input type="text" placeholder="2" /> {/* la info del placeholder viene de la api */}
+              <input type="text" placeholder="1" /> {/* la info del placeholder viene de la api */}
                 <div className="info-card-booking">
-                <span>Tour Guiado a Parque Nacional y Viaje en tren Fin del Mundo</span> {/* ESTO SE TRAE DE LA API */}
-                <span>pRecogida incluida</span>{/* ESTO SE TRAE DE LA API */}
-                <span>2 adultos x $115.191</span>{/* ESTO SE TRAE DE LA API */}
-                <span>Total: $ 230.382</span>{/* ESTO SE TRAE DE LA API */}
+                <span>{tour.descripcion}</span> {/* ESTO SE TRAE DE LA API */}
+                <span>Recogida incluida</span>{/* ESTO SE TRAE DE LA API */}
+                <span>1 adultos x ${tour.precio}</span>{/* ESTO SE TRAE DE LA API */}
+                <span>Total: $ {tour.precio}</span>{/* ESTO SE TRAE DE LA API */}
                 <span>El precio incluye impuestos y tarifas de reservación</span>
                 </div>
               <Button className={"btn-card-booking"}>RESERVA TU LUGAR</Button>
@@ -86,7 +99,7 @@ const Detail = () => {
     </section>
       <div className="btn-detail">
         <Link to={"/"}>
-       <Button className="btn-back"> "flecha"</Button>
+       <Button className="btn-back"> <FontAwesomeIcon icon={faArrowLeft} /></Button>
        </Link> 
       </div>
        

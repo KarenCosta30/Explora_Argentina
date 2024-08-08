@@ -2,9 +2,13 @@ import React from "react";
 import CardCategories from "../Components/CardCategories";
 import Form from "../Components/Form";
 import CardTour from "../Components/CardTour";
+import { useTourState } from "../Context/GlobalContext";
+
 
 
 const Home = () => {
+const {state} = useTourState();
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     // Crear lógica para manejar la búsqueda
@@ -43,23 +47,18 @@ const Home = () => {
         <CardCategories/>
       </div> */}
 
-
-
-
-
-      {/* DIV DE OFERTAS ESPECIALES, ESTO DEBE SER RANDOM */}
+  {/* DIV DE OFERTAS ESPECIALES, ESTO DEBE SER RANDOM */}
       <div className="container-offers">
         <h3 className="offers">Ofertas especiales</h3>
         <br />
-     
-        <p className="offers">Consulta nuestras ofertas especiales y descuentos</p>
+      <p className="offers">Consulta nuestras ofertas especiales y descuentos</p>
         <br />
         </div>
         <div className="contairner-card-tour">
-          <CardTour />
-          <CardTour />
-          <CardTour />
-          <CardTour />
+          {state.tour.map((item,index)=>{
+            return <CardTour key={index} item={item}></CardTour>
+          })}
+         
         </div>
 
       
