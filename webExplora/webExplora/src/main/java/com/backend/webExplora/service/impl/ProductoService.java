@@ -1,8 +1,14 @@
 package com.backend.webExplora.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -28,23 +34,31 @@ public class ProductoService implements IProductoService {
         this.modelMapper = modelMapper;
     }
 
-    @Override
-    public List<ProductoSalidaDto> obtenerProductosAleatorios() {
-        logger.info("Obteniendo lista de productos aleatorios");
-        List<Producto> productos = productoRepository.findAll();
-        Collections.shuffle(productos);
-        return productos.stream().limit(10)
-                .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
-                .collect(Collectors.toList());
-    }
+   @Override
+public List<ProductoSalidaDto> obtenerProductosAleatorios() {
+    logger.info("Obteniendo lista de productos aleatorios");
+    
+    List<Producto> productos = productoRepository.findAll();
+    Set<Producto> productosUnicos = new TreeSet<>(Comparator.comparing(Producto::getId));
+    productosUnicos.addAll(productos);
+    List<Producto> productosList = new ArrayList<>(productosUnicos);
+    productosList.sort(Comparator.comparing(Producto::getId));
+    
+    Collections.shuffle(productosList);
+    
+    return productosList.stream().limit(10)
+            .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
+            .collect(Collectors.toList());
+}
+
 
     @Override
     public ProductoSalidaDto obtenerDetalleProducto(Long id) {
-        logger.info("Obteniendo detalles del producto con id: {}", id);
-        Producto producto = productoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        return modelMapper.map(producto, ProductoSalidaDto.class);
-    }
+    logger.info("Obteniendo detalles del producto con id: {}", id);
+    Producto producto = productoRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Producto con id " + id + " no encontrado"));
+    return modelMapper.map(producto, ProductoSalidaDto.class);
+}
 
     @Override
     public ProductoSalidaDto registrarProducto(ProductoEntradaDto producto) {
