@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,11 +54,11 @@ public List<ProductoSalidaDto> obtenerProductosAleatorios() {
 
     @Override
     public ProductoSalidaDto obtenerDetalleProducto(Long id) {
-        logger.info("Obteniendo detalles del producto con id: {}", id);
-        Producto producto = productoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        return modelMapper.map(producto, ProductoSalidaDto.class);
-    }
+    logger.info("Obteniendo detalles del producto con id: {}", id);
+    Producto producto = productoRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Producto con id " + id + " no encontrado"));
+    return modelMapper.map(producto, ProductoSalidaDto.class);
+}
 
     @Override
     public ProductoSalidaDto registrarProducto(ProductoEntradaDto producto) {
