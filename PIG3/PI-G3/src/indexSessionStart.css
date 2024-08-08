@@ -1,0 +1,11 @@
+/*PAGINA INICIO SESION*/
+.container-session-start {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    margin-bottom: 30px; /* Ajusta el margen inferior para evitar la superposición con el footer */
+    padding: 20px; /* Ajuste opcional para el contenido */
+  }
