@@ -34,9 +34,9 @@ const {state} = useTourState();
       {/* CONTANINER TOURS */}
 
       {/* DIV DE EXPERIENCIAS DESTINOS DEBES SER ALEATORIOS */}
-      {/* <div className="container-categories">
+      <div className="container-categories">
         <h3 className="exp">Experiencias</h3>
-        <p>Los destinos mas populares de Argentina, desde lugares historicos hasta maravillas naturales</p>
+        {/* <p>Los destinos mas populares de Argentina, desde lugares historicos hasta maravillas naturales</p>
         <br />
         <img className="line1" src="/img/Line 1.png" alt="" />
       </div>
@@ -44,8 +44,8 @@ const {state} = useTourState();
       <div className="card-categories">
         <CardCategories/>
         <CardCategories/>
-        <CardCategories/>
-      </div> */}
+        <CardCategories/> */}
+      </div>
 
   {/* DIV DE OFERTAS ESPECIALES, ESTO DEBE SER RANDOM */}
       <div className="container-offers">

@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/sessionStart" element={<SessionStart />}/>  {/* <= descomentar aca para activar la pagina con el formulario de inicio de sesion */}
-        <Route path="/createaccount" element={<CreateAccount/>}/>
+        {/* <Route path="/sessionStart" element={<SessionStart />}/> */}  {/* <= descomentar aca para activar la pagina con el formulario de inicio de sesion */}
+        {/* <Route path="/createaccount" element={<CreateAccount/>}/> */}
       </Routes>
        <Footer /> 
     </div>

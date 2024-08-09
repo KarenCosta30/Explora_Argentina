@@ -138,16 +138,17 @@ input::placeholder {
 /* ESTA SECCION SE VA A USAR DESPEUS */
 
 
-/* .container-categories{
-  display: flex;
+.container-categories{
+/*   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 80px;
+  align-items: center;*/
+  height: 20vh;
+  background-color: #39afe5; 
   
 }
 
-.img-card-categories{
+/* .img-card-categories{
   height: 22vh;
   position: absolute;
   border-radius: 26px;
@@ -167,9 +168,9 @@ input::placeholder {
   margin-top: 17vh;
   margin-left: 2vw;
   
-} */
+} 
 
-/* .container-categories {
+ .container-categories {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -253,7 +254,7 @@ h3.offers {
   max-width: 300px; 
   border-radius: 15px;
   padding-bottom: 10px;
-  overflow: hidden; 
+ /*  overflow: hidden; */ 
   
 }
 
@@ -384,6 +385,7 @@ h3.offers {
   margin-top: 20vh;
   width: 80vw;
   font-size: 2rem;
+  margin-right: 10vw;
 }
 /*---------------------      SECCION  1    ----------------------*/
 
@@ -637,23 +639,32 @@ h3.offers {
   }
   
   .contairner-card-tour {
-    margin-left: 8vw;
+    display: grid;
+    margin-left: -8vw;
+    gap: 10vw;
+  }
+
+  .card-tour{
+    width: 48vw;
   }
 
   .info-card-tour{
     display: flex;
     flex-direction: column;
-    gap: 12vh;
+    gap: 18vh;
    }
   .img-card-tour {
     height: 200px;
-    width: 200px;
+    width:48vw;
   }
   .subtitle-card-tour {
     display: none;
   }
   .price-card-tour {
-   margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
     margin-top: -12vh;
     width: 90%;
   }
@@ -692,7 +703,7 @@ h3.offers {
 }
 
 /* Dispositivos pequeños */
-@media (min-width: 375px) and (max-width: 424px) {
+@media (min-width: 376px) and (max-width: 424px) {
   .container-header{
     height: 18vh;
     width: 100%;
@@ -744,9 +755,15 @@ h3.offers {
   .contairner-card-tour {
     margin-left: -20px;
     margin-top: 1vh;
+    display: grid;
+    gap: 10vw;
+  }
+  .card-tour{
+    width: 45vw;
+
   }
   .img-card-tour {
-    width: 250px;
+    width: 45vw;
     height: 250px;
   }
 
@@ -759,17 +776,17 @@ h3.offers {
     display: none;
   }
   .price-card-tour {
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     margin-left: 5px;
     margin-top: -10vh;
   }
   .price {
     font-size: 1rem;
   }
-  .link-card-tour {
-    margin-top: 10vh;
-    margin-left: -15vw;
-  }
+
   .container-detail h4{
     margin-top: 25vh;
   }
@@ -838,6 +855,9 @@ h3.offers {
     font-size: 1rem;
   }
   .price-card-tour {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 90%;
     margin-left: 5px;
   }
@@ -881,15 +901,22 @@ h3.offers {
     display: flex;
     justify-content: center;
     margin-top: 5vh;
-    padding-left: 15px;
+    padding-left: 25px;
     padding-right: 15px;
+    gap: 8vw;
   }
-  .container-img-small {
-    visibility: hidden;
+  .container-img-small{
+    width: 50vw;
+    height: 60vh;
+  }
+
+  .img-small{
+    height: 18vh;
   }
   .img-big {
-    width: 170vw;
+    width: 50vw;
     height: 40vh;
+    ;
   }
   .info-booking {
     margin-left: -7vw;
