@@ -13,8 +13,20 @@ public class Producto {
     private String nombre;
     @Column(length = 250)
     private String descripcion;
+
+    @Column(length = 2000)
+    private String descripcion_larga;
     @Column(length = 250)
     private String imagenUrl;
+
+    @Column(length = 2000)
+    private String itinerario;
+
+    @Column(length = 250)
+    private String imagenUrl2;
+
+    @Column(length = 250)
+    private String imagenUrl3;
     private BigDecimal precio;
     //private Long categoriaId; (en el primer Sprint no habrá categoría visible en el Front)
     private Boolean disponible;
@@ -33,14 +45,50 @@ public class Producto {
         this.ubicacion = ubicacion;
     }
 
-    public Producto(Long id, String nombre, String descripcion, String imagenUrl, BigDecimal precio, Boolean disponible, String ubicacion) {
+    public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.descripcion_larga = descripcion_larga;
         this.imagenUrl = imagenUrl;
+        this.itinerario = itinerario;
+        this.imagenUrl2 = imagenUrl2;
+        this.imagenUrl3 = imagenUrl3;
         this.precio = precio;
         this.disponible = disponible;
         this.ubicacion = ubicacion;
+    }
+
+    public void setDescripcion_larga(String descripcion_larga) {
+        this.descripcion_larga = descripcion_larga;
+    }
+
+    public void setItinerario(String itinerario) {
+        this.itinerario = itinerario;
+    }
+
+    public void setImagenUrl2(String imagenUrl2) {
+        this.imagenUrl2 = imagenUrl2;
+    }
+
+    public void setImagenUrl3(String imagenUrl3) {
+        this.imagenUrl3 = imagenUrl3;
+    }
+
+    public String getDescripcion_larga() {
+        return descripcion_larga;
+    }
+
+    public String getItinerario() {
+        return itinerario;
+    }
+
+    public String getImagenUrl2() {
+        return imagenUrl2;
+    }
+
+    public String getImagenUrl3() {
+        return imagenUrl3;
     }
 
     public Long getId() {
