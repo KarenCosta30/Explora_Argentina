@@ -479,11 +479,27 @@ h3.offers {
 }
 
 .info-card-booking {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   border: 1px solid #0e2a33;
   border-radius: 30px;
-  padding: 5px;
+  padding: 15px;
+  padding-top: 30px;
 }
+
+.description-card-booking{
+  font-weight: bold;
+  
+}
+
+.description-card-booking-two{
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 .btn-card-booking {
   border: none;

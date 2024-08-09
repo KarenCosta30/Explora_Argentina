@@ -55,14 +55,18 @@ const Detail = () => {
             />
             <input
               type="text"
-              placeholder="1"
+              placeholder="1 persona"
             />
             <div className="info-card-booking">
-              <span>{tour.descripcion}</span>
-              <span>Recogida incluida</span>
-              <span>1 adulto x ${tour.precio}</span>
-              <span>Total: $ {tour.precio}</span>
-              <span>El precio incluye impuestos y tarifas de reservación</span>
+              
+              <span className="description-card-booking">{tour.descripcion}.</span>
+              <div className="description-card-booking-two">
+                <span> Recogida incluida</span>
+              <span> 1 adulto x ${tour.precio}</span>
+              <span> Total: $ {tour.precio}</span>
+              <span> El precio incluye impuestos y tarifas de reservación</span>
+              </div>
+              
             </div>
             <Button className={"btn-card-booking"}>RESERVA TU LUGAR</Button>
           </div>
