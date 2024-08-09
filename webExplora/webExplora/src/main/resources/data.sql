@@ -50,7 +50,7 @@ VALUES
  'Llegada a Purmamarca. Inicio del Sendero al Cerro de los 7 Colores. Vista Panorámica desde el Mirador. Almuerzo en Purmamarca. Visita al Paseo de los Colorados. Tiempo Libre y Regreso.',
  'https://www.argentinaparamirar.com.ar/wp-content/uploads/2024/01/cerro-de-los-7-colores.jpg',
  'https://t3.ftcdn.net/jpg/03/70/04/56/360_F_370045689_YmVoAK0WAjsGS6WUGMZgZ3rvWUgTlEZ9.jpg',
- 'https://media.sitioandino.com.ar/p/ab90a31df5b3673df74c59b7e0c99b4b/adjuntos/335/imagenes/0000634825/790x0/smart/cerro-siete-colores-webjpg.jpg',
+ 'https://i.pinimg.com/736x/62/9a/b4/629ab4feb040d7c804704167e5c0eb14.jpg',
  100.00,
  1,
  'Purmamarca, Jujuy, Argentina'),
