@@ -238,21 +238,19 @@ h3.offers {
   display: grid;
   grid-template-columns: 40vw 40vw;
   gap: 10px;
-  align-items: center;
+  /* align-items: center; */ 
   justify-content: center;
-  margin-left: 20vw;
+  margin-left: 10vw; 
   padding-bottom: 10vh;
 }
 
 .card-tour {
- 
   color: #ffffff;
   display: flex;
   flex-direction: column;
   background-color:   #ffa20129;
   width: 100%;
   max-width: 300px; 
-  height: max-content;
   border-radius: 15px;
   padding-bottom: 10px;
   overflow: hidden; 
@@ -309,10 +307,7 @@ h3.offers {
   margin-top: auto;
 }
 
-.link-card-tour {
-  text-decoration: none; 
-  color: inherit; 
-}
+
 
 /* ------------------- ESTILOS FOOTER ---------------- */
 .container-footer {
@@ -325,12 +320,13 @@ h3.offers {
   box-sizing: border-box;
   color: #ffffff;
   gap: 5vw;
+  
 }
 
 .copyright {
   width: 29vw;
   display: flex;
-  
+  margin-left: 10vw;
   gap: 15px;
 }
 
@@ -586,7 +582,7 @@ h3.offers {
 
 
 /* Dispositivos muy pequeños */
-@media (min-width: 320px) and (max-width: 374px) {
+@media (min-width: 320px) and (max-width: 375px) {
   .container-header{
     height: 15vh;
     width: 100%;
@@ -639,18 +635,25 @@ h3.offers {
     margin-top: 85px;
     width: 250px;
   }
+  
   .contairner-card-tour {
     margin-left: 8vw;
   }
+
+  .info-card-tour{
+    display: flex;
+    flex-direction: column;
+    gap: 12vh;
+   }
   .img-card-tour {
     height: 200px;
     width: 200px;
   }
   .subtitle-card-tour {
-    visibility: hidden;
+    display: none;
   }
   .price-card-tour {
-    margin-left: 5px;
+   margin-left: 5px;
     margin-top: -12vh;
     width: 90%;
   }
@@ -660,10 +663,6 @@ h3.offers {
   .btn-card-tour {
     margin-left: -5px;
     margin-top: 25px;
-  }
-  .link-card-tour {
-    margin-left: -10vw;
-    margin-top: 10vh;
   }
   .container-img-small{
     visibility: hidden;
@@ -750,8 +749,14 @@ h3.offers {
     width: 250px;
     height: 250px;
   }
+
+ .info-card-tour{
+  display: flex;
+  flex-direction: column;
+  gap: 12vh;
+ }
   .subtitle-card-tour {
-    visibility: hidden;
+    display: none;
   }
   .price-card-tour {
     width: 90%;
@@ -826,6 +831,9 @@ h3.offers {
     margin-left: 0px;
     margin-top: -3vh;
   }
+  .subtitle-card-tour {
+    display: none;
+  }
   .price {
     font-size: 1rem;
   }
@@ -834,7 +842,7 @@ h3.offers {
     margin-left: 5px;
   }
   .img-card-tour {
-    width: 250px;
+    
     height: 250px;
   }
   .btn-card-tour {
@@ -849,6 +857,10 @@ h3.offers {
     height: 10vh;
     width: 13vw;
   }
+  
+  .img-small{
+    width: 25vw;
+  }
   .btn-back{
     margin-left: 50vw;
   }
@@ -859,8 +871,9 @@ h3.offers {
 }
 /* Dispositivos grandes */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+
   .container-detail h4 {
-    margin-top: 15vh;
+    margin-top: 25vh;
     font-size: 1.5rem;
     margin-left: -10vw;
   }
@@ -868,6 +881,8 @@ h3.offers {
     display: flex;
     justify-content: center;
     margin-top: 5vh;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .container-img-small {
     visibility: hidden;
@@ -947,7 +962,9 @@ h3.offers {
 /* Dispositivos muy grandes */
 @media screen and (min-width: 1025px) {
   /* Estilos generales para pantallas grandes */
-
+  .container-search{
+    width: 105%;
+  }
   /* Sección de detalles */
   .container-detail h4 {
     
@@ -958,13 +975,22 @@ h3.offers {
     display: flex;
     justify-content: center;
     margin-top: 5vh;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .container-img-small {
     visibility: visible;
+    
   }
   .img-big {
-    width: 100%;
-    height: auto;
+    width: 48vw;
+    height: 32vh;
+    
+  }
+
+  .img-small{
+    height: 15vh;
+
   }
   .info-booking {
     margin-left: 0;
@@ -1047,17 +1073,18 @@ h3.offers {
   .price {
     font-size: 1.2rem;
   }
-  .link-card-tour {
-    margin-top: 5vh;
-    margin-left: 0;
+  
+  .container-footer{
+    width: 105%;
   }
+ 
   .footer-columns{
    width: 100%;
   }
   .logo-footer{
     margin-top: 8vh;
     height: 10vh;
-    width: 10vw;
+    width: 5vw;
     
   }
   .btn-back{
