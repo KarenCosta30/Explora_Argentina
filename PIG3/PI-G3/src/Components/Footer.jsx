@@ -1,6 +1,10 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <div className='container-footer'>
@@ -34,9 +38,9 @@ const Footer = () => {
         <ul className='ul-footer'>
           <li className='info'>Seguinos en</li>
           <div className='iconos'>
-            <li><img src="./img/facebook.png" alt="logo-facebook" /></li>
-            <li><img src="./img/instagram.png" alt="logo-instagram" /></li>
-            <li><img src="./img/twitter.png" alt="logo-twitter" /></li>
+            <li><FontAwesomeIcon icon={faFacebook} style={{color: "#ffffff"}} /></li>
+            <li><FontAwesomeIcon icon={faInstagram} style={{color: "#fafcff"}}/></li>
+            <li><FontAwesomeIcon icon={faXTwitter} style={{color: "#ffffff"}}/></li>
           </div>
         </ul>
 
@@ -51,4 +55,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer

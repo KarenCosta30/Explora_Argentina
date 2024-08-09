@@ -964,8 +964,13 @@ h3.offers {
     height: 60vh;
     width: 40vw;
   }
+  .container-footer{
+    display: flex;
+    justify-content: center;
+  }
+
   .footer-columns{
-    display: none;
+    
     width: 100%;
   }
   .logo-footer{

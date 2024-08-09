@@ -6,6 +6,7 @@ import './indexCreateAccount.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import GlobalContext from "./Context/GlobalContext.jsx"
+import "./icons.js"
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
