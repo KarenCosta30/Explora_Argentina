@@ -22,7 +22,7 @@ const Footer = () => {
           <li>Experiencias</li>
         </ul>
         <ul className='ul-footer'>
-          <li className='info'>Informacion</li>
+          <li className='info'>Información</li>
           <li>Destino</li>
           <li>Soporte</li>
           <li>Terminos y condiciones</li>
