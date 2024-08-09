@@ -7,48 +7,17 @@ import axios from "axios";
 
 const Detail = () => {
   const [tour, setTour] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+
   const params = useParams(); 
   const url = `http://localhost:8081/api/productos/${params.id}`
-  useEffect(()=>{axios.get(url.then (res=>setTour(res.data)))}, [params.id])
+  useEffect(()=>{
+    axios.get(url)
+    .then (res=>setTour(res.data))
+  }, [params.id])
   
-
-
-  // useEffect(() => {
-  //   if (!params) {
-  //     setError("ID no encontrado.");
-  //     setLoading(false);
-  //     return;
-  //   }
-
-  //   const url = `http://localhost:8081/api/productos/${params.id}`;
-  //   axios.get(url)
-  //     .then((res) => {
-  //       setTour(res.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setError("No se pudo cargar la información del producto.");
-  //       setLoading(false);
-  //     });
-  // }, [id]);
-
-  // if (loading) {
-  //   return <p>Cargando...</p>;
-  // }
-
-  // if (error) {
-  //   return <p>{error}</p>;
-  // }
-
-  // if (!tour) {
-  //   return <p>No se encontró la información del producto.</p>;
-  // }
-
   return (
     <main className="container-detail">
-      <h4>{tour.name}</h4>
+      <h4>{tour.nombre}</h4>
       <section className="section-one">
         <div className="img-detail">
           <div>
@@ -57,12 +26,12 @@ const Detail = () => {
           <div className="container-img-small">
             <img
               className="img-small"
-              src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/03/52/47.jpg"
+              src={tour.imagenUrl2}
               alt="imagen del producto"
             />
             <img
               className="img-small"
-              src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0c/03/52/47.jpg"
+              src={tour.imagenUrl3}
               alt="imagen del producto"
             />
           </div>
@@ -70,10 +39,7 @@ const Detail = () => {
         <div className="info-booking">
           <div>
             <span>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
+              {tour.descripcion_larga}
             </span>
             <Button className={"btn-text"}>LEER MENOS</Button>
             <p>
@@ -117,14 +83,7 @@ const Detail = () => {
           <div className="intinerary">
             <h3>Itinerario</h3>
             <ul className="intinerary-list">
-              <li>Comenzarás en Av. San Martín 775</li>
-              <li>Southern Fuegian Railway <br /> Parada: 50 minutos - Entrada incluida</li>
-              <li>Parque Nacional Tierra del Fuego <br /> Parada: 3 horas - Entrada no incluida</li>
-              <li>Bahía Ensenada Zaratiegui <br /> Parada: 30 minutos - Entrada incluida</li>
-              <li>Bahía Lapataia <br /> Parada: 30 minutos - Entrada incluida</li>
-              <li>Green Lagoon Viewpoint <br /> Parada: 20 minutos</li>
-              <li>Lago Roca <br /> Parada: 30 minutos - Entrada incluida</li>
-              <li>Regresarás al punto de partida</li>
+                <p>{tour.itinerario}</p>
             </ul>
           </div>
           <div className="map">
