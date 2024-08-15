@@ -15,8 +15,8 @@ const CreateAccount = () => {
             { type: "text", placeholder: "Apellido" },
             { type: "email", placeholder: "Correo electrónico" },
             { type: "text", placeholder: "Contraseña" },
-            { type: "text", placeholder: "Confirma tu contraseña" },
-            { type: "email", placeholder: "Correo electrónico" },
+            { type: "text", placeholder: "Confirma tu contraseña" }
+            
           ]}
           buttonText="Crear Cuenta" // esta es la segunda props que marca que dira el boton
           onSubmit={handleSearchSubmit} // tercera props

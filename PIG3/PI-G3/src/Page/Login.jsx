@@ -2,7 +2,7 @@ import React from 'react'
 import Form from "../Components/Form";
 
 
-const SessionStart = () => {
+const Login = () => {
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         // Crear lógica para manejar la búsqueda
@@ -15,7 +15,7 @@ const SessionStart = () => {
         <p>¿Ya tienes cuenta? Accede a tu panel de usuario </p>
         <Form // aca pasamos la primer props que esta en el componente form
           fields={[
-            { type: "text", placeholder: "Usuario o email" },
+            { type: "text", placeholder: "Email" },
             { type: "text", placeholder: "Contraseña" },
           ]}
           buttonText="Buscar" // esta es la segunda props que marca que dira el boton
@@ -27,4 +27,4 @@ const SessionStart = () => {
   )
 }
 
-export default SessionStart
+export default Login

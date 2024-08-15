@@ -19,4 +19,4 @@ Carpeta Page :
 Contiene las paginas que debemos mostrar:
 Home => lo que vemos al ingresar la pagina
 Detail => Es lo que mostramsos al hacer click en alguno de los tour que mostramos en la seccion recomendaciones (que se encuentra en el home)
-SessionStar => Esta pagina esta incativa porque no lo pide en el primer sprint, pero ya se empezo a construir, para activarla descomentar en el header los link que rodean al boton de iniciar sesion y descomentar su ruta en el app.jsx 
+Login => Esta pagina esta incativa porque no lo pide en el primer sprint, pero ya se empezo a construir, para activarla descomentar en el header los link que rodean al boton de iniciar sesion y descomentar su ruta en el app.jsx 
