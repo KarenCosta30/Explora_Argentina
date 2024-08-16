@@ -3,9 +3,9 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Detail from "./Page/Detail";
 import Home from "./Page/Home";
-import SessionStart from "./Page/SessionStart";
 import ScrollToTop from "./Components/ScrollToTop";
 import CreateAccount from "./Page/CreateAccount";
+import Login from "./Page/Login";
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
-        {/* <Route path="/sessionStart" element={<SessionStart />}/> */}  {/* <= descomentar aca para activar la pagina con el formulario de inicio de sesion */}
-        {/* <Route path="/createaccount" element={<CreateAccount/>}/> */}
+        <Route path="/Login" element={<Login />}/>  
+        <Route path="/createaccount" element={<CreateAccount/>}/>
       </Routes>
        <Footer /> 
     </div>

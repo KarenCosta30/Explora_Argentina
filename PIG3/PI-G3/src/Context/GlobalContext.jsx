@@ -10,7 +10,7 @@ const initialState = {
 
 const GlobalContext = ({children}) => {
     const [state,dispatch] = useReducer(reducer,initialState);
-    const url = `http://localhost:8081/api/productos/aleatorios`;
+    const url = `http://localhost:8081/api/productos/aleatorios?limit=8`;
     console.log(url);
     
     useEffect(() => {
