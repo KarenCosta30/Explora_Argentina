@@ -1,7 +1,13 @@
 package com.backend.webExplora.entity;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table (name = "PRODUCTOS")
@@ -28,7 +34,7 @@ public class Producto {
     @Column(length = 250)
     private String imagenUrl3;
     private BigDecimal precio;
-    //private Long categoriaId; (en el primer Sprint no habrá categoría visible en el Front)
+
     private Boolean disponible;
     @Column(length = 50)
     private String ubicacion;
