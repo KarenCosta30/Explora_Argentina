@@ -24,14 +24,9 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/usuarios/registrar").permitAll()
-                .antMatchers("/api/productos/aleatorios").permitAll() // Permitir acceso sin autenticación
-                .anyRequest().authenticated()
+                .anyRequest().permitAll() // Permitir acceso a todas las rutas
             .and()
-            .cors() // Asegúrate de habilitar CORS
-            .and()
-            .formLogin().disable() // Deshabilitar formulario de inicio de sesión si no se usa
-            .httpBasic().disable(); // Deshabilitar autenticación básica si no se usa
+            .cors(); // Asegúrate de habilitar CORS
         return http.build();
     }
 
@@ -51,9 +46,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Permitir orígenes específicos
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Permitir origen específico
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Permitir métodos HTTP
         configuration.setAllowedHeaders(List.of("*")); // Permitir todos los headers
+        configuration.setAllowCredentials(true); // Permitir credenciales (si se requiere)
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
