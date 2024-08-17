@@ -87,3 +87,17 @@ VALUES
  80.00,
  1,
  'Buenos Aires, Argentina');
+
+
+INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)
+VALUES 
+("Garcia", "ana.garcia@example.com", false, "Ana", "anagarcia1") ,
+("Martinez", "luis.martinez@example.com", false, "Luis", "martinez1"),
+("Fernandez", "maria.fernandez@example.com", false, "Maria", "fernandez1"),
+("Rodriguez", "juan.rodriguez@example.com", false, "Juan", "rodriguez1"),
+("Lopez", "carla.lopez@example.com", false, "Carla", "carlalopez1"),
+("Marquesi", "martin.marquesi@example.com", false, "Martin", "marquesi1"),
+("Quiroga", "esteban.quiroga@example.com", false, "Esteban", "quiroga1"),
+("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "corrado1"),
+("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
+("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1");
