@@ -39,19 +39,24 @@ public class Producto {
     @Column(length = 50)
     private String ubicacion;
 
+    @Column(length = 50)
+    private String detalle_itinerario;
+ 
+
     public Producto() {
     }
 
-    public Producto(String nombre, String descripcion, String imagenUrl, BigDecimal precio, Boolean disponible, String ubicacion) {
+    public Producto(String nombre, String descripcion, String imagenUrl, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagenUrl = imagenUrl;
         this.precio = precio;
         this.disponible = disponible;
         this.ubicacion = ubicacion;
+        this.detalle_itinerario=detalle_itinerario;
     }
 
-    public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion) {
+    public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -63,6 +68,7 @@ public class Producto {
         this.precio = precio;
         this.disponible = disponible;
         this.ubicacion = ubicacion;
+        this.detalle_itinerario=detalle_itinerario;
     }
 
     public void setDescripcion_larga(String descripcion_larga) {
@@ -151,6 +157,14 @@ public class Producto {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getDetalle_itinerario() {
+        return detalle_itinerario;
+    }
+
+    public void setDetalle_itinerario(String detalle_itinerario) {
+        this.detalle_itinerario = detalle_itinerario;
     }
 }
 
