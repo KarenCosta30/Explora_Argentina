@@ -1,28 +1,87 @@
-import React from 'react'
+import React, { Children, useState } from 'react';
 import Form from "../Components/Form";
+import { Link } from 'react-router-dom';
 
 const CreateAccount = () => {
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        // Crear lógica para manejar la búsqueda
-      };
-  return (
-    <div className='container-create-account'>
-        <h2>Crea una cuenta</h2>
-        <Form // aca pasamos la primer props que esta en el componente form
-          fields={[
-            { type: "text", placeholder: "Nombre" },
-            { type: "text", placeholder: "Apellido" },
-            { type: "email", placeholder: "Correo electrónico" },
-            { type: "text", placeholder: "Contraseña" },
-            { type: "text", placeholder: "Confirma tu contraseña" }
-            
-          ]}
-          buttonText="Crear Cuenta" // esta es la segunda props que marca que dira el boton
-          onSubmit={handleSearchSubmit} // tercera props
-        />
-    </div>
-  )
-}
+  const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    contraseña: "",
+    confirmarContraseña: ""
+  });
 
-export default CreateAccount
+  const handleChange = (e) => {  //Esta función se ejecuta cada vez que cambia el valor de uno de los campos del formulario
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { nombre, apellido, email, contraseña, confirmarContraseña } = formData; 
+
+    if (!nombre || !/^[a-zA-Z]+$/.test(nombre) || nombre.length <= 1) {
+      setError("Nombre incorrecto");
+      return;
+    }
+
+    if (!apellido || !/^[a-zA-Z]+$/.test(apellido) || apellido.length <= 1) {
+      setError("Apellido incorrecto");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Debe ingresar un correo electrónico válido.");
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+    if (!passwordRegex.test(contraseña) || /\s/.test(contraseña)) {
+      setError("Error en la contraseña");
+      return;
+    }
+
+    if (contraseña !== confirmarContraseña) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
+    setError(null);
+    
+  };
+
+  return (
+    <main className='main'>
+      
+      <div className='container-form-create'>
+        <p className='title-form-create'>Registrate</p>
+        <p className='subtitle-form-create'>Es rápido y fácil</p>
+        <Form className={"form-create-accout"}
+        
+       
+        fields={[
+          { type: "text", placeholder: "Nombre", name: "nombre", value: formData.nombre, onChange: handleChange },
+          { type: "text", placeholder: "Apellido", name: "apellido", value: formData.apellido, onChange: handleChange },
+          { type: "email", placeholder: "Correo electrónico", name: "email", value: formData.email, onChange: handleChange },
+          { type: "password", placeholder: "Contraseña", name: "contraseña", value: formData.contraseña, onChange: handleChange },
+          { type: "password", placeholder: "Confirma tu contraseña", name: "confirmarContraseña", value: formData.confirmarContraseña, onChange: handleChange },
+          
+        ]}
+        buttonText="Crear Cuenta"
+        onSubmit={handleSubmit}
+        inputClassName="create-account-input"
+      />
+      <p className='p-end'>¿Ya tienes una cuenta? <Link to={"/login"}><span className='span'> Iniciar Sesión</span></Link></p>
+    {error && <p className="error-message">{error}</p>}
+      </div>
+     
+      
+    </main>
+  );
+};
+
+export default CreateAccount;

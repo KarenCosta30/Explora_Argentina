@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import './indexSessionStart.css'
-import './indexCreateAccount.css'
+import './style/index.css'
+import './style/login.css'
+import './style/indexCreateAccount.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import GlobalContext from "./Context/GlobalContext.jsx"

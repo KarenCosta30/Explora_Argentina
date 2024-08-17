@@ -19,13 +19,14 @@ const {state} = useTourState();
       {/* CONTAINER SEARCH */}
       <section className="container-search">
         <p>Cuál va a ser tu próxima aventura?</p>
-        <Form // aca pasamos la primer props que esta en el componente form
+        <Form className={"form"} // aca pasamos la primer props que esta en el componente form
           fields={[
-            { type: "text", placeholder: "¿A dónde vamos?" },
-            { type: "text", placeholder: "¿Cuándo?" },
+            {  type: "text", placeholder: "¿A dónde vamos?" },
+            { type: "date" },
           ]}
           buttonText="Buscar" // esta es la segunda props que marca que dira el boton
-          onSubmit={handleSearchSubmit} // tercera props
+          onSubmit={handleSearchSubmit}// tercera props
+          inputClassName={"input-search"}
           />
       </section>
 
