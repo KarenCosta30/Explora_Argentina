@@ -18,11 +18,12 @@ public class ProductoSalidaDto {
     private Boolean disponible;
     private String ubicacion;
     private String itinerario;
+    private String detalle_itinierario;
 
     public ProductoSalidaDto() {
     }
 
-    public ProductoSalidaDto(Long id, String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion) {
+    public ProductoSalidaDto(Long id, String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -34,6 +35,7 @@ public class ProductoSalidaDto {
         this.imagenUrl2 = imagenUrl2;
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
+        this.detalle_itinierario = detalle_itinerario;
     }
 }
 

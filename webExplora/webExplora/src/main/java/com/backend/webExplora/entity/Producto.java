@@ -39,7 +39,7 @@ public class Producto {
     @Column(length = 50)
     private String ubicacion;
 
-    @Column(length = 50)
+    @Column(length = 2000)
     private String detalle_itinerario;
  
 
