@@ -1,21 +1,18 @@
-// Popover.js
 import React from 'react';
 
-
-const Popover = ({ show, onClose, user }) => {
+/*
+show: Determina si el popover debe mostrarse o no.
+onClose: Se ejecuta cuando se hace clic fuera del popover, cerrándolo.
+onLogout: Se ejecuta cuando el usuario hace clic en Cerrar Sesión */
+const Popover = ({ show, onClose, onLogout, name, surname, email  }) => {
   if (!show) return null;
 
   return (
     <div className="popover">
       <div className="popover-content">
-        <div className="popover-header">
-          <span>{user.nombre} {user.apellido}</span>
-          <button className="close-button" onClick={onClose}>✖</button>
-        </div>
-        <div className="popover-body">
-          <p>Email: {user.email}</p>
-          <button onClick={user.onLogout}>Cerrar Sesión</button>
-        </div>
+        <p>{name} {surname}</p>
+        <p>{email}</p>
+        <button onClick={onLogout}>Cerrar Sesión</button>
       </div>
       <div className="popover-overlay" onClick={onClose}></div>
     </div>
@@ -23,4 +20,3 @@ const Popover = ({ show, onClose, user }) => {
 };
 
 export default Popover;
-

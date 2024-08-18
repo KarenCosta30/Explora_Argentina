@@ -36,10 +36,12 @@ const Login = () => {
     } */ else {
           dispatch({ type: "SET_USER_ACTIVE", payload: true });
           dispatch({ type: "SET_USER_NAME", payload: user.nombre }); // Almacenar nombre
-          dispatch({ type: "SET_USER_SURNAME", payload: user.apellido }); // Almacenar apellido
+          dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
+          dispatch({ tyep:"SET_USER_EMAIL", payload:user.email}) // Almacenar el email
           localStorage.setItem("userActive", true);
           localStorage.setItem("userName", user.nombre); // Guardar en localStorage
-          localStorage.setItem("userSurname", user.apellido); // Guardar en localStorage
+          localStorage.setItem("userSurname", user.apellido);
+          localStorage.setItem("userEmail", user.email); // Guardar en localStorage
       navigate('/');
     }
 

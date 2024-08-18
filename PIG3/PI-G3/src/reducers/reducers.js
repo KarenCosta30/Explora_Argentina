@@ -19,6 +19,11 @@ export const reducer = (state, action) => {
               ...state,
               userSurname: action.payload
           };
+      case "SET_USER_EMAIL":
+          return {
+              ...state,
+              userEmail: action.payload
+          };
       default:
           return state;
   }

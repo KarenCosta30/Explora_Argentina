@@ -9,13 +9,14 @@ const initialState = {
     user:[],
     userActive:false,
     userName:"",
-    userSurname:""
+    userSurname:"",
+    userEmail:""
 }
 
 const GlobalContext = ({children}) => {
     const [state,dispatch] = useReducer(reducer,initialState);
     const tourUrl = `http://localhost:8081/api/productos/aleatorios?limit=8`;
-    const usersUrl = `http://localhost:8081/usuarios/listar`;
+    const usersUrl = `http://localhost:8081/usuarios/login`;
     console.log(tourUrl);
     console.log(usersUrl)
     

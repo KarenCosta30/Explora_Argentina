@@ -1,24 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom"
 import { useTourState } from "../Context/GlobalContext";
+import Popover from "./Popover";
+
 
 
 const Header = () => {
   const { state, dispatch } = useTourState();
+  const [showPopover, setShowPopover] = useState(false);
   
        // Recuperar el estado de userActive y usuario de localStorage
        useEffect(() => {
-        const activeUser = localStorage.getItem("userActive") === "true";
-        const userName = localStorage.getItem("userName");
-        const userSurname = localStorage.getItem("userSurname");
-
-        if (activeUser) {
+        const activeUser = localStorage.getItem("userActive") === "true"; //Verifica si hay un usuario activo almacenado en el localStorage
+        const userName = localStorage.getItem("userName"); // establece el nombre en el localStorage
+        const userSurname = localStorage.getItem("userSurname"); // establece el apellido en el localStorage
+        const userEmail = localStorage.getItem("userEmail");
+        
+        
+/*   Si hay un usuario activo, actualiza el estado global para reflejar que el usuario ha 
+  iniciado sesión y establece el nombre y apellido del usuario en el estado global. */
+        if (activeUser) { 
             dispatch({ type: "SET_USER_ACTIVE", payload: true });
             dispatch({ type: "SET_USER_NAME", payload: userName });
             dispatch({ type: "SET_USER_SURNAME", payload: userSurname });
+            dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
         }
     }, [dispatch]);
+
+    const handleLogout = () => {
+      localStorage.removeItem("userActive"); //elimina el usuario del localstorage
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userSurname");
+      dispatch({ type: "SET_USER_ACTIVE", payload: false });//modifica el userActive del contexto global a false
+      dispatch({ type: "SET_USER_NAME", payload: "" }); // modifica el userName del contexto global a vacio
+      dispatch({ type: "SET_USER_SURNAME", payload: "" });// modifica el userSurname del contexto global a vacio
+      dispatch({ type: "SET_USER_EMAIL", payload:""})
+      setShowPopover(false);
+    };
+
+    /* Cambia el estado de showPopover de false a true y viceversa. 
+    Se usa para mostrar u ocultar el popover cuando el usuario hace clic en su avatar. */
+    const togglePopover = () => {
+      setShowPopover(!showPopover);
+    };
 
   return (
     <div className="container-header">
@@ -31,10 +56,20 @@ const Header = () => {
 
       <div className="container-button">
         {state.userActive ? (
-            <div className="user-avatar">
-                <p>{state.userName}</p>
-                <p>{state.userSurname}</p>
-            </div>
+        <div className="user-avatar">
+        <Button onClick={togglePopover}>
+          {state.userName} {state.userSurname} 
+        </Button>
+        <Popover 
+        // estas son las porps del componente popover con las funciones que difenimos arriba
+          name={state.userName}
+          surname={state.userSurname}
+          email ={state.userEmail}
+          show={showPopover} 
+          onClose={togglePopover}  
+          onLogout={handleLogout} 
+        />
+      </div>
         ):(
           <>
           <Link to="/login"> 
