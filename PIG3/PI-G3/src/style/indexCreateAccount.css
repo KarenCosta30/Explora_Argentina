@@ -4,18 +4,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
     
 }
 
   .container-form-create{
     background-color: rgba(57, 175, 229, 0.4);
     width: 50vw;
-    height: 60vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 1px 5px 4px black;
+    
 
   }
   .title-form-create{
@@ -33,6 +35,7 @@
 
   .error-message{
     color: red;
+    
   }
   .form-create-accout{
     display: flex;

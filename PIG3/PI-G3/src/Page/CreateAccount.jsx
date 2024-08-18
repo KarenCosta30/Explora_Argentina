@@ -1,6 +1,7 @@
-import React, { Children, useState } from 'react';
+import React, { useState } from 'react';
 import Form from "../Components/Form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const CreateAccount = () => {
   const [error, setError] = useState(null);
@@ -12,16 +13,18 @@ const CreateAccount = () => {
     confirmarContraseña: ""
   });
 
-  const handleChange = (e) => {  //Esta función se ejecuta cada vez que cambia el valor de uno de los campos del formulario
+  const navigate = useNavigate(); // Hook de react-router para redirigir
+
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nombre, apellido, email, contraseña, confirmarContraseña } = formData; 
+    const { nombre, apellido, email, contraseña, confirmarContraseña } = formData;
 
     if (!nombre || !/^[a-zA-Z]+$/.test(nombre) || nombre.length <= 1) {
       setError("Nombre incorrecto");
@@ -40,7 +43,7 @@ const CreateAccount = () => {
     }
 
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
-    if (!passwordRegex.test(contraseña) || /\s/.test(contraseña)) {
+  if (!passwordRegex.test(contraseña) || /\s/.test(contraseña)) {
       setError("Error en la contraseña");
       return;
     }
@@ -51,35 +54,42 @@ const CreateAccount = () => {
     }
 
     setError(null);
-    
+
+    try {
+      await axios.post('http://localhost:8081/usuarios/registrar', {
+        nombre,
+        apellido,
+        email,
+        password: contraseña,
+        esAdministrador: false
+      });
+      navigate('/login'); // Redirige al login después de un registro exitoso
+    } catch (err) {
+      setError("Error al registrar el usuario. Inténtalo de nuevo.");
+      console.error(err);
+    }
   };
 
   return (
     <main className='main'>
-      
       <div className='container-form-create'>
         <p className='title-form-create'>Registrate</p>
         <p className='subtitle-form-create'>Es rápido y fácil</p>
         <Form className={"form-create-accout"}
-        
-       
-        fields={[
-          { type: "text", placeholder: "Nombre", name: "nombre", value: formData.nombre, onChange: handleChange },
-          { type: "text", placeholder: "Apellido", name: "apellido", value: formData.apellido, onChange: handleChange },
-          { type: "email", placeholder: "Correo electrónico", name: "email", value: formData.email, onChange: handleChange },
-          { type: "password", placeholder: "Contraseña", name: "contraseña", value: formData.contraseña, onChange: handleChange },
-          { type: "password", placeholder: "Confirma tu contraseña", name: "confirmarContraseña", value: formData.confirmarContraseña, onChange: handleChange },
-          
-        ]}
-        buttonText="Crear Cuenta"
-        onSubmit={handleSubmit}
-        inputClassName="create-account-input"
-      />
-      <p className='p-end'>¿Ya tienes una cuenta? <Link to={"/login"}><span className='span'> Iniciar Sesión</span></Link></p>
-    {error && <p className="error-message">{error}</p>}
+          fields={[
+            { type: "text", placeholder: "Nombre", name: "nombre", value: formData.nombre, onChange: handleChange },
+            { type: "text", placeholder: "Apellido", name: "apellido", value: formData.apellido, onChange: handleChange },
+            { type: "email", placeholder: "Correo electrónico", name: "email", value: formData.email, onChange: handleChange },
+            { type: "password", placeholder: "Contraseña", name: "contraseña", value: formData.contraseña, onChange: handleChange },
+            { type: "password", placeholder: "Confirma tu contraseña", name: "confirmarContraseña", value: formData.confirmarContraseña, onChange: handleChange },
+          ]}
+          buttonText="Crear Cuenta"
+          onSubmit={handleSubmit}
+          inputClassName="create-account-input"
+        />
+        <p className='p-end'>¿Ya tienes una cuenta? <Link to={"/login"}><span className='span'> Iniciar Sesión</span></Link></p>
+        {error && <p className="error-message">{error}</p>}
       </div>
-     
-      
     </main>
   );
 };

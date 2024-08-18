@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import Form from "../Components/Form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTourState } from '../Context/GlobalContext';
 
 
 const Login = () => {
@@ -10,25 +11,39 @@ const Login = () => {
     email:"",
     contraseña: ""
   })
-  const handleChange = (e) =>{
+  const {state,dispatch} = useTourState()
+  const navigate = useNavigate() // hook para navegar a la ruta home
+  
+
+  const handleChange = (e) =>{ // maneja los cambios en los input
     setData({
       ...data,
       [e.target.name] :e.target.value
-    })
+    },[])
   }
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        const {email,contraseña} = data;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailRegex.test(email)){
-          setData("Email incorrecto")
-        }
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
-        if (!passwordRegex.test(contraseña) || /\s/.test(contraseña)) {
-        setError("Contraseña inválida");
-        return;
+  
+  
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const {email,contraseña} = data;
+    const user = state.user.find(user => user.email === email)
+    
+    
+    if(!user){
+      setError("Email no registrado")
+    } /* else if(user.contraseña !== contraseña){
+      setError("Contraseña incorrecta")
+    } */ else {
+          dispatch({ type: "SET_USER_ACTIVE", payload: true });
+          dispatch({ type: "SET_USER_NAME", payload: user.nombre }); // Almacenar nombre
+          dispatch({ type: "SET_USER_SURNAME", payload: user.apellido }); // Almacenar apellido
+          localStorage.setItem("userActive", true);
+          localStorage.setItem("userName", user.nombre); // Guardar en localStorage
+          localStorage.setItem("userSurname", user.apellido); // Guardar en localStorage
+      navigate('/');
     }
-      };
+
+  };
   
   
       return (
