@@ -1,9 +1,9 @@
 package com.backend.webExplora.dto.salida;
 
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import java.math.BigDecimal;
 @Getter
 @Setter
 public class ProductoSalidaDto {
@@ -18,7 +18,7 @@ public class ProductoSalidaDto {
     private Boolean disponible;
     private String ubicacion;
     private String itinerario;
-    private String detalle_itinierario;
+    private String detalle_itinerario;
 
     public ProductoSalidaDto() {
     }
@@ -35,7 +35,7 @@ public class ProductoSalidaDto {
         this.imagenUrl2 = imagenUrl2;
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
-        this.detalle_itinierario = detalle_itinerario;
+        this.detalle_itinerario = detalle_itinerario;
     }
 }
 

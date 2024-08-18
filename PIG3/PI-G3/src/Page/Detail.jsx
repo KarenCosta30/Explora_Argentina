@@ -82,6 +82,7 @@ const Detail = () => {
             <li><p>Entrada: para dispositivos móviles</p></li>
             <li><p>Guía en vivo: portugués, inglés, español</p></li>
           </ul>
+          {/* <p>{tour.detalle_itinerario}</p> */}
         </div>
         <div className="travel">
           <div className="intinerary">
