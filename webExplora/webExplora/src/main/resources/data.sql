@@ -106,7 +106,68 @@ VALUES
  1,
  'Buenos Aires, Argentina',
  'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
-  Guía en directo: Portugués, Inglés, Español');
+  Guía en directo: Portugués, Inglés, Español'),
+
+  ('Recorrido vinícola de día completo con almuerzo gourmet', 
+  'Explore los vinos de la región vinícola más grande de Argentina',
+  'Explore los vinos de la región vinícola más grande de Argentina en esta excursión de lujo de un día para grupos pequeños desde Mendoza. 
+  Limitado a ocho personas para una experiencia íntima, visitará tres o cuatro de las mejores bodegas de la región de Mendoza, 
+  con una guía para obtener información y anécdotas en la ruta. Disfruta de degustaciones guiadas en las bodegas mientras admiras sus 
+  impresionantes escenarios y saborea un almuerzo gourmet de varios platos con maridajes de vino como parte de la experiencia.',
+  'Empezará en Mendoza. Pase por: Trout and Wine Tours - Lujan de Cuyo - Chacras de Coria - Agrelo. Volverás al punto de partida',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/a4/80/6d.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/a4/82/fc.jpg',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/8a/b7/0d/caption.jpg?w=1000&h=-1&s=1',
+  180.00,
+  1,
+  'Mendoza, Argentina',
+  'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español'),
+
+   ('Bodega Chandon + Almuerzo', 
+  'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas.',
+  'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas. El Enemigo liderada por el prestigioso Alejandro Vigil y Chandon mundialmente conocida por sus espumantes. La Visita incluye Transporte, Visita, Degustación y almuerzo completo maridado. Para cumplir con las normativas de los lugares que visitarán, el ingreso de los niños queda sujeto a cada bodega por protocolos de seguridad.',
+  'Se le recogerá. Bodega Chandon (parada de 2 horas, entrada incluida). Casa El enemigo (parada de 3 horas, entrada incluida).',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/3d/ba/bb.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/3d/ba/cd.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/3d/ba/ce.jpg',
+  265.00,
+  1,
+  'Mendoza, Argentina',
+  'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español'),
+
+
+  ('Experiencia en Bodega Renacer',
+  'Descubre el proceso de elaboración del vino en la Bodega Renacer en Lujan',
+  'Conozca el proceso de elaboración del vino de la vid al barril en este recorrido por la bodega Bodega Renacer en Lujan. Después de ir detrás de las escenas en los viñedos y bodega, diríjase a la sala de degustación para una degustación guiada de cuatro vinos clásicos. Actualice para incluir 
+  vinos premium directamente de las cubas y barriles, además de variedades de edición limitada.',
+  'Empezará en Bodega Renacer. Bodega Renacer (parada 70 minutos - entrada incluida)',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/01/4d/03.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/0e/56/58.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/01/4d/02.jpg',
+  27.00,
+  1,
+  'Mendoza, Argentina',
+   'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español'),
+
+  ('El Inicio WineTour x 2 Pax (Historia y Vinos)',
+  'Descubre la historia y los vinos de la región norte de Argentina en este tour de bodegas',
+  'Fue en Córdoba donde se creó y fabricó la primera bodega de nuestro país, en la Jesuítica Estancia de Jesús María y luego, 
+   con el paso de los años, con un gran impulso en los últimos tiempos, se ha ido incrementando la oferta de bodega y fincas. 
+   La región norte, cercana a la ciudad, es testigo y testimonio de todo esto. Visitamos 2 museos jesuitas y 2 bodegas.',
+  'Se le recogerá. 
+  Bodega la Caroyense - Parada: 30 minutos - Entrada incluida
+  Bodega Terra Camiare - Parada: 60 minutos - Entrada incluida
+  Estancia Jesuítica de Jesus Maria - Museo Jesuitico Nacional - Parada: 40 minutos
+  Estancia de Caroya - Parada: 30 minutos - Admisión excluida
+  Volverás al punto de partida',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/8a/6d/74.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/8a/6b/4f.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/8a/6d/7b.jpg',
+  88.00,
+  1,
+  'Córdoba, Argentina',
+   'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español');
+
 
 
 INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)
