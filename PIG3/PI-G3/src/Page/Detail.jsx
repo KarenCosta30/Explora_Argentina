@@ -75,13 +75,14 @@ const Detail = () => {
 
       <section className="section-two">
         <div className="property bordealamitad">
-          <ul className="property-list">
+          <ul className="property-list"> 
             <li><p>Edades: de 0 a 100. Máximo de 24 por grupo</p></li>
             <li><p>Duración: 5 H 30 M</p></li>
             <li><p>Horario de inicio: consultar disponibilidad</p></li>
             <li><p>Entrada: para dispositivos móviles</p></li>
             <li><p>Guía en vivo: portugués, inglés, español</p></li>
-          </ul>
+          </ul> 
+          {/* <p>{tour.detalle_itinerario}</p> */}
         </div>
         <div className="travel">
           <div className="intinerary">
