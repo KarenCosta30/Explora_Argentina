@@ -44,7 +44,7 @@ public class UsuarioController {
 
 
   
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestParam String email, @RequestParam String password) {
         try {
             UsuarioSalidaDto usuarioAutenticado = usuarioService.iniciarSesion(email, password);
