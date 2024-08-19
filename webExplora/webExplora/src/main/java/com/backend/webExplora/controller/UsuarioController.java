@@ -44,15 +44,17 @@ public class UsuarioController {
 
 
   
-    @GetMapping("/login")
-    public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestParam String email, @RequestParam String password) {
-        try {
-            UsuarioSalidaDto usuarioAutenticado = usuarioService.iniciarSesion(email, password);
-            return new ResponseEntity<>(usuarioAutenticado, HttpStatus.OK);
-        } catch (CredencialesIncorrectasException e) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
+@GetMapping("/login")
+public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestParam(required = true) String email, 
+                                                      @RequestParam(required = true) String password) {
+    try {
+        UsuarioSalidaDto usuarioAutenticado = usuarioService.iniciarSesion(email, password);
+        return new ResponseEntity<>(usuarioAutenticado, HttpStatus.OK);
+    } catch (CredencialesIncorrectasException e) {
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
+}
+
 
     @GetMapping("/listar")
     public ResponseEntity<List<UsuarioSalidaDto>> listarUsuarios() {

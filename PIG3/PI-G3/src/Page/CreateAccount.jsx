@@ -60,7 +60,7 @@ const CreateAccount = () => {
         nombre,
         apellido,
         email,
-        password: contraseña,
+        password: Password,
         esAdministrador: false
       });
       navigate('/login'); // Redirige al login después de un registro exitoso
@@ -80,8 +80,8 @@ const CreateAccount = () => {
             { type: "text", placeholder: "Nombre", name: "nombre", value: formData.nombre, onChange: handleChange },
             { type: "text", placeholder: "Apellido", name: "apellido", value: formData.apellido, onChange: handleChange },
             { type: "email", placeholder: "Correo electrónico", name: "email", value: formData.email, onChange: handleChange },
-            { type: "password", placeholder: "Contraseña", name: "contraseña", value: formData.contraseña, onChange: handleChange },
-            { type: "password", placeholder: "Confirma tu contraseña", name: "confirmarContraseña", value: formData.confirmarContraseña, onChange: handleChange },
+            { type: "password", placeholder: "Password", name: "Password", value: formData.password, onChange: handleChange },
+            { type: "password", placeholder: "Confirma tu Password", name: "confirmarPassword", value: formData.confirmarPassword, onChange: handleChange },
           ]}
           buttonText="Crear Cuenta"
           onSubmit={handleSubmit}

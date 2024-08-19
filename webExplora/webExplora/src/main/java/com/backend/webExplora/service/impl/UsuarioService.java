@@ -39,11 +39,11 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public UsuarioSalidaDto iniciarSesion(String email, String contrasena) {
+    public UsuarioSalidaDto iniciarSesion(String email, String password) {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(email);
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
-            if (passwordEncoder.matches(contrasena, usuario.getPassword())) {
+            if (passwordEncoder.matches(password, usuario.getPassword())) {
                 return modelMapper.map(usuario, UsuarioSalidaDto.class);
             }
         }

@@ -9,7 +9,7 @@ const Login = () => {
   const [error,setError] = useState(null)
   const [data,setData] = useState({
     email:"",
-    contraseña: ""
+    password: ""
   })
   const {state,dispatch} = useTourState()
   const navigate = useNavigate() // hook para navegar a la ruta home
@@ -57,7 +57,7 @@ const Login = () => {
         // aca pasamos la primer props que esta en el componente form
           fields={[
             { type: "text", placeholder: "Email",name:"email", value: data.email,onChange:handleChange },
-            { type: "password", placeholder: "Contraseña", name:"contraseña", value: data.contraseña,onChange:handleChange  },
+            { type: "password", placeholder: "Password", name:"password", value: data.password,onChange:handleChange  },
           ]}
           buttonText="Ingresar" // esta es la segunda props que marca que dira el boton
           onSubmit={handleSearchSubmit} // tercera props
