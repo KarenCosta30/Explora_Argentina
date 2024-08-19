@@ -57,8 +57,8 @@ const Login = () => {
                     inputClassName={"input-login"}
                 />
                 {error && <p className="error-message">{error}</p>}
-                <p><Link to="/forgotpassword">He olvidado mi contraseña</Link></p>
-                <p>¿No tienes cuenta? <Link to="/createaccount"><span className='span'>Regístrate aquí</span></Link></p>
+                <p className='p-center'><Link to="/forgotpassword">He olvidado mi contraseña</Link></p>
+                <p className='p-center'>¿No tienes cuenta? <Link to="/createaccount"><span className='span'>Regístrate aquí</span></Link></p>
             </div>
         </main>
     );
