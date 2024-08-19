@@ -25,8 +25,9 @@ const Login = () => {
   
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const {email,contraseña} = data;
+    const {email,password} = data;
     const user = state.user.find(user => user.email === email)
+    const password = state.user.find(user => user.password === password)
     
     
     if(!user){

@@ -19,10 +19,10 @@ public interface IUsuarioService {
     /**
      * Inicia sesión de un usuario.
      * @param email El correo electrónico del usuario.
-     * @param contrasena La contraseña del usuario.
+     * @param password La password del usuario.
      * @return El DTO del usuario autenticado.
      */
-    UsuarioSalidaDto iniciarSesion(String email, String contrasena);
+    UsuarioSalidaDto iniciarSesion(String email, String password);
 
     // Métodos para usuarios administradores
 

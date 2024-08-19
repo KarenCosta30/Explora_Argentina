@@ -1,6 +1,7 @@
 package com.backend.webExplora.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -45,8 +46,9 @@ public class UsuarioController {
 
   
 @GetMapping("/login")
-public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestParam(required = true) String email, 
-                                                      @RequestParam(required = true) String password) {
+public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody Map<String, String> loginData) {
+    String email = loginData.get("email");
+    String password = loginData.get("password");
     try {
         UsuarioSalidaDto usuarioAutenticado = usuarioService.iniciarSesion(email, password);
         return new ResponseEntity<>(usuarioAutenticado, HttpStatus.OK);
@@ -54,6 +56,7 @@ public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestParam(required = t
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }
+
 
 
     @GetMapping("/listar")
