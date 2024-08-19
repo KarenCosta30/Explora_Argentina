@@ -1,79 +1,67 @@
-import React, {  useState } from 'react'
-import Form from "../Components/Form";
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTourState } from '../Context/GlobalContext';
-
+import Form from '../Components/Form';
 
 const Login = () => {
+    const [error, setError] = useState(null);
+    const [data, setData] = useState({
+        email: "",
+        password: ""
+    });
+    const { dispatch, loginUser } = useTourState();
+    const navigate = useNavigate();
 
-  const [error,setError] = useState(null)
-  const [data,setData] = useState({
-    email:"",
-    password: ""
-  })
-  const {state,dispatch} = useTourState()
-  const navigate = useNavigate() // hook para navegar a la ruta home
-  
+    const handleChange = (e) => {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+    };
 
-  const handleChange = (e) =>{ // maneja los cambios en los input
-    setData({
-      ...data,
-      [e.target.name] :e.target.value
-    },[])
-  }
-  
-  
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    const {email,password} = data;
-    const user = state.user.find(user => user.email === email)
-    const password = state.user.find(user => user.password === password)
-    
-    
-    if(!user){
-      setError("Email no registrado")
-    } /* else if(user.contraseña !== contraseña){
-      setError("Contraseña incorrecta")
-    } */ else {
-          dispatch({ type: "SET_USER_ACTIVE", payload: true });
-          dispatch({ type: "SET_USER_NAME", payload: user.nombre }); // Almacenar nombre
-          dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
-          dispatch({ tyep:"SET_USER_EMAIL", payload:user.email}) // Almacenar el email
-          localStorage.setItem("userActive", true);
-          localStorage.setItem("userName", user.nombre); // Guardar en localStorage
-          localStorage.setItem("userSurname", user.apellido);
-          localStorage.setItem("userEmail", user.email); // Guardar en localStorage
-      navigate('/');
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const { email, password } = data;
 
-  };
-  
-  
-      return (
-    <main className='main-login'>
-      <div className='container-form-login'>
-        <p className='title-login'>Iniciar Sesión</p>
-        <p className='subtitle-login'>Llegó el momento de explorar !</p>
-        <Form className={"form-login"}
-        // aca pasamos la primer props que esta en el componente form
-          fields={[
-            { type: "text", placeholder: "Email",name:"email", value: data.email,onChange:handleChange },
-            { type: "password", placeholder: "Password", name:"password", value: data.password,onChange:handleChange  },
-          ]}
-          buttonText="Ingresar" // esta es la segunda props que marca que dira el boton
-          onSubmit={handleSearchSubmit} // tercera props
-          inputClassName={"input-login"}
-          
-        />
-      {error && <p className="error-message"> {error}</p>}
-        <p>He olvidado mi contraseña</p>
-        <p>¿No tienes cuenta? <Link to={"/createaccount"}><span className='span'>Regístrate aquí</span></Link></p>
+        try {
+            const user = await loginUser(email, password);
+            dispatch({ type: "SET_USER_ACTIVE", payload: true });
+            dispatch({ type: "SET_USER_NAME", payload: user.nombre });
+            dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
+            dispatch({ type: "SET_USER_EMAIL", payload: user.email });
 
-      </div>
+            localStorage.setItem("userActive", true);
+            localStorage.setItem("userName", user.nombre);
+            localStorage.setItem("userSurname", user.apellido);
+            localStorage.setItem("userEmail", user.email);
 
-       
-    </main>
-  )
-}
+            navigate('/');
+        } catch (err) {
+            setError("Email o contraseña incorrectos");
+        }
+    };
 
-export default Login
+    return (
+        <main className='main-login'>
+            <div className='container-form-login'>
+                <p className='title-login'>Iniciar Sesión</p>
+                <p className='subtitle-login'>Llegó el momento de explorar!</p>
+                <Form 
+                    className={"form-login"}
+                    fields={[
+                        { type: "text", placeholder: "Email", name: "email", value: data.email, onChange: handleChange },
+                        { type: "password", placeholder: "Password", name: "password", value: data.password, onChange: handleChange },
+                    ]}
+                    buttonText="Ingresar"
+                    onSubmit={handleSubmit}
+                    inputClassName={"input-login"}
+                />
+                {error && <p className="error-message">{error}</p>}
+                <p><Link to="/forgotpassword">He olvidado mi contraseña</Link></p>
+                <p>¿No tienes cuenta? <Link to="/createaccount"><span className='span'>Regístrate aquí</span></Link></p>
+            </div>
+        </main>
+    );
+};
+
+export default Login;

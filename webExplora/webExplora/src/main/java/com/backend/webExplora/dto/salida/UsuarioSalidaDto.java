@@ -1,15 +1,37 @@
 package com.backend.webExplora.dto.salida;
 
+import com.backend.webExplora.entity.Usuario;
+
 public class UsuarioSalidaDto {
 
     private Long id;
     private String nombre;
     private String apellido;
     private String email;
-    private boolean esAdministrador; 
+    private boolean esAdministrador;
 
- 
+    // Constructor que acepta todos los campos
+    public UsuarioSalidaDto(Long id, String nombre, String apellido, String email, boolean esAdministrador) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.esAdministrador = esAdministrador;
+    }
 
+    public UsuarioSalidaDto() {
+    }
+
+    // Constructor que acepta un objeto Usuario
+    public UsuarioSalidaDto(Usuario usuario) {
+        this.id = usuario.getId();
+        this.nombre = usuario.getNombre();
+        this.apellido = usuario.getApellido();
+        this.email = usuario.getEmail();
+        this.esAdministrador = usuario.isEsAdministrador();
+    }
+
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -50,4 +72,3 @@ public class UsuarioSalidaDto {
         this.esAdministrador = esAdministrador;
     }
 }
-

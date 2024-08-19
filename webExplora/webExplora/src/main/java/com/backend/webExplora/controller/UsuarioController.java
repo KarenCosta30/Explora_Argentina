@@ -1,7 +1,6 @@
 package com.backend.webExplora.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -26,8 +25,7 @@ import com.backend.webExplora.exceptions.CredencialesIncorrectasException;
 import com.backend.webExplora.exceptions.UsuarioNoEncontradoException;
 import com.backend.webExplora.service.IUsuarioService;
 
-
-@CrossOrigin (origins = "http://localhost:5173")  
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/usuarios")
 @Validated
@@ -36,28 +34,21 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService usuarioService;
 
-   
     @PostMapping("/registrar")
     public ResponseEntity<UsuarioSalidaDto> registrarUsuario(@Valid @RequestBody UsuarioEntradaDto usuario) {
-    UsuarioSalidaDto usuarioRegistrado = usuarioService.registrarUsuario(usuario);
-    return new ResponseEntity<>(usuarioRegistrado, HttpStatus.CREATED);
-}
-
-
-  
-@GetMapping("/login")
-public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody Map<String, String> loginData) {
-    String email = loginData.get("email");
-    String password = loginData.get("password");
-    try {
-        UsuarioSalidaDto usuarioAutenticado = usuarioService.iniciarSesion(email, password);
-        return new ResponseEntity<>(usuarioAutenticado, HttpStatus.OK);
-    } catch (CredencialesIncorrectasException e) {
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        UsuarioSalidaDto usuarioRegistrado = usuarioService.registrarUsuario(usuario);
+        return new ResponseEntity<>(usuarioRegistrado, HttpStatus.CREATED);
     }
-}
 
-
+    @PostMapping("/login")
+    public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody UsuarioEntradaDto usuarioDto) {
+        try {
+            UsuarioSalidaDto usuario = usuarioService.iniciarSesion(usuarioDto.getEmail(), usuarioDto.getPassword());
+            return new ResponseEntity<>(usuario, HttpStatus.OK);
+        } catch (CredencialesIncorrectasException e) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+    }
 
     @GetMapping("/listar")
     public ResponseEntity<List<UsuarioSalidaDto>> listarUsuarios() {
@@ -65,7 +56,6 @@ public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody Map<String, S
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
-   
     @PutMapping("/modificar/{id}")
     public ResponseEntity<UsuarioSalidaDto> modificarUsuario(
             @PathVariable Long id, @RequestBody UsuarioEntradaDto usuarioDto) {
@@ -77,7 +67,6 @@ public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody Map<String, S
         }
     }
 
-  
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
         try {
@@ -88,7 +77,6 @@ public ResponseEntity<UsuarioSalidaDto> iniciarSesion(@RequestBody Map<String, S
         }
     }
 
-    
     @PutMapping("/cambiar-rol/{id}")
     public ResponseEntity<UsuarioSalidaDto> cambiarRolUsuario(
             @PathVariable Long id, @RequestParam boolean esAdministrador) {

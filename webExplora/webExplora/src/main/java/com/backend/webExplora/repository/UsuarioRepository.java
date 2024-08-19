@@ -12,6 +12,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     /**
      * Encuentra un usuario por su correo electrónico.
+     * 
      * @param email El correo electrónico del usuario.
      * @return Un Optional que contiene el usuario si se encuentra, vacío si no.
      */

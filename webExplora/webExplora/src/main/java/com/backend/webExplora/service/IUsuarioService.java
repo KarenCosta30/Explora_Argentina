@@ -11,6 +11,7 @@ public interface IUsuarioService {
 
     /**
      * Registra un nuevo usuario.
+     * 
      * @param usuarioDto DTO con la información del usuario a registrar.
      * @return El DTO del usuario registrado.
      */
@@ -18,7 +19,8 @@ public interface IUsuarioService {
 
     /**
      * Inicia sesión de un usuario.
-     * @param email El correo electrónico del usuario.
+     * 
+     * @param email    El correo electrónico del usuario.
      * @param password La password del usuario.
      * @return El DTO del usuario autenticado.
      */
@@ -28,13 +30,15 @@ public interface IUsuarioService {
 
     /**
      * Lista todos los usuarios.
+     * 
      * @return Una lista de DTOs de todos los usuarios.
      */
     List<UsuarioSalidaDto> listarUsuarios();
 
     /**
      * Modifica un usuario existente.
-     * @param id El ID del usuario a modificar.
+     * 
+     * @param id         El ID del usuario a modificar.
      * @param usuarioDto DTO con la nueva información del usuario.
      * @return El DTO del usuario modificado.
      */
@@ -42,14 +46,17 @@ public interface IUsuarioService {
 
     /**
      * Elimina un usuario.
+     * 
      * @param id El ID del usuario a eliminar.
      */
     void eliminarUsuario(Long id);
 
     /**
      * Cambia el rol de un usuario de común a administrador o viceversa.
-     * @param id El ID del usuario cuyo rol se desea cambiar.
-     * @param esAdministrador Indica si el usuario debe ser cambiado a administrador.
+     * 
+     * @param id              El ID del usuario cuyo rol se desea cambiar.
+     * @param esAdministrador Indica si el usuario debe ser cambiado a
+     *                        administrador.
      * @return El DTO del usuario con el rol actualizado.
      */
     UsuarioSalidaDto cambiarRolUsuario(Long id, boolean esAdministrador);
