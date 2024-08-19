@@ -124,9 +124,9 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 100% 100%;
-  height: 55vh;
+  height: 60vh;
   width: 100%;
-  
+  max-width: 100%;
 }
 
 .form {
@@ -328,6 +328,7 @@ input::placeholder {
 .container-footer {
   display: flex;
   justify-content: space-around;
+  max-width: 100%;
   align-items: center;
   padding: 10vh;
   background-color: #172432;
