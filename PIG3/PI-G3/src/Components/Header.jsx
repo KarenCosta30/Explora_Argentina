@@ -65,21 +65,15 @@ const Header = () => {
         <Avatar/>
  
         </Button>
-        <Popover 
-        // estas son las porps del componente popover con las funciones que difenimos arriba
-          name={state.userName}
-          surname={state.userSurname}
-          email ={state.userEmail}
-          show={showPopover} 
-          onClose={togglePopover}  
-          onLogout={handleLogout} 
-          
-        />
-          {state.userAdministrator && (
-                <Link to={"/userlist"}>
-                <Button className={"btn-header"}>Herramientas de Administrador</Button>
-              </Link>
-            )}
+        <Popover
+              name={state.userName}
+              surname={state.userSurname}
+              email={state.userEmail}
+              show={showPopover}
+              onClose={togglePopover}
+              onLogout={handleLogout}
+              isAdmin={state.userAdministrator}
+            />
       </div>
         )
         
