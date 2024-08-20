@@ -70,6 +70,11 @@ img {
   
 }
 
+.btn-avatar{
+  background-color: transparent;
+  border:none;
+}
+
 /*------------- ESTILOS POPOVER ------------*/
 .popover {
   position: relative;
@@ -104,6 +109,8 @@ img {
   font-size: small;
   
 }
+
+
 
 
 

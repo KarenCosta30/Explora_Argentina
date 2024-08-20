@@ -53,7 +53,7 @@ const CreateAccount = () => {
       return;
     }
 
-    setError(null);
+    setError(alert("Usuario registrado con exito!!"));
 
     try {
       await axios.post('http://localhost:8081/usuarios/registrar', {

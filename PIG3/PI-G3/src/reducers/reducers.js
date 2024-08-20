@@ -24,6 +24,11 @@ export const reducer = (state, action) => {
               ...state,
               userEmail: action.payload
           };
+          case "SET_USER_ADMINISTRATOR":
+            return {
+              ...state,
+              userAdministrator: action.payload
+            };
       default:
           return state;
   }

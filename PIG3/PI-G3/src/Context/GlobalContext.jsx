@@ -10,7 +10,8 @@ const initialState = {
     userActive: false,
     userName: "",
     userSurname: "",
-    userEmail: ""
+    userEmail: "",
+    userAdministrator: false
 }
 
 const GlobalContext = ({ children }) => {

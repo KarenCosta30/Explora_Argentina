@@ -3,6 +3,7 @@ import Button from "./Button";
 import { Link } from "react-router-dom"
 import { useTourState } from "../Context/GlobalContext";
 import Popover from "./Popover";
+import Avatar from "./Avatar"
 
 
 
@@ -16,7 +17,7 @@ const Header = () => {
         const userName = localStorage.getItem("userName"); // establece el nombre en el localStorage
         const userSurname = localStorage.getItem("userSurname"); // establece el apellido en el localStorage
         const userEmail = localStorage.getItem("userEmail");
-        
+        const userAdministrator = localStorage.getItem("userAdministrator") === "true"
         
 /*   Si hay un usuario activo, actualiza el estado global para reflejar que el usuario ha 
   iniciado sesión y establece el nombre y apellido del usuario en el estado global. */
@@ -25,6 +26,7 @@ const Header = () => {
             dispatch({ type: "SET_USER_NAME", payload: userName });
             dispatch({ type: "SET_USER_SURNAME", payload: userSurname });
             dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
+            dispatch({ type: "SET_USER_ADMINISTRATOR", payload: userAdministrator });
         }
     }, [dispatch]);
 
@@ -32,10 +34,12 @@ const Header = () => {
       localStorage.removeItem("userActive"); //elimina el usuario del localstorage
       localStorage.removeItem("userName");
       localStorage.removeItem("userSurname");
+      localStorage.removeItem("userAdministrator");
       dispatch({ type: "SET_USER_ACTIVE", payload: false });//modifica el userActive del contexto global a false
       dispatch({ type: "SET_USER_NAME", payload: "" }); // modifica el userName del contexto global a vacio
       dispatch({ type: "SET_USER_SURNAME", payload: "" });// modifica el userSurname del contexto global a vacio
       dispatch({ type: "SET_USER_EMAIL", payload:""})
+      dispatch({ type: "SET_USER_ADMINISTRATOR", payload: false }); // Modifica el userAdministrator del contexto global a false
       setShowPopover(false);
     };
 
@@ -57,8 +61,9 @@ const Header = () => {
       <div className="container-button">
         {state.userActive ? (
         <div className="user-avatar">
-        <Button onClick={togglePopover}>
-          {state.userName} {state.userSurname} 
+        <Button className={"btn-avatar"} onClick={togglePopover}>
+        <Avatar/>
+ 
         </Button>
         <Popover 
         // estas son las porps del componente popover con las funciones que difenimos arriba
@@ -69,6 +74,11 @@ const Header = () => {
           onClose={togglePopover}  
           onLogout={handleLogout} 
         />
+          {state.userAdministrator && (
+              
+                <Button className={"btn-header"}>Herramientas de Administrador</Button>
+              
+            )}
       </div>
         ):(
           <>

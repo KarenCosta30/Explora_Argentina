@@ -29,11 +29,13 @@ const Login = () => {
             dispatch({ type: "SET_USER_NAME", payload: user.nombre });
             dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
             dispatch({ type: "SET_USER_EMAIL", payload: user.email });
+            dispatch({ type: "SET_USER_ADMINISTRATOR", payload: user.esAdministrador})
 
             localStorage.setItem("userActive", true);
             localStorage.setItem("userName", user.nombre);
             localStorage.setItem("userSurname", user.apellido);
             localStorage.setItem("userEmail", user.email);
+            localStorage.setItem("userAdministrator", user.esAdministrador)
 
             navigate('/');
         } catch (err) {
