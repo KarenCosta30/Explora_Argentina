@@ -48,19 +48,20 @@ const Login = () => {
             <div className='container-form-login'>
                 <p className='title-login'>Iniciar Sesión</p>
                 <p className='subtitle-login'>Llegó el momento de explorar!</p>
+                <hr className="divider" />
                 <Form 
                     className={"form-login"}
                     fields={[
-                        { type: "text", placeholder: "Email", name: "email", value: data.email, onChange: handleChange },
-                        { type: "password", placeholder: "Password", name: "password", value: data.password, onChange: handleChange },
+                        { type: "text", placeholder: "Correo electrónico", name: "email", value: data.email, onChange: handleChange },
+                        { type: "password", placeholder: "Contraseña ", name: "password", value: data.password, onChange: handleChange },
                     ]}
-                    buttonText="Ingresar"
+                    buttonText="Iniciar Sesión"
                     onSubmit={handleSubmit}
                     inputClassName={"input-login"}
                 />
                 {error && <p className="error-message">{error}</p>}
-                <p><Link to="/forgotpassword">He olvidado mi contraseña</Link></p>
-                <p>¿No tienes cuenta? <Link to="/createaccount"><span className='span'>Regístrate aquí</span></Link></p>
+                <p className='p-center'><Link to="/forgotpassword">He olvidado mi contraseña</Link></p>
+                <p className='p-center'>¿No tienes cuenta? <Link to="/createaccount"><span className='span'>Regístrate aquí</span></Link></p>
             </div>
         </main>
     );
