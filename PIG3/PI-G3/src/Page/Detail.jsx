@@ -4,9 +4,20 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useTourState } from "../Context/GlobalContext";
+
 
 const Detail = () => {
   const [tour, setTour] = useState([]);
+  const {state,dispatch} = useTourState();
+
+  useEffect(() => {
+    const activeUser = localStorage.getItem("userActive") === "true"; //Verifica si hay un usuario activo almacenado en el localStorage
+    if (activeUser) { 
+        dispatch({ type: "SET_USER_ACTIVE", payload: true });
+     
+    }
+}, [dispatch]);
 
   const params = useParams(); 
   const url = `http://localhost:8081/api/productos/${params.id}`
@@ -68,12 +79,29 @@ const Detail = () => {
               </div>
               
             </div>
-            <Button className={"btn-card-booking"}>RESERVA TU LUGAR</Button>
+            {state.userActive ? (
+                  <Button className={"btn-card-booking"}>RESERVA TU LUGAR</Button>
+            ):(
+              <Link to={'/login'}>
+              <Button className={"btn-card-booking"}>INICIA SESION PARA RESERVAR</Button>
+              </Link>
+              
+            )}
+            
           </div>
         </div>
       </section>
 
       <section className="section-two">
+      <div className="travel">
+          <div className="intinerary">
+            <h3>Itinerario</h3>
+            <ul className="intinerary-list">
+                <p>{tour.itinerario}</p>
+            </ul>
+          </div>
+          
+        </div>
         <div className="property bordealamitad">
           <ul className="property-list">
             <li><p>Edades: de 0 a 100. Máximo de 24 por grupo</p></li>
@@ -83,17 +111,10 @@ const Detail = () => {
             <li><p>Guía en vivo: portugués, inglés, español</p></li>
           </ul>
         </div>
-        <div className="travel">
-          <div className="intinerary">
-            <h3>Itinerario</h3>
-            <ul className="intinerary-list">
-                <p>{tour.itinerario}</p>
-            </ul>
-          </div>
-          <div className="map">
+       
+        <div className="map">
             <img src="/img/Screenshot 2024-08-04 002056.png" alt="mapa" />
           </div>
-        </div>
       </section>
       <div className="btn-detail">
         <Link to={"/"}>
