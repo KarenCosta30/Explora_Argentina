@@ -45,7 +45,7 @@ public class ProductoController {
         ProductoSalidaDto producto = productoService.obtenerDetalleProducto(id);
         return ResponseEntity.ok(producto);
     }
-    @GetMapping("/categoria/{categoriaId}")
+    @GetMapping("/categoria/{categoria_id}")
     public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosPorCategoria(@PathVariable Long categoriaId) {
     List<ProductoSalidaDto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
     return ResponseEntity.ok(productos);
