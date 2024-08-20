@@ -49,10 +49,10 @@ const Login = () => {
                 <Form 
                     className={"form-login"}
                     fields={[
-                        { type: "text", placeholder: "Email", name: "email", value: data.email, onChange: handleChange },
-                        { type: "password", placeholder: "Password", name: "password", value: data.password, onChange: handleChange },
+                        { type: "text", placeholder: "Correo electrónico", name: "email", value: data.email, onChange: handleChange },
+                        { type: "password", placeholder: "Contraseña ", name: "password", value: data.password, onChange: handleChange },
                     ]}
-                    buttonText="Ingresar"
+                    buttonText="Iniciar Sesión"
                     onSubmit={handleSubmit}
                     inputClassName={"input-login"}
                 />
