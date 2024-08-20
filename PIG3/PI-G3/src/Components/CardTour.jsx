@@ -7,7 +7,7 @@ const CardTour = ({item}) => {
   return (
     
       <div className='card-tour'>
-        <img className='img-card-tour' src={imagenUrl} alt="img-jujuy" /> {/* traer img */}
+        <img className='img-card-tour' src={imagenUrl} alt="imagen de experiencia" /> {/* traer img */}
         <div className="info-card-tour">
         <p className='title-card-tour'>{nombre}</p> {/* TRAER DE ENDPOINT */}
         <p className='subtitle-card-tour'>{descripcion}</p>{/* TRAER DE ENDPOINT */}

@@ -6,7 +6,8 @@ import Home from "./Page/Home";
 import ScrollToTop from "./Components/ScrollToTop";
 import CreateAccount from "./Page/CreateAccount";
 import Login from "./Page/Login";
-import { ControlPanel } from "./Page/ControlPanel";
+import ControlPanel from "./Page/ControlPanel"
+
 
 function App() {
   return (

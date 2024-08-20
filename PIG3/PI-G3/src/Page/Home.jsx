@@ -18,7 +18,7 @@ const {state} = useTourState();
     <main className="container-main">
       {/* CONTAINER SEARCH */}
       <section className="container-search">
-        <p>Cuál va a ser tu próxima aventura?</p>
+        <p>¿Cuál va a ser tu próxima aventura?</p>
         <Form className={"form"} // aca pasamos la primer props que esta en el componente form
           fields={[
             {  type: "text", placeholder: "¿A dónde vamos?" },

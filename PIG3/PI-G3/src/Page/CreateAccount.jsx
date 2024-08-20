@@ -9,6 +9,7 @@ const CreateAccount = () => {
     nombre: "",
     apellido: "",
     email: "",
+    confirmarEmail: "",
     password: "",
     confirmarPassword: ""
   });
@@ -24,7 +25,7 @@ const CreateAccount = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nombre, apellido, email, password, confirmarPassword } = formData;
+    const { nombre, apellido, email, password, confirmarPassword, confirmarEmail } = formData;
 
     if (!nombre || !/^[a-zA-Z]+$/.test(nombre) || nombre.length <= 3) {
       setError("Nombre incorrecto");
@@ -42,6 +43,11 @@ const CreateAccount = () => {
       return;
     }
 
+    if (email !== confirmarEmail) { // Verificación de confirmación de correo
+      setError("Los correos electrónicos no coinciden.");
+      return;
+    }
+
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
   if (!passwordRegex.test(password) || /\s/.test(password)) {
       setError("Error en la contraseña");
@@ -53,7 +59,7 @@ const CreateAccount = () => {
       return;
     }
 
-    setError(alert("Usuario registrado con exito!!"));
+    setError(alert("Usuario registrado exitosamente!"));
 
     try {
       await axios.post('http://localhost:8081/usuarios/registrar', {
@@ -100,10 +106,17 @@ const CreateAccount = () => {
               ],
             },
             {
-              type: "text",
+              type: "email",
               placeholder: "Correo electrónico",
               name: "email",
               value: formData.email,
+              onChange: handleChange,
+            },
+            {
+              type: "email",
+              placeholder: "Confirma el correo electrónico",
+              name: "confirmarEmail", // Nuevo campo
+              value: formData.confirmarEmail,
               onChange: handleChange,
             },
             {
