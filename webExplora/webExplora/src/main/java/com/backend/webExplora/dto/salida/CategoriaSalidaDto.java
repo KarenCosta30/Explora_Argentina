@@ -14,4 +14,17 @@ public class CategoriaSalidaDto {
     private String ubicacion;
 
     private String imagen;
+
+    public CategoriaSalidaDto() {
+    }
+
+    public CategoriaSalidaDto(Long id, String nombre, String ubicacion, String imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.imagen = imagen;
+    }
+
+
+    
 }

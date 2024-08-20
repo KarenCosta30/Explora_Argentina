@@ -10,7 +10,7 @@ public class UsuarioSalidaDto {
     private String email;
     private boolean esAdministrador;
 
-    // Constructor que acepta todos los campos
+  
     public UsuarioSalidaDto(Long id, String nombre, String apellido, String email, boolean esAdministrador) {
         this.id = id;
         this.nombre = nombre;
@@ -22,7 +22,7 @@ public class UsuarioSalidaDto {
     public UsuarioSalidaDto() {
     }
 
-    // Constructor que acepta un objeto Usuario
+   
     public UsuarioSalidaDto(Usuario usuario) {
         this.id = usuario.getId();
         this.nombre = usuario.getNombre();
@@ -31,7 +31,7 @@ public class UsuarioSalidaDto {
         this.esAdministrador = usuario.isEsAdministrador();
     }
 
-    // Getters y Setters
+   
     public Long getId() {
         return id;
     }

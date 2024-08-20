@@ -30,7 +30,35 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private Set<Producto> productos;
 
-    // Getters y Setters
+
+    
+  
+    public Categoria() {
+    }
+
+    
+
+    public Categoria(Long id, String nombre, String ubicacion, String imagen, Set<Producto> productos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.imagen = imagen;
+        this.productos = productos;
+    }
+
+    
+
+
+
+    public Categoria(String nombre, String ubicacion, String imagen, Set<Producto> productos) {
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.imagen = imagen;
+        this.productos = productos;
+    }
+
+
+
     public Long getId() {
         return id;
     }

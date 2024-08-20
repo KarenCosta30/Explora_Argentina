@@ -22,6 +22,18 @@ public class Usuario {
 
     public Usuario() {
     }
+ 
+    
+
+    public Usuario(String nombre, String apellido, String email, String password, boolean esAdministrador) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.password = password;
+        this.esAdministrador = esAdministrador;
+    }
+
+
 
     public Usuario(Long id, String nombre, String apellido, String email, String password, boolean esAdministrador) {
         this.id = id;

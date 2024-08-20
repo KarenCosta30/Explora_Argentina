@@ -55,6 +55,51 @@ public class Producto {
     private Categoria categoria;
 
    
+    public Producto() {
+    }
+
+    
+
+    public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl,
+            String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible,
+            String ubicacion, String detalle_itinerario, Categoria categoria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.descripcion_larga = descripcion_larga;
+        this.imagenUrl = imagenUrl;
+        this.itinerario = itinerario;
+        this.imagenUrl2 = imagenUrl2;
+        this.imagenUrl3 = imagenUrl3;
+        this.precio = precio;
+        this.disponible = disponible;
+        this.ubicacion = ubicacion;
+        this.detalle_itinerario = detalle_itinerario;
+        this.categoria = categoria;
+    }
+
+    
+
+
+    public Producto(String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario,
+            String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion,
+            String detalle_itinerario, Categoria categoria) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.descripcion_larga = descripcion_larga;
+        this.imagenUrl = imagenUrl;
+        this.itinerario = itinerario;
+        this.imagenUrl2 = imagenUrl2;
+        this.imagenUrl3 = imagenUrl3;
+        this.precio = precio;
+        this.disponible = disponible;
+        this.ubicacion = ubicacion;
+        this.detalle_itinerario = detalle_itinerario;
+        this.categoria = categoria;
+    }
+
+
+
     public Long getId() {
         return id;
     }
