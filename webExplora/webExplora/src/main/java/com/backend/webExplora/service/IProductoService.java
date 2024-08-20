@@ -8,4 +8,5 @@ public interface IProductoService {
     List<ProductoSalidaDto> obtenerProductosAleatorios();
     ProductoSalidaDto obtenerDetalleProducto(Long id);
     ProductoSalidaDto registrarProducto(ProductoEntradaDto producto);
+    List<ProductoSalidaDto> obtenerProductosPorCategoria(Long categoriaId);
 }

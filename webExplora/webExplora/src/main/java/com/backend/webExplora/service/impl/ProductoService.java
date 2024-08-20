@@ -51,6 +51,14 @@ public class ProductoService implements IProductoService {
                 .collect(Collectors.toList()); 
     }
     
+    @Override
+    public List<ProductoSalidaDto> obtenerProductosPorCategoria(Long categoriaId) {
+    logger.info("Obteniendo productos para la categoría con id: {}", categoriaId);
+    List<Producto> productos = productoRepository.findByCategoriaId(categoriaId);
+    return productos.stream()
+            .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
+            .collect(Collectors.toList());
+}
 
 
     @Override

@@ -8,11 +8,11 @@ import javax.validation.constraints.Size;
 public class UsuarioEntradaDto {
 
     @NotBlank(message = "El nombre es obligatorio")
-    @Size(min = 4, max = 50, message = "El nombre debe tener entre 4 y 50 caracteres")
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 4 y 50 caracteres")
     private String nombre;
 
     @NotBlank(message = "El apellido es obligatorio")
-    @Size(max = 50, message = "El apellido no debe superar los 50 caracteres")
+    @Size(min=3,max = 50, message = "El apellido no debe superar los 50 caracteres")
     private String apellido;
 
     @NotBlank(message = "El correo electrónico es obligatorio")

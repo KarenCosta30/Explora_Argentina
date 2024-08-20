@@ -7,21 +7,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "PRODUCTOS")
+@Table(name = "PRODUCTOS")
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(length = 50)
     private String nombre;
+
     @Column(length = 250)
     private String descripcion;
 
     @Column(length = 2000)
     private String descripcion_larga;
+
     @Column(length = 250)
     private String imagenUrl;
 
@@ -33,76 +39,22 @@ public class Producto {
 
     @Column(length = 250)
     private String imagenUrl3;
+
     private BigDecimal precio;
 
     private Boolean disponible;
+
     @Column(length = 50)
     private String ubicacion;
 
     @Column(length = 2000)
     private String detalle_itinerario;
- 
 
-    public Producto() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
-    public Producto(String nombre, String descripcion, String imagenUrl, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagenUrl = imagenUrl;
-        this.precio = precio;
-        this.disponible = disponible;
-        this.ubicacion = ubicacion;
-        this.detalle_itinerario=detalle_itinerario;
-    }
-
-    public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.descripcion_larga = descripcion_larga;
-        this.imagenUrl = imagenUrl;
-        this.itinerario = itinerario;
-        this.imagenUrl2 = imagenUrl2;
-        this.imagenUrl3 = imagenUrl3;
-        this.precio = precio;
-        this.disponible = disponible;
-        this.ubicacion = ubicacion;
-        this.detalle_itinerario=detalle_itinerario;
-    }
-
-    public void setDescripcion_larga(String descripcion_larga) {
-        this.descripcion_larga = descripcion_larga;
-    }
-
-    public void setItinerario(String itinerario) {
-        this.itinerario = itinerario;
-    }
-
-    public void setImagenUrl2(String imagenUrl2) {
-        this.imagenUrl2 = imagenUrl2;
-    }
-
-    public void setImagenUrl3(String imagenUrl3) {
-        this.imagenUrl3 = imagenUrl3;
-    }
-
-    public String getDescripcion_larga() {
-        return descripcion_larga;
-    }
-
-    public String getItinerario() {
-        return itinerario;
-    }
-
-    public String getImagenUrl2() {
-        return imagenUrl2;
-    }
-
-    public String getImagenUrl3() {
-        return imagenUrl3;
-    }
-
+   
     public Long getId() {
         return id;
     }
@@ -127,12 +79,44 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
+    public String getDescripcion_larga() {
+        return descripcion_larga;
+    }
+
+    public void setDescripcion_larga(String descripcion_larga) {
+        this.descripcion_larga = descripcion_larga;
+    }
+
     public String getImagenUrl() {
         return imagenUrl;
     }
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+
+    public String getItinerario() {
+        return itinerario;
+    }
+
+    public void setItinerario(String itinerario) {
+        this.itinerario = itinerario;
+    }
+
+    public String getImagenUrl2() {
+        return imagenUrl2;
+    }
+
+    public void setImagenUrl2(String imagenUrl2) {
+        this.imagenUrl2 = imagenUrl2;
+    }
+
+    public String getImagenUrl3() {
+        return imagenUrl3;
+    }
+
+    public void setImagenUrl3(String imagenUrl3) {
+        this.imagenUrl3 = imagenUrl3;
     }
 
     public BigDecimal getPrecio() {
@@ -166,6 +150,12 @@ public class Producto {
     public void setDetalle_itinerario(String detalle_itinerario) {
         this.detalle_itinerario = detalle_itinerario;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
-
-
