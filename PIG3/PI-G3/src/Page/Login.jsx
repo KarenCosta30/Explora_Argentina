@@ -46,6 +46,7 @@ const Login = () => {
             <div className='container-form-login'>
                 <p className='title-login'>Iniciar Sesión</p>
                 <p className='subtitle-login'>Llegó el momento de explorar!</p>
+                <hr className="divider" />
                 <Form 
                     className={"form-login"}
                     fields={[
