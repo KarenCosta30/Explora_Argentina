@@ -6,6 +6,7 @@ import Home from "./Page/Home";
 import ScrollToTop from "./Components/ScrollToTop";
 import CreateAccount from "./Page/CreateAccount";
 import Login from "./Page/Login";
+import { ControlPanel } from "./Page/ControlPanel";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/Login" element={<Login />}/>  
         <Route path="/createaccount" element={<CreateAccount/>}/>
+        <Route path="/userlist" element={<ControlPanel/>}/>
       </Routes>
        <Footer /> 
     </div>

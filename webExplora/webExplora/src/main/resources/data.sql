@@ -89,7 +89,7 @@ VALUES
  'Buenos Aires, Argentina');
 
 
-INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)
+/* INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)
 VALUES 
 ("Garcia", "ana.garcia@example.com", false, "Ana", "anagarcia1") ,
 ("Martinez", "luis.martinez@example.com", false, "Luis", "martinez1"),
@@ -100,4 +100,4 @@ VALUES
 ("Quiroga", "esteban.quiroga@example.com", false, "Esteban", "quiroga1"),
 ("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "corrado1"),
 ("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
-("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1");
+("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1"); */

@@ -73,14 +73,18 @@ const Header = () => {
           show={showPopover} 
           onClose={togglePopover}  
           onLogout={handleLogout} 
+          
         />
           {state.userAdministrator && (
-              
+                <Link to={"/userlist"}>
                 <Button className={"btn-header"}>Herramientas de Administrador</Button>
-              
+              </Link>
             )}
       </div>
-        ):(
+        )
+        
+        
+        :(
           <>
           <Link to="/login"> 
           <Button className={"btn-header"}>INICIAR SESION</Button>
