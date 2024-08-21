@@ -13,17 +13,23 @@ import javax.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.webExplora.dto.entrada.ProductoEntradaDto;
+import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
+import com.backend.webExplora.entity.Categoria;
 import com.backend.webExplora.entity.Producto;
+import com.backend.webExplora.repository.CategoriaRepository;
 import com.backend.webExplora.repository.ProductoRepository;
 import com.backend.webExplora.service.IProductoService;
 import com.backend.webExplora.utils.JsonPrinter;
 
 @Service
 public class ProductoService implements IProductoService {
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(ProductoService.class);
     private final ProductoRepository productoRepository;
@@ -51,6 +57,17 @@ public class ProductoService implements IProductoService {
                 .collect(Collectors.toList()); 
     }
     
+      @Override
+    public List<CategoriaSalidaDto> obtenerCategoriasAleatorias() {
+        List<Categoria> categorias = categoriaRepository.findAll();
+        Collections.shuffle(categorias); // Mezcla las categorías para obtener una selección aleatoria.
+        return categorias.stream()
+                .limit(5) 
+                .map(categoria -> modelMapper.map(categoria, CategoriaSalidaDto.class))
+                .collect(Collectors.toList());
+    }
+
+
     @Override
     public List<ProductoSalidaDto> obtenerProductosPorCategoria(Long categoriaId) {
     logger.info("Obteniendo productos para la categoría con id: {}", categoriaId);

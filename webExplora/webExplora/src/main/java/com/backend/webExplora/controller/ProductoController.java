@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.ProductoEntradaDto;
+import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.service.IProductoService;
 
@@ -49,6 +50,11 @@ public class ProductoController {
     public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosPorCategoria(@PathVariable Long categoriaId) {
         List<ProductoSalidaDto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
         return ResponseEntity.ok(productos);
+    }
+        @GetMapping("/categorias/aleatorias")
+    public ResponseEntity<List<CategoriaSalidaDto>> obtenerCategoriasAleatorias() {
+        List<CategoriaSalidaDto> categorias = productoService.obtenerCategoriasAleatorias();
+        return ResponseEntity.ok(categorias);
     }
 
 }
