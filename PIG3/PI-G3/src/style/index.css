@@ -493,16 +493,19 @@ input::placeholder {
   align-items: center;
   padding: 10px;
   gap: 10px;
+  font-size: 1.5rem;
+  width: 90vw;
 }
 
 .info-booking p {
   color: #8aa5ac;
-  font-size: small;
+  font-size: 1rem;
 }
 
 .prince-info-booking {
   color: #007bc7;
   font-weight: bold;
+  font-size: 2.5rem;
 }
 
 .btn-text {
@@ -575,10 +578,15 @@ input::placeholder {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25vh;
   padding-bottom:10vh ;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
 }
 .link-home {
   color: white;
@@ -589,7 +597,8 @@ input::placeholder {
   border-top: 2px solid #b3b3b3;
   text-align: left;
   top: -1px;
-  width: 100%;
+  width: 100%; 
+
 }
 .property-list li {
   font-size: 12px;
@@ -599,43 +608,67 @@ input::placeholder {
   text-transform: uppercase;
 }
 .travel {
-  align-items: center;
+  /* align-items: left; */
+  /* margin-left: -10wh;
   display: flex;
   flex-direction: column;
   margin-top: 25px;
   padding: 10px;
+  border: 5px solid red; */
+  /* background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; */
 }
-.travel h3 {
+.intinerary h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
   text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #c18a29;
+  padding-bottom: 10px;
+ 
 }
 .intinerary {
   padding: 0;
   width: 250px;
 }
-.intinerary-list li {
-  font-size: 11px;
-  font-weight: 300;
-  list-style-type: decimal;
-  margin-left: -25px;
-  padding: 0;
-}
-.map {
-  margin-top: 25px;
+.intinerary-list  {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: -30vh;
+  text-align: center;
 }
 
-.map img {
-  height: 280px;
-  width: 250px;
+.intinerary-list p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+.map-container {
+  height: 280px; /* Ajusta la altura según tus necesidades */
+  width: 120vw; /* Ocupa todo el ancho del contenedor padre */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0; /* Elimina cualquier padding adicional */
+  box-sizing: border-box;
 }
 
 .btn-back{
-  width: 10vw;
+  width: 5vw;
   height: 5vh;
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: 90px;
   border: 1px solid #007bc7;
   cursor: pointer;
-
+}
+.btn-back:hover{
+  background-color: #007bc7;
+  color: #ffffff;
 }
 
 
