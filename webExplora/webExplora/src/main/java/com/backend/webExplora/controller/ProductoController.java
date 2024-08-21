@@ -45,10 +45,10 @@ public class ProductoController {
         ProductoSalidaDto producto = productoService.obtenerDetalleProducto(id);
         return ResponseEntity.ok(producto);
     }
-    @GetMapping("/categoria/{categoria_id}")
+    @GetMapping("/categoria/{categoriaId}") 
     public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosPorCategoria(@PathVariable Long categoriaId) {
-    List<ProductoSalidaDto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
-    return ResponseEntity.ok(productos);
-}
+        List<ProductoSalidaDto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
+        return ResponseEntity.ok(productos);
+    }
 
 }
