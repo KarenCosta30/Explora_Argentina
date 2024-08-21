@@ -53,7 +53,11 @@ public class ProductoService implements IProductoService {
         Collections.shuffle(productosList); 
         
         return productosList.stream().limit(10)  
-                .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))  
+                .map(producto -> {
+                    ProductoSalidaDto dto = modelMapper.map(producto, ProductoSalidaDto.class);
+                    dto.setCategoria(modelMapper.map(producto.getCategoria(), CategoriaSalidaDto.class)); // Mapear la categoría
+                    return dto;
+                })  
                 .collect(Collectors.toList()); 
     }
     

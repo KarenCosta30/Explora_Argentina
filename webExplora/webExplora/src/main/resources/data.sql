@@ -1,5 +1,4 @@
-INSERT INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2,
-                        imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id)
+INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id)
 VALUES
 ('San Carlos de Bariloche',
  'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -108,7 +107,7 @@ VALUES
  3);
 
 
-/* INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)
+INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)
 VALUES 
 ("Garcia", "ana.garcia@example.com", false, "Ana", "anagarcia1") ,
 ("Martinez", "luis.martinez@example.com", false, "Luis", "martinez1"),
@@ -119,10 +118,11 @@ VALUES
 ("Quiroga", "esteban.quiroga@example.com", false, "Esteban", "quiroga1"),
 ("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "corrado1"),
 ("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
-("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1"); */
+("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1"); 
 
-INSERT INTO CATEGORIAS (nombre, ubicacion, imagen) VALUES 
+INSERT IGNORE INTO CATEGORIAS (nombre, ubicacion, imagen) VALUES 
 ("NIEVE", "", "https://barilocheturismo.gob.ar/images/actividades/nieve/ski-01.jpg"), 
 ("PLAYAS", "", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/77/c4/ed/img-20190213-wa0063-largejpg.jpg"), 
 ("TREKKING", "", "https://s1.wklcdn.com/image_201/6059775/91336779/59655349Master.jpg"), 
 ("BODEGAS", "", "https://www.argentina4u.com/pub/media/wysiwyg/Argentina/maipu_wine.jpg");
+

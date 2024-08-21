@@ -259,7 +259,10 @@ input::placeholder {
 .container-card-categories{
   background-color: rgba(246, 238, 238, 0.5);
   border-radius: 15px;
+  width: 18vw;
+  cursor: pointer;
 }
+
 .img-card-categories{
   height: 35vh;
   width:100%;
