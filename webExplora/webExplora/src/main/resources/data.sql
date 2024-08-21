@@ -1,4 +1,5 @@
-INSERT INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, categoria_id)
+INSERT INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2,
+                        imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id)
 VALUES
 ('San Carlos de Bariloche',
  'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -9,9 +10,10 @@ VALUES
  'https://c0.wallpaperflare.com/preview/881/303/659/argentina-san-carlos-de-bariloche-lake-mountain.jpg',
  300.00,
  1,
- 'San Carlos de Bariloche, Argentina',1 ),
+ 'San Carlos de Bariloche, Argentina','Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
+ Guía en directo: Portugués, Inglés, Español',1),
 
-('Parque Nacional y Viaje en Tren al Fin del Mundo, Ushuaia',
+('Parque Nacional y Viaje en Tren al Fin del Mundo',
  'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
  'Este tour te lleva a través del impresionante Parque Nacional Tierra del Fuego en Ushuaia. Incluye un viaje en el famoso Tren del Fin del Mundo, donde aprenderás sobre la historia de la región. También podrás disfrutar de caminatas y avistamiento de fauna local.',
  'Día 1: Llegada y recorrido por el Parque Nacional. Día 2: Viaje en el Tren del Fin del Mundo y exploración de la región. Día 3: Actividades al aire libre y regreso.',
@@ -20,7 +22,8 @@ VALUES
  'https://blogimagestc.s3.amazonaws.com/tren_fin_del_mundo4.jpg',
  300.00,
  1,
- 'Ushuaia, Argentina',1),
+ 'Ushuaia, Argentina','Edad: 0 a 99 años. Duración: 2 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+ 1),
 
 ('Bodega Trapiche, Mendoza',
  'Visita la famosa bodega Trapiche en Mendoza y disfruta de degustaciones de vino',
@@ -31,7 +34,8 @@ VALUES
  'https://bomtravel.com/wp-content/uploads/2022/04/1-35.jpg',
  150.00,
  1,
- 'Mendoza, Argentina', 4),
+ 'Mendoza, Argentina','Edad: 0 a 99 años. Duración: 6 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+ 4),
 
 ('Excursión a Cataratas de Iguazú',
  'Descubre la majestuosidad de las Cataratas de Iguazú, una de las maravillas naturales del mundo',
@@ -42,7 +46,9 @@ VALUES
  'https://www.welcomeargentina.com/paseos/cataratas_iguazu/cataratas-iguazu-2.jpg',
  200.00,
  1,
- 'Cataratas de Iguazú, Argentina', 3),
+ 'Cataratas de Iguazú, Argentina','Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
+ Guía en directo: Portugués, Inglés, Español'
+ ,3),
 
 ('Cerro de los 7 Colores, Jujuy',
  'Admira el impresionante Cerro de los 7 Colores en Purmamarca, Jujuy',
@@ -53,7 +59,9 @@ VALUES
  'https://i.pinimg.com/736x/62/9a/b4/629ab4feb040d7c804704167e5c0eb14.jpg',
  100.00,
  1,
- 'Purmamarca, Jujuy, Argentina', 3),
+ 'Purmamarca, Jujuy, Argentina','Edad: 0 a 99 años. Máximo 27 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
+ Guía en directo: Portugués, Inglés, Español'
+ ,3),
 
 ('Mini Trekking Glaciar Perito Moreno, El Calafate',
  'Experimenta una caminata única sobre el glaciar Perito Moreno en El Calafate',
@@ -64,7 +72,9 @@ VALUES
  'https://www.interpatagonia.com/paseos/trekkingperitomoreno/trekking-perito-moreno-7.jpg',
  180.00,
  1,
- 'El Calafate, Argentina', 3),
+ 'El Calafate, Argentina','Edad: 8 a 65 años. Máximo 50 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
+  Guía en directo: Portugués, Inglés, Español'
+ ,3),
 
 ('Las Salinas Grandes, Salta y Jujuy',
  'Explora las vastas y deslumbrantes Salinas Grandes en el norte de Argentina',
@@ -75,7 +85,10 @@ VALUES
  'https://bomtravel.com/wp-content/uploads/2022/06/10-10.jpg',
  120.00,
  1,
- 'Salinas Grandes, Salta y Jujuy, Argentina',3),
+ 'Salinas Grandes, Salta y Jujuy, Argentina',
+ 'Edad: 0 a 69 años. Máximo 23 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
+  Guía en directo: Portugués, Inglés, Español',
+ 3),
 
 ('Tour para Pequeños Grupos en Buenos Aires',
  'Descubre Buenos Aires en un tour personalizado para pequeños grupos',
@@ -86,7 +99,9 @@ VALUES
  'https://media.istockphoto.com/id/523040054/es/foto/colorido-edificio-la-boca-barrio-de-buenos-aires-argentina.jpg?s=612x612&w=0&k=20&c=N0AeTBfuve6TPCuV1UwhqVWA7pqo7eZZuTxKkdgcGsU=',
  80.00,
  1,
- 'Buenos Aires, Argentina', 3);
+ 'Buenos Aires, Argentina','Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
+  Guía en directo: Portugués, Inglés, Español',
+ 3);
 
 
 /* INSERT INTO usuarios (apellido, email, es_administrador, nombre, password)

@@ -20,15 +20,15 @@ public class ProductoEntradaDto {
     @Size(max = 250, message = "La descripción debe tener hasta 250 caracteres")
     private String descripcion;
     @NotBlank(message = "Debe especificarse la descripción del producto")
-    @Size(max = 2000, message = "La descripción debe tener hasta 250 caracteres")
+    @Size(max = 2000, message = "La descripción debe tener hasta 2000 caracteres")
     private String descripcion_larga;
     @NotBlank(message = "Debe especificarse la URL de la imagen del producto")
     @Size(max = 250, message = "La URL de la imagen debe tener hasta 250 caracteres")
     private String imagenUrl;
-    @NotBlank(message = "Debe especificarse la URL de la imagen del producto")
+    @NotBlank(message = "Debe especificarse la segunda URL de la imagen del producto")
     @Size(max = 250, message = "La URL de la imagen debe tener hasta 250 caracteres")
     private String imagenUrl2;
-    @NotBlank(message = "Debe especificarse la URL de la imagen del producto")
+    @NotBlank(message = "Debe especificarse la tercera URL de la imagen del producto")
     @Size(max = 250, message = "La URL de la imagen debe tener hasta 250 caracteres")
     private String imagenUrl3;
     @NotNull(message = "Debe especificarse el precio del producto")
@@ -39,11 +39,11 @@ public class ProductoEntradaDto {
     @NotBlank(message = "Debe especificarse la ubicación del producto")
     @Size(max = 100, message = "La ubicación debe tener hasta 100 caracteres")
     private String ubicacion;
-    @NotBlank(message = "Debe especificarse la ubicación del producto")
-    @Size(max = 2000, message = "La ubicación debe tener hasta 100 caracteres")
+    @NotBlank(message = "Debe especificarse el itinerario del producto")
+    @Size(max = 2000, message = "El itinerariodebe tener hasta 2000 caracteres")
     private String itinerario;
-    @NotBlank(message = "Debe especificarse el detalle del itinerario del producto")
-    @Size(max = 2000, message = "La ubicación debe tener hasta 2000 caracteres")
+    @NotBlank(message = "Debe especificarse las caracteristicas del producto")
+    @Size(max = 2000, message = "Las características debe tener hasta 2000 caracteres")
     private String detalle_itinerario;
 
 

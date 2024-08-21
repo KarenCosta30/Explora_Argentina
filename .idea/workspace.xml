@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f18b7b1-be62-4d24-8354-c4512fea5a6e" name="Changes" comment="" />
+    <list default="true" id="9f18b7b1-be62-4d24-8354-c4512fea5a6e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/webExplora/webExplora/src/main/java/com/backend/webExplora/dto/entrada/ProductoEntradaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/webExplora/webExplora/src/main/java/com/backend/webExplora/dto/entrada/ProductoEntradaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webExplora/webExplora/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webExplora/webExplora/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webExplora/webExplora/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/webExplora/webExplora/src/main/resources/data.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +20,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2kiMMyWNVpBl92x8HqpGsOebY50" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,7 +32,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Documentos/DigitalHouse/PROYECTO INTEGRADOR/proyecto/ProyectoIntegrado"
+    "last_opened_file_path": "D:/Documentos/DigitalHouse/5to Bimestre/Back End/Repositorio del Parcial/RAIMON-MARIANA_PEDREIRA-PATRICIA/ClinicaOdontologica/ClinicaOdontologica"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
