@@ -37,9 +37,10 @@ const {state} = useTourState();
         <p className="exp">Experiencias</p>
         <p className="subtitle-exp">Los destinos mas populares de Argentina, desde lugares historicos hasta maravillas naturales</p>
        <div className="card-categories">
-        <CardCategories/>
-        <CardCategories/>
-        <CardCategories/>
+        {state.categories.map((item,index)=>{
+          return <CardCategories key={index} item={item}></CardCategories>
+        })}
+        
       </div>
     </section>
   

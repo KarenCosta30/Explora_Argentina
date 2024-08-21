@@ -11,18 +11,24 @@ const initialState = {
     userName: "",
     userSurname: "",
     userEmail: "",
-    userAdministrator: false
+    userAdministrator: false,
+    categories:[]
 }
 
 const GlobalContext = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const tourUrl = `http://localhost:8081/api/productos/aleatorios?limit=8`;
-    
+    const tourUrl = `http://localhost:8081/api/productos/aleatorios?limit=8;`
+    const urlCategories = `http://localhost:8081/api/productos/categorias/aleatorias?limit=8`
     useEffect(() => {
       axios.get(tourUrl)
         .then((res) => dispatch({ type: "GET_PRODUCTOS", payload: res.data }))        
         .catch((err) => console.log(err))
     }, []);
+
+    useEffect(()=>{
+        axios.get(urlCategories)
+        .then((res)=> dispatch({type:"GET_CATEGORIES", payload:res.data}))
+    },[])
 
     const loginUser = (email, password) => {
         return axios.post('http://localhost:8081/usuarios/login', { email, password: password })
