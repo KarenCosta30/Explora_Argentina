@@ -1,3 +1,5 @@
+INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, 
+detalle_itinerario, categoria_id, latitud, longitud)
 INSERT IGNORE INTO CATEGORIAS (nombre, ubicacion, imagen)
 VALUES 
 ("NIEVE", "", "https://barilocheturismo.gob.ar/images/actividades/nieve/ski-01.jpg"), 
