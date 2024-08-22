@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Para redirigir si no es admin
+import { useTourState } from '../Context/GlobalContext';
 import '../style/adminTools.css';
 
-const ControlPanel = ({ isAdmin }) => {
+const ControlPanel = () => {
+  const { state } = useTourState(); // Acceder al estado global
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  // Verifica si el usuario es administrador
+  useEffect(() => {
+    if (!state.userActive || !state.userAdministrator) {
+      // Redirigir al usuario si no está activo o no es administrador
+      navigate('/login');
+    }
+  }, [state.userActive, state.userAdministrator, navigate]);
 
   useEffect(() => {
     axios.get('http://localhost:8081/usuarios/listar')
@@ -38,8 +50,8 @@ const ControlPanel = ({ isAdmin }) => {
 
   return (
     <div className='panel-container'>
-            {/* Campo de búsqueda */}
-            <input className='search-email'
+      {/* Campo de búsqueda */}
+      <input className='search-email'
         type="text" 
         placeholder="🔍 Buscar por email" 
         value={searchTerm} 
