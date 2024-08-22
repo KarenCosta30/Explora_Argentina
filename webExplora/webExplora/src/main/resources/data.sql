@@ -1,5 +1,3 @@
-INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, 
-detalle_itinerario, categoria_id, latitud, longitud)
 INSERT IGNORE INTO CATEGORIAS (nombre, ubicacion, imagen)
 VALUES 
 ("NIEVE", "", "https://barilocheturismo.gob.ar/images/actividades/nieve/ski-01.jpg"), 
@@ -8,7 +6,7 @@ VALUES
 ("BODEGAS", "", "https://www.argentina4u.com/pub/media/wysiwyg/Argentina/maipu_wine.jpg");
 
 INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2,
-                        imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id)
+        imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id, latitud, longitud)
 VALUES
 ('San Carlos de Bariloche',
 'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -25,7 +23,8 @@ true,
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
--41.1335, -71.3080),
+-41.1335,
+-71.3080),
 
 ('Parque Nacional y Viaje en Tren al Fin del Mundo',
 'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -41,8 +40,8 @@ true,
 'Ushuaia, Argentina',
 'Edad: 0 a 99 años. Duración: 2 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 1,
-  -54.7930,
- -68.2055),
+-54.7930,
+-68.2055),
 
 ('Bodega Trapiche, Mendoza',
 'Visita la famosa bodega Trapiche en Mendoza y disfruta de degustaciones de vino',
@@ -61,8 +60,8 @@ true,
 'Mendoza, Argentina',
 'Edad: 0 a 99 años. Duración: 6 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
-  -32.971328,
- -68.749974),
+-32.971328,
+-68.749974),
 
 ('Excursión a Cataratas de Iguazú',
 'Descubre la majestuosidad de las Cataratas de Iguazú, una de las maravillas naturales del mundo',
@@ -82,8 +81,8 @@ true,
 'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
-  -25.6953,
- -54.4367),
+-25.6953,
+-54.4367),
 
 ('Cerro de los 7 Colores, Jujuy',
 'Admira el impresionante Cerro de los 7 Colores en Purmamarca, Jujuy',
@@ -103,8 +102,8 @@ true,
 'Edad: 0 a 99 años. Máximo 27 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
-  -24.4171,
- -65.6985),
+-24.4171,
+-65.6985),
 
 ('Mini Trekking Glaciar Perito Moreno, El Calafate',
 'Experimenta una caminata única sobre el glaciar Perito Moreno en El Calafate',
@@ -124,8 +123,8 @@ true,
 'Edad: 8 a 65 años. Máximo 50 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
-  -50.4960,
- -73.0503),
+-50.4960,
+-73.0503),
 
 ('Las Salinas Grandes, Salta y Jujuy',
 'Explora las vastas y deslumbrantes Salinas Grandes en el norte de Argentina',
@@ -145,8 +144,8 @@ true,
 'Edad: 0 a 69 años. Máximo 23 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
-  -24.6586,
- -66.4105),
+-24.6586,
+-66.4105),
 
 ('Tour para Pequeños Grupos en Buenos Aires',
 'Descubre Buenos Aires en un tour personalizado para pequeños grupos',
@@ -166,7 +165,9 @@ true,
 'Buenos Aires, Argentina',
 'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
-3),
+3,
+'',
+''),
 
 ('Recorrido vinícola de día completo con almuerzo gourmet', 
 'Explore los vinos de la región vinícola más grande de Argentina',
@@ -183,7 +184,9 @@ Volverás al punto de partida',
 true,
 'Mendoza, Argentina', 
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
-4),
+4,
+'',
+''),
 
 ('Bodega Chandon + Almuerzo', 
 'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas.',
@@ -198,7 +201,9 @@ Casa El enemigo (parada de 3 horas, entrada incluida).',
 true,
 'Mendoza, Argentina',
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
-4),
+4,
+'',
+''),
 
 ('Experiencia en Bodega Renacer',
 'Descubre el proceso de elaboración del vino en la Bodega Renacer en Lujan',
@@ -213,7 +218,9 @@ Bodega Renacer (parada 70 minutos - entrada incluida)',
 true,
 'Mendoza, Argentina',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
-4),
+4,
+'',
+''),
 
 ('El Inicio WineTour x 2 Pax (Historia y Vinos)',
 'Descubre la historia y los vinos de la región norte de Argentina en este tour de bodegas',
@@ -233,7 +240,9 @@ Volverás al punto de partida',
 true,
 'Córdoba, Argentina',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
-4),
+4,
+'',
+''),
 
 ('Excursión de día completo al glaciar Perito Moreno con navegación',
 'Visita al glaciar Perito Moreno.',
@@ -253,7 +262,9 @@ true,
 'El Calafate, Argentina',
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
-1),
+1,
+'',
+''),
 
 
 ('Torres Del Paine Full Day Camioneta Terrestre 4x4 desde El Calafate',
@@ -281,7 +292,9 @@ true,
 'El Calafate, Argentina',
 'Edad: de 4 a 90 años. Máximo 45 por grupo. Duración: 14 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
-1),
+1,
+'',
+''),
 
 ('San Martín de los Andes por la Ruta de los 7 lagos',
 'Excursión por los paisajes mas impresionantes de la Patagonia',
@@ -302,7 +315,9 @@ true,
 'San Carlos de Bariloche, Argentina',
 'Edad: de 0 a 90 años. Máximo 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
-1),
+1,
+'',
+''),
 
 ('Teleferico Cerro Otto',
 'Suba hasta la cima del Cerro Otto',
@@ -320,7 +335,9 @@ true,
 'San Carlos de Bariloche, Argentina',
 'Edad: de 5 a 90 años. Duración: de 2 a 4 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
-1);
+1,
+'',
+''),
 
 ('Excursión de un día al monte Tronador y al glaciar Negro',
 'Descubra el encanto helado del monte Tronador y el glaciar Negro en una estimulante excursión de día completo al Parque Nacional Nahuel Huapi desde Bariloche.',
@@ -337,7 +354,9 @@ Duración: 9 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Español',
-1),
+1,
+'',
+''),
 
 ('Escapada de un día por la Nieve',
 'Recorra los Andes desde Mendoza con Aconcagua, Uspallata y Puente del Inca',
@@ -357,7 +376,9 @@ Duración: 12 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: Español',
-1),
+1,
+'',
+''),
 
 ('Snorkeling con leones marinos por Madryn Buceo',
 'Observe de cerca a los leones marinos en su entorno natural',
@@ -379,7 +400,9 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: inglés, italiano, Español',
-2),
+2,
+'',
+''),
 
 ('Excursión en tierra Punta Tombo',
 'Vea de cerca a los pingüinos de Punta Tombo',
@@ -405,7 +428,9 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: inglés, Español',
-2),
+2,
+'',
+''),
 
 ('Experiencia en Kayak y merienda a orillas del agua',
 'Navegamos seguros con “Patagonia Infinita Kayak & Adventure”',
@@ -422,7 +447,9 @@ Duración: 4 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
-2),
+2,
+'',
+''),
 
 ('Excursión de rafting en aguas bravas en Rio Chimehuin',
 'Enfréntate a los rápidos espeluznantes movimientos de Clase II y III del Río Chimehuín en esta divertida excursión de rafting en aguas bravas desde San Martín de los Andes. ',
@@ -442,7 +469,9 @@ Duración: 5 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
-2),
+2,
+'',
+''),
 
 
 ('Excursión a la Península Valdés con almuerzo más tour de la ciudad',
@@ -464,11 +493,13 @@ Duración: 6 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
-2),
+2,
+'',
+''),
 
---(' ', ' ', ' ', ' ', ' ', ' ', ' ', 00.00, true, ' ', ' ', 2),
---(' ', ' ', ' ', ' ', ' ', ' ', ' ', 00.00, true, ' ', ' ', 2),
---(' ', ' ', ' ', ' ', ' ', ' ', ' ', 00.00, true, ' ', ' ', 2),
+--('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
+--('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
+--('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
 
 
 (' Trekking con Raquetas de Nieve por el Día',
@@ -491,7 +522,9 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: portugués, inglés, Español',
-3),
+3,
+'',
+''),
 
 
 ('10 secretos de Bariloche, Nahuel Huapi y la Patagonia',
@@ -516,7 +549,9 @@ Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
-3),
+3,
+'',
+''),
 
 ('Paseo a Caballo',
 'Paseo por viñedos y un almuerzo gourmet',
@@ -539,7 +574,9 @@ Duración: 6 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Español',
-3),
+3,
+'',
+''),
 
 ('Experiencia malbec en la bodega Tierras Altas',
 'Tierras Altas fue una de las primeras bodegas boutique de Mendoza y es un excelente productor de malbec.',
@@ -559,7 +596,9 @@ Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
-4),
+4,
+'',
+''),
 
 ('Bodega Clos de los Siete',
 'Con este tour privado del vino, podrá aprender más sobre Clos de los Siete',
@@ -581,7 +620,9 @@ Duración: 8 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Francés, Español',
-4),
+4,
+'',
+''),
 
 ('Visita a 2 Bodegas Premium de Cafayate',
 'Calme su apetito de vino argentino visitando dos de las mejores bodegas del valle Calchaqui',
@@ -599,7 +640,9 @@ Duración: 6 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Francés, Español',
-4);
+4,
+'',
+'');
 
 
 INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)
