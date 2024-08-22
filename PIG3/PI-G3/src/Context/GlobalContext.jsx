@@ -12,7 +12,8 @@ const initialState = {
     userSurname: "",
     userEmail: "",
     userAdministrator: false,
-    categories:[]
+    categories:[],
+    
 }
 
 const GlobalContext = ({ children }) => {

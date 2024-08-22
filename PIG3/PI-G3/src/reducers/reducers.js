@@ -4,7 +4,7 @@ export const reducer = (state, action) => {
       return { ...state, tour: action.payload };
       case "GET_CATEGORIES":
         return{...state,categories:action.payload};
-        case "SET_USERS":
+        case "SET_USER":
         return{...state,user:action.payload};
       case "SET_USER_ACTIVE":
           return {
