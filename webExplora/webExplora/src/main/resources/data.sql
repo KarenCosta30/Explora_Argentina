@@ -166,8 +166,8 @@ true,
 'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
-'',
-''),
+-34.6037,
+-58.3816),
 
 ('Recorrido vinícola de día completo con almuerzo gourmet', 
 'Explore los vinos de la región vinícola más grande de Argentina',
@@ -185,8 +185,8 @@ true,
 'Mendoza, Argentina', 
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
-'',
-''),
+-32.9715,
+-32.9715),
 
 ('Bodega Chandon + Almuerzo', 
 'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas.',
@@ -202,8 +202,8 @@ true,
 'Mendoza, Argentina',
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
-'',
-''),
+-33.0087,
+-68.8633),
 
 ('Experiencia en Bodega Renacer',
 'Descubre el proceso de elaboración del vino en la Bodega Renacer en Lujan',
@@ -219,8 +219,8 @@ true,
 'Mendoza, Argentina',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
-'',
-''),
+-33.0096,
+-68.8427),
 
 ('El Inicio WineTour x 2 Pax (Historia y Vinos)',
 'Descubre la historia y los vinos de la región norte de Argentina en este tour de bodegas',
@@ -241,8 +241,8 @@ true,
 'Córdoba, Argentina',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
-'',
-''),
+-31.0276,
+-64.0959),
 
 ('Excursión de día completo al glaciar Perito Moreno con navegación',
 'Visita al glaciar Perito Moreno.',
@@ -263,8 +263,8 @@ true,
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
-'',
-''),
+-50.4142,
+-73.2490),
 
 
 ('Torres Del Paine Full Day Camioneta Terrestre 4x4 desde El Calafate',
@@ -293,8 +293,8 @@ true,
 'Edad: de 4 a 90 años. Máximo 45 por grupo. Duración: 14 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
-'',
-''),
+-51.0419,
+-73.0695),
 
 ('San Martín de los Andes por la Ruta de los 7 lagos',
 'Excursión por los paisajes mas impresionantes de la Patagonia',
@@ -316,8 +316,8 @@ true,
 'Edad: de 0 a 90 años. Máximo 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
-'',
-''),
+-40.1880,
+-71.3348),
 
 ('Teleferico Cerro Otto',
 'Suba hasta la cima del Cerro Otto',
@@ -336,8 +336,8 @@ true,
 'Edad: de 5 a 90 años. Duración: de 2 a 4 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
-'',
-''),
+-41.1571,
+-71.3410),
 
 ('Excursión de un día al monte Tronador y al glaciar Negro',
 'Descubra el encanto helado del monte Tronador y el glaciar Negro en una estimulante excursión de día completo al Parque Nacional Nahuel Huapi desde Bariloche.',
@@ -355,8 +355,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Español',
 1,
-'',
-''),
+-41.0880,
+-71.6661),
 
 ('Escapada de un día por la Nieve',
 'Recorra los Andes desde Mendoza con Aconcagua, Uspallata y Puente del Inca',
@@ -377,8 +377,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: Español',
 1,
-'',
-''),
+-32.8062,
+-69.4268),
 
 ('Snorkeling con leones marinos por Madryn Buceo',
 'Observe de cerca a los leones marinos en su entorno natural',
@@ -401,8 +401,8 @@ Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: inglés, italiano, Español',
 2,
-'',
-''),
+-42.7670,
+-65.0338),
 
 ('Excursión en tierra Punta Tombo',
 'Vea de cerca a los pingüinos de Punta Tombo',
@@ -429,8 +429,8 @@ Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: inglés, Español',
 2,
-'',
-''),
+-42.7670,
+-65.0338),
 
 ('Experiencia en Kayak y merienda a orillas del agua',
 'Navegamos seguros con “Patagonia Infinita Kayak & Adventure”',
@@ -448,8 +448,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
 2,
-'',
-''),
+-40.7554,
+-71.6376),
 
 ('Excursión de rafting en aguas bravas en Rio Chimehuin',
 'Enfréntate a los rápidos espeluznantes movimientos de Clase II y III del Río Chimehuín en esta divertida excursión de rafting en aguas bravas desde San Martín de los Andes. ',
@@ -470,8 +470,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
 2,
-'',
-''),
+-40.1880,
+-71.3348),
 
 
 ('Excursión a la Península Valdés con almuerzo más tour de la ciudad',
@@ -494,8 +494,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
 2,
-'',
-''),
+-42.6064,
+-64.3334),
 
 --('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
 --('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
@@ -523,8 +523,8 @@ Entrada para dispositivos móviles
 Cumple con las especificaciones de bienestar animal
 Guía en vivo: portugués, inglés, Español',
 3,
-'',
-''),
+-41.1335,
+-71.3103),
 
 
 ('10 secretos de Bariloche, Nahuel Huapi y la Patagonia',
@@ -550,8 +550,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
 3,
-'',
-''),
+-41.1335,
+-71.3103),
 
 ('Paseo a Caballo',
 'Paseo por viñedos y un almuerzo gourmet',
@@ -575,8 +575,10 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Español',
 3,
-'',
-''),
+-32.9950,
+-68.8400),
+
+
 
 ('Experiencia malbec en la bodega Tierras Altas',
 'Tierras Altas fue una de las primeras bodegas boutique de Mendoza y es un excelente productor de malbec.',
@@ -597,8 +599,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Español',
 4,
-'',
-''),
+-32.9704,
+-68.8426),
 
 ('Bodega Clos de los Siete',
 'Con este tour privado del vino, podrá aprender más sobre Clos de los Siete',
@@ -621,8 +623,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: portugués, inglés, Francés, Español',
 4,
-'',
-''),
+-24.9336,
+-65.8069),
 
 ('Visita a 2 Bodegas Premium de Cafayate',
 'Calme su apetito de vino argentino visitando dos de las mejores bodegas del valle Calchaqui',
@@ -641,8 +643,8 @@ Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
 Guía en vivo: inglés, Francés, Español',
 4,
-'',
-'');
+-25.3721,
+-65.9347);
 
 
 INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)
