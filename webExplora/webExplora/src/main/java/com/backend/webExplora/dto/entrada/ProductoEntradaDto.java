@@ -45,6 +45,11 @@ public class ProductoEntradaDto {
     @NotBlank(message = "Debe especificarse las caracteristicas del producto")
     @Size(max = 2000, message = "Las características debe tener hasta 2000 caracteres")
     private String detalle_itinerario;
+    @NotNull(message = "Debe especificarse la longitud del producto")
+    private Float longitud;
+    @NotNull(message = "Debe especificarse la latitud del producto")
+    private Float latitud;
+
 
 
 
@@ -52,7 +57,7 @@ public class ProductoEntradaDto {
 
     }
 
-    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario) {
+    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario, Float longitud, Float latitud) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.descripcion_larga = descripcion_larga;
@@ -64,6 +69,8 @@ public class ProductoEntradaDto {
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
         this.detalle_itinerario = detalle_itinerario;
+        this.longitud = longitud;
+        this.latitud = latitud;
     }
 }
 

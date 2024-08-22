@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-// Ajuste para corregir la falta de íconos en Leaflet
+
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -13,7 +15,25 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent = () => {
- const position = [-32.971328, -68.749974]; // Coordenadas iniciales del mapa
+  const [tour, setTour] = useState(null); 
+  const params = useParams();
+
+  const url = `http://localhost:8081/api/productos/${params.id}`;
+
+  useEffect(() => {
+    axios.get(url)
+      .then((res) => setTour(res.data))
+      .catch((error) => {
+        console.error("Error fetching tour data:", error);
+      });
+  }, [params.id]);
+
+  // Verifica si tour es nulo o si las coordenadas están definidas
+  if (!tour || !tour.latitud || !tour.longitud) {
+    return <div>Cargando mapa o no hay datos disponibles.</div>;
+  }
+
+  const position = [tour.latitud, tour.longitud];
 
   return (
     <MapContainer center={position} zoom={13} style={{ height: '280px', width: '100%' }}>
@@ -23,7 +43,7 @@ const MapComponent = () => {
       />
       <Marker position={position}>
         <Popup>
-          Usted esta aquí.<br /> 
+          Usted está aquí.
         </Popup>
       </Marker>
     </MapContainer>

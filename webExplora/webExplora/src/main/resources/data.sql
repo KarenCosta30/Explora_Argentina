@@ -1,4 +1,5 @@
-INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, detalle_itinerario, categoria_id)
+INSERT IGNORE INTO PRODUCTOS (nombre, descripcion, descripcion_larga, itinerario, imagen_url, imagen_url2, imagen_url3, precio, disponible, ubicacion, 
+detalle_itinerario, categoria_id, latitud, longitud)
 VALUES
 ('San Carlos de Bariloche',
  'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -10,7 +11,8 @@ VALUES
  300.00,
  1,
  'San Carlos de Bariloche, Argentina','Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
- Guía en directo: Portugués, Inglés, Español',1),
+ Guía en directo: Portugués, Inglés, Español',1,
+-41.1335, -71.3080),
 
 ('Parque Nacional y Viaje en Tren al Fin del Mundo',
  'Explora el Parque Nacional Tierra del Fuego y viaja en el Tren del Fin del Mundo en Ushuaia',
@@ -22,7 +24,9 @@ VALUES
  300.00,
  1,
  'Ushuaia, Argentina','Edad: 0 a 99 años. Duración: 2 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
- 1),
+ 1,
+  -54.7930,
+ -68.2055),
 
 ('Bodega Trapiche, Mendoza',
  'Visita la famosa bodega Trapiche en Mendoza y disfruta de degustaciones de vino',
@@ -34,7 +38,9 @@ VALUES
  150.00,
  1,
  'Mendoza, Argentina','Edad: 0 a 99 años. Duración: 6 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
- 4),
+ 4,
+  -32.971328,
+ -68.749974),
 
 ('Excursión a Cataratas de Iguazú',
  'Descubre la majestuosidad de las Cataratas de Iguazú, una de las maravillas naturales del mundo',
@@ -47,7 +53,9 @@ VALUES
  1,
  'Cataratas de Iguazú, Argentina','Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
  Guía en directo: Portugués, Inglés, Español'
- ,3),
+ ,3,
+  -25.6953,
+ -54.4367),
 
 ('Cerro de los 7 Colores, Jujuy',
  'Admira el impresionante Cerro de los 7 Colores en Purmamarca, Jujuy',
@@ -64,7 +72,9 @@ VALUES
  1,
  'Purmamarca, Jujuy, Argentina','Edad: 0 a 99 años. Máximo 27 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
  Guía en directo: Portugués, Inglés, Español'
- ,3),
+ ,3,
+  -24.4171,
+ -65.6985),
 
 ('Mini Trekking Glaciar Perito Moreno, El Calafate',
  'Experimenta una caminata única sobre el glaciar Perito Moreno en El Calafate',
@@ -77,7 +87,9 @@ VALUES
  1,
  'El Calafate, Argentina','Edad: 8 a 65 años. Máximo 50 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
   Guía en directo: Portugués, Inglés, Español'
- ,3),
+ ,3,
+  -50.4960,
+ -73.0503),
 
 ('Las Salinas Grandes, Salta y Jujuy',
  'Explora las vastas y deslumbrantes Salinas Grandes en el norte de Argentina',
@@ -91,7 +103,9 @@ VALUES
  'Salinas Grandes, Salta y Jujuy, Argentina',
  'Edad: 0 a 69 años. Máximo 23 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
   Guía en directo: Portugués, Inglés, Español',
- 3),
+ 3,
+  -24.6586,
+ -66.4105),
 
 ('Tour para Pequeños Grupos en Buenos Aires',
  'Descubre Buenos Aires en un tour personalizado para pequeños grupos',
@@ -104,7 +118,9 @@ VALUES
  1,
  'Buenos Aires, Argentina','Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
   Guía en directo: Portugués, Inglés, Español',
- 3);
+ 3,
+  -34.6037,
+ -58.3816);
 
 
 INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)

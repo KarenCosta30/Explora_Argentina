@@ -54,6 +54,12 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @Column(length = 250)
+    private Float latitud;
+
+    @Column(length = 250)
+    private Float longitud;
+
    
     public Producto() {
     }
@@ -62,7 +68,7 @@ public class Producto {
 
     public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl,
             String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible,
-            String ubicacion, String detalle_itinerario, Categoria categoria) {
+            String ubicacion, String detalle_itinerario, Categoria categoria, Float latitud, Float longitud) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -76,6 +82,8 @@ public class Producto {
         this.ubicacion = ubicacion;
         this.detalle_itinerario = detalle_itinerario;
         this.categoria = categoria;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     
@@ -83,7 +91,7 @@ public class Producto {
 
     public Producto(String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario,
             String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion,
-            String detalle_itinerario, Categoria categoria) {
+            String detalle_itinerario, Categoria categoria, Float latitud, Float longitud) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.descripcion_larga = descripcion_larga;
@@ -96,6 +104,8 @@ public class Producto {
         this.ubicacion = ubicacion;
         this.detalle_itinerario = detalle_itinerario;
         this.categoria = categoria;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
 
@@ -202,5 +212,21 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Float getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Float latitud) {
+        this.latitud = latitud;
+    }
+
+    public Float getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Float longitud) {
+        this.longitud = longitud;
     }
 }
