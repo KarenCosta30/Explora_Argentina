@@ -34,6 +34,7 @@ const Header = () => {
       localStorage.removeItem("userActive"); //elimina el usuario del localstorage
       localStorage.removeItem("userName");
       localStorage.removeItem("userSurname");
+      localStorage.removeItem("userEmail")
       localStorage.removeItem("userAdministrator");
       dispatch({ type: "SET_USER_ACTIVE", payload: false });//modifica el userActive del contexto global a false
       dispatch({ type: "SET_USER_NAME", payload: "" }); // modifica el userName del contexto global a vacio

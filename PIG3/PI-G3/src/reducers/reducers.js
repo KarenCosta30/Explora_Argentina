@@ -2,6 +2,7 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case "GET_PRODUCTOS":
       return { ...state, tour: action.payload };
+  
       case "GET_CATEGORIES":
         return{...state,categories:action.payload};
         case "SET_USER":

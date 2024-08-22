@@ -23,8 +23,9 @@ const offersRef = useRef(null); // referencia para ir a la sección de ofertas e
   se le hizo click, ese nuevo array se guarda en filtered, si selectCategory no cumple con lo del click y la coincidencia de id, guarda todos los tour */
   
   const filteredTours = selectedCategory
-  ? state.tour.filter((tour) => tour.categoria.id === selectedCategory) 
+    ? state.tour.filter((tour) => tour.categoria.id === selectedCategory)
     : state.tour;
+const displayedTours = selectedCategory ? filteredTours : filteredTours.slice(0, 10);
 
   return (
     <main className="container-main">
@@ -70,8 +71,8 @@ const offersRef = useRef(null); // referencia para ir a la sección de ofertas e
       <section className="container-offers" ref={offersRef}>{/* Añadimos la referencia */}
         <p className="offers">Ofertas Especiales</p>
        <p className="subtitle-offers">Consulta nuestras ofertas especiales y descuentos</p>
-        <div className="container-card-tour">
-        {filteredTours.map((item, index) => ( // recorremos filteredTours, y mostramos las card
+       <div className="container-card-tour">
+          {displayedTours.map((item, index) => (
             <CardTour key={index} item={item} />
           ))}
         </div>

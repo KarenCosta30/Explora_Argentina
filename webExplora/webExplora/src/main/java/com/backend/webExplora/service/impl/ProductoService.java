@@ -52,7 +52,7 @@ public class ProductoService implements IProductoService {
         productosList.sort(Comparator.comparing(Producto::getId));  
         Collections.shuffle(productosList); 
         
-        return productosList.stream().limit(10)  
+        return productosList.stream()
                 .map(producto -> {
                     ProductoSalidaDto dto = modelMapper.map(producto, ProductoSalidaDto.class);
                     dto.setCategoria(modelMapper.map(producto.getCategoria(), CategoriaSalidaDto.class)); // Mapear la categoría

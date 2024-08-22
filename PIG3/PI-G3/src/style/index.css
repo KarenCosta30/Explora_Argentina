@@ -179,7 +179,7 @@ div.avatar:hover{
 }
 
 .container-search p {
-  margin-top: 20vh;
+  margin-top: 19vh;
   text-align: center;
   font-size: x-large;
   font-weight: bold;
@@ -260,7 +260,13 @@ input::placeholder {
   background-color: rgba(246, 238, 238, 0.5);
   border-radius: 15px;
   width: 18vw;
- 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.container-card-categories:hover{
+  transform: scale(1.1); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 .img-card-categories{
@@ -304,7 +310,7 @@ input::placeholder {
 .container-card-tour{
   display: grid;
   grid-template-columns: 40vw 40vw;
-  gap: 60px 0px ;
+  gap: 60px 20px ;
   padding-bottom: 10vh;
 }
 
@@ -721,17 +727,36 @@ input::placeholder {
   .container-search p {
     color: white;
     font-size: 1.5rem;
+    margin-top: 8vh;
+  }
+
+  .input-search{
+    width: 60vw;
+  }
+  .container-categories{
+    width: 100vw;
+  }
+  .card-categories{
+    display: flex;
+    gap: 5px;
+  }
+  .container-card-categories{
+    width: 21.5vw;
   }
 
   .img-card-categories{
     height: 20vh;
   }
 
+  .title-card-categories p {
+    font-size: small;
+  }
+
   .container-offers {
     height: 3vh;
     margin-bottom: 25px;
     max-width: 100%;
-    margin-top: 125vh;
+    margin-top: 180vh;
   }
   h3.offers {
     font-size: 1.2rem;
@@ -746,7 +771,7 @@ input::placeholder {
   
   .container-card-tour {
     display: grid;
-    margin-left: -4vw;
+    margin-left: -12vw;
     gap: 10vw;
   }
 
@@ -793,7 +818,7 @@ input::placeholder {
   }
 
   .container-footer{
-    margin-top: 130vh;
+    margin-top: 185vh;
   }
   .footer-columns{
     display: none;
@@ -830,6 +855,7 @@ input::placeholder {
   .container-search p {
     color: white;
     font-size: 1.5rem;
+    margin-top: 10vh;
   }
   .container-button{
     align-items: center;
@@ -846,11 +872,29 @@ input::placeholder {
     height: 50vh;
     padding-top: 10vh;
   }
+
+  .container-categories{
+    width: 90vw;
+    gap: 5px;
+  }
+
+  .container-card-categories{
+    width: 20vw;
+  }
+
+  .img-card-categories{
+    height: 20vh;
+    width: 20vw;
+  }
+  .title-card-categories p{
+    font-size: small;
+  }
   .container-offers {    
     max-width: 100%;
     height: 7vh;
-    margin-top: 125vh;
+    margin-top: 165vh;
   }
+
 
 
   .container-card-tour {
@@ -862,7 +906,7 @@ input::placeholder {
   }
   .card-tour{
     width: 45vw;
-
+    margin-left: -1vw;
   }
   .img-card-tour {
     width: 45vw;
@@ -895,11 +939,11 @@ input::placeholder {
   }
 
   .container-footer{
-    margin-top: 150vh;
+    margin-top: 200vh;
   }
   .footer-columns{
     display: none;
-    width: 100%;
+    width: 100vw;
   }
   .logo-footer{
     margin-top: 8vh;
@@ -933,15 +977,22 @@ input::placeholder {
    .container-button{
    margin-right: 6vh;
   }
+
+  .container-card-categories{
+    width: 20vw;
+  }
+
+  .img-card-categories{
+    height: 21vh;
+    
+  }
   
   .contairner-offers {
     max-width: 100%;
   }
 
- .contairner-card-tour {
-    margin-left: 0px;
-    margin-top: -3vh;
-  }
+
+
   .subtitle-card-tour {
     display: none;
   }
