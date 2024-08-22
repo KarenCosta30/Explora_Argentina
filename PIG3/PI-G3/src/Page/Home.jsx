@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import CardCategories from "../Components/CardCategories";
 import Form from "../Components/Form";
 import CardTour from "../Components/CardTour";
@@ -9,6 +9,7 @@ import { useTourState } from "../Context/GlobalContext";
 const Home = () => {
 const {state} = useTourState();
 const [selectedCategory, setSelectedCategory] = useState(null);
+const offersRef = useRef(null); // referencia para ir a la sección de ofertas especiales
 
 
 
@@ -47,22 +48,26 @@ const [selectedCategory, setSelectedCategory] = useState(null);
       <section className="container-categories">
         <p className="exp">Experiencias</p>
         <p className="subtitle-exp">Los destinos mas populares de Argentina, desde lugares historicos hasta maravillas naturales</p>
-       <div className="card-categories">
-        {state.categories.map((item,index)=>{
-          return <CardCategories 
-          key={index} 
-          item={item}
-          onClick={()=>setSelectedCategory(item.id)}  > {/* establece la categoria seleccionada, cuando se da click guarda el id en setCaregory */}
-
-          </CardCategories>
-        })}
-        
-      </div>
+        <div className="card-categories">
+          {state.categories.map((item, index) => (
+            <CardCategories
+              key={index}
+              item={item}
+              onClick={() => {
+                setSelectedCategory(item.id); 
+                // Realiza el scroll hacia la sección de "Ofertas Especiales"
+                if (offersRef.current) {
+                  offersRef.current.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            />
+          ))}
+        </div>
     </section>
   
   
   {/* DIV DE OFERTAS ESPECIALES, ESTO DEBE SER RANDOM */}
-      <section className="container-offers">
+      <section className="container-offers" ref={offersRef}>{/* Añadimos la referencia */}
         <p className="offers">Ofertas Especiales</p>
        <p className="subtitle-offers">Consulta nuestras ofertas especiales y descuentos</p>
         <div className="container-card-tour">
