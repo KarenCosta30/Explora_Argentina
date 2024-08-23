@@ -649,7 +649,7 @@ Guía en vivo: inglés, Francés, Español',
 
 INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)
 VALUES 
-("Garcia", "ana.garcia@example.com", false, "Ana", "anagarcia1") ,
+("Garcia", "ana.garcia@example.com", true, "Ana", "$2a$10$uGgw6iqT3oCvbtLS6L66IuMyFB7T6HKnIAXcxp0bZRWHPMSCeAoGK") ,
 ("Martinez", "luis.martinez@example.com", false, "Luis", "martinez1"),
 ("Fernandez", "maria.fernandez@example.com", false, "Maria", "fernandez1"),
 ("Rodriguez", "juan.rodriguez@example.com", false, "Juan", "rodriguez1"),

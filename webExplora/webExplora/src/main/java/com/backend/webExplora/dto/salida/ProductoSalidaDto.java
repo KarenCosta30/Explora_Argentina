@@ -18,7 +18,7 @@ public class ProductoSalidaDto {
     private Boolean disponible;
     private String ubicacion;
     private String itinerario;
-    private String detalle_itinierario;
+    private String detalle_itinerario;
     private CategoriaSalidaDto categoria;
     private Float longitud;
     private Float latitud;
@@ -38,7 +38,7 @@ public class ProductoSalidaDto {
         this.imagenUrl2 = imagenUrl2;
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
-        this.detalle_itinierario = detalle_itinerario;
+        this.detalle_itinerario = detalle_itinerario;
         this.longitud = longitud;
         this.latitud = latitud;
     }
