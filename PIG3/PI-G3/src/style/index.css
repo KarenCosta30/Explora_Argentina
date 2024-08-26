@@ -690,6 +690,10 @@ div.copyright{
   box-sizing: border-box;
 }
 
+.leaflet-control-attribution {
+  display: none;
+}
+
 .btn-back {
   width: 5vw;
   height: 5vh;
