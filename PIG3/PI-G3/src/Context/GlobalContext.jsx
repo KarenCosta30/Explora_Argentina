@@ -13,6 +13,7 @@ const initialState = {
     userEmail: "",
     userAdministrator: false,
     categories:[],
+    favorites: []
     
 }
 

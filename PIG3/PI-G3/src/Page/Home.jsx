@@ -3,11 +3,14 @@ import CardCategories from "../Components/CardCategories";
 import Form from "../Components/Form";
 import CardTour from "../Components/CardTour";
 import { useTourState } from "../Context/GlobalContext";
+import Button from "../Components/Button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 
 
 const Home = () => {
-const {state} = useTourState();
+const {state, dispatch} = useTourState();
 const [selectedCategory, setSelectedCategory] = useState(null);
 const offersRef = useRef(null); // referencia para ir a la sección de ofertas especiales
 
@@ -73,7 +76,14 @@ const displayedTours = selectedCategory ? filteredTours : filteredTours.slice(0,
        <p className="subtitle-offers">Consulta nuestras ofertas especiales y descuentos</p>
        <div className="container-card-tour">
           {displayedTours.map((item, index) => (
-            <CardTour key={index} item={item} />
+            <CardTour key={index} item={item} >
+              <Button className={"btn-fav"} onClick={()=>{
+                alert("El tour se agregó a favoritos")
+                dispatch({type:"ADD_FAVORITES", payload:item})
+              }}>
+                <FontAwesomeIcon icon={faStar} />
+              </Button>
+            </CardTour>
           ))}
         </div>
     </section>

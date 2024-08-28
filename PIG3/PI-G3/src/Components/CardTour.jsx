@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const CardTour = ({item}) => {
+const CardTour = ({item, children}) => {
   const {imagenUrl,nombre,descripcion,precio,id} = item
   return (
     
@@ -16,9 +16,11 @@ const CardTour = ({item}) => {
           <Link to={`/detail/${id}`}>
             <Button className="btn-card-tour">Detalles</Button>
           </Link>
+          
         </div>
+        {children}
         </div>
-       
+        
       </div>
    
   );

@@ -7,6 +7,8 @@ import ScrollToTop from "./Components/ScrollToTop";
 import CreateAccount from "./Page/CreateAccount";
 import Login from "./Page/Login";
 import ControlPanel from "./Page/ControlPanel"
+import Favorites from "./Page/Favorites";
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Route path="/Login" element={<Login />}/>  
         <Route path="/createaccount" element={<CreateAccount/>}/>
         <Route path="/userlist" element={<ControlPanel/>}/>
+        <Route path="/favorites" element={<Favorites/>}/>
       </Routes>
        <Footer /> 
     </div>

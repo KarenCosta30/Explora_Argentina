@@ -58,7 +58,14 @@ const Header = () => {
         </Link>
         <p>EXPLORA ARGENTINA</p>
       </div>
-
+        <div>
+             <Link to={"/favorites"}>
+        <span className="nav-header"> FAVORITOS </span>
+        </Link>
+        </div>
+     
+        
+      
       <div className="container-button">
         {state.userActive ? (
         <div className="user-avatar">
