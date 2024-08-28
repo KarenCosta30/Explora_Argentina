@@ -45,6 +45,9 @@ export const reducer = (state, action) => {
                 return { ...state, favorites: [...state.favorites, action.payload] };
            case "DELETE_FAVORITES":
             return {...state, favorites:state.favorites.filter(fav => fav.id !== action.payload.id)};
+        case "SET_FAVORITES":
+            return { ...state, favorites: action.payload };
+
       default:
           return state;
   }

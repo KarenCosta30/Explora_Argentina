@@ -57,12 +57,7 @@ const Header = () => {
           <img className="img-logo" src="/public/img/logo.png" alt="logo" />
         </Link>
         <p>EXPLORA ARGENTINA</p>
-      </div>
-        <div>
-             <Link to={"/favorites"}>
-        <span className="nav-header"> FAVORITOS </span>
-        </Link>
-        </div>
+      </div>    
      
         
       

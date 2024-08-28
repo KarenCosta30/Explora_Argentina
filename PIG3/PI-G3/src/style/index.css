@@ -43,10 +43,7 @@ img {
   gap: 10px;
   margin-left: 30px;
 }
-.nav-header{
-  color: #ffffff;
-  margin-left: 20vw;
-}
+
 
 .container-button {
   display: flex;
@@ -583,7 +580,7 @@ div.copyright{
   background-color: rgba(193, 138, 41, 0.1);
   box-shadow: 1px 1px rgba(0, 0, 0, 1);
   height: max-content;
-
+  width: 60vw;
   border: 2px solid #0e2a33;
   border-radius: 25px;
   padding-top: 10px;
@@ -605,6 +602,8 @@ div.copyright{
   border-radius: 30px;
   padding: 15px;
   padding-top: 30px;
+  gap: 55px;
+  
 }
 
 .description-card-booking {

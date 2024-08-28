@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 /*
 show: Determina si el popover debe mostrarse o no.
@@ -23,6 +23,7 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
         )}
         <p>{name} {surname}</p>
         <p>{email}</p>
+        <Link to={"/favorites"}>Mis favoritos</Link>
         <button onClick={onLogout}>Cerrar Sesión</button>
       </div>
       <div className="popover-overlay" onClick={onClose}></div>

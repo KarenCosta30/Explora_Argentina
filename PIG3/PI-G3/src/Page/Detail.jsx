@@ -23,6 +23,7 @@ const Detail = () => {
   useEffect(() => {
     axios.get(url).then((res) => setTour(res.data));
   }, [params.id]);
+  
 
   return (
     <main className="container-detail">
@@ -59,7 +60,7 @@ const Detail = () => {
             </p>
           </div>
 
-          <div className="card-booking">
+          {/* <div className="card-booking">
             <span>Reserva tu lugar</span>
             <input type="text" placeholder="Sabado,17 de Agosto" />
             <input type="text" placeholder="1 persona" />
@@ -86,7 +87,27 @@ const Detail = () => {
                 </Button>
               </Link>
             )}
+          </div> */}
+          <div className="card-booking">
+            <span>Reserva tu lugar</span>
+            <div className="info-card-booking">
+              <form action="">
+                <label htmlFor="">Cuantas personas son</label>
+                <input 
+                  type="number"   
+                  min="1" // Valor mínimo permitido
+                  max="10" // Valor máximo permitido
+                />
+                <label htmlFor="">Selecciona la fecha</label>
+                <input type="date" />              
+              </form>
+            </div>
+            <span> 1 adulto x ${tour.precio}</span>
+            <span> El precio incluye impuestos y tarifas de reservación.</span>
+          
+
           </div>
+
         </div>
       </section>
 

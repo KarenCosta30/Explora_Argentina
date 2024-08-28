@@ -13,7 +13,7 @@ const initialState = {
     userEmail: "",
     userAdministrator: false,
     categories:[],
-    favorites: []
+    favorites: JSON.parse(localStorage.getItem("favorites")) || []
     
 }
 
