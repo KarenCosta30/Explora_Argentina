@@ -19,7 +19,7 @@ Día 3: Actividades al aire libre y regreso.',
 'https://c0.wallpaperflare.com/preview/881/303/659/argentina-san-carlos-de-bariloche-lake-mountain.jpg',
 300.00,
 true,
-'San Carlos de Bariloche, Argentina',
+'San Carlos de Bariloche',
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
@@ -37,7 +37,7 @@ Día 3: Actividades al aire libre y regreso.',
 'https://blogimagestc.s3.amazonaws.com/tren_fin_del_mundo4.jpg',
 300.00,
 true,
-'Ushuaia, Argentina',
+'Ushuaia',
 'Edad: 0 a 99 años. Duración: 2 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 1,
 -54.7930,
@@ -57,7 +57,7 @@ Compra de Vinos y Souvenirs.',
 'https://bomtravel.com/wp-content/uploads/2022/04/1-35.jpg',
 150.00,
 true,
-'Mendoza, Argentina',
+'Mendoza',
 'Edad: 0 a 99 años. Duración: 6 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
 -32.971328,
@@ -77,7 +77,7 @@ Visita a la Isla San Martín.',
 'https://www.welcomeargentina.com/paseos/cataratas_iguazu/cataratas-iguazu-2.jpg',
 200.00,
 true,
-'Cataratas de Iguazú, Argentina',
+'Cataratas de Iguazú',
 'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
@@ -98,7 +98,7 @@ Tiempo Libre y Regreso.',
 'https://i.pinimg.com/736x/62/9a/b4/629ab4feb040d7c804704167e5c0eb14.jpg',
 100.00,
 true,
-'Purmamarca, Jujuy, Argentina',
+'Jujuy',
 'Edad: 0 a 99 años. Máximo 27 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
@@ -119,7 +119,7 @@ Regreso a El Calafate.',
 'https://www.interpatagonia.com/paseos/trekkingperitomoreno/trekking-perito-moreno-7.jpg',
 180.00,
 true,
-'El Calafate, Argentina',
+'El Calafate',
 'Edad: 8 a 65 años. Máximo 50 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
@@ -140,7 +140,7 @@ Regreso a Salta o Jujuy.',
 'https://bomtravel.com/wp-content/uploads/2022/06/10-10.jpg',
 120.00,
 true,
-'Salinas Grandes, Salta y Jujuy, Argentina',
+'Salta',
 'Edad: 0 a 69 años. Máximo 23 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
@@ -162,7 +162,7 @@ Recorrido por los principales puntos turísticos de Buenos Aires.',
 'https://media.istockphoto.com/id/523040054/es/foto/colorido-edificio-la-boca-barrio-de-buenos-aires-argentina.jpg?s=612x612&w=0&k=20&c=N0AeTBfuve6TPCuV1UwhqVWA7pqo7eZZuTxKkdgcGsU=',
 80.00,
 true,
-'Buenos Aires, Argentina',
+'Buenos Aires',
 'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3,
@@ -182,7 +182,7 @@ Volverás al punto de partida',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/8a/b7/0d/caption.jpg?w=1000&h=-1&s=1',
 180.00,
 true,
-'Mendoza, Argentina', 
+'Mendoza', 
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
 -32.9715,
@@ -199,7 +199,7 @@ Casa El enemigo (parada de 3 horas, entrada incluida).',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/3d/ba/ce.jpg',
 265.00,
 true,
-'Mendoza, Argentina',
+'Mendoza',
 'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
 -33.0087,
@@ -216,7 +216,7 @@ Bodega Renacer (parada 70 minutos - entrada incluida)',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/01/4d/02.jpg',
 27.00,
 true,
-'Mendoza, Argentina',
+'Mendoza',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
 -33.0096,
@@ -238,7 +238,7 @@ Volverás al punto de partida',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/8a/6d/7b.jpg',
 88.00,
 true,
-'Córdoba, Argentina',
+'Cordoba',
 'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4,
 -31.0276,
@@ -259,7 +259,7 @@ Volverás al punto de partida',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/15/c5/e4/caption.jpg?w=1000&h=-1&s=1',
 170.00,
 true,
-'El Calafate, Argentina',
+'El Calafate',
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
@@ -289,7 +289,7 @@ Volverás al punto de partida',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/83/a2/cd.jpg',
 205.00,
 true,
-'El Calafate, Argentina',
+'El Calafate',
 'Edad: de 4 a 90 años. Máximo 45 por grupo. Duración: 14 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
@@ -312,7 +312,7 @@ Volverás al punto de partida',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/61/95/e5.jpg',
 73.00,
 true,
-'San Carlos de Bariloche, Argentina',
+'San Carlos de Bariloche',
 'Edad: de 0 a 90 años. Máximo 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
@@ -332,7 +332,7 @@ Entrada - Cerro Otto',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/14/46/e5/caption.jpg?w=1000&h=-1&s=1',
 38.00,
 true,
-'San Carlos de Bariloche, Argentina',
+'San Carlos de Bariloche',
 'Edad: de 5 a 90 años. Duración: de 2 a 4 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
@@ -348,7 +348,7 @@ Guía en directo: Portugués, Inglés, Español',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/f2/e7/34/excursion-de-un-dia-al.jpg?w=1000&h=-1&s=1',
 66.00,
 true,
-'San Carlos de Bariloche, Provincia de Río Negro, La Patagonia',
+'San Carlos de Bariloche',
 'Edades: de 0 a 99, máx. de 10 por grupo
 Duración: 9 h
 Horario de inicio: consultar disponibilidad
@@ -370,7 +370,7 @@ Servicio de recogida en el hotel y traslado de ida y vuelta sin complicaciones d
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/ab/95/16/andes-dagtrip-vanuit.jpg?w=1000&h=-1&s=1',
 211.00,
 true,
-'Mendoza, Provincias de Mendoza, Cuyo, Argentina',
+'Mendoza',
 'Edades: de 2 a 99, máx. de 23 por grupo
 Duración: 12 h
 Horario de inicio: consultar disponibilidad
@@ -393,7 +393,7 @@ Guía en vivo: Español',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f9/59/75/snorkeling-con-leones.jpg?w=1000&h=-1&s=1',
 124.00,
 true,
-'Playa El Doradillo, Puerto Madryn',
+'Puerto Madryn',
 'Edades: de 6 a 70, máx. de 10 por grupo
 Duración: 2 h 30 m
 Horario de inicio: consultar disponibilidad
@@ -421,7 +421,7 @@ Duración: 30 minutos',
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/40/98/5f.jpg',
 129.00,
 true,
-'Puerto Madryn, Provincia de Chubut, La Patagonia',
+'Puerto Madryn',
 'Edades: de 2 a 89, máx. de 17 por grupo
 Duración: 7 h
 Horario de inicio: consultar disponibilidad
@@ -441,7 +441,7 @@ Guía en vivo: inglés, Español',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/fc/bb/1e/excursiones-en-kayak.jpg?w=1000&h=-1&s=1',
 103.00,
 true,
-'Villa La Angostura, Neuquén',
+'Neuquen',
 'Edades: de 0 a 99, máx. de 12 por grupo
 Duración: 4 h
 Horario de inicio: consultar disponibilidad
@@ -463,7 +463,7 @@ Lo trasladamos de regreso a San Martín de los Andes.',
 ' https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/93/c2/16.jpg',
 154.00,
 true,
-'San Martin de los Andes, Neuquén, La Patagonia',
+'Neuquen',
 'Edades: de 5 a 99, máx. de 8 por grupo
 Duración: 5 h
 Horario de inicio: consultar disponibilidad
@@ -487,7 +487,7 @@ Veremos una colonia de leones marinos en Punta Pirámides',
 'https://cdn.getyourguide.com/img/tour/0341ee19d5a869642ca3ef0c06a070ca99d0388b62aa66cafc90e65c8437660a.jpg/145.jpg',
 135.00,
 true,
-'Península Valdés, Chubut, Argentina',
+'Chubut',
 'Edades: de 2 a 99, máx. de 20 por grupo
 Duración: 6 h
 Horario de inicio: consultar disponibilidad
@@ -515,7 +515,7 @@ Durante el descenso descubrimos huellas que nos revelarán los animales que frec
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/93/6a/3e.jpg',
 175.00,
 true,
-'San Carlos de Bariloche, Provincia de Río Negro, La Patagonia',
+'San Carlos de Bariloche',
 ' Edades de 12 a 65
 Duración: 6 h
 Horario de inicio: consultar disponibilidad
@@ -543,7 +543,7 @@ Duración: 20 minutos',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/7e/71/6a/caption.jpg?w=1000&h=-1&s=1',
 30.00,
 true,
-'San Carlos de Bariloche, Provincia de Río Negro, La Patagonia',
+'San Carlos de Bariloche',
 'Edades: de 1 a 99, máx. de 20 por grupo
 Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
@@ -568,7 +568,7 @@ La excursión incluye todos los traslados, la excursión a caballo y el almuerzo
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/f0/75/e6/caption.jpg?w=1000&h=-1&s=1',
 185.00,
 true,
-'Maipú, Provincia de Mendoza',
+'Mendoza',
 'Edades: de 18 a 80, máx. de 8 por grupo
 Duración: 6 h
 Horario de inicio: consultar disponibilidad
@@ -592,7 +592,7 @@ Disfrute de los comentarios y conozca los secretos de la producción de vino',
 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/c8/d5/d3/experiencia-malbec-en.jpg?w=1000&h=-1&s=1',
 21.00,
 true,
-'Luján de Cuyo, Mendoza, Provincias de Mendoza, Cuyo, Argentina',
+'Mendoza',
 'Edades: de 0 a 99, máx. de 15 por grupo
 Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
@@ -616,7 +616,7 @@ Nuestra visita cubre las bodegas Monteviejo, Cuvelier Los Andes, DiamAndes y las
 'https://www.aseuniv.com/images/clos-de-los-7-img-5.jpg',
 350.00,
 true,
-'Valle de Uco, Mendoza',
+'Mendoza',
 'Edades de 18 a 99
 Duración: 8 h
 Horario de inicio: consultar disponibilidad
@@ -636,7 +636,7 @@ La visita a cada bodega dura aproximadamente 45 minutos, incluye un recorrido po
 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/36/a2/20.jpg',
 90.00,
 true,
-'Cafayate, Provincia de Salta, Norte de Argentina',
+'Salta',
 'Edades de 0 a 99
 Duración: 6 h
 Horario de inicio: consultar disponibilidad

@@ -222,7 +222,7 @@ input::placeholder {
   text-align: center;
 }
 
-.btn-search {
+.btn-search, .btn-reset {
   color: #ffffff;
   background-color: #39afe5;
   border: none;
@@ -231,6 +231,8 @@ input::placeholder {
   width: 103px;
   height: 42px;
 }
+
+
 
 .btn-search:hover {
   opacity: 0.9;
