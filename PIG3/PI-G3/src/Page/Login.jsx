@@ -29,13 +29,13 @@ const Login = () => {
             dispatch({ type: "SET_USER_NAME", payload: user.nombre });
             dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
             dispatch({ type: "SET_USER_EMAIL", payload: user.email });
-            dispatch({ type: "SET_USER_ADMINISTRATOR", payload: user.esAdministrador})
+            dispatch({ type: "SET_USER_ADMINISTRATOR", payload: user.esAdministrador });
 
             localStorage.setItem("userActive", true);
             localStorage.setItem("userName", user.nombre);
             localStorage.setItem("userSurname", user.apellido);
             localStorage.setItem("userEmail", user.email);
-            localStorage.setItem("userAdministrator", user.esAdministrador)
+            localStorage.setItem("userAdministrator", user.esAdministrador);
 
             navigate('/');
         } catch (err) {
@@ -52,8 +52,22 @@ const Login = () => {
                 <Form 
                     className={"form-login"}
                     fields={[
-                        { type: "text", placeholder: "Correo electrónico", name: "email", value: data.email, onChange: handleChange },
-                        { type: "password", placeholder: "Contraseña ", name: "password", value: data.password, onChange: handleChange },
+                        { 
+                            type: "email", 
+                            placeholder: "Correo electrónico", 
+                            name: "email", 
+                            value: data.email, 
+                            onChange: handleChange,
+                            autoComplete: "email" // Añadir autocomplete para el email
+                        },
+                        { 
+                            type: "password", 
+                            placeholder: "Contraseña", 
+                            name: "password", 
+                            value: data.password, 
+                            onChange: handleChange,
+                            autoComplete: "current-password" // Añadir autocomplete para la contraseña
+                        },
                     ]}
                     buttonText="Iniciar Sesión"
                     onSubmit={handleSubmit}

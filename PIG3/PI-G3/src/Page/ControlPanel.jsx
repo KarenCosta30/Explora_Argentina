@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Para redirigir si no es admin
+import { useNavigate } from 'react-router-dom';
 import { useTourState } from '../Context/GlobalContext';
 import '../style/adminTools.css';
 
 const ControlPanel = () => {
-  const { state } = useTourState(); // Acceder al estado global
+  const { state, dispatch } = useTourState(); // Acceder al estado global
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  // Verifica si el usuario es administrador
   useEffect(() => {
     if (!state.userActive || !state.userAdministrator) {
-      // Redirigir al usuario si no está activo o no es administrador
       navigate('/login');
     }
   }, [state.userActive, state.userAdministrator, navigate]);
@@ -38,11 +36,25 @@ const ControlPanel = () => {
           user.id === id ? { ...user, esAdministrador } : user
         )
       );
+
+      // Verifica si el usuario actual se quita su propio rol de administrador
+      if (state.user.id === id && !esAdministrador) {
+        // Actualizar el estado global y localStorage
+        dispatch({ type: "SET_USER_ADMINISTRATOR", payload: false });
+      }
     })
     .catch(error => {
       console.error("Error updating admin status:", error);
     });
   };
+
+  // useEffect para sincronizar el localStorage con el estado global
+  useEffect(() => {
+    localStorage.setItem("userAdministrator", state.userAdministrator);
+    if (!state.userAdministrator) {
+      navigate('/'); // Redirigir fuera del panel de administración
+    }
+  }, [state.userAdministrator, navigate]);
 
   const filteredUsuarios = usuarios.filter(usuario =>
     usuario.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,7 +62,6 @@ const ControlPanel = () => {
 
   return (
     <div className='panel-container'>
-      {/* Campo de búsqueda */}
       <input className='search-email'
         type="text" 
         placeholder="🔍 Buscar por email" 
@@ -61,7 +72,7 @@ const ControlPanel = () => {
       <table>
         <thead>
           <tr>
-            <th>Admin</th>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
@@ -91,4 +102,4 @@ const ControlPanel = () => {
   );
 };
 
-export default ControlPanel;
+export default ControlPanel;

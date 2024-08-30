@@ -49,6 +49,8 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 name={field.name}
                 value={field.value}
                 onChange={field.onChange}
+                autoComplete={field.autoComplete}
+                required
               />
             );
           }
