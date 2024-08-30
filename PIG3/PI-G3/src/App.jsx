@@ -7,6 +7,9 @@ import ScrollToTop from "./Components/ScrollToTop";
 import CreateAccount from "./Page/CreateAccount";
 import Login from "./Page/Login";
 import ControlPanel from "./Page/ControlPanel"
+import Favorites from "./Page/Favorites";
+import RegisterProductForm from "./Page/RegisterProductForm";
+
 
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
         <Route path="/Login" element={<Login />}/>  
         <Route path="/createaccount" element={<CreateAccount/>}/>
         <Route path="/userlist" element={<ControlPanel/>}/>
+        <Route path="/registerproduct" element={<RegisterProductForm/>}/>
+        <Route path="/favorites" element={<Favorites/>}/>
+        <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
       </Routes>
        <Footer /> 
     </div>

@@ -1,14 +1,13 @@
 import React from "react";
 import Button from "./Button";
 
-const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children , paragraphText  }) => {
+const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText }) => {
   return (
     <div>
       <form onSubmit={onSubmit} className={className}>
         {children}
         {fields.map((field, index) => {
           if (field.type === "group") {
-            // Si el field es un grupo, renderiza un div con la clase especificada
             return (
               <div key={index} className={field.className}>
                 {field.fields.map((subField, subIndex) => (
@@ -24,8 +23,23 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 ))}
               </div>
             );
+          } else if (field.type === "select") {
+            return (
+              <select
+                key={index}
+                className={inputClassName}
+                name={field.name}
+                value={field.value}
+                onChange={field.onChange}
+              >
+                {field.options && field.options.map((option, idx) => (
+                  <option key={idx} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            );
           } else {
-            // Si el field no es un grupo, renderiza un input normal
             return (
               <input
                 key={index}
@@ -35,6 +49,8 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 name={field.name}
                 value={field.value}
                 onChange={field.onChange}
+                autoComplete={field.autoComplete}
+                required
               />
             );
           }

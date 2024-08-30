@@ -1,0 +1,15 @@
+.container-favorites{
+  padding-bottom: 20vh;
+ padding-top: 20vh;
+}
+
+.title-favorites{
+  display: flex;
+  justify-content: center;
+}
+.card-favorites{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

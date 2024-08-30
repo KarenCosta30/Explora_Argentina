@@ -1,16 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CardCategories from "../Components/CardCategories";
 import Form from "../Components/Form";
 import CardTour from "../Components/CardTour";
 import { useTourState } from "../Context/GlobalContext";
+import Button from "../Components/Button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 
 
 const Home = () => {
-const {state} = useTourState();
+const {state, dispatch} = useTourState();
 const [selectedCategory, setSelectedCategory] = useState(null);
 const offersRef = useRef(null); // referencia para ir a la sección de ofertas especiales
 
+useEffect(() => {
+  const activeUser = localStorage.getItem("userActive") === "true"; //Verifica si hay un usuario activo almacenado en el localStorage
+  if (activeUser) {
+    dispatch({ type: "SET_USER_ACTIVE", payload: true });
+  }
+}, [dispatch]);
 
 
   const handleSearchSubmit = (e) => {
@@ -34,7 +43,21 @@ const displayedTours = selectedCategory ? filteredTours : filteredTours.slice(0,
         <p>¿Cuál va a ser tu próxima aventura?</p>
         <Form className={"form"} // aca pasamos la primer props que esta en el componente form
           fields={[
-            {  type: "text", placeholder: "¿A dónde vamos?" },
+            { type: "select", 
+              placeholder: "¿A dónde vamos?",
+              // defino las opciones para el menú desplegable
+              options: [
+              {value: "", label: "¿A dónde vamos?"},
+              {value: "bariloche", label: "Bariloche"},
+              {value: "mendoza", label: "Mendoza"},
+              {value: "cordoba", label: "Córdoba"},
+              {value: "ushuaia", label: "Ushuaia"},
+              {value: "salta", label: "Salta"},
+              {value: "iguazu", label: "Iguazú"},
+              {value: "el-calafate", label: "El Calafate"},
+              {value: "buenos-aires", label: "Buenos Aires"},  
+              {value: "puerto-madryn", label: "Puerto Madryn"}  
+            ] },
             { type: "date" },
           ]}
           buttonText="Buscar" // esta es la segunda props que marca que dira el boton
@@ -73,7 +96,17 @@ const displayedTours = selectedCategory ? filteredTours : filteredTours.slice(0,
        <p className="subtitle-offers">Consulta nuestras ofertas especiales y descuentos</p>
        <div className="container-card-tour">
           {displayedTours.map((item, index) => (
-            <CardTour key={index} item={item} />
+            <CardTour key={index} item={item} >
+              {state.userActive ? (
+                <Button className={"btn-fav"} onClick={()=>{
+                  alert("El tour se agregó a favoritos")
+                  dispatch({type:"ADD_FAVORITES", payload:item})
+                }}>
+                  <FontAwesomeIcon icon={faStar} />
+                </Button>) : (null )} 
+
+              
+                </CardTour>
           ))}
         </div>
     </section>

@@ -8,6 +8,10 @@ body {
   font-style: normal;
 }
 
+link{
+  text-decoration: none;
+}
+
 /* HEADER ------------------*/
 .container-header {
   background-color: #0e2a33;
@@ -19,6 +23,7 @@ body {
   position: fixed;
   gap: 10px;
   z-index: 1000;
+  
 }
 
 .container-header p {
@@ -38,6 +43,7 @@ img {
   gap: 10px;
   margin-left: 30px;
 }
+
 
 .container-button {
   display: flex;
@@ -398,6 +404,18 @@ input::placeholder {
   background-color: #9c7a4029;
 }
 
+.btn-fav{
+  background-color: #e8b96729;
+  color: #007bc7;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: #172432 solid 1.2px;
+  font-weight:bolder;
+  text-align: center;
+  margin-left: 8vw;
+}
+
 
 
 /* ------------------- ESTILOS FOOTER ---------------- */
@@ -562,7 +580,7 @@ div.copyright{
   background-color: rgba(193, 138, 41, 0.1);
   box-shadow: 1px 1px rgba(0, 0, 0, 1);
   height: max-content;
-
+  width: 60vw;
   border: 2px solid #0e2a33;
   border-radius: 25px;
   padding-top: 10px;
@@ -584,6 +602,8 @@ div.copyright{
   border-radius: 30px;
   padding: 15px;
   padding-top: 30px;
+  gap: 55px;
+  
 }
 
 .description-card-booking {

@@ -57,8 +57,10 @@ const Header = () => {
           <img className="img-logo" src="/public/img/logo.png" alt="logo" />
         </Link>
         <p>EXPLORA ARGENTINA</p>
-      </div>
-
+      </div>    
+     
+        
+      
       <div className="container-button">
         {state.userActive ? (
         <div className="user-avatar">
