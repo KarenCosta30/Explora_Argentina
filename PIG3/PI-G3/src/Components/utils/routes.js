@@ -7,5 +7,6 @@ export const routes = {
     login:'/login',
     createaccount:'/createaccount',
     userlist:'/userlist',
+    registerproduct:'/registerproduct',
     favorites:'/favorite'
 }
