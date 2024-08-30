@@ -35,7 +35,7 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
           {adminToolsOpen && (
               <div className="admin-menu">
                 <button onClick={() => handleNavigation('/userlist')}>Lista de Usuarios</button>
-                <button onClick={() => handleNavigation('/register-product')}>Registrar Producto</button>
+                <button onClick={() => handleNavigation('/registerproduct')}>Registrar Producto</button>
                 {/* Agrega más opciones aquí */}
               </div>
             )}
