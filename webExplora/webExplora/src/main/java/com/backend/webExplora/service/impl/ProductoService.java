@@ -100,4 +100,5 @@ public class ProductoService implements IProductoService {
         logger.info("ProductoSalidaDto: {}", JsonPrinter.toString(productoSalidaDto));
         return productoSalidaDto;
     }
+   
 }

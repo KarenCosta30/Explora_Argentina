@@ -11,4 +11,5 @@ public interface IProductoService {
     ProductoSalidaDto registrarProducto(ProductoEntradaDto producto);
     List<ProductoSalidaDto> obtenerProductosPorCategoria(Long categoriaId);
      List<CategoriaSalidaDto> obtenerCategoriasAleatorias();
+     
 }

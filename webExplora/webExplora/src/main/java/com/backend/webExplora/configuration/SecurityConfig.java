@@ -24,9 +24,9 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeRequests()
-                .anyRequest().permitAll() // Permitir acceso a todas las rutas
+                .anyRequest().permitAll() 
             .and()
-            .cors(); // Asegúrate de habilitar CORS
+            .cors(); 
         return http.build();
     }
 

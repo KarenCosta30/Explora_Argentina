@@ -56,5 +56,5 @@ public class ProductoController {
         List<CategoriaSalidaDto> categorias = productoService.obtenerCategoriasAleatorias();
         return ResponseEntity.ok(categorias);
     }
-
-}
+    
+    }

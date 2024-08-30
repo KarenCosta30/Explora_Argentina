@@ -10,4 +10,6 @@ import com.backend.webExplora.entity.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
     List<Producto> findByCategoriaId(Long categoria_id);
+    
+
 }
