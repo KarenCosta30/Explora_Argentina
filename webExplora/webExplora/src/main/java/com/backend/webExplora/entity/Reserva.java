@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "RESERVAS")
 public class Reserva {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -77,7 +77,4 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
     }
 
-     
-    
-    
 }

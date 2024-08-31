@@ -22,8 +22,10 @@ import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.entity.Categoria;
 import com.backend.webExplora.entity.Producto;
+import com.backend.webExplora.entity.Reserva;
 import com.backend.webExplora.repository.CategoriaRepository;
 import com.backend.webExplora.repository.ProductoRepository;
+import com.backend.webExplora.repository.ReservaRepository; // Añadir ReservaRepository
 import com.backend.webExplora.service.IProductoService;
 import com.backend.webExplora.utils.JsonPrinter;
 
@@ -31,6 +33,9 @@ import com.backend.webExplora.utils.JsonPrinter;
 public class ProductoService implements IProductoService {
     @Autowired
     private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private ReservaRepository reservaRepository; // Inyectar ReservaRepository
 
     private static final Logger logger = LoggerFactory.getLogger(ProductoService.class);
     private final ProductoRepository productoRepository;
@@ -41,61 +46,81 @@ public class ProductoService implements IProductoService {
         this.modelMapper = modelMapper;
     }
 
-  @Override
+    // Implementación del método para LocalDate y String
+    @Override
     public List<ProductoSalidaDto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion) {
-        List<Long> idsReservados = productoRepository.findReservasPorFecha(fechaReserva)
-                                                     .stream()
-                                                     .map(reserva -> reserva.getProducto().getId())
-                                                     .collect(Collectors.toList());
+        logger.info("Obteniendo productos disponibles para la fecha: {} y ubicación: {}", fechaReserva, ubicacion);
 
-      
+        // Usar ReservaRepository para obtener las reservas
+        List<Reserva> reservas = reservaRepository.findByFechaReserva(fechaReserva);
+
+        // Obtener los IDs de los productos reservados
+        List<Long> idsReservados = reservas.stream()
+                .map(reserva -> reserva.getProducto().getId())
+                .collect(Collectors.toList());
+
         List<Producto> productos = productoRepository.findByUbicacionAndIdNotIn(ubicacion, idsReservados);
 
         return convertirAProductoSalidaDto(productos);
     }
 
+    // Implementación del método para String y List<Long>
+    @Override
+    public List<ProductoSalidaDto> obtenerProductosDisponibles(String criterio, List<Long> categoriasIds) {
+        logger.info("Obteniendo productos disponibles con criterio: {} y categorías: {}", criterio, categoriasIds);
+
+        // Lógica para obtener productos según el criterio y las categorías
+        List<Producto> productos = productoRepository.findByCriterioAndCategoria_IdIn(criterio, categoriasIds);
+
+        return convertirAProductoSalidaDto(productos);
+    }
+
+    private List<ProductoSalidaDto> convertirAProductoSalidaDto(List<Producto> productos) {
+        return productos.stream()
+                .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<ProductoSalidaDto> obtenerProductosAleatorios() {
         logger.info("Obteniendo lista de productos aleatorios");
-        
-        List<Producto> productos = productoRepository.findAll();  
-        Set<Producto> productosUnicos = new TreeSet<>(Comparator.comparing(Producto::getId)); 
-        productosUnicos.addAll(productos); 
-        List<Producto> productosList = new ArrayList<>(productosUnicos); 
-        
-        productosList.sort(Comparator.comparing(Producto::getId));  
-        Collections.shuffle(productosList); 
-        
+
+        List<Producto> productos = productoRepository.findAll();
+        Set<Producto> productosUnicos = new TreeSet<>(Comparator.comparing(Producto::getId));
+        productosUnicos.addAll(productos);
+        List<Producto> productosList = new ArrayList<>(productosUnicos);
+
+        productosList.sort(Comparator.comparing(Producto::getId));
+        Collections.shuffle(productosList);
+
         return productosList.stream()
                 .map(producto -> {
                     ProductoSalidaDto dto = modelMapper.map(producto, ProductoSalidaDto.class);
-                    dto.setCategoria(modelMapper.map(producto.getCategoria(), CategoriaSalidaDto.class)); // Mapear la categoría
+                    dto.setCategoria(modelMapper.map(producto.getCategoria(), CategoriaSalidaDto.class)); // Mapear la
+                                                                                                          // categoría
                     return dto;
-                })  
-                .collect(Collectors.toList()); 
+                })
+                .collect(Collectors.toList());
     }
-    
-      @Override
+
+    @Override
     public List<CategoriaSalidaDto> obtenerCategoriasAleatorias() {
         List<Categoria> categorias = categoriaRepository.findAll();
         Collections.shuffle(categorias); // Mezcla las categorías para obtener una selección aleatoria.
         return categorias.stream()
-                .limit(5) 
+                .limit(5)
                 .map(categoria -> modelMapper.map(categoria, CategoriaSalidaDto.class))
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public List<ProductoSalidaDto> obtenerProductosPorCategoria(Long categoriaId) {
-    logger.info("Obteniendo productos para la categoría con id: {}", categoriaId);
-    List<Producto> productos = productoRepository.findByCategoriaId(categoriaId);
-    return productos.stream()
-            .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
-            .collect(Collectors.toList());
-}
-
+        logger.info("Obteniendo productos para la categoría con id: {}", categoriaId);
+        List<Producto> productos = productoRepository.findByCategoriaId(categoriaId);
+        return productos.stream()
+                .map(producto -> modelMapper.map(producto, ProductoSalidaDto.class))
+                .collect(Collectors.toList());
+    }
 
     @Override
     public ProductoSalidaDto obtenerDetalleProducto(Long id) {
@@ -104,7 +129,6 @@ public class ProductoService implements IProductoService {
                 .orElseThrow(() -> new EntityNotFoundException("Producto con id " + id + " no encontrado"));
         return modelMapper.map(producto, ProductoSalidaDto.class);
     }
-    
 
     @Override
     public ProductoSalidaDto registrarProducto(ProductoEntradaDto producto) {
@@ -115,6 +139,4 @@ public class ProductoService implements IProductoService {
         logger.info("ProductoSalidaDto: {}", JsonPrinter.toString(productoSalidaDto));
         return productoSalidaDto;
     }
-    
-   
 }

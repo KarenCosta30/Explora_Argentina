@@ -19,9 +19,8 @@ public class WebExploraApplication {
 	}
 
 	@Bean
-    public ModelMapper modelMapper() {
-    return new ModelMapper();
-}
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 
- 
 }

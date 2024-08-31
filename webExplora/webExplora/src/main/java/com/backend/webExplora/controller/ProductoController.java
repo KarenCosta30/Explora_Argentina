@@ -1,4 +1,5 @@
 package com.backend.webExplora.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,7 +22,7 @@ import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.service.IProductoService;
 
-@CrossOrigin (origins = "http://localhost:5173")  
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/productos")
 @Validated
@@ -30,12 +31,11 @@ public class ProductoController {
     @Autowired
     private IProductoService productoService;
 
-
     @PostMapping("/registrar")
-    public ResponseEntity<ProductoSalidaDto> registrarProducto(@RequestBody @Valid ProductoEntradaDto producto)
-    {
+    public ResponseEntity<ProductoSalidaDto> registrarProducto(@RequestBody @Valid ProductoEntradaDto producto) {
         return new ResponseEntity<>(productoService.registrarProducto(producto), HttpStatus.CREATED);
     }
+
     @GetMapping("/aleatorios")
     public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosAleatorios() {
         List<ProductoSalidaDto> productos = productoService.obtenerProductosAleatorios();
@@ -47,24 +47,24 @@ public class ProductoController {
         ProductoSalidaDto producto = productoService.obtenerDetalleProducto(id);
         return ResponseEntity.ok(producto);
     }
-    @GetMapping("/categoria/{categoriaId}") 
+
+    @GetMapping("/categoria/{categoriaId}")
     public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosPorCategoria(@PathVariable Long categoriaId) {
         List<ProductoSalidaDto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
         return ResponseEntity.ok(productos);
     }
-        @GetMapping("/categorias/aleatorias")
+
+    @GetMapping("/categorias/aleatorias")
     public ResponseEntity<List<CategoriaSalidaDto>> obtenerCategoriasAleatorias() {
         List<CategoriaSalidaDto> categorias = productoService.obtenerCategoriasAleatorias();
         return ResponseEntity.ok(categorias);
     }
+
     @GetMapping("/disponibles")
-public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosDisponibles(
-    @RequestParam String ubicacion,
-    @RequestParam List<Long> idsExcluidos) {
-    List<ProductoSalidaDto> productos = productoService.obtenerProductosDisponibles(ubicacion, idsExcluidos);
-    return ResponseEntity.ok(productos);
-}
-
-
-      
+    public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosDisponibles(
+            @RequestParam String ubicacion,
+            @RequestParam List<Long> idsExcluidos) {
+        List<ProductoSalidaDto> productos = productoService.obtenerProductosDisponibles(ubicacion, idsExcluidos);
+        return ResponseEntity.ok(productos);
+    }
 }

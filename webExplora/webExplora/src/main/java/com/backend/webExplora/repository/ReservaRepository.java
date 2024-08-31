@@ -11,37 +11,15 @@ import com.backend.webExplora.entity.Reserva;
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
-    /**
-     * Encuentra reservas por ID del usuario.
-     * 
-     * @param usuarioId El ID del usuario.
-     * @return Una lista de reservas asociadas al usuario.
-     */
-    List<Reserva> findByUsuarioId(Long usuarioId);
-
-    /**
-     * Encuentra reservas por ID del producto.
-     * 
-     * @param productoId El ID del producto.
-     * @return Una lista de reservas asociadas al producto.
-     */
-    List<Reserva> findByProductoId(Long productoId);
-
-    /**
-     * Verifica si un producto está reservado para una fecha específica.
-     * 
-     * @param productoId El ID del producto.
-     * @param fechaReserva La fecha de la reserva.
-     * @return true si el producto está reservado en la fecha, false en caso contrario.
-     */
-    boolean existsByProductoIdAndFechaReserva(Long productoId, LocalDate fechaReserva);
-    
-    /**
-     * Encuentra reservas por fecha de reserva.
-     * 
-     * @param fechaReserva La fecha de la reserva.
-     * @return Una lista de reservas para esa fecha.
-     */
+    // Encuentra reservas por fecha de reserva
     List<Reserva> findByFechaReserva(LocalDate fechaReserva);
 
+    // Encuentra reservas por ID de usuario
+    List<Reserva> findByUsuarioId(Long usuarioId);
+
+    // Encuentra reservas por ID de producto
+    List<Reserva> findByProductoId(Long productoId);
+
+    // Verifica si existe una reserva para un producto en una fecha específica
+    boolean existsByProductoIdAndFechaReserva(Long productoId, LocalDate fechaReserva);
 }

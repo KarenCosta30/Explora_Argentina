@@ -22,15 +22,14 @@ import com.backend.webExplora.service.IReservaService;
 @Validated
 public class ReservaController {
 
-
     @Autowired
     private IReservaService reservaService;
 
     @PostMapping("/registrar")
     public ResponseEntity<ReservaSalidaDto> reservarProducto(@RequestBody @Valid ReservaEntradaDto reservaDto) {
         try {
-          ReservaSalidaDto reserva = reservaService.reservarProducto(reservaDto.getUsuarioId(),reservaDto.getProductoId(),reservaDto.getFechaReserva()
-            );
+            ReservaSalidaDto reserva = reservaService.reservarProducto(reservaDto.getUsuarioId(),
+                    reservaDto.getProductoId(), reservaDto.getFechaReserva());
             return new ResponseEntity<>(reserva, HttpStatus.CREATED);
 
         } catch (IllegalStateException e) {
@@ -43,23 +42,23 @@ public class ReservaController {
         }
     }
 
-
-
     // /**
-    //  * Lista los productos disponibles para una fecha y ubicación específicas.
-    //  *
-    //  * @param fechaReserva Fecha de la reserva en formato 'yyyy-MM-dd'.
-    //  * @param ubicacion Ubicación del producto.
-    //  * @return Lista de productos disponibles en la ubicación y fecha especificadas.
-    //  */
+    // * Lista los productos disponibles para una fecha y ubicación específicas.
+    // *
+    // * @param fechaReserva Fecha de la reserva en formato 'yyyy-MM-dd'.
+    // * @param ubicacion Ubicación del producto.
+    // * @return Lista de productos disponibles en la ubicación y fecha
+    // especificadas.
+    // */
     // @GetMapping("/disponibles")
     // public ResponseEntity<List<ProductoSalidaDto>> listarProductosDisponibles(
-    //         @RequestParam @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaReserva,
-    //         @RequestParam @NotNull String ubicacion) {
+    // @RequestParam @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    // LocalDate fechaReserva,
+    // @RequestParam @NotNull String ubicacion) {
 
-    //     List<ProductoSalidaDto> productosDisponibles = reservaService.obtenerProductosDisponibles(fechaReserva, ubicacion);
-    //     return ResponseEntity.ok(productosDisponibles);
+    // List<ProductoSalidaDto> productosDisponibles =
+    // reservaService.obtenerProductosDisponibles(fechaReserva, ubicacion);
+    // return ResponseEntity.ok(productosDisponibles);
 
-        
-    // }
+    //  }
 }
