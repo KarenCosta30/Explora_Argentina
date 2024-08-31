@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "./Button";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText }) => {
+
   return (
     <div>
       <form onSubmit={onSubmit} className={className}>
@@ -31,6 +34,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 name={field.name}
                 value={field.value}
                 onChange={field.onChange}
+              
               >
                 {field.options && field.options.map((option, idx) => (
                   <option key={idx} value={option.value}>
@@ -38,6 +42,12 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                   </option>
                 ))}
               </select>
+            );
+          } else if (field.type === "custom") {
+            return (
+              <div key={index} className={inputClassName}>
+                {field.render()}
+              </div>
             );
           } else {
             return (
@@ -57,6 +67,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
         })}
         {paragraphText && <p className="form-paragraph">{paragraphText}</p>}
         <Button className={"btn-search"}>{buttonText}</Button>
+        
       </form>
     </div>
   );
