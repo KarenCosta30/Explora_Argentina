@@ -26,7 +26,7 @@ useEffect(() => {
   return (
     <main className='main-favorites'>
         <div className="container-favorites">
-          <h1 className='title-favorites'>Mis tours favoritos</h1>
+          <h1 className='title-favorites'>Mis Experiencias y Tours favoritos</h1>
           <div className="card-favorites">
             {state.favorites.map(fav =>(
             <CardTour item={fav} key={fav.id}>

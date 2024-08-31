@@ -23,22 +23,39 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                   />
                 ))}
               </div>
-            );
+            );   
           } else if (field.type === "select") {
             return (
-              <select
-                key={index}
-                className={inputClassName}
-                name={field.name}
-                value={field.value}
-                onChange={field.onChange}
-              >
-                {field.options && field.options.map((option, idx) => (
-                  <option key={idx} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
+              <div key={index} className="form-group">
+                {field.label && <label>{field.label}</label>}
+                <select
+                  className={inputClassName}
+                  name={field.name}
+                  value={field.value}
+                  onChange={field.onChange}
+                >
+                  {field.options && field.options.map((option, idx) => (
+                    <option key={idx} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            );
+          } else if (field.type === "checkbox") {
+            return (
+              <div key={index} className="form-group">
+                <label>
+                  <input
+                    className={inputClassName}
+                    type={field.type}
+                    name={field.name}
+                    checked={field.checked}
+                    onChange={field.onChange}
+                  />
+                  {field.label}
+                </label>
+              </div>
             );
           } else if (field.type === "custom") {
             return (
@@ -48,8 +65,9 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
             );
           } else {
             return (
+              <div key={index} className="form-group">
+                {field.label && <label>{field.label}</label>}
               <input
-                key={index}
                 className={inputClassName}
                 type={field.type}
                 placeholder={field.placeholder}
@@ -61,6 +79,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 checked={field.checked}
                 required
               />
+              </div>
             );
           }
         })}
@@ -72,3 +91,4 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
 };
 
 export default Form;
+
