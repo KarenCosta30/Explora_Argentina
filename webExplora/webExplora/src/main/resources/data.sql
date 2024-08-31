@@ -1,3 +1,4 @@
+
 INSERT IGNORE INTO CATEGORIAS (nombre, ubicacion, imagen)
 VALUES 
 ("NIEVE", "", "https://barilocheturismo.gob.ar/images/actividades/nieve/ski-01.jpg"), 

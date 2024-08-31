@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./Calendar.css"; // Asegúrate de tener tu CSS personalizado
+import "../style/Calendar.css"; // Asegúrate de tener tu CSS personalizado
 
 const CalendarComponent = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -22,7 +22,7 @@ const CalendarComponent = () => {
 
   return (
     <div>
-      <h3>Selecciona la fecha:</h3>
+      {/* <h3>Selecciona la fecha:</h3> */}
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}

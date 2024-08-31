@@ -285,6 +285,7 @@ input::placeholder {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+
 .img-card-categories {
   height: 35vh;
   width: 100%;
@@ -509,10 +510,22 @@ div.copyright{
 /*----  DIV QUE CONTIENE TITULO E IMAGENES -----*/
 
 .section-one {
-  height: max-content;
+  height: min-content;
   margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+.carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  padding: 2vh;
+  margin-bottom: 1vh;
+  
+}
 .img-detail {
   display: flex;
   justify-content: center;
@@ -520,7 +533,7 @@ div.copyright{
   gap: 10px;
 }
 
-.img-big {
+/* .img-big {
   width: 150%;
   max-width: 100%;
   height: 21vh;
@@ -538,7 +551,7 @@ div.copyright{
   width: 35vw;
   max-width: 100%;
   height: 10vh;
-}
+} */
 
 /*----  DIV QUE CONTIENE TEXTO Y CARD BOOKING -----*/
 
@@ -547,13 +560,16 @@ div.copyright{
   justify-content: center;
   align-items: center;
   padding: 10px;
-  gap: 10px;
-  font-size: 1.5rem;
-  width: 90vw;
+  gap: 10px;  
+  width: 40vw;
+  text-align: center;
 }
-
+.info-booking span {
+  
+  font-size: 1.2rem;
+}
 .info-booking p {
-  color: #8aa5ac;
+  /* color: #8aa5ac; */
   font-size: 1rem;
 }
 
@@ -572,23 +588,42 @@ div.copyright{
   font-weight: bold;
   padding: 5px;
 }
+.btn-booking{
+  border: none;
+  border-radius: 10px;
+  background-color: #c18a29;
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 10px;
+}
 
+.btn-booking:hover{
+  background-color: #9c7a40;
+  cursor: pointer;
+}
 .card-booking {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 5px;
-  background-color: rgba(193, 138, 41, 0.1);
-  box-shadow: 1px 1px rgba(0, 0, 0, 1);
-  height: max-content;
-  width: 60vw;
-  border: 2px solid #0e2a33;
-  border-radius: 25px;
-  padding-top: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 15px;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #0e2a33;
+  border-radius: 8px;
+  width: 30vw;
+  height: 37vh;
+  text-align: center;
+  margin-bottom: 2vh;
+  padding-top: 30px;
+  /* background-color: #c18a29; */
+  background-color: rgba(193,138, 41, 0.2);
+
+}
+.card-booking h3 {
+  color: #0e2a33;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: -3vh;
+  
 }
 
 .card-booking input {
@@ -600,13 +635,36 @@ div.copyright{
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px solid #0e2a33;
-  border-radius: 30px;
-  padding: 15px;
-  padding-top: 30px;
-  gap: 55px;
+  /* border: 1px solid #0e2a33; */
+  border: 1px solid #c18a29;
+  padding: 7px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.info-card-booking input {
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.people-selection {
+  margin-top: 15px;
+  
   
 }
+
+.people-selection label {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.people-selection select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 
 .description-card-booking {
   font-weight: bold;
@@ -619,8 +677,15 @@ div.copyright{
   flex-direction: column;
 }
 
-
-
+.price-total{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bc7;
+}
+.tax {
+  font-size: 1rem;
+  font-style: italic;
+}
 .btn-card-booking {
   border: none;
   border-radius: 10px;
@@ -894,6 +959,12 @@ div.copyright{
     margin-left: -5px;
     margin-top: 25px;
   }
+/* --MODIFICADO */
+  .carrusel {
+  display: flex;  
+  flex-wrap: wrap;
+    
+  }
 
   .container-img-small {
     visibility: hidden;
@@ -903,11 +974,21 @@ div.copyright{
     margin-left: 23%;
   }
 
+  /* --MODIFICADO */
   .info-booking {
-    flex-direction: column;
-    gap: 10px;
+    /* flex-direction: column;
+    gap: 10px; */
+    width: 100%;
   }
 
+  /* --MODIFICADO */
+  .card-booking{
+    
+    width: 90%;
+    height: max-content;
+  }
+
+  /* --MODIFICADO */
   .container-footer {
     margin-top: 250vh;
   }
@@ -1153,6 +1234,11 @@ span.prince-info-booking {
   .price {
     font-size: 0.9rem;
   }
+/* --MODIFICADO */
+  .carrusel {
+    display: flex;  
+    flex-wrap: wrap;      
+  }
 
   .btn-card-tour {
     margin-left: -5px;
@@ -1166,14 +1252,23 @@ span.prince-info-booking {
   .img-big {
     margin-left: 23%;
   }
-
+  /* --MODIFICADO */
   .info-booking {
-    flex-direction: column;
-    gap: 10px;
+    /* flex-direction: column;
+    gap: 10px; */
+    width: 100%;
   }
 
+    /* --MODIFICADO */
+    .card-booking{
+    
+      width: 90%;
+      height: max-content;
+    }
+    /* --MODIFICADO */
   .container-footer {
     margin-top: 250vh;
+    width: 100%;	
   }
 
   .footer-columns {
@@ -1208,40 +1303,31 @@ span.prince-info-booking {
     width: 100%;
     max-width: 100vw;
   }
-
   .img-logo {
     height: 8vh;
   }
-
   .container-search p {
     color: white;
     font-size: 1.4rem;
     height: 10vh;
   }
-
   .container-button {
     margin-right: 6vh;
   }
-
   .container-card-categories {
     width: 20vw;
     max-width: 100vw;
   }
-
   .card-categories {
     padding: 0px;
   }
-
   .container-categories {
     max-width: 100vw;
 
   }
-
   .img-card-categories {
     height: 21vh;
-
   }
-
   .container-offers {
     max-width: 100%;
   }
@@ -1253,9 +1339,13 @@ span.prince-info-booking {
   .subtitle-card-tour {
     display: none;
   }
-
   .price {
     font-size: 1rem;
+  }
+  /* --MODIFICADO */
+  .carrusel {
+    display: flex;  
+    flex-wrap: wrap;      
   }
 
   .price-card-tour {
@@ -1267,12 +1357,24 @@ span.prince-info-booking {
   }
 
   .img-card-tour {
-
     height: 250px;
   }
 
   .btn-card-tour {
     margin-left: -5px;
+  }
+  /* --MODIFICADO */
+  .info-booking {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  
+
+  /* --MODIFICADO */
+  .card-booking{    
+    width: 90%;
+    height: max-content;
   }
 
   .footer-columns {
@@ -1320,9 +1422,7 @@ span.prince-info-booking {
     max-width: 92vw;
   }
 
-  div.info-booking {
-    font-size: 1rem;
-  }
+ 
 
   span.prince-info-booking {
     font-size: 1.3rem;
@@ -1369,9 +1469,7 @@ span.prince-info-booking {
     margin: 0px 0px 0px 100px;
   }
 
-  .info-booking div{
-    max-width: 25vw;
-  }
+
 
 }
 
@@ -1415,7 +1513,7 @@ span.prince-info-booking {
 
   .section-two {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     gap: 100px;
     max-width: 93vw;
@@ -1424,7 +1522,7 @@ span.prince-info-booking {
   }
 
   .property {
-    text-align: left;
+    text-align: center;
   }
 
   .property-list li {
@@ -1495,6 +1593,27 @@ span.prince-info-booking {
   .btn-detail {
     padding-bottom: 10vh;
   }
+  /* --MODIFICADO */
+  .carrusel {
+    display: flex;  
+    flex-wrap: wrap;
+      
+    }
+
+  /* --MODIFICADO */
+  .info-booking {
+    /* flex-direction: column;
+    gap: 10px; */
+    width: 100%;
+  }
+
+  /* --MODIFICADO */
+  .card-booking{
+    
+    width: 70%;
+    height: max-content;
+  }
+
 
 
 
