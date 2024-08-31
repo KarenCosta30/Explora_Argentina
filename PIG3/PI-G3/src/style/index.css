@@ -232,6 +232,8 @@ input::placeholder {
   height: 42px;
 }
 
+
+
 .btn-search:hover {
   opacity: 0.9;
   transform: scale(1.1);

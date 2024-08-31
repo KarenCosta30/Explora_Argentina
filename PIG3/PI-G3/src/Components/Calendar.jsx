@@ -36,4 +36,8 @@ const CalendarComponent = () => {
   );
 };
 
+<<<<<<< HEAD
 export default CalendarComponent;
+=======
+export default CalendarComponent;
+>>>>>>> 4f5e2c1eb2e97264a4df075016f5ed62dd8cdd75

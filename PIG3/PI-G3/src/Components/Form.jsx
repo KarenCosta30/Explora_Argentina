@@ -3,6 +3,7 @@ import Button from "./Button";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText }) => {
+
   return (
     <div>
       <form onSubmit={onSubmit} className={className}>
@@ -63,6 +64,12 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 {field.render()}
               </div>
             );
+          } else if (field.type === "custom") {
+            return (
+              <div key={index} className={inputClassName}>
+                {field.render()}
+              </div>
+            );
           } else {
             return (
               <div key={index} className="form-group">
@@ -85,6 +92,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
         })}
         {paragraphText && <p className="form-paragraph">{paragraphText}</p>}
         <Button className={"btn-search"}>{buttonText}</Button>
+        
       </form>
     </div>
   );

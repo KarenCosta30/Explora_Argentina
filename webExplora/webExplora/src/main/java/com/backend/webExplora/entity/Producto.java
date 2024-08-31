@@ -1,6 +1,7 @@
 package com.backend.webExplora.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -60,15 +61,19 @@ public class Producto {
     @Column(length = 250)
     private Float longitud;
 
-   
+    @Column(name = "criterio") // Ajusta esto si es necesario
+    private String criterio;
+
+    @Column(name = "fecha_reserva") // Adjust this if necessary
+    private LocalDate fechaReserva;
+
     public Producto() {
     }
 
-    
-
     public Producto(Long id, String nombre, String descripcion, String descripcion_larga, String imagenUrl,
             String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible,
-            String ubicacion, String detalle_itinerario, Categoria categoria, Float latitud, Float longitud) {
+            String ubicacion, String detalle_itinerario, Categoria categoria, Float latitud, Float longitud,
+            LocalDate fechaReserva) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -84,14 +89,12 @@ public class Producto {
         this.categoria = categoria;
         this.latitud = latitud;
         this.longitud = longitud;
+        this.fechaReserva = fechaReserva;
     }
-
-    
-
 
     public Producto(String nombre, String descripcion, String descripcion_larga, String imagenUrl, String itinerario,
             String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion,
-            String detalle_itinerario, Categoria categoria, Float latitud, Float longitud) {
+            String detalle_itinerario, Categoria categoria, Float latitud, Float longitud, LocalDate fechaReserva) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.descripcion_larga = descripcion_larga;
@@ -106,9 +109,8 @@ public class Producto {
         this.categoria = categoria;
         this.latitud = latitud;
         this.longitud = longitud;
+        this.fechaReserva = fechaReserva;
     }
-
-
 
     public Long getId() {
         return id;
@@ -228,5 +230,13 @@ public class Producto {
 
     public void setLongitud(Float longitud) {
         this.longitud = longitud;
+    }
+
+    public LocalDate getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(LocalDate fechaReserva) {
+        this.fechaReserva = fechaReserva;
     }
 }
