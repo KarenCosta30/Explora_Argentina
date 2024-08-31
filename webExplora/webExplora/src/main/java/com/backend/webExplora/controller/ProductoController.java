@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.ProductoEntradaDto;
@@ -56,5 +57,14 @@ public class ProductoController {
         List<CategoriaSalidaDto> categorias = productoService.obtenerCategoriasAleatorias();
         return ResponseEntity.ok(categorias);
     }
-    
-    }
+    @GetMapping("/disponibles")
+public ResponseEntity<List<ProductoSalidaDto>> obtenerProductosDisponibles(
+    @RequestParam String ubicacion,
+    @RequestParam List<Long> idsExcluidos) {
+    List<ProductoSalidaDto> productos = productoService.obtenerProductosDisponibles(ubicacion, idsExcluidos);
+    return ResponseEntity.ok(productos);
+}
+
+
+      
+}

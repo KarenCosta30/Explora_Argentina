@@ -27,4 +27,12 @@ public class ReservaSalidaDto {
         this.productoId = productoId;
         this.fechaReserva = fechaReserva;
     }
+
+    public ReservaSalidaDto(Long usuarioId, Long productoId, LocalDate fechaReserva) {
+        this.usuarioId = usuarioId;
+        this.productoId = productoId;
+        this.fechaReserva = fechaReserva;
+    }
+
+    
 }

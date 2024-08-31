@@ -1,5 +1,6 @@
 package com.backend.webExplora.service.impl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,6 +40,22 @@ public class ProductoService implements IProductoService {
         this.productoRepository = productoRepository;
         this.modelMapper = modelMapper;
     }
+
+  @Override
+    public List<ProductoSalidaDto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion) {
+        // Obtener los IDs de productos reservados para la fecha
+        List<Long> idsReservados = productoRepository.findReservasPorFecha(fechaReserva)
+                                                     .stream()
+                                                     .map(reserva -> reserva.getProducto().getId())
+                                                     .collect(Collectors.toList());
+
+        // Obtener los productos disponibles filtrando los reservados
+        List<Producto> productos = productoRepository.findByUbicacionAndIdNotIn(ubicacion, idsReservados);
+
+        // Convertir los productos a DTO
+        return convertirAProductoSalidaDto(productos);
+    }
+
 
     @Override
     public List<ProductoSalidaDto> obtenerProductosAleatorios() {
@@ -100,5 +117,6 @@ public class ProductoService implements IProductoService {
         logger.info("ProductoSalidaDto: {}", JsonPrinter.toString(productoSalidaDto));
         return productoSalidaDto;
     }
+    
    
 }

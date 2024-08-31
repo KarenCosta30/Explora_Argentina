@@ -1,26 +1,18 @@
 package com.backend.webExplora.controller;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.ReservaEntradaDto;
-import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.dto.salida.ReservaSalidaDto;
 import com.backend.webExplora.service.IReservaService;
 
@@ -53,21 +45,21 @@ public class ReservaController {
 
 
 
-    /**
-     * Lista los productos disponibles para una fecha y ubicación específicas.
-     *
-     * @param fechaReserva Fecha de la reserva en formato 'yyyy-MM-dd'.
-     * @param ubicacion Ubicación del producto.
-     * @return Lista de productos disponibles en la ubicación y fecha especificadas.
-     */
-    @GetMapping("/disponibles")
-    public ResponseEntity<List<ProductoSalidaDto>> listarProductosDisponibles(
-            @RequestParam @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaReserva,
-            @RequestParam @NotNull String ubicacion) {
+    // /**
+    //  * Lista los productos disponibles para una fecha y ubicación específicas.
+    //  *
+    //  * @param fechaReserva Fecha de la reserva en formato 'yyyy-MM-dd'.
+    //  * @param ubicacion Ubicación del producto.
+    //  * @return Lista de productos disponibles en la ubicación y fecha especificadas.
+    //  */
+    // @GetMapping("/disponibles")
+    // public ResponseEntity<List<ProductoSalidaDto>> listarProductosDisponibles(
+    //         @RequestParam @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaReserva,
+    //         @RequestParam @NotNull String ubicacion) {
 
-        List<ProductoSalidaDto> productosDisponibles = reservaService.obtenerProductosDisponibles(fechaReserva, ubicacion);
-        return ResponseEntity.ok(productosDisponibles);
+    //     List<ProductoSalidaDto> productosDisponibles = reservaService.obtenerProductosDisponibles(fechaReserva, ubicacion);
+    //     return ResponseEntity.ok(productosDisponibles);
 
         
-    }
+    // }
 }
