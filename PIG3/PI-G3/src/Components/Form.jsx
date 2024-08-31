@@ -26,9 +26,8 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
             );   
           } else if (field.type === "select") {
             return (
-              <div key={index} className="form-group">
-                {field.label && <label>{field.label}</label>}
                 <select
+                  key={index}
                   className={inputClassName}
                   name={field.name}
                   value={field.value}
@@ -40,7 +39,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                     </option>
                   ))}
                 </select>
-              </div>
+              
             );
           } else if (field.type === "checkbox") {
             return (
@@ -63,11 +62,10 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 {field.render()}
               </div>
             );
-          } else {
+          }  else {
             return (
-              <div key={index} className="form-group">
-                {field.label && <label>{field.label}</label>}
               <input
+              key={index}
                 className={inputClassName}
                 type={field.type}
                 placeholder={field.placeholder}
@@ -77,9 +75,9 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 autoComplete={field.autoComplete}
                 label={field.label}
                 checked={field.checked}
-                required
+                
               />
-              </div>
+             
             );
           }
         })}
