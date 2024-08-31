@@ -32,7 +32,7 @@ const RegisterProductForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8081/productos/registrar', productData)
+        axios.post('http://localhost:8081/api/productos/registrar', productData)
             .then((res) => {
                 dispatch({ type: "GET_PRODUCTOS", payload: res.data });
                 alert('Producto registrado exitosamente');

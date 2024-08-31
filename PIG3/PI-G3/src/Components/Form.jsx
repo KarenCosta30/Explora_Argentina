@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText }) => {
   return (
@@ -39,6 +40,12 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 ))}
               </select>
             );
+          } else if (field.type === "custom") {
+            return (
+              <div key={index} className={inputClassName}>
+                {field.render()}
+              </div>
+            );
           } else {
             return (
               <input
@@ -50,6 +57,8 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 value={field.value}
                 onChange={field.onChange}
                 autoComplete={field.autoComplete}
+                label={field.label}
+                checked={field.checked}
                 required
               />
             );
