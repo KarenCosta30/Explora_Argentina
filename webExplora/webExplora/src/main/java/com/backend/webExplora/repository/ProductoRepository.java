@@ -1,5 +1,6 @@
 package com.backend.webExplora.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +19,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
      * @return Una lista de productos que coinciden con la ubicación y cuyos IDs no están en la lista proporcionada.
      */
     List<Producto> findByUbicacionAndIdNotIn(String ubicacion, List<Long> ids);
+    List<Producto>findReservasPorFecha(LocalDate fechaReserva);
+
     
     
 

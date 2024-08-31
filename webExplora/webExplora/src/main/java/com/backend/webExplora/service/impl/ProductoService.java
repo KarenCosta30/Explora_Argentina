@@ -43,16 +43,14 @@ public class ProductoService implements IProductoService {
 
   @Override
     public List<ProductoSalidaDto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion) {
-        // Obtener los IDs de productos reservados para la fecha
         List<Long> idsReservados = productoRepository.findReservasPorFecha(fechaReserva)
                                                      .stream()
                                                      .map(reserva -> reserva.getProducto().getId())
                                                      .collect(Collectors.toList());
 
-        // Obtener los productos disponibles filtrando los reservados
+      
         List<Producto> productos = productoRepository.findByUbicacionAndIdNotIn(ubicacion, idsReservados);
 
-        // Convertir los productos a DTO
         return convertirAProductoSalidaDto(productos);
     }
 
