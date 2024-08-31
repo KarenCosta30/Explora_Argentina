@@ -75,6 +75,9 @@
 "La Quiaca, Jujuy",
 "Humahuaca, Jujuy",
 "San Pedro, Jujuy",
+"Purmamarca, Jujuy",
+
+
 
 // La Pampa
 "Santa Rosa, La Pampa",
@@ -95,6 +98,7 @@
 "Maipú, Mendoza",
 "San Martín, Mendoza",
 "Tunuyán, Mendoza",
+"Luján de Cuyo, Mendoza",
 
 // Misiones
 "Posadas, Misiones",
@@ -102,6 +106,7 @@
 "Eldorado, Misiones",
 "Puerto Iguazú, Misiones",
 "San Vicente, Misiones",
+"Cataratas de Iguazú, Misiones",
 
 // Neuquén
 "Neuquén, Neuquén",
@@ -124,6 +129,7 @@
 "Cerrillos, Salta",
 "Orán, Salta",
 "Tartagal, Salta",
+"Cafayate, Salta",
 
 // San Juan
 "San Juan, San Juan",
@@ -162,7 +168,12 @@
 "San Miguel de Tucumán, Tucumán",
 "Tafí Viejo, Tucumán",
 "Yerba Buena, Tucumán",
-"Concepción, Tucumán"
+"Concepción, Tucumán",
+
+//Tierra del fuego
+"Ushuaia, Tierra del Fuego",
+"Río Grande, Tierra del Fuego",
+"Tolhuin, Tierra del Fuego"
 
   ] 
   
