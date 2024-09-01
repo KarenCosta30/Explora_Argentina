@@ -660,3 +660,11 @@ VALUES
 ("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "corrado1"),
 ("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
 ("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1");
+
+NSERT IGNORE INTO reservas (usuario_id, producto_id, fecha_reserva)
+VALUES 
+(3, 8, '2024-09-10'),
+(5, 9, '2024-09-13'),
+(2, 5, '2024-09-05'),
+(6, 22, '2024-09-15'),
+(9, 15, '2024-09-12');

@@ -1,37 +1,57 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Components/Button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useTourState } from "../Context/GlobalContext";
 import MapComponent from "../Components/MapComponent";
 import Carrusel from "../Components/Carrusel";
-import Calendar from "../Components/Calendar";
+import Calendar from "../Components/Calendar"; 
+import "react-datepicker/dist/react-datepicker.css";
 
 const Detail = () => {
   const [tour, setTour] = useState([]);
   const { state, dispatch } = useTourState();
-  const [peopleCount, setPeopleCount] = useState(1); //-- Estado para la cantidad de personas
-  const totalPrice = peopleCount * parseFloat(tour.precio); //-- Calculo del precio total segun la cantidad de personas seleccionadas
-
-  //--Funcion para cambiar la cantidad de personas
-  const handlePeopleChange = (event) => {
-    setPeopleCount(event.target.value);
-  };
+  const [peopleCount, setPeopleCount] = useState(1);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const totalPrice = peopleCount * parseFloat(tour.precio);
+  const navigate = useNavigate();
+  const params = useParams();
+  const url = `http://localhost:8081/api/productos/${params.id}`;
 
   useEffect(() => {
-    const activeUser = localStorage.getItem("userActive") === "true"; //Verifica si hay un usuario activo almacenado en el localStorage
+    const activeUser = localStorage.getItem("userActive") === "true";
     if (activeUser) {
       dispatch({ type: "SET_USER_ACTIVE", payload: true });
     }
   }, [dispatch]);
 
-  const params = useParams();
-  const url = `http://localhost:8081/api/productos/${params.id}`;
   useEffect(() => {
     axios.get(url).then((res) => setTour(res.data));
   }, [params.id]);
+
+  const handlePeopleChange = (event) => {
+    setPeopleCount(event.target.value);
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  const handleClick = () => {
+    if (!state.userActive) {
+      navigate("/login");
+    } else if (selectedDate === null) {
+      alert("Selecciona una fecha para reservar");
+    } else {
+      alert("Reserva realizada con éxito");
+      // Aquí puedes agregar la lógica para completar la reserva.
+    }
+    if(state.userActive && selectedDate !== null){
+      navigate("/reservations");
+    }
+  };
 
   return (
     <main className="container-detail">
@@ -48,7 +68,7 @@ const Detail = () => {
               <span>{tour.descripcion_larga}</span>
               <p>
                 Desde:{" "}
-                <span className="prince-info-booking">{tour.precio}</span> por
+                <span className="price-info-booking">{tour.precio}</span> por
                 adulto
               </p>
             </div>
@@ -58,17 +78,17 @@ const Detail = () => {
         <div className="card-booking">
           <h3>Reserva tu lugar</h3>
           <div className="info-card-booking">
-            <Calendar />
-            {/* Se agrega un select para seleccionar la cantidad de personas */}
+            <Calendar
+              selectedDate={selectedDate} 
+              handleDateChange={handleDateChange}
+            />
             <div className="people-selection">
               <label htmlFor="people-count">Personas:</label>
               <select
                 id="people-count"
-                value={peopleCount} 
-                // Se asigna el valor del estado peopleCount al select
+                value={peopleCount}
                 onChange={handlePeopleChange}
               >
-               //-- Se crea un select con opciones del 1 al 10 para seleccionar la cantidad de personas.
                 {[...Array(10).keys()].map((number) => (
                   <option key={number + 1} value={number + 1}>
                     {number + 1}
@@ -77,20 +97,25 @@ const Detail = () => {
               </select>
             </div>
           </div>
-          {/* Se muestra el precio total segun la cantidad de personas seleccionadas. */}
           <span className="price-total">Total: ${totalPrice.toFixed(2)}</span>
-          <Button className="btn-booking">Reservar</Button>
-          <span className="tax"> El precio incluye impuestos y tarifas de reservación.</span>
-            
-               
+          <Button 
+            className="btn-booking" 
+            onClick={handleClick}
+            disabled={!state.userActive || selectedDate === null}
+          >
+            {state.userActive ? "Reservar" : "Iniciar sesión para reservar"}
+          </Button>
+          <span className="tax">
+            El precio incluye impuestos y tarifas de reservación.
+          </span>
         </div>
       </section>
 
       <section className="section-two">
         <div className="travel">
-          <div className="intinerary">
+          <div className="itinerary">
             <h3>Itinerario</h3>
-            <ul className="intinerary-list">
+            <ul className="itinerary-list">
               <p>{tour.itinerario}</p>
             </ul>
           </div>
@@ -112,13 +137,9 @@ const Detail = () => {
             <li>
               <p>Guía en vivo: portugués, inglés, español</p>
             </li>
-            {/* {tour.detalle_itinerario} */}
           </ul>
         </div>
 
-        {/* <div className="map">
-            <img src="/img/Screenshot 2024-08-04 002056.png" alt="mapa" />
-          </div> */}
         <div className="map-container">
           <MapComponent />
         </div>
@@ -126,7 +147,6 @@ const Detail = () => {
       <div className="btn-detail">
         <Link to={"/"}>
           <Button className="btn-back">
-            {" "}
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
         </Link>
@@ -135,4 +155,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default Detail;

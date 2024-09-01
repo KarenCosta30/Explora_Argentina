@@ -41,13 +41,12 @@ const RegisterProductForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const {nombre, descripcion,descripcion_larga,itinerario,imagenUrl,imagenUrl2,imagenUrl3,precio,ubicacion,detalle_itinerario,latitud,longitud } = productData
-        console.log(state.tour.nombre);
         const nombreExistente = state.tour.find(product => product.nombre.toLowerCase() === nombre.toLowerCase());
         const parsedLatitud = parseFloat(latitud);
         const parsedLongitud = parseFloat(longitud);
         
-        if(!nombre || nombre.length < 3 || nombre.length > 50 || nombreExistente ||  /^[a-zA-Z]+$/.test(nombre) ){
-            setError("El campo nombre es incorrecto")
+        if(!nombre || nombre.length < 3 || nombre.length > 50 || nombreExistente ||  !/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre) ){
+            setError("El campo nombre es incorrecto")  
             return;
         }
         if( descripcion.length < 4 || descripcion.length > 250){
@@ -79,14 +78,20 @@ const RegisterProductForm = () => {
             setError("El campo de  precio es incorrecto");
             return;
         }
-        if (!provinciasArgentinas.map(e => e.toLowerCase()).includes(ubicacion)) {
-            setError("El campo ubicación es incorrecto");
-            return;
-        }
+
+        if (!productData.ubicacion) {
+            setError("Debe seleccionar una ubicación");
+            return;}
+       
         if (detalle_itinerario.length < 20 || detalle_itinerario.length > 2000 ) {
-            setError("El campo caracteristica (Detalle itinerario) es incorrecto")
+            setError("El campo caracteristica es incorrecto")
             return;
         }
+
+        if (!productData.categoria_id) {
+            setError("Debe seleccionar una categoría");
+            return;}
+
         if (isNaN(parsedLatitud) || parsedLatitud >= 0 || parsedLatitud < -55.05 || parsedLatitud > -22.82 ) {
             setError("El campo latitud es incorrecto")
             return;
@@ -96,15 +101,30 @@ const RegisterProductForm = () => {
             return;
         }
 
-        setError(alert("Usuario registrado exitosamente!"));
-        
-    
-        
-    
-       axios.post('http://localhost:8081/api/productos/registrar', productData)
+        setError(null)
+      
+        axios.post('http://localhost:8081/api/productos/registrar', productData)
             .then((res) => {
                 dispatch({ type: "GET_PRODUCTOS", payload: res.data });
-                
+                alert("Producto registrado exitosamente!");
+                   // Restablecer los campos del formulario
+            setProductData({
+                nombre: '',
+                descripcion: '',
+                descripcion_larga: '',
+                itinerario: '',
+                imagenUrl: '',
+                imagenUrl2: '',
+                imagenUrl3: '',
+                precio: '',
+                ubicacion: '',
+                detalle_itinerario: '',
+                categoria_id: '',
+                latitud: '',
+                longitud: '',
+                disponible: true,
+            });
+      
             })
             .catch((err) => {
                 console.log(err);
@@ -121,22 +141,22 @@ const RegisterProductForm = () => {
   }, [state.userAdministrator, navigate]);
 
     const fields = [
-        { type: 'text',  placeholder: 'Nombre', name: 'nombre', value: productData.nombre, onChange: handleChange },
-        { type: 'text',  placeholder: 'Descripción Breve de Portada', name: 'descripcion', value: productData.descripcion, onChange: handleChange },
-        { type: 'text',  placeholder: 'Descripción Detallada', name: 'descripcion_larga', value: productData.descripcion_larga, onChange: handleChange },
-        { type: 'textarea',  placeholder: 'Itinerario', name: 'itinerario', value: productData.itinerario, onChange: handleChange },
-        { type: 'text',  placeholder: 'Ingrese una url para la imagen 1', name: 'imagenUrl', accept:'.jpg, .png', onChange: handleChange},
-        { type: 'text',  placeholder: 'Ingrese una url para la imagen 2', name: 'imagenUrl2', accept:'.jpg, .png', onChange: handleChange },
-        { type: 'text',  placeholder: 'Ingrese una url para la imagen 3', name: 'imagenUrl3', accept:'.jpg, .png', onChange: handleChange },
-        { type: 'number', placeholder: 'Precio', name: 'precio', value: productData.precio, onChange: handleChange },
-        { type: 'select', name: 'ubicacion', value: productData.ubicacion,onChange: handleChange,options: provinciasArgentinas.map(prov => ({ value: prov, label: prov }))},
-        { type: 'text',  placeholder: 'Caracteristicas (Detalle Itinerario)', name: 'detalle_itinerario', value: productData.detalle_itinerario, onChange: handleChange },
-        { type: 'select',  name: 'categoria_id', value: productData.categoria_id, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
-        { type: 'number',  placeholder: 'Latitud', name: 'latitud', value: productData.latitud, onChange: handleChange },
-        { type: 'number',  placeholder: 'Longitud', name: 'longitud', value: productData.longitud, onChange: handleChange },
+        { type: 'label', label:"Nombre", className:"create-account-input", name: 'nombre', value: productData.nombre, onChange: handleChange },
+        { type: 'label', label:"Descripción",name: 'descripcion', value: productData.descripcion, onChange: handleChange },
+        { type: 'label', label:"Descripción Detallada", name: 'descripcion_larga', value: productData.descripcion_larga, onChange: handleChange },
+        { type: 'label', label:"Itinerario" , name: 'itinerario', value: productData.itinerario, onChange: handleChange },
+        { type: 'label', label:"Imagen 1", name: 'imagenUrl', value:productData.imagenUrl,  onChange: handleChange},
+        { type: 'label', label:"Imagen 2", name: 'imagenUrl2', value:productData.imagenUrl2, onChange: handleChange },
+        { type: 'label', label:"Imagen 3", name: 'imagenUrl3', value:productData.imagenUrl3, onChange: handleChange },
+        { type: 'label', label:"Precio",  name: 'precio', value: productData.precio, onChange: handleChange },
+        { type: 'select',label:"Ubicación", name: 'ubicacion', value: productData.ubicacion, onChange: handleChange,options: provinciasArgentinas.map(prov => ({ value: prov, label: prov }))},
+        { type: 'label', label:"Carasteristicas", name: 'detalle_itinerario', value: productData.detalle_itinerario, onChange: handleChange },
+        { type: 'select',label:"Categoria",  name: 'categoria_id', value: productData.categoria_id, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
+        { type: 'label', label:"Latitud",  name: 'latitud', value: productData.latitud, onChange: handleChange },
+        { type: 'label', label:"Longitud",  name: 'longitud', value: productData.longitud, onChange: handleChange },
         { 
             type: 'checkbox', 
-            label: 'Marque el check para confirmar el ingreso del producto', 
+            label: 'Marque el check si quiere que el producto se visualice desde ahora en la página', 
             name: 'disponible', 
             checked: productData.disponible, 
             onChange: handleChange 
@@ -147,7 +167,7 @@ const RegisterProductForm = () => {
         <main className="registerProductForm main">
             <div className="container-form-create">
                 <h2 className="title-form-create">Registrar Nuevo Producto</h2>
-                <Form className={"form-create-accout"} fields={fields} buttonText="Registrar Producto"  onSubmit={handleSubmit} inputClassName="create-account-input"/>
+                <Form className={"form-create-accout"} fields={fields} buttonText="Registrar Producto"  onSubmit={handleSubmit} inputClassName="input-form-registred"/>
                 {error && <p className="error-message">{error}</p>}
             </div>
         </main>

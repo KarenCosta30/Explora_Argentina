@@ -3,13 +3,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/Calendar.css"; // Asegúrate de tener tu CSS personalizado
 
-const CalendarComponent = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
 
+const Calendar = ({ selectedDate, handleDateChange }) => {
   // Función para agregar una clase a los días anteriores a hoy
   const dayClassName = (date) => {
     const today = new Date();
@@ -24,10 +20,10 @@ const CalendarComponent = () => {
     <div>
       {/* <h3>Selecciona la fecha:</h3> */}
       <DatePicker
-        selected={selectedDate}
-        onChange={handleDateChange}
+        selected={selectedDate} // Usa la fecha seleccionada pasada como prop
+        onChange={handleDateChange} // Usa la función pasada como prop
         dayClassName={dayClassName} // Añadir la clase a los días
-        dateFormat="dd/MM/yyyy"
+        dateFormat="yyyy-MM-dd" // Formato de la fecha
         minDate={new Date()} // Deshabilitar fechas anteriores a hoy
         placeholderText="Selecciona una fecha"
         showTimeSelect={false} // Eliminar la selección de hora
@@ -36,6 +32,5 @@ const CalendarComponent = () => {
   );
 };
 
-
-export default CalendarComponent;
+export default Calendar;
 

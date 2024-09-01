@@ -26,14 +26,22 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
   return (
     <div className="popover">
       <div className="popover-content">
+        
+
+        <p>{name} {surname}</p>
+        
+        
+
+        <p>{email}</p>
+        <Link to={"/favorites"}>Mis favoritos</Link>
         {isAdmin && (     
           <div className="admin-tools"> {/* Se actualizo componente Popover para que, al hacer clic en el botón
-                                  "Herramientas de Administrador", se despliegue un menú con varias opciones. */}
+            "Herramientas de Administrador", se despliegue un menú con varias opciones. */}
             <button className="btn-admin" onClick={handleAdminToolsClick}>
               Herramientas de Administrador
             </button>
           {adminToolsOpen && (
-              <div className="admin-menu">
+            <div className="admin-menu">
                 <button onClick={() => handleNavigation('/userlist')}>Lista de Usuarios</button>
                 <button onClick={() => handleNavigation('/registerproduct')}>Registrar Producto</button>
                 {/* Agrega más opciones aquí */}
@@ -41,11 +49,9 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
             )}
           </div>
         )}
-        <p>{name} {surname}</p>
-        <p>{email}</p>
-        <Link to={"/favorites"}>Mis favoritos</Link>
         <button onClick={onLogout}>Cerrar Sesión</button>
-      </div>
+        </div>
+      
       <div className="popover-overlay" onClick={onClose}></div>
     </div>
   );
