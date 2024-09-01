@@ -49,6 +49,8 @@ public class ProductoEntradaDto {
     private Float longitud;
     @NotNull(message = "Debe especificarse la latitud del producto")
     private Float latitud;
+    @NotNull(message = "Debe especificarse la categoría del producto")
+    private Long categoria;
 
 
 
@@ -57,7 +59,7 @@ public class ProductoEntradaDto {
 
     }
 
-    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario, Float longitud, Float latitud) {
+    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario, Float longitud, Float latitud, Long categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.descripcion_larga = descripcion_larga;
@@ -71,6 +73,10 @@ public class ProductoEntradaDto {
         this.detalle_itinerario = detalle_itinerario;
         this.longitud = longitud;
         this.latitud = latitud;
-    }
+        this.categoria = categoria;
+}
+
+  
+
 }
 

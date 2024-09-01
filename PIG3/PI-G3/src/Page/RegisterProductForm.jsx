@@ -21,13 +21,13 @@ const RegisterProductForm = () => {
         precio: '',
         ubicacion: '',
         detalle_itinerario: '',
-        categoria_id: '',
+        categoria: '',
         latitud: '',
         longitud: '',
         disponible: true,
     });
     const navigate = useNavigate();
-
+    console.log(productData.categoria)
 
 
     const handleChange = (e) => {
@@ -88,7 +88,7 @@ const RegisterProductForm = () => {
             return;
         }
 
-        if (!productData.categoria_id) {
+        if (!productData.categoria) {
             setError("Debe seleccionar una categoría");
             return;}
 
@@ -104,10 +104,10 @@ const RegisterProductForm = () => {
         setError(null)
       
         axios.post('http://localhost:8081/api/productos/registrar', productData)
-            .then((res) => {
-                dispatch({ type: "GET_PRODUCTOS", payload: res.data });
-                alert("Producto registrado exitosamente!");
-                   // Restablecer los campos del formulario
+        .then((res) => {
+            dispatch({ type: "ADD_PRODUCTO", payload: res.data });
+            alert("Producto registrado exitosamente!");
+            // Restablecer los campos del formulario
             setProductData({
                 nombre: '',
                 descripcion: '',
@@ -119,17 +119,16 @@ const RegisterProductForm = () => {
                 precio: '',
                 ubicacion: '',
                 detalle_itinerario: '',
-                categoria_id: '',
+                categoria: '',
                 latitud: '',
                 longitud: '',
                 disponible: true,
             });
-      
-            })
-            .catch((err) => {
-                console.log(err);
-                alert('Hubo un error al registrar el producto');
-            });
+        })
+        .catch((err) => {
+            console.log(err);
+            alert('Hubo un error al registrar el producto');
+        });
     };
 
       // useEffect para sincronizar el localStorage con el estado global
@@ -151,15 +150,10 @@ const RegisterProductForm = () => {
         { type: 'label', label:"Precio",  name: 'precio', value: productData.precio, onChange: handleChange },
         { type: 'select',label:"Ubicación", name: 'ubicacion', value: productData.ubicacion, onChange: handleChange,options: provinciasArgentinas.map(prov => ({ value: prov, label: prov }))},
         { type: 'label', label:"Carasteristicas", name: 'detalle_itinerario', value: productData.detalle_itinerario, onChange: handleChange },
-        { type: 'select',label:"Categoria",  name: 'categoria_id', value: productData.categoria_id, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
+        { type: 'select',label:"Categoria",  name: 'categoria', value: productData.categoria, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
         { type: 'label', label:"Latitud",  name: 'latitud', value: productData.latitud, onChange: handleChange },
         { type: 'label', label:"Longitud",  name: 'longitud', value: productData.longitud, onChange: handleChange },
-        { 
-            type: 'checkbox', 
-            label: 'Marque el check si quiere que el producto se visualice desde ahora en la página', 
-            name: 'disponible', 
-            checked: productData.disponible, 
-            onChange: handleChange 
+        { type: 'checkbox', label: 'Marque el check si quiere que el producto se visualice desde ahora en la página', name: 'disponible', checked: productData.disponible, onChange: handleChange 
         },
     ];
 

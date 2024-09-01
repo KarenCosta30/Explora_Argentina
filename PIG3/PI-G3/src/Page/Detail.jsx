@@ -145,14 +145,13 @@ const Detail = () => {
         </div>
       </section>
       <div className="btn-detail">
-        <Link to={"/"}>
-          <Button className="btn-back">
+        <Button onClick={()=>navigate(-1)} className="btn-back">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
-        </Link>
+        
       </div>
     </main>
   );
 };
 
-export default Detail;
+export default Detail;

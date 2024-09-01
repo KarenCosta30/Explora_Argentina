@@ -2,10 +2,7 @@ package com.backend.webExplora.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,8 +29,9 @@ public class ProductoController {
     private IProductoService productoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<ProductoSalidaDto> registrarProducto(@RequestBody @Valid ProductoEntradaDto producto) {
-        return new ResponseEntity<>(productoService.registrarProducto(producto), HttpStatus.CREATED);
+    public ResponseEntity<ProductoSalidaDto> registrarProducto(@RequestBody ProductoEntradaDto productoDto) {
+        ProductoSalidaDto productoSalidaDto = productoService.registrarProducto(productoDto);
+        return ResponseEntity.ok(productoSalidaDto);
     }
 
     @GetMapping("/aleatorios")
@@ -66,5 +64,5 @@ public class ProductoController {
             @RequestParam List<Long> idsExcluidos) {
         List<ProductoSalidaDto> productos = productoService.obtenerProductosDisponibles(ubicacion, idsExcluidos);
         return ResponseEntity.ok(productos);
-    }
+}
 }

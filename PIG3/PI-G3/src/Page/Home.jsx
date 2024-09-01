@@ -16,6 +16,12 @@ const Home = () => {
   const [offersText, setOffersText] = useState("Ofertas Especiales"); //---> Cambio de texto en la sección de ofertas
   const offersRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
+  useEffect(() => {
+    const activeUser = localStorage.getItem("userActive") === "true";
+    if (activeUser) {
+      dispatch({ type: "SET_USER_ACTIVE", payload: true });
+    }
+  }, [dispatch]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -27,17 +33,14 @@ const Home = () => {
     return uniqueLocations.map((location) => ({
       value: location.toLowerCase().replace(/\s+/g, "-"),
       label: location,
+      
     }));
   };
   //---> Obtiene las ubicaciones únicas de los tours
   const locationOptions = getUniqueLocations(state.tour);
+  console.log(locationOptions);
+  
 
-  useEffect(() => {
-    const activeUser = localStorage.getItem("userActive") === "true";
-    if (activeUser) {
-      dispatch({ type: "SET_USER_ACTIVE", payload: true });
-    }
-  }, [dispatch]);
 
   //---> Función para manejar la búsqueda de tours
   const handleSearchSubmit = (e) => {
