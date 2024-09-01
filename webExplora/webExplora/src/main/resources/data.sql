@@ -661,7 +661,7 @@ VALUES
 ("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
 ("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1");
 
-NSERT IGNORE INTO reservas (usuario_id, producto_id, fecha_reserva)
+INSERT IGNORE INTO reservas (usuario_id, producto_id, fecha_reserva)
 VALUES 
 (3, 8, '2024-09-10'),
 (5, 9, '2024-09-13'),
