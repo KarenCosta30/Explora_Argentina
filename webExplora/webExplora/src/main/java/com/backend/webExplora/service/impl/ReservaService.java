@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.util.List;  
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.dto.salida.ReservaSalidaDto;
 import com.backend.webExplora.entity.Producto;
 import com.backend.webExplora.entity.Reserva;
@@ -26,6 +28,15 @@ public class ReservaService implements IReservaService {
 
     @Autowired
     private ReservaRepository reservaRepository;
+
+    private ModelMapper modelMapper;
+
+    @Autowired
+  public ReservaService(ProductoRepository productoRepository, ModelMapper modelMapper) {
+    this.productoRepository = productoRepository;
+    this.modelMapper = modelMapper;
+}
+
 
     @Override
     public ReservaSalidaDto reservarProducto(Long usuarioId, Long productoId, LocalDate fechaReserva) {
@@ -51,13 +62,13 @@ public class ReservaService implements IReservaService {
     public List<Reserva> obtenerReservasPorUsuario(Long usuarioId) {
         return reservaRepository.findByUsuarioId(usuarioId);
     }
+    
     @Override
 public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
     var reserva = reservaRepository.findById(reservaId)
                     .orElseThrow(() -> new IllegalArgumentException("Reserva no encontrada"));
     return convertirAReservaSalidaDto(reserva);
 }
-
 
 
     @Override
@@ -86,12 +97,21 @@ public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
     }
 
     private ReservaSalidaDto convertirAReservaSalidaDto(Reserva reserva) {
+        Producto producto = reserva.getProducto();
+        ProductoSalidaDto productoDto = null;
+        
+        if (producto != null) {
+            productoDto = modelMapper.map(producto, ProductoSalidaDto.class);
+        }
+        
         return new ReservaSalidaDto(
             reserva.getId(),
             reserva.getUsuario().getId(),
-            reserva.getProducto().getId(),
+            productoDto,
             reserva.getFechaReserva()
         );
     }
+    
+    
 }
 

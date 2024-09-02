@@ -13,24 +13,25 @@ public class ReservaSalidaDto {
 
     private Long usuarioId;
 
-    private Long productoId; 
-
     private LocalDate fechaReserva;
+    
+    private ProductoSalidaDto producto;
     
 
     public ReservaSalidaDto() {
     }
 
-    public ReservaSalidaDto(Long id, Long usuarioId, Long productoId, LocalDate fechaReserva) {
+    public ReservaSalidaDto(Long id, Long usuarioId, ProductoSalidaDto producto, LocalDate fechaReserva) {
         this.id = id;
         this.usuarioId = usuarioId;
-        this.productoId = productoId;
+        this.producto = producto; 
         this.fechaReserva = fechaReserva;
-    }
+     } 
 
-    public ReservaSalidaDto(Long usuarioId, Long productoId, LocalDate fechaReserva) {
+     public ReservaSalidaDto(Long id, Long usuarioId, Long productoId, LocalDate fechaReserva) {
+        this.id = id;
         this.usuarioId = usuarioId;
-        this.productoId = productoId;
+        this.producto = new ProductoSalidaDto();
         this.fechaReserva = fechaReserva;
     }
 
