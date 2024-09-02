@@ -16,30 +16,6 @@ const Home = () => {
   const [offersText, setOffersText] = useState("Ofertas Especiales"); //---> Cambio de texto en la sección de ofertas
   const offersRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-<<<<<<< Updated upstream
-
-=======
-  //---> Función para obtener las ubicaciones únicas de los tours
->>>>>>> Stashed changes
-  const getUniqueLocations = (tours) => {
-    const locations = tours.map((tour) => tour.ubicacion);
-    const uniqueLocations = [...new Set(locations)];
-    return uniqueLocations.map((location) => ({
-      value: location.toLowerCase().replace(/\s+/g, "-"),
-      label: location,
-    }));
-  };
-<<<<<<< Updated upstream
-
-=======
-  //---> Obtiene las ubicaciones únicas de los tours
->>>>>>> Stashed changes
-  const locationOptions = getUniqueLocations(state.tour);
-
   useEffect(() => {
     const activeUser = localStorage.getItem("userActive") === "true";
     if (activeUser) {
@@ -47,21 +23,28 @@ const Home = () => {
     }
   }, [dispatch]);
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+  //---> Función para obtener las ubicaciones únicas de los tours
+  const getUniqueLocations = (tours) => {
+    const locations = tours.map((tour) => tour.ubicacion);
+    const uniqueLocations = [...new Set(locations)];
+    return uniqueLocations.map((location) => ({
+      value: location.toLowerCase().replace(/\s+/g, "-"),
+      label: location,
+      
+    }));
+  };
+  //---> Obtiene las ubicaciones únicas de los tours
+  const locationOptions = getUniqueLocations(state.tour);
+  console.log(locationOptions);
+  
+
+
   //---> Función para manejar la búsqueda de tours
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-<<<<<<< Updated upstream
-    // Crear lógica para manejar la búsqueda
-  };
-  
-  //-- Filtrar tours según la categoría y la ubicación seleccionadas
-  const filteredTours = state.tour.filter((tour) => {
-    return (
-      (!selectedCategory || tour.categoria.id === selectedCategory) &&
-      (!selectedLocation || tour.ubicacion.toLowerCase().replace(/\s+/g, "-") === selectedLocation)
-    );
-  });
-=======
 
     //-- Actualiza el texto del campo de selección
     if (selectedLocation) {
@@ -104,7 +87,6 @@ const Home = () => {
     setSelectedDate(null);
     setSearchText("¿A dónde vamos?");
     setOffersText("Ofertas Especiales");
->>>>>>> Stashed changes
 
      //-- Desplaza hacia la sección de ofertas especiales
       if (offersRef.current) {
@@ -159,10 +141,7 @@ const Home = () => {
           inputClassName={"input-select"}
         />
       </section>
-<<<<<<< Updated upstream
-=======
       {/* CONTAINER CATEGORIES */}
->>>>>>> Stashed changes
       <section className="container-categories">
         <p className="exp">Experiencias</p>
         <p className="subtitle-exp">

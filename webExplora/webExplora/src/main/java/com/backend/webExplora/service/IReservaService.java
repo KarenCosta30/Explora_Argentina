@@ -18,5 +18,8 @@ public interface IReservaService {
     List<Producto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion);
 
     boolean isProductoDisponible(Long productoId, LocalDate fechaReserva);
+    ReservaSalidaDto obtenerReservaPorId(Long reservaId);
+
+
     
 }

@@ -26,12 +26,16 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
             );   
           } else if (field.type === "select") {
             return (
+              <div key={index} className={inputClassName}>
+              <label >
+                {field.label}
                 <select
                   key={index}
                   className={inputClassName}
                   name={field.name}
                   value={field.value}
                   onChange={field.onChange}
+                  
                 >
                   {field.options && field.options.map((option, idx) => (
                     <option key={idx} value={option.value}>
@@ -39,6 +43,8 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                     </option>
                   ))}
                 </select>
+              </label>
+                </div>
               
             );
           } else if (field.type === "checkbox") {
@@ -62,10 +68,29 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 {field.render()}
               </div>
             );
-          }  else {
+          }
+          else if (field.type === "label") {
+            return (
+              <div key={index} className={inputClassName}>
+                <label> {field.label}
+                  <input
+                    className={inputClassName}
+                    type={field.type}
+                    name={field.name}
+                    checked={field.checked}
+                    onChange={field.onChange}
+                    value={field.value}
+                    autoComplete={field.autoComplete}
+                  />
+                  
+                </label>
+              </div>
+            );
+          } 
+           else {
             return (
               <input
-              key={index}
+               key={index}
                 className={inputClassName}
                 type={field.type}
                 placeholder={field.placeholder}
@@ -73,8 +98,9 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 value={field.value}
                 onChange={field.onChange}
                 autoComplete={field.autoComplete}
-                label={field.label}
-                checked={field.checked}
+                
+                
+                
                 
               />
              

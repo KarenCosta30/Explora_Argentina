@@ -27,7 +27,7 @@ import com.backend.webExplora.repository.CategoriaRepository;
 import com.backend.webExplora.repository.ProductoRepository;
 import com.backend.webExplora.repository.ReservaRepository; // Añadir ReservaRepository
 import com.backend.webExplora.service.IProductoService;
-import com.backend.webExplora.utils.JsonPrinter;
+
 
 @Service
 public class ProductoService implements IProductoService {
@@ -38,7 +38,9 @@ public class ProductoService implements IProductoService {
     private ReservaRepository reservaRepository; // Inyectar ReservaRepository
 
     private static final Logger logger = LoggerFactory.getLogger(ProductoService.class);
+    @Autowired
     private final ProductoRepository productoRepository;
+    @Autowired
     private final ModelMapper modelMapper;
 
     public ProductoService(ProductoRepository productoRepository, ModelMapper modelMapper) {
@@ -131,12 +133,18 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public ProductoSalidaDto registrarProducto(ProductoEntradaDto producto) {
-        logger.info("ProductoEntradaDto: {}", JsonPrinter.toString(producto));
-        Producto productoEntidad = modelMapper.map(producto, Producto.class);
-        Producto productoEntidadConId = productoRepository.save(productoEntidad);
-        ProductoSalidaDto productoSalidaDto = modelMapper.map(productoEntidadConId, ProductoSalidaDto.class);
-        logger.info("ProductoSalidaDto: {}", JsonPrinter.toString(productoSalidaDto));
-        return productoSalidaDto;
-    }
+    public ProductoSalidaDto registrarProducto(ProductoEntradaDto productoDto) {
+        Producto producto = modelMapper.map(productoDto, Producto.class);
+
+        // Asignar la categoría al producto
+        if (productoDto.getCategoria() != null) {
+            Categoria categoria = categoriaRepository.findById(productoDto.getCategoria())
+                                    .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
+            producto.setCategoria(categoria);
+        }
+
+        producto = productoRepository.save(producto);
+
+        return modelMapper.map(producto, ProductoSalidaDto.class);
+}
 }

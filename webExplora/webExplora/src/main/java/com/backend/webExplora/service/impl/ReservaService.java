@@ -1,7 +1,7 @@
 package com.backend.webExplora.service.impl;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.List;  
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +51,14 @@ public class ReservaService implements IReservaService {
     public List<Reserva> obtenerReservasPorUsuario(Long usuarioId) {
         return reservaRepository.findByUsuarioId(usuarioId);
     }
+    @Override
+public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
+    var reserva = reservaRepository.findById(reservaId)
+                    .orElseThrow(() -> new IllegalArgumentException("Reserva no encontrada"));
+    return convertirAReservaSalidaDto(reserva);
+}
+
+
 
     @Override
     public List<Reserva> obtenerReservasPorProducto(Long productoId) {
