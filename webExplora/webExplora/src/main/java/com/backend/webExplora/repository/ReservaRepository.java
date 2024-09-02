@@ -32,4 +32,6 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
     boolean existsByProductoIdAndFechaReserva(Long productoId, LocalDate fechaReserva);
      @EntityGraph(attributePaths = {"producto"})
      Optional<Reserva> findById(Long id);
+     
+     
 }

@@ -20,6 +20,9 @@ public class ReservaSalidaDto {
 
     public ReservaSalidaDto() {
     }
+    public ReservaSalidaDto(LocalDate fechaReserva) {
+        this.fechaReserva = fechaReserva;
+    }
 
     public ReservaSalidaDto(Long id, Long usuarioId, ProductoSalidaDto producto, LocalDate fechaReserva) {
         this.id = id;
@@ -32,6 +35,13 @@ public class ReservaSalidaDto {
         this.id = id;
         this.usuarioId = usuarioId;
         this.producto = new ProductoSalidaDto();
+        this.fechaReserva = fechaReserva;
+    }
+    public LocalDate getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(LocalDate fechaReserva) {
         this.fechaReserva = fechaReserva;
     }
 

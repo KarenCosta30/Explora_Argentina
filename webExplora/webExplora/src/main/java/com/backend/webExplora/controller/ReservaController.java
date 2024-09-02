@@ -1,5 +1,8 @@
 package com.backend.webExplora.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +52,16 @@ public class ReservaController {
         ReservaSalidaDto reserva = reservaService.obtenerReservaPorId(id);
         return ResponseEntity.ok(reserva);
     }
+
+
+    @GetMapping("/producto/{productoId}")
+public ResponseEntity<List<ReservaSalidaDto>> obtenerFechasReservadas(@PathVariable Long productoId) {
+    List<Reserva> reservas = reservaService.obtenerReservasPorProducto(productoId);
+    List<ReservaSalidaDto> reservasDto = reservas.stream()
+        .map(reserva -> new ReservaSalidaDto(reserva.getFechaReserva()))
+        .collect(Collectors.toList());
+    return ResponseEntity.ok(reservasDto);
+}
 
     // /**
     // * Lista los productos disponibles para una fecha y ubicación específicas.

@@ -71,10 +71,10 @@ public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
 }
 
 
-    @Override
-    public List<Reserva> obtenerReservasPorProducto(Long productoId) {
-        return reservaRepository.findByProductoId(productoId);
-    }
+@Override
+public List<Reserva> obtenerReservasPorProducto(Long productoId) {
+    return reservaRepository.findByProductoId(productoId);
+ }
 
     @Override
     public List<Producto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion) {
@@ -111,7 +111,8 @@ public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
             reserva.getFechaReserva()
         );
     }
-    
-    
+   
 }
+    
+
 
