@@ -6,6 +6,7 @@ import java.util.List;
 import com.backend.webExplora.dto.entrada.ProductoEntradaDto;
 import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
+import com.backend.webExplora.entity.Producto;
 public interface IProductoService {
     List<ProductoSalidaDto> obtenerProductosAleatorios();
     ProductoSalidaDto obtenerDetalleProducto(Long id);
@@ -21,6 +22,6 @@ public interface IProductoService {
      */
     List<ProductoSalidaDto> obtenerProductosDisponibles(String ubicacion, List<Long> idsExcluidos);
     List<ProductoSalidaDto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion);
-   
+    ProductoSalidaDto asignarCategoria(Long productoId, Long categoriaId);
      
 }

@@ -27,6 +27,7 @@ import com.backend.webExplora.repository.CategoriaRepository;
 import com.backend.webExplora.repository.ProductoRepository;
 import com.backend.webExplora.repository.ReservaRepository; // Añadir ReservaRepository
 import com.backend.webExplora.service.IProductoService;
+import com.google.common.base.Optional;
 
 
 @Service
@@ -34,8 +35,9 @@ public class ProductoService implements IProductoService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+
     @Autowired
-    private ReservaRepository reservaRepository; // Inyectar ReservaRepository
+    private ReservaRepository reservaRepository; 
 
     private static final Logger logger = LoggerFactory.getLogger(ProductoService.class);
     @Autowired
@@ -147,4 +149,43 @@ public class ProductoService implements IProductoService {
 
         return modelMapper.map(producto, ProductoSalidaDto.class);
 }
+
+@Override
+public ProductoSalidaDto asignarCategoria(Long productoId, Long categoriaId) {
+    Producto producto = productoRepository.findById(productoId)
+            .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+    Categoria categoria = categoriaRepository.findById(categoriaId)
+            .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
+    producto.setCategoria(categoria);
+    producto = productoRepository.save(producto);
+    return convertirAProductoSalidaDto(producto);
 }
+
+private ProductoSalidaDto convertirAProductoSalidaDto(Producto producto) {
+    ProductoSalidaDto dto = new ProductoSalidaDto();
+    dto.setId(producto.getId());
+    dto.setNombre(producto.getNombre());
+    dto.setDescripcion(producto.getDescripcion());
+    dto.setDescripcion_larga(producto.getDescripcionLarga());
+    dto.setImagenUrl(producto.getImagenUrl());
+    dto.setImagenUrl2(producto.getImagenUrl2());
+    dto.setImagenUrl3(producto.getImagenUrl3());
+    dto.setPrecio(producto.getPrecio());
+    dto.setDisponible(producto.getDisponible());
+    dto.setUbicacion(producto.getUbicacion());
+    dto.setItinerario(producto.getItinerario());
+    dto.setDetalle_itinerario(producto.getDetalleItinerario());
+    dto.setCategoria(convertirACategoriaSalidaDto(producto.getCategoria()));
+    dto.setLongitud(producto.getLongitud());
+    dto.setLatitud(producto.getLatitud());
+    return dto;
+}
+
+private CategoriaSalidaDto convertirACategoriaSalidaDto(Categoria categoria) {
+    CategoriaSalidaDto dto = new CategoriaSalidaDto();
+    dto.setId(categoria.getId());
+    dto.setNombre(categoria.getNombre());
+    return dto;
+}
+
+} 
