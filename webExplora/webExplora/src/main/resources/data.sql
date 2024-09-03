@@ -651,15 +651,15 @@ Guía en vivo: inglés, Francés, Español',
 INSERT IGNORE INTO usuarios (apellido, email, es_administrador, nombre, password)
 VALUES 
 ("Garcia", "ana.garcia@example.com", true, "Ana", "$2a$10$uGgw6iqT3oCvbtLS6L66IuMyFB7T6HKnIAXcxp0bZRWHPMSCeAoGK") ,
-("Martinez", "luis.martinez@example.com", false, "Luis", "martinez1"),
-("Fernandez", "maria.fernandez@example.com", false, "Maria", "fernandez1"),
-("Rodriguez", "juan.rodriguez@example.com", false, "Juan", "rodriguez1"),
-("Lopez", "carla.lopez@example.com", false, "Carla", "carlalopez1"),
-("Marquesi", "martin.marquesi@example.com", false, "Martin", "marquesi1"),
-("Quiroga", "esteban.quiroga@example.com", false, "Esteban", "quiroga1"),
-("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "corrado1"),
-("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "boanerges1"),
-("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "gonzalez1");
+("Martinez", "luis.martinez@example.com", true, "Luis", "$2a$10$UDKltCQCNsUI560/OAUhC.LL.NLxFGZAjEE/GoKjFp6ZcPlEH2APS"),
+("Fernandez", "maria.fernandez@example.com", true, "Maria", "$2a$10$yG7UYku4qwDH/rHh5on65u4tdxZCU8OPaTsH8fit1/6Qy5bWe6qaq"),
+("Rodriguez", "juan.rodriguez@example.com", true, "Juan", "$2a$10$L1/6QZww5/PkjU74w/hLGenZ43jQZwO/LNPIlq.AtfrVaLnhKJycm"),
+("Lopez", "carla.lopez@example.com", false, "Carla", "$2a$10$dMwnAeKiTdAuXBF5S4/VHef3jukHm75ys5y..BTLn6DCUi4QpOOV6"),
+("Marquesi", "martin.marquesi@example.com", false, "Martin", "$2a$10$kJjqNzlNCLopXK7ou8Jp4.sy.sp4Uvwh/4.Omlvi5cHVykYJOZY.u"),
+("Quiroga", "esteban.quiroga@example.com", false, "Esteban", "$2a$10$9NYMPwsBb9ROm7v/t/.QFe0OXZolpoWdOqT06.X8JBLDaaxaSVAW2"),
+("Corrado", "alfredo.corrado@example.com", false, "Alfredo", "$2a$10$9OsSahfw512eQO3LWhFdD.5YnfkT1d8tYqjknlJsDF7OlHdZIXtXe"),
+("Boanerges", "marcela.boanerges@example.com", false, "Marcela", "$2a$10$8ju1JIuRIeOzbRzfAZktDeZNuq0XBpyRASxyg69C7adRu9OR2ki/K"),
+("Gonzalez", "noelia.gonzalez@example.com", false, "Noelia", "$2a$10$9Ge0/JqzdiPC2xFNH66EC.HRKeiz/L76ISXzV/2Y3qAE.1d9l1Pom");
 
 INSERT IGNORE INTO reservas (usuario_id, producto_id, fecha_reserva)
 VALUES 

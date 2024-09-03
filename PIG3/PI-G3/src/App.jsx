@@ -9,6 +9,7 @@ import Login from "./Page/Login";
 import ControlPanel from "./Page/ControlPanel"
 import Favorites from "./Page/Favorites";
 import RegisterProductForm from "./Page/RegisterProductForm";
+import ProductAdmin from "./Page/ProductAdmin"
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/userlist" element={<ControlPanel/>}/>
         <Route path="/registerproduct" element={<RegisterProductForm/>}/>
         <Route path="/favorites" element={<Favorites/>}/>
+        <Route path="/productadmin" element={<ProductAdmin/>}/>
         <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
       </Routes>
        <Footer /> 

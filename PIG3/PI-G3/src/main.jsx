@@ -9,6 +9,7 @@ import GlobalContext from "./Context/GlobalContext.jsx";
 import "./icons.js";
 import './style/favorites.css';
 import './style/Calendar.css';
+import './style/productAdmin.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(

@@ -10,12 +10,17 @@ const ControlPanel = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+  // Verificar el estado del usuario y redirigir si es necesario
   useEffect(() => {
-    if (!state.userActive || !state.userAdministrator) {
-      navigate('/login');
-    }
-  }, [state.userActive, state.userAdministrator, navigate]);
+    const storedAdminStatus = localStorage.getItem("userAdministrator");
+    const isAdmin = storedAdminStatus === "true";
 
+    if (!state.userAdministrator && !isAdmin) {
+      navigate('/'); 
+    }
+  }, [state.userAdministrator, navigate]);
+
+  // Cargar la lista de usuarios
   useEffect(() => {
     axios.get('http://localhost:8081/usuarios/listar')
       .then(response => {
@@ -26,6 +31,7 @@ const ControlPanel = () => {
       });
   }, []);
 
+  // Manejar el cambio de rol de administrador
   const handleRoleToggle = (id, esAdministrador) => {
     axios.put(`http://localhost:8081/usuarios/cambiar-rol/${id}`, null, {
       params: { esAdministrador }
@@ -37,24 +43,20 @@ const ControlPanel = () => {
         )
       );
 
-      // Verifica si el usuario actual se quita su propio rol de administrador
+      // Verificar si el usuario actual se quita su propio rol de administrador
       if (state.user.id === id && !esAdministrador) {
         // Actualizar el estado global y localStorage
         dispatch({ type: "SET_USER_ADMINISTRATOR", payload: false });
+        localStorage.setItem("userAdministrator", "false");
+
+        // Redirigir después de la actualización
+        navigate('/');
       }
     })
     .catch(error => {
       console.error("Error updating admin status:", error);
     });
   };
-
-  // useEffect para sincronizar el localStorage con el estado global
-  useEffect(() => {
-    localStorage.setItem("userAdministrator", state.userAdministrator);
-    if (!state.userAdministrator) {
-      navigate('/'); // Redirigir fuera del panel de administración
-    }
-  }, [state.userAdministrator, navigate]);
 
   const filteredUsuarios = usuarios.filter(usuario =>
     usuario.email.toLowerCase().includes(searchTerm.toLowerCase())

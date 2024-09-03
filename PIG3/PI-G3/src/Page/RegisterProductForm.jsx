@@ -149,10 +149,9 @@ const RegisterProductForm = () => {
         { type: 'label', label:"URL Imagen 2 (debe ser jpg,jpeg, png o gif)", name: 'imagenUrl2', value:productData.imagenUrl2, onChange: handleChange },
         { type: 'label', label:"URL Imagen 3 (debe ser jpg,jpeg, png o gif)", name: 'imagenUrl3', value:productData.imagenUrl3, onChange: handleChange },
         { type: 'label', label:"Precio",  name: 'precio', value: productData.precio, onChange: handleChange },
-        { type: 'select',label:"Ubicación", name: 'ubicacion', value: productData.ubicacion, onChange: handleChange,options: provinciasArgentinas.map(prov => ({ value: prov, label: prov }))},
+        { type: 'select', label: "Ubicación", name: 'ubicacion', value: productData.ubicacion, onChange: handleChange, options: [{ value: '', label: 'Seleccionar ubicación' }, ...provinciasArgentinas.map(prov => ({ value: prov, label: prov }))] },
         { type: 'label', label:"Carasteristicas", name: 'detalleItinerario', value: productData.detalleItinerario, onChange: handleChange },
-        { type: 'select',label:"Categoria",  name: 'categoria', value: productData.categoria, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
-        { type: 'label', label:"Latitud",  name: 'latitud', value: productData.latitud, onChange: handleChange },
+        { type: 'select', label: "Categoría", name: 'categoria', value: productData.categoria, onChange: handleChange, options: [{ value: '', label: 'Seleccionar categoría' }, ...state.categories.map(cat => ({ value: cat.id, label: cat.nombre }))] },        { type: 'label', label:"Latitud",  name: 'latitud', value: productData.latitud, onChange: handleChange },
         { type: 'label', label:"Longitud",  name: 'longitud', value: productData.longitud, onChange: handleChange },
         { type: 'checkbox', label: 'Marque el check si quiere que el producto se visualice desde ahora en la página', name: 'disponible', checked: productData.disponible, onChange: handleChange 
         },
