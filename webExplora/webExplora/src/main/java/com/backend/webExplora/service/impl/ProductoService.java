@@ -166,7 +166,7 @@ private ProductoSalidaDto convertirAProductoSalidaDto(Producto producto) {
     dto.setId(producto.getId());
     dto.setNombre(producto.getNombre());
     dto.setDescripcion(producto.getDescripcion());
-    dto.setDescripcion_larga(producto.getDescripcionLarga());
+    dto.setDescripcionLarga(producto.getDescripcionLarga());
     dto.setImagenUrl(producto.getImagenUrl());
     dto.setImagenUrl2(producto.getImagenUrl2());
     dto.setImagenUrl3(producto.getImagenUrl3());
@@ -174,7 +174,7 @@ private ProductoSalidaDto convertirAProductoSalidaDto(Producto producto) {
     dto.setDisponible(producto.getDisponible());
     dto.setUbicacion(producto.getUbicacion());
     dto.setItinerario(producto.getItinerario());
-    dto.setDetalle_itinerario(producto.getDetalleItinerario());
+    dto.setDetalleItinerario(producto.getDetalleItinerario());
     dto.setCategoria(convertirACategoriaSalidaDto(producto.getCategoria()));
     dto.setLongitud(producto.getLongitud());
     dto.setLatitud(producto.getLatitud());

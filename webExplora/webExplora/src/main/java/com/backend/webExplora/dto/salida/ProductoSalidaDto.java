@@ -10,7 +10,7 @@ public class ProductoSalidaDto {
     private Long id;
     private String nombre;
     private String descripcion;
-    private String descripcion_larga;
+    private String descripcionLarga;
     private String imagenUrl;
     private String imagenUrl2;
     private String imagenUrl3;
@@ -18,7 +18,7 @@ public class ProductoSalidaDto {
     private Boolean disponible;
     private String ubicacion;
     private String itinerario;
-    private String detalle_itinerario;
+    private String detalleItinerario;
     private CategoriaSalidaDto categoria;
     private Float longitud;
     private Float latitud;
@@ -26,11 +26,11 @@ public class ProductoSalidaDto {
     public ProductoSalidaDto() {
     }
 
-    public ProductoSalidaDto(Long id, String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario, CategoriaSalidaDto categoria, Float longitud, Float latitud) {
+    public ProductoSalidaDto(Long id, String itinerario, String nombre, String descripcion, String descripcionLarga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalleItinerario, CategoriaSalidaDto categoria, Float longitud, Float latitud) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.descripcion_larga = descripcion_larga;
+        this.descripcionLarga = descripcionLarga;
         this.imagenUrl = imagenUrl;
         this.precio = precio;
         this.disponible = disponible;
@@ -38,7 +38,7 @@ public class ProductoSalidaDto {
         this.imagenUrl2 = imagenUrl2;
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
-        this.detalle_itinerario = detalle_itinerario;
+        this.detalleItinerario = detalleItinerario;
         this.longitud = longitud;
         this.latitud = latitud;
     }

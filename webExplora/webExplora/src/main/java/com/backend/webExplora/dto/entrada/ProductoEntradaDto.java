@@ -21,7 +21,7 @@ public class ProductoEntradaDto {
     private String descripcion;
     @NotBlank(message = "Debe especificarse la descripción del producto")
     @Size(max = 2000, message = "La descripción debe tener hasta 2000 caracteres")
-    private String descripcion_larga;
+    private String descripcionLarga;
     @NotBlank(message = "Debe especificarse la URL de la imagen del producto")
     @Size(max = 250, message = "La URL de la imagen debe tener hasta 250 caracteres")
     private String imagenUrl;
@@ -44,7 +44,7 @@ public class ProductoEntradaDto {
     private String itinerario;
     @NotBlank(message = "Debe especificarse las caracteristicas del producto")
     @Size(max = 2000, message = "Las características debe tener hasta 2000 caracteres")
-    private String detalle_itinerario;
+    private String detalleItinerario;
     @NotNull(message = "Debe especificarse la longitud del producto")
     private Float longitud;
     @NotNull(message = "Debe especificarse la latitud del producto")
@@ -59,10 +59,10 @@ public class ProductoEntradaDto {
 
     }
 
-    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcion_larga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalle_itinerario, Float longitud, Float latitud, Long categoria) {
+    public ProductoEntradaDto(String itinerario, String nombre, String descripcion, String descripcionLarga, String imagenUrl, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible, String ubicacion, String detalleItinerario, Float longitud, Float latitud, Long categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.descripcion_larga = descripcion_larga;
+        this.descripcionLarga = descripcionLarga;
         this.imagenUrl = imagenUrl;
         this.precio = precio;
         this.disponible = disponible;
@@ -70,7 +70,7 @@ public class ProductoEntradaDto {
         this.imagenUrl2 = imagenUrl2;
         this.imagenUrl3 = imagenUrl3;
         this.itinerario = itinerario;
-        this.detalle_itinerario = detalle_itinerario;
+        this.detalleItinerario = detalleItinerario;
         this.longitud = longitud;
         this.latitud = latitud;
         this.categoria = categoria;

@@ -7,7 +7,8 @@ import axios from "axios";
 import { useTourState } from "../Context/GlobalContext";
 import MapComponent from "../Components/MapComponent";
 import Carrusel from "../Components/Carrusel";
-import Calendar from "../Components/Calendar"; 
+import Calendar from "react-datepicker"; 
+import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Detail = () => {
@@ -15,10 +16,12 @@ const Detail = () => {
   const { state, dispatch } = useTourState();
   const [peopleCount, setPeopleCount] = useState(1);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [reservedDates, setReservedDates] = useState([]); // Estado para las fechas reservadas
   const totalPrice = peopleCount * parseFloat(tour.precio);
   const navigate = useNavigate();
   const params = useParams();
   const url = `http://localhost:8081/api/productos/${params.id}`;
+  const reservedDatesUrl = `http://localhost:8081/reservar/producto/${params.id}`; // URL para obtener las fechas reservadas
 
   useEffect(() => {
     const activeUser = localStorage.getItem("userActive") === "true";
@@ -29,6 +32,14 @@ const Detail = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => setTour(res.data));
+  }, [params.id]);
+
+  useEffect(() => {
+    axios.get(reservedDatesUrl).then((res) => {
+      // Convertir las fechas reservadas a objetos Date
+      const dates = res.data.map(reservation => new Date(reservation.fechaReserva));
+      setReservedDates(dates);
+    });
   }, [params.id]);
 
   const handlePeopleChange = (event) => {
@@ -65,7 +76,7 @@ const Detail = () => {
           </div>
           <div className="info-booking">
             <div>
-              <span>{tour.descripcion_larga}</span>
+              <span>{tour.descripcionLarga}</span>
               <p>
                 Desde:{" "}
                 <span className="price-info-booking">{tour.precio}</span> por
@@ -79,8 +90,11 @@ const Detail = () => {
           <h3>Reserva tu lugar</h3>
           <div className="info-card-booking">
             <Calendar
-              selectedDate={selectedDate} 
-              handleDateChange={handleDateChange}
+              selected={selectedDate} 
+              onChange={handleDateChange}
+              placeholderText="Selecciona una fecha"
+              excludeDates={reservedDates} // Excluir las fechas reservadas
+              minDate={new Date()} // Opcional: Evita seleccionar fechas pasadas
             />
             <div className="people-selection">
               <label htmlFor="people-count">Personas:</label>

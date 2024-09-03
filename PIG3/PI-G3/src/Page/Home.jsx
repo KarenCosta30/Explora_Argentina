@@ -5,7 +5,7 @@ import CardTour from "../Components/CardTour";
 import { useTourState } from "../Context/GlobalContext";
 import Button from "../Components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import DatePicker from "react-datepicker";
 
 const Home = () => {
@@ -169,15 +169,18 @@ const Home = () => {
           {displayedTours.map((item, index) => (
             <CardTour key={index} item={item}>
               {state.userActive ? (
-                <Button
-                className={"btn-fav"}
-                onClick={() => {
-                  alert("El tour se agregó a favoritos");
-                  dispatch({ type: "ADD_FAVORITES", payload: item });
-                }}
-              >
-                <FontAwesomeIcon icon={faStar} />
-                </Button>
+    <Button
+    className={`btn-fav ${state.favorites.some(fav => fav.id === item.id) ? 'clicked' : ''}`}
+    onClick={() => {
+      if (state.favorites.some(fav => fav.id === item.id)) {
+        dispatch({ type: "DELETE_FAVORITES", payload: item });
+      } else {
+        dispatch({ type: "ADD_FAVORITES", payload: item });
+      }
+    }}
+  >
+    <FontAwesomeIcon icon={faHeart} />
+  </Button>
               ) : null}
             </CardTour>
           ))}

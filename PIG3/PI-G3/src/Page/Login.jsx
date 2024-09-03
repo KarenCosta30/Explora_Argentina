@@ -36,6 +36,7 @@ const Login = () => {
             localStorage.setItem("userSurname", user.apellido);
             localStorage.setItem("userEmail", user.email);
             localStorage.setItem("userAdministrator", user.esAdministrador);
+            localStorage.setItem("userId", user.id);
 
             navigate('/');
         } catch (err) {

@@ -4,6 +4,7 @@ import CardTour from '../Components/CardTour';
 import Button from '../Components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 const Favorites = () => {
   const {state,dispatch} = useTourState();
@@ -16,6 +17,17 @@ const Favorites = () => {
         console.error('Error fetching favorites from local storage', error)
     }
 }}, [dispatch]);
+
+const navigate = useNavigate();
+
+
+useEffect(() => {
+  const userActive = localStorage.getItem("userActive", state.userActive);
+  if (!userActive ) {
+    navigate('/'); // Redirigir fuera del panel de administración
+  }
+  
+}, [state.userActive]);
 
 useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(state.favorites));

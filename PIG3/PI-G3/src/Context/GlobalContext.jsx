@@ -12,9 +12,9 @@ const initialState = {
     userSurname: "",
     userEmail: "",
     userAdministrator: false,
+    userId: "",
     categories:[],
     favorites: JSON.parse(localStorage.getItem("favorites")) || []
-    
 }
 
 const GlobalContext = ({ children }) => {

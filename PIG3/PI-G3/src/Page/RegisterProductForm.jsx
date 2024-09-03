@@ -13,14 +13,14 @@ const RegisterProductForm = () => {
     const [productData, setProductData] = useState({
         nombre: '',
         descripcion: '',
-        descripcion_larga: '',
+        descripcionLarga: '',
         itinerario: '',
         imagenUrl: '',
         imagenUrl2: '',
         imagenUrl3: '',
         precio: '',
         ubicacion: '',
-        detalle_itinerario: '',
+        detalleItinerario: '',
         categoria: '',
         latitud: '',
         longitud: '',
@@ -40,7 +40,7 @@ const RegisterProductForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const {nombre, descripcion,descripcion_larga,itinerario,imagenUrl,imagenUrl2,imagenUrl3,precio,ubicacion,detalle_itinerario,latitud,longitud } = productData
+        const {nombre, descripcion,descripcionLarga,itinerario,imagenUrl,imagenUrl2,imagenUrl3,precio,ubicacion,detalleItinerario,latitud,longitud } = productData
         const nombreExistente = state.tour.find(product => product.nombre.toLowerCase() === nombre.toLowerCase());
         const parsedLatitud = parseFloat(latitud);
         const parsedLongitud = parseFloat(longitud);
@@ -53,7 +53,7 @@ const RegisterProductForm = () => {
             setError("EL campo de descripción breve de portada es incorrecta")
             return;
         }
-        if( descripcion_larga.length < 100 || descripcion_larga.length > 2000){
+        if( descripcionLarga.length < 100 || descripcionLarga.length > 2000){
             setError("El campo de descripción detallada es incorrecta ")
             return;
         }
@@ -83,7 +83,7 @@ const RegisterProductForm = () => {
             setError("Debe seleccionar una ubicación");
             return;}
        
-        if (detalle_itinerario.length < 20 || detalle_itinerario.length > 2000 ) {
+        if (detalleItinerario.length < 20 || detalleItinerario.length > 2000 ) {
             setError("El campo caracteristica es incorrecto")
             return;
         }
@@ -103,7 +103,7 @@ const RegisterProductForm = () => {
 
         setError(null)
       
-        axios.post('http://localhost:8081/api/productos/registrar', productData)
+        axios.post('http://localhost:8081/api/productos/agregarProducto', productData)
         .then((res) => {
             dispatch({ type: "ADD_PRODUCTO", payload: res.data });
             alert("Producto registrado exitosamente!");
@@ -111,14 +111,14 @@ const RegisterProductForm = () => {
             setProductData({
                 nombre: '',
                 descripcion: '',
-                descripcion_larga: '',
+                descripcionLarga: '',
                 itinerario: '',
                 imagenUrl: '',
                 imagenUrl2: '',
                 imagenUrl3: '',
                 precio: '',
                 ubicacion: '',
-                detalle_itinerario: '',
+                detalleItinerario: '',
                 categoria: '',
                 latitud: '',
                 longitud: '',
@@ -132,24 +132,25 @@ const RegisterProductForm = () => {
     };
 
       // useEffect para sincronizar el localStorage con el estado global
-  useEffect(() => {
-    localStorage.setItem("userAdministrator", state.userAdministrator);
-    if (!state.userAdministrator) {
-      navigate('/'); // Redirigir fuera del panel de administración
-    }
-  }, [state.userAdministrator, navigate]);
+      useEffect(() => {
+        const userActive = localStorage.getItem("userAdministrator", state.userAdministrator);
+        if (!userActive ) {
+          navigate('/'); // Redirigir fuera del panel de administración
+        }
+        
+      }, [state.userAdministrator]);
 
     const fields = [
         { type: 'label', label:"Nombre", className:"create-account-input", name: 'nombre', value: productData.nombre, onChange: handleChange },
         { type: 'label', label:"Descripción",name: 'descripcion', value: productData.descripcion, onChange: handleChange },
-        { type: 'label', label:"Descripción Detallada", name: 'descripcion_larga', value: productData.descripcion_larga, onChange: handleChange },
+        { type: 'label', label:"Descripción Detallada", name: 'descripcionLarga', value: productData.descripcionLarga, onChange: handleChange },
         { type: 'label', label:"Itinerario" , name: 'itinerario', value: productData.itinerario, onChange: handleChange },
-        { type: 'label', label:"Imagen 1", name: 'imagenUrl', value:productData.imagenUrl,  onChange: handleChange},
-        { type: 'label', label:"Imagen 2", name: 'imagenUrl2', value:productData.imagenUrl2, onChange: handleChange },
-        { type: 'label', label:"Imagen 3", name: 'imagenUrl3', value:productData.imagenUrl3, onChange: handleChange },
+        { type: 'label', label:"URL Imagen 1 (debe ser jpg,jpeg, png o gif)", name: 'imagenUrl', value:productData.imagenUrl,  onChange: handleChange},
+        { type: 'label', label:"URL Imagen 2 (debe ser jpg,jpeg, png o gif)", name: 'imagenUrl2', value:productData.imagenUrl2, onChange: handleChange },
+        { type: 'label', label:"URL Imagen 3 (debe ser jpg,jpeg, png o gif)", name: 'imagenUrl3', value:productData.imagenUrl3, onChange: handleChange },
         { type: 'label', label:"Precio",  name: 'precio', value: productData.precio, onChange: handleChange },
         { type: 'select',label:"Ubicación", name: 'ubicacion', value: productData.ubicacion, onChange: handleChange,options: provinciasArgentinas.map(prov => ({ value: prov, label: prov }))},
-        { type: 'label', label:"Carasteristicas", name: 'detalle_itinerario', value: productData.detalle_itinerario, onChange: handleChange },
+        { type: 'label', label:"Carasteristicas", name: 'detalleItinerario', value: productData.detalleItinerario, onChange: handleChange },
         { type: 'select',label:"Categoria",  name: 'categoria', value: productData.categoria, onChange: handleChange, options: state.categories.map(cat => ({ value: cat.id, label: cat.nombre })) },
         { type: 'label', label:"Latitud",  name: 'latitud', value: productData.latitud, onChange: handleChange },
         { type: 'label', label:"Longitud",  name: 'longitud', value: productData.longitud, onChange: handleChange },
