@@ -26,14 +26,13 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
   return (
     <div className="popover">
       <div className="popover-content">
-        
-
         <p>{name} {surname}</p>
-        
-        
-
         <p>{email}</p>
-        <Link to={"/favorites"}>Mis favoritos</Link>
+        <hr className="hr-custom"/>
+        
+        <button onClick={() => handleNavigation('/favorites')}>Mis favoritos</button>
+        <hr className="hr-custom"/>
+        
         {isAdmin && (     
           <div className="admin-tools"> {/* Se actualizo componente Popover para que, al hacer clic en el botón
             "Herramientas de Administrador", se despliegue un menú con varias opciones. */}

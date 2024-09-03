@@ -78,7 +78,7 @@ const Detail = () => {
             <div>
               <span>{tour.descripcionLarga}</span>
               <p>
-                Desde:{" "}
+                Desde: USD {" "}
                 <span className="price-info-booking">{tour.precio}</span> por
                 adulto
               </p>
@@ -111,7 +111,7 @@ const Detail = () => {
               </select>
             </div>
           </div>
-          <span className="price-total">Total: ${totalPrice.toFixed(2)}</span>
+          <span className="price-total">Total: USD {totalPrice.toFixed(2)}</span>
           <Button 
             className="btn-booking" 
             onClick={handleClick}

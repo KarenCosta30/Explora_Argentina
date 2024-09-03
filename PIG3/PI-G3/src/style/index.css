@@ -118,6 +118,13 @@ div.avatar:hover {
   font-size: 0.875rem;
 }
 
+.popover-content .hr-custom {
+  border: none;
+  height: 2px;
+  background-color: #c18a29;
+  margin: 20px 0;
+}
+
 .popover-content button {
   display: block;
   width: 100%;
@@ -811,8 +818,12 @@ div.copyright{
   display: none;
 }
 
+.btn-detail .btn-back{  /*Se agrego mayor especificidad para lograr ancho en el botón atrás*/
+  width: 700%;
+}
+
 .btn-back {
-  width: 5vw;
+  width: 10vw;
   height: 5vh;
   background-color: #ffffff;
   border-radius: 90px;
