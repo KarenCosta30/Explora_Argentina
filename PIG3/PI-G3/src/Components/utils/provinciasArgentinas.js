@@ -1,180 +1,176 @@
-  export const provinciasArgentinas = [
-// Catamarca
-"San Fernando del Valle de Catamarca, Catamarca",
-"San Isidro, Catamarca",
-"Belén, Catamarca",
-"Fray Mamerto Esquiú, Catamarca",
-"Recreo, Catamarca",
-"Andalgala, Catamarca",
+export const provinciasArgentinas = [
+  // Buenos Aires (Provincia)
+  "Bahía Blanca, Buenos Aires",
+  "Junín, Buenos Aires",
+  "La Plata, Buenos Aires",
+  "Luján, Buenos Aires",
+  "Mar del Plata, Buenos Aires",
+  "Olavarría, Buenos Aires",
+  "Pergamino, Buenos Aires",
+  "Pilar, Buenos Aires",
+  "San Fernando, Buenos Aires",
+  "San Nicolás, Buenos Aires",
 
-// Chaco
-"Resistencia, Chaco",
-"Sáenz Peña, Chaco",
-"Charata, Chaco",
-"Pcia. Roque Sáenz Peña, Chaco",
-"Villa Ángela, Chaco",
+  // Catamarca
+  "Andalgala, Catamarca",
+  "Belén, Catamarca",
+  "Fray Mamerto Esquiú, Catamarca",
+  "Recreo, Catamarca",
+  "San Fernando del Valle de Catamarca, Catamarca",
+  "San Isidro, Catamarca",
 
-// Chubut
-"Comodoro Rivadavia, Chubut",
-"Puerto Madryn, Chubut",
-"Trelew, Chubut",
-"Rawson, Chubut",
-"Dolavon, Chubut",
-"Gaiman, Chubut",
+  // Chaco
+  "Charata, Chaco",
+  "Pcia. Roque Sáenz Peña, Chaco",
+  "Resistencia, Chaco",
+  "Sáenz Peña, Chaco",
+  "Villa Ángela, Chaco",
 
-// Ciudad Autónoma de Buenos Aires
-"Ciudad Autónoma de Buenos Aires, Ciudad Autónoma de Buenos Aires",
+  // Chubut
+  "Comodoro Rivadavia, Chubut",
+  "Dolavon, Chubut",
+  "Gaiman, Chubut",
+  "Puerto Madryn, Chubut",
+  "Rawson, Chubut",
+  "Trelew, Chubut",
 
-// Buenos Aires (Provincia)
-"La Plata, Buenos Aires",
-"Mar del Plata, Buenos Aires",
-"Bahía Blanca, Buenos Aires",
-"San Nicolás, Buenos Aires",
-"Pergamino, Buenos Aires",
-"Pilar, Buenos Aires",
-"San Fernando, Buenos Aires",
-"Luján, Buenos Aires",
-"Olavarría, Buenos Aires",
-"Junín, Buenos Aires",
+  // Ciudad Autónoma de Buenos Aires
+  "CABA, Ciudad Autónoma de Buenos Aires",
 
-// Córdoba
-"Córdoba, Córdoba",
-"Villa Carlos Paz, Córdoba",
-"San Francisco, Córdoba",
-"Río Cuarto, Córdoba",
-"Alta Gracia, Córdoba",
-"Jesús María, Córdoba",
+  // Córdoba
+  "Alta Gracia, Córdoba",
+  "Córdoba, Córdoba",
+  "Jesús María, Córdoba",
+  "Río Cuarto, Córdoba",
+  "San Francisco, Córdoba",
+  "Villa Carlos Paz, Córdoba",
 
-// Corrientes
-"Corrientes, Corrientes",
-"Goya, Corrientes",
-"Bella Vista, Corrientes",
-"Mercedes, Corrientes",
-"Ituzaingó, Corrientes",
-"Monte Caseros, Corrientes",
+  // Corrientes
+  "Bella Vista, Corrientes",
+  "Corrientes, Corrientes",
+  "Goya, Corrientes",
+  "Ituzaingó, Corrientes",
+  "Mercedes, Corrientes",
+  "Monte Caseros, Corrientes",
 
-// Entre Ríos
-"Concordia, Entre Ríos",
-"Paraná, Entre Ríos",
-"Gualeguaychú, Entre Ríos",
-"Colón, Entre Ríos",
-"La Paz, Entre Ríos",
-"Villaguay, Entre Ríos",
+  // Entre Ríos
+  "Colón, Entre Ríos",
+  "Concordia, Entre Ríos",
+  "Gualeguaychú, Entre Ríos",
+  "La Paz, Entre Ríos",
+  "Paraná, Entre Ríos",
+  "Villaguay, Entre Ríos",
 
-// Formosa
-"Formosa, Formosa",
-"Clorinda, Formosa",
-"Pirané, Formosa",
-"Las Lomitas, Formosa",
-"Laguna Blanca, Formosa",
+  // Formosa
+  "Clorinda, Formosa",
+  "Formosa, Formosa",
+  "Laguna Blanca, Formosa",
+  "Las Lomitas, Formosa",
+  "Pirané, Formosa",
 
-// Jujuy
-"San Salvador de Jujuy, Jujuy",
-"Palpalá, Jujuy",
-"El Carmen, Jujuy",
-"La Quiaca, Jujuy",
-"Humahuaca, Jujuy",
-"San Pedro, Jujuy",
-"Purmamarca, Jujuy",
+  // Jujuy
+  "El Carmen, Jujuy",
+  "Humahuaca, Jujuy",
+  "La Quiaca, Jujuy",
+  "Palpalá, Jujuy",
+  "Purmamarca, Jujuy",
+  "San Pedro, Jujuy",
+  "San Salvador de Jujuy, Jujuy",
 
+  // La Pampa
+  "General Pico, La Pampa",
+  "Realicó, La Pampa",
+  "Santa Rosa, La Pampa",
+  "Winifreda, La Pampa",
 
+  // La Rioja
+  "Chilecito, La Rioja",
+  "Famatina, La Rioja",
+  "La Rioja, La Rioja",
+  "Villa Unión, La Rioja",
 
-// La Pampa
-"Santa Rosa, La Pampa",
-"General Pico, La Pampa",
-"Winifreda, La Pampa",
-"Realicó, La Pampa",
+  // Mendoza
+  "Godoy Cruz, Mendoza",
+  "Luján de Cuyo, Mendoza",
+  "Maipú, Mendoza",
+  "Mendoza, Mendoza",
+  "San Martín, Mendoza",
+  "San Rafael, Mendoza",
+  "Tunuyán, Mendoza",
 
-// La Rioja
-"La Rioja, La Rioja",
-"Chilecito, La Rioja",
-"Famatina, La Rioja",
-"Villa Unión, La Rioja",
+  // Misiones
+  "Cataratas de Iguazú, Misiones",
+  "Eldorado, Misiones",
+  "Oberá, Misiones",
+  "Posadas, Misiones",
+  "Puerto Iguazú, Misiones",
+  "San Vicente, Misiones",
 
-// Mendoza
-"Mendoza, Mendoza",
-"San Rafael, Mendoza",
-"Godoy Cruz, Mendoza",
-"Maipú, Mendoza",
-"San Martín, Mendoza",
-"Tunuyán, Mendoza",
-"Luján de Cuyo, Mendoza",
+  // Neuquén
+  "Cutral Có, Neuquén",
+  "Neuquén, Neuquén",
+  "Plottier, Neuquén",
+  "San Martín de los Andes, Neuquén",
+  "Villa La Angostura, Neuquén",
+  "Zapala, Neuquén",
 
-// Misiones
-"Posadas, Misiones",
-"Oberá, Misiones",
-"Eldorado, Misiones",
-"Puerto Iguazú, Misiones",
-"San Vicente, Misiones",
-"Cataratas de Iguazú, Misiones",
+  // Río Negro
+  "Cipolletti, Río Negro",
+  "General Roca, Río Negro",
+  "San Carlos de Bariloche, Río Negro",
+  "Viedma, Río Negro",
 
-// Neuquén
-"Neuquén, Neuquén",
-"San Martín de los Andes, Neuquén",
-"Villa La Angostura, Neuquén",
-"Plottier, Neuquén",
-"Cutral Có, Neuquén",
-"Zapala, Neuquén",
+  // Salta
+  "Cafayate, Salta",
+  "Cerrillos, Salta",
+  "Orán, Salta",
+  "Rosario de la Frontera, Salta",
+  "Salta, Salta",
+  "San Ramón de la Nueva Orán, Salta",
+  "Tartagal, Salta",
 
-// Río Negro
-"Viedma, Río Negro",
-"San Carlos de Bariloche, Río Negro",
-"Cipolletti, Río Negro",
-"General Roca, Río Negro",
+  // San Juan
+  "Albardon, San Juan",
+  "Chimbas, San Juan",
+  "Rivadavia, San Juan",
+  "San Juan, San Juan",
 
-// Salta
-"Salta, Salta",
-"San Ramón de la Nueva Orán, Salta",
-"Rosario de la Frontera, Salta",
-"Cerrillos, Salta",
-"Orán, Salta",
-"Tartagal, Salta",
-"Cafayate, Salta",
+  // San Luis
+  "La Punta, San Luis",
+  "Merlo, San Luis",
+  "San Luis, San Luis",
+  "Villa Mercedes, San Luis",
 
-// San Juan
-"San Juan, San Juan",
-"Rivadavia, San Juan",
-"Chimbas, San Juan",
-"Albardon, San Juan",
+  // Santa Cruz
+  "Caleta Olivia, Santa Cruz",
+  "El Calafate, Santa Cruz",
+  "El Chaltén, Santa Cruz",
+  "Las Heras, Santa Cruz",
+  "Puerto Deseado, Santa Cruz",
+  "Río Gallegos, Santa Cruz",
 
-// San Luis
-"San Luis, San Luis",
-"Villa Mercedes, San Luis",
-"La Punta, San Luis",
-"Merlo, San Luis",
+  // Santa Fe
+  "Rafaela, Santa Fe",
+  "Rosario, Santa Fe",
+  "San Lorenzo, Santa Fe",
+  "Santa Fe, Santa Fe",
+  "Venado Tuerto, Santa Fe",
 
-// Santa Cruz
-"Río Gallegos, Santa Cruz",
-"Caleta Olivia, Santa Cruz",
-"El Calafate, Santa Cruz",
-"Puerto Deseado, Santa Cruz",
-"El Chaltén, Santa Cruz",
-"Las Heras, Santa Cruz",
+  // Santiago del Estero
+  "Añatuya, Santiago del Estero",
+  "La Banda, Santiago del Estero",
+  "Santiago del Estero, Santiago del Estero",
+  "Termas de Río Hondo, Santiago del Estero",
 
-// Santa Fe
-"Rosario, Santa Fe",
-"Santa Fe, Santa Fe",
-"Rafaela, Santa Fe",
-"Venado Tuerto, Santa Fe",
-"San Lorenzo, Santa Fe",
+  // Tierra del Fuego
+  "Río Grande, Tierra del Fuego",
+  "Tolhuin, Tierra del Fuego",
+  "Ushuaia, Tierra del Fuego",
 
-// Santiago del Estero
-"Santiago del Estero, Santiago del Estero",
-"La Banda, Santiago del Estero",
-"Termas de Río Hondo, Santiago del Estero",
-"Añatuya, Santiago del Estero",
+  // Tucumán
+  "Concepción, Tucumán",
+  "San Miguel de Tucumán, Tucumán",
+  "Tafí Viejo, Tucumán",
+  "Yerba Buena, Tucumán"
 
-// Tucumán
-"San Miguel de Tucumán, Tucumán",
-"Tafí Viejo, Tucumán",
-"Yerba Buena, Tucumán",
-"Concepción, Tucumán",
-
-//Tierra del fuego
-"Ushuaia, Tierra del Fuego",
-"Río Grande, Tierra del Fuego",
-"Tolhuin, Tierra del Fuego"
-
-  ] 
-  
-  
+];
