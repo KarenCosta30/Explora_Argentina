@@ -10,6 +10,7 @@ import Carrusel from "../Components/Carrusel";
 import Calendar from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
+import Policies from "../Components/Policies";
 
 const Detail = () => {
   const [tour, setTour] = useState([]);
@@ -158,12 +159,13 @@ const Detail = () => {
           <MapComponent />
         </div>
       </section>
-      <div className="btn-detail">
+       <div className="btn-detail">
         <Button onClick={()=>navigate(-1)} className="btn-back">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
         
-      </div>
+      </div> 
+      <Policies/>
     </main>
   );
 };

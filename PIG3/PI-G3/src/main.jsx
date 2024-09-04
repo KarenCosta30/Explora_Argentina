@@ -10,6 +10,7 @@ import "./icons.js";
 import './style/favorites.css';
 import './style/Calendar.css';
 import './style/productAdmin.css';
+import './style/Policies.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(

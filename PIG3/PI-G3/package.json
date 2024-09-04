@@ -18,11 +18,13 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "date-fns": "^3.6.0",
     "leaflet": "^1.9.4",
+    "pi-g3": "file:",
     "react": "^18.3.1",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
