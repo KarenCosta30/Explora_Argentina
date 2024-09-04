@@ -37,13 +37,30 @@
         width: 75vw;
     }
 }
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra las líneas horizontalmente */
+    margin: 10px 0; /* Ajusta el margen superior e inferior según sea necesario */
+}
 
-/* Contenedor dentro del Drawer para contenido scrollable */
+.scroll-indicator .line {
+    width: 40px; /* Ancho de las líneas */
+    height: 1px; /* Altura de las líneas */
+    background-color: #b4b4b4; /* Color de las líneas */
+    margin: 3px ; /* Ajusta el margen superior e inferior de las líneas */
+}
+/* * Contenedor dentro del Drawer para contenido scrollable */ */
 .scrollable-container {
     flex: 1; /* Permite que el contenedor ocupe todo el espacio disponible dentro del Drawer */
     overflow-y: auto; /* Permite el desplazamiento vertical */
-    padding: 16px; /* Añade algo de espacio interno (opcional) */
+
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    
+}
+.policie {
+    
+    padding-left: 15px;
 }
 
 /* Estilos cuando el Drawer está abierto */

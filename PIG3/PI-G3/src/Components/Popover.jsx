@@ -49,6 +49,11 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
             )}
           </div>
         )}
+        <div className="visibility-popover">
+            <p id="txt-popover"> Ups! Lo sentimos, las funciones del panel de control solo se encuentran
+            disponibles para la versión desktop.
+          </p>
+        </div>
         <button onClick={onLogout}>Cerrar Sesión</button>
       </div>
       
