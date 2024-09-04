@@ -1,6 +1,6 @@
 .container-favorites{
   padding-bottom: 20vh;
- padding-top: 20vh;
+  padding-top: 20vh;
 }
 
 .title-favorites{
@@ -8,8 +8,12 @@
   justify-content: center;
 }
 .card-favorites{
-  display: flex;
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  gap: 60px 20px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 
