@@ -73,6 +73,16 @@ export const reducer = (state, action) => {
         favorites: Array.isArray(action.payload) ? action.payload : [] // Verifica que sea un array
       };
 
+      case 'UPDATE_PRODUCT_CATEGORY':
+  return {
+    ...state,
+    tour: state.tour.map(producto => 
+      producto.id === action.payload.productoId 
+        ? { ...producto, categoria: action.payload.categoria } 
+        : producto
+    )
+  };
+
     default:
       return state;
 }
