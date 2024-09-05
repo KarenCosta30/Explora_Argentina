@@ -20,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.FavoritoEntradaDto;
+import com.backend.webExplora.dto.salida.CategoriaSalidaDto;
 import com.backend.webExplora.dto.salida.FavoritoSalidaDto;
+import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.entity.Favorito;
+import com.backend.webExplora.entity.Producto;
 import com.backend.webExplora.service.impl.FavoritoService;
 
 @CrossOrigin(origins = "http://localhost:5173")
@@ -32,38 +35,42 @@ public class FavoritoController {
 
     @Autowired
     private FavoritoService favoritoService;
-
+  
+    
  
     @PostMapping("/agregarFavorito")
-    public ResponseEntity<FavoritoSalidaDto> agregarAFavoritos(@Valid @RequestBody FavoritoEntradaDto favoritoEntradaDto) {
-        Favorito favorito = favoritoService.agregarAFavoritos(
-                favoritoEntradaDto.getUsuarioId(),
-                favoritoEntradaDto.getProductoId()
-        );
+    public ResponseEntity<FavoritoSalidaDto>
+    agregarAFavoritos(@Valid @RequestBody FavoritoEntradaDto favoritoEntradaDto) {
+    Favorito favorito = favoritoService.agregarAFavoritos(
+            favoritoEntradaDto.getUsuarioId(),
+            favoritoEntradaDto.getProductoId()
+    );
+    Producto producto = favorito.getProducto();
+    ProductoSalidaDto productoDto = new ProductoSalidaDto(
+        producto.getId(),producto.getItinerario(),producto.getNombre(),producto.getDescripcion(),producto.getDescripcionLarga(),
+        producto.getImagenUrl(),producto.getImagenUrl2(),producto.getImagenUrl3(),producto.getPrecio(),producto.getDisponible(),
+        producto.getUbicacion(),producto.getDetalleItinerario(),producto.getCategoria() != null ? new CategoriaSalidaDto(
+        producto.getCategoria().getId(),producto.getCategoria().getNombre(),producto.getCategoria().getUbicacion(),
+        producto.getCategoria().getImagen()) : null,producto.getLongitud(),producto.getLatitud()
+    );
+    FavoritoSalidaDto responseDto = new FavoritoSalidaDto(
+            favorito.getId(),
+            favorito.getUsuario().getId(),
+            favorito.getProducto().getId(),
+            productoDto
+    );
 
-        FavoritoSalidaDto responseDto = new FavoritoSalidaDto(
-                favorito.getId(),
-                favorito.getUsuario().getId(),
-                favorito.getProducto().getId(),
-                favorito.getProducto().getNombre()
-        );
-
-        return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
-    }
+    return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
+}
 
 
-      @GetMapping("/listarFavoritos/{usuarioId}")
+
+    @GetMapping("/listarFavoritos/{usuarioId}")
     public ResponseEntity<List<FavoritoSalidaDto>> listarFavoritosPorUsuario(@PathVariable Long usuarioId) {
-        List<Favorito> favoritos = favoritoService.listarFavoritosPorUsuario(usuarioId);
-        List<FavoritoSalidaDto> responseDtos = favoritos.stream()
-                .map(f -> new FavoritoSalidaDto(
-                        f.getId(),
-                        f.getUsuario().getId(),
-                        f.getProducto().getId(),
-                        f.getProducto().getNombre()))
-                .collect(Collectors.toList());
-        return new ResponseEntity<>(responseDtos, HttpStatus.OK);
+        List<FavoritoSalidaDto> favoritosDto = favoritoService.listarFavoritosPorUsuario(usuarioId);
+        return new ResponseEntity<>(favoritosDto, HttpStatus.OK);
     }
+    
 
     @DeleteMapping("/eliminarFavorito")
     public ResponseEntity<String> eliminarFavorito(@RequestBody FavoritoEntradaDto dto) {

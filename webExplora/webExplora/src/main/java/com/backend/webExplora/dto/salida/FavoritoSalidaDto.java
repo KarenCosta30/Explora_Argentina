@@ -9,16 +9,22 @@ public class FavoritoSalidaDto {
     private Long favoritoId;
     private Long usuarioId;
     private Long productoId;
-    private String nombreProducto;
+    private ProductoSalidaDto producto;
 
     public FavoritoSalidaDto() {
     }
 
   
-    public FavoritoSalidaDto(Long favoritoId, Long usuarioId, Long productoId, String nombreProducto) {
+    public FavoritoSalidaDto(Long favoritoId, Long usuarioId, Long productoId, ProductoSalidaDto producto) {
         this.favoritoId = favoritoId;
         this.usuarioId = usuarioId;
         this.productoId = productoId;
-        this.nombreProducto = nombreProducto;
+        this.producto = producto;
+    }
+
+    public FavoritoSalidaDto(Long favoritoId, Long usuarioId, Long productoId) {
+        this.favoritoId = favoritoId;
+        this.usuarioId = usuarioId;
+        this.productoId = productoId;
     }
 }

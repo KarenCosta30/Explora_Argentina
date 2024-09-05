@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.backend.webExplora.entity.Producto;
@@ -27,5 +29,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     List<Reserva> findByFechaReserva(LocalDate fechaReserva);
 
     List<Producto> findByCriterioAndCategoria_IdIn(String criterio, List<Long> categoriaIds);
+    @Query("SELECT p FROM Producto p WHERE p.id = :id")
+    Producto findProductoById(@Param("id") Long id);
+    
 
 }
