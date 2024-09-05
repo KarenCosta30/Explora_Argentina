@@ -189,7 +189,7 @@ true,
 -32.9715,
 -32.9715),
 
-('Bodega Chandon + Almuerzo', 
+('Bodega Chandon más Almuerzo', 
 'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas.',
 'El Paseo es una experiencia única en donde se unen dos clásicas Bodegas. El Enemigo liderada por el prestigioso Alejandro Vigil y Chandon mundialmente conocida por sus espumantes. La Visita incluye Transporte, Visita, Degustación y almuerzo completo maridado. Para cumplir con las normativas de los lugares que visitarán, el ingreso de los niños queda sujeto a cada bodega por protocolos de seguridad.',
 'Se le recogerá.

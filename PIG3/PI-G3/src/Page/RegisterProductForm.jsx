@@ -45,9 +45,13 @@ const RegisterProductForm = () => {
         const parsedLatitud = parseFloat(latitud);
         const parsedLongitud = parseFloat(longitud);
         
-        if(!nombre || nombre.length < 3 || nombre.length > 50 || nombreExistente ||  !/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre) ){
+        if(!nombre || nombre.length < 3 || nombre.length > 50 ||   !/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre) ){
             setError("El campo nombre es incorrecto")  
             return;
+        }
+        if(nombreExistente ) {
+            setError("El nombre ingresado ya existe")
+            return
         }
         if( descripcion.length < 4 || descripcion.length > 250){
             setError("EL campo de descripción breve de portada es incorrecta")
