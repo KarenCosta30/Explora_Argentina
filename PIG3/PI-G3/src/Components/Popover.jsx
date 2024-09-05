@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 /*
 show: Determina si el popover debe mostrarse o no.
@@ -14,12 +14,13 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
   if (!show) return null;
 
   const handleAdminToolsClick = () => {
-    //navigate('/userlist'); // Ruta panel de administrador
+    // Alterna la visibilidad del menú de herramientas de administrador
     setAdminToolsOpen(!adminToolsOpen);
   };
 
   const handleNavigation = (path) => {
-    setAdminToolsOpen(false);
+    setAdminToolsOpen(false); // Cierra el menú de herramientas de administrador
+    onClose(); // Cierra el popover después de la navegación
     navigate(path);
   };
 
@@ -39,8 +40,8 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
             <button className="btn-admin" onClick={handleAdminToolsClick}>
               Herramientas de Administrador
             </button>
-          {adminToolsOpen && (
-            <div className="admin-menu">
+            {adminToolsOpen && (
+              <div className="admin-menu">
                 <button onClick={() => handleNavigation('/userlist')}>Lista de Usuarios</button>
                 <button onClick={() => handleNavigation('/productadmin')}>Gestión de Productos</button>
                 {/* Agrega más opciones aquí */}
@@ -48,8 +49,13 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
             )}
           </div>
         )}
-        <button onClick={onLogout}>Cerrar Sesión</button>
+        <div className="visibility-popover">
+            <p id="txt-popover"> Ups! Lo sentimos, las funciones del panel de control solo se encuentran
+            disponibles para la versión desktop.
+          </p>
         </div>
+        <button onClick={onLogout}>Cerrar Sesión</button>
+      </div>
       
       <div className="popover-overlay" onClick={onClose}></div>
     </div>

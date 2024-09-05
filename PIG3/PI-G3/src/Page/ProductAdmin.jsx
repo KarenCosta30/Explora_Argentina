@@ -9,7 +9,7 @@ const ProductAdmin = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProductos, setFilteredProductos] = useState([]);
   const navigate = useNavigate();
-  const { state } = useTourState();
+  const { state, dispatch } = useTourState();
   
   useEffect(() => {
     // Recupera el valor del localStorage y convierte a booleano
@@ -68,8 +68,12 @@ const ProductAdmin = () => {
         const updatedProductos = prevState.map(producto => 
           producto.id === productoId ? { ...producto, categoria: response.data.categoria } : producto
         );
-        return updatedProductos.sort((a, b) => a.id - b.id);
+        return updatedProductos;
       });
+  
+      // Actualizar el estado global de productos
+      dispatch({ type: 'UPDATE_PRODUCT_CATEGORY', payload: { productoId, categoria: response.data.categoria } });
+  
       console.log("Categoría actualizada:", response.data);
     })
     .catch(error => {
