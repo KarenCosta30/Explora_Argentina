@@ -5,6 +5,7 @@ import Button from '../Components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
   const {state,dispatch} = useTourState();
@@ -51,7 +52,12 @@ useEffect(() => {
           </div>
              
         </div>
+        <div className='btn-back-container'>
+        <Button onClick={()=>navigate(-1)} className="btn-back-favorites">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
         
+      </div>
     </main>
   )
 }

@@ -133,7 +133,7 @@ button.btn-add-product {
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: #28a745;
+  background-color: #C18A29;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -141,5 +141,5 @@ button.btn-add-product {
 }
 
 button.btn-add-product:hover {
-  background-color: #218838;
+  background-color: #412e0e;
 }

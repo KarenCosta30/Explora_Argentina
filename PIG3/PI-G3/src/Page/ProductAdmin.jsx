@@ -110,7 +110,7 @@ const ProductAdmin = () => {
             <th>ID</th>
             <th>Nombre</th>
             <th>Categoría</th>
-            <th>Acciones</th>
+            {/* <th>Acciones</th> */}
           </tr>
         </thead>
         <tbody>
@@ -131,10 +131,10 @@ const ProductAdmin = () => {
                   ))}
                 </select>
               </td>
-              <td>
+              {/* <td>
                 <button onClick={() => handleEdit(producto.id)} className="btn-edit">Editar</button>
                 <button onClick={() => handleDelete(producto.id)} className="btn-delete">Eliminar</button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
