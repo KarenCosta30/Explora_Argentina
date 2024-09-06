@@ -184,7 +184,9 @@ const Home = () => {
               type: "select",
               value: selectedLocation,
               onChange: handleLocationChange,
-              options: [{ value: "", label: searchText }, ...locationOptions],
+              // --Ordenar las opciones por orden alfabético
+              options: [{ value: "", label: searchText }, ...locationOptions].sort((a, b) => a.label.localeCompare(b.label)),
+              // options: [{ value: "", label: searchText }, ...locationOptions]
             },
             {
               type: "custom",
