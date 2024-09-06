@@ -23,7 +23,7 @@ const Calendar = ({ selectedDate, handleDateChange }) => {
         selected={selectedDate} // Usa la fecha seleccionada pasada como prop
         onChange={handleDateChange} // Usa la función pasada como prop
         dayClassName={dayClassName} // Añadir la clase a los días
-        dateFormat="yyyy-MM-dd" // Formato de la fecha
+        dateFormat="dd-MM-yyyy" // Formato de la fecha
         minDate={new Date()} // Deshabilitar fechas anteriores a hoy
         placeholderText="Selecciona una fecha"
         showTimeSelect={false} // Eliminar la selección de hora
@@ -32,5 +32,5 @@ const Calendar = ({ selectedDate, handleDateChange }) => {
   );
 };
 
-export default Calendar;
+export default Calendar;
 

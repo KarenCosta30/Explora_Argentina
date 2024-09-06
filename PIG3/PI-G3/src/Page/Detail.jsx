@@ -12,6 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 import Policies from "../Components/Policies";
 
+
 const Detail = () => {
   const [tour, setTour] = useState([]);
   const { state, dispatch } = useTourState();
@@ -37,8 +38,13 @@ const Detail = () => {
 
   useEffect(() => {
     axios.get(reservedDatesUrl).then((res) => {
-      // Convertir las fechas reservadas a objetos Date
-      const dates = res.data.map(reservation => new Date(reservation.fechaReserva));
+      // Convertir las fechas reservadas a objetos Date y sumar un día
+      const dates = res.data.map(reservation => {
+        const date = new Date(reservation.fechaReserva);
+        // Sumar un día
+        date.setDate(date.getDate() + 1);
+        return date;
+      });
       setReservedDates(dates);
     });
   }, [params.id]);
@@ -60,11 +66,12 @@ const Detail = () => {
       alert("Reserva realizada con éxito");
       // Aquí puedes agregar la lógica para completar la reserva.
     }
-    if(state.userActive && selectedDate !== null){
+   /*  if(state.userActive && selectedDate !== null){
       navigate("/reservations");
-    }
+    } */
   };
-
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
   return (
     <main className="container-detail">
       <h4>{tour.nombre}</h4>
@@ -95,7 +102,8 @@ const Detail = () => {
               onChange={handleDateChange}
               placeholderText="Selecciona una fecha"
               excludeDates={reservedDates} // Excluir las fechas reservadas
-              minDate={new Date()} // Opcional: Evita seleccionar fechas pasadas
+              /* minDate={new Date()} */ // Opcional: Evita seleccionar fechas pasadas
+              minDate={tomorrow}
             />
             <div className="people-selection">
               <label htmlFor="people-count">Personas:</label>

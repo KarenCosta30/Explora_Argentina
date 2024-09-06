@@ -19,6 +19,8 @@ const Home = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const userActive = localStorage.getItem("userActive") === "true"; // Verificar si el usuario está activo
+  const [reservedProductIds, setReservedProductIds] = useState([]);
+  
 
   useEffect(() => {
     if (userActive) {
@@ -40,6 +42,19 @@ const Home = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
+
+  useEffect(() => {
+    if (selectedDate) {
+      axios
+        .get(`http://localhost:8081/reservar/productosPorFecha/${selectedDate.toISOString().split('T')[0]}`)
+        .then((response) => {
+          const reservedIds = response.data.map((item) => item.productoId);
+          setReservedProductIds(reservedIds);
+        })
+        .catch((error) => console.error("Error fetching reserved products", error));
+    }
+  }, [selectedDate]);
+
 
   const getUniqueLocations = (tours) => {
     const locations = tours.map((tour) => tour.ubicacion);
@@ -75,11 +90,23 @@ const Home = () => {
       )
     : state.tour;
 
+    const filteredByDate = selectedDate
+    ? filteredByLocation.filter(
+        (tour) => !reservedProductIds.includes(tour.id)
+      )
+    : filteredByLocation;
+
   const displayedTours = selectedLocation
+    ? filteredByDate
+    : selectedCategory
+    ? filteredByDate
+    : filteredByDate.slice(0, 10);
+
+/*   const displayedTours = selectedLocation
     ? filteredByLocation
     : selectedCategory
     ? filteredByCategory
-    : state.tour.slice(0, 10);
+    : state.tour.slice(0, 10); */
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
