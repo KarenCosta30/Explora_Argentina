@@ -2,99 +2,96 @@ import React, { useState, useRef, useEffect } from "react";
 import CardCategories from "../Components/CardCategories";
 import Form from "../Components/Form";
 import CardTour from "../Components/CardTour";
-import { useTourState } from "../Context/GlobalContext";
 import Button from "../Components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import DatePicker from "react-datepicker";
+import { useTourState } from "../Context/GlobalContext";
+import axios from "axios";
 
 const Home = () => {
   const { state, dispatch } = useTourState();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [searchText, setSearchText] = useState("¿A dónde vamos?"); //---> Cambio de texto en el campo de selección
-  const [offersText, setOffersText] = useState("Ofertas Especiales"); //---> Cambio de texto en la sección de ofertas
+  const [searchText, setSearchText] = useState("¿A dónde vamos?");
+  const [offersText, setOffersText] = useState("Ofertas Especiales");
   const offersRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+  const userActive = localStorage.getItem("userActive") === "true"; // Verificar si el usuario está activo
+
   useEffect(() => {
-    const activeUser = localStorage.getItem("userActive") === "true";
-    if (activeUser) {
+    if (userActive) {
       dispatch({ type: "SET_USER_ACTIVE", payload: true });
+      const userId = localStorage.getItem("userId");
+      if (userId) {
+        axios
+          .get(`http://localhost:8081/favoritos/listarFavoritos/${userId}`)
+          .then((response) => {
+            const favoriteIds = response.data.map((fav) => fav.productoId);
+            setFavorites(favoriteIds);
+            localStorage.setItem("favorites", JSON.stringify(favoriteIds));
+          })
+          .catch((error) => console.error("Error fetching favorites", error));
+      }
     }
-  }, [dispatch]);
+  }, [dispatch, userActive]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-  //---> Función para obtener las ubicaciones únicas de los tours
+
   const getUniqueLocations = (tours) => {
     const locations = tours.map((tour) => tour.ubicacion);
     const uniqueLocations = [...new Set(locations)];
     return uniqueLocations.map((location) => ({
       value: location.toLowerCase().replace(/\s+/g, "-"),
       label: location,
-      
     }));
   };
-  //---> Obtiene las ubicaciones únicas de los tours
+
   const locationOptions = getUniqueLocations(state.tour);
-  console.log(locationOptions);
-  
 
-
-  //---> Función para manejar la búsqueda de tours
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-
-    //-- Actualiza el texto del campo de selección
     if (selectedLocation) {
       setSearchText("Destino seleccionado");
       setOffersText("Destinos Seleccionados");
     }
-
-    //-- Desplazar hacia la sección de ofertas especiales
     if (offersRef.current) {
       offersRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  //-- Filtra los tours por categoría si se ha seleccionado una
   const filteredByCategory = selectedCategory
     ? state.tour.filter((tour) => tour.categoria.id === selectedCategory)
     : state.tour;
 
-  //-- Filtra los tours por ubicación si se ha seleccionado una
   const filteredByLocation = selectedLocation
     ? state.tour.filter(
-        (tour) => tour.ubicacion.toLowerCase().replace(/\s+/g, "-") === selectedLocation
+        (tour) =>
+          tour.ubicacion.toLowerCase().replace(/\s+/g, "-") ===
+          selectedLocation
       )
     : state.tour;
 
-  //-- Muestra los tours basados en el filtro activo (ubicación, categoría o ninguno)
   const displayedTours = selectedLocation
     ? filteredByLocation
     : selectedCategory
     ? filteredByCategory
     : state.tour.slice(0, 10);
-  
-    //-- Función para manejar el clic en una categoría de tours.
-  const handleCategoryClick = (categoryId) => {
-      //-- Establece la categoría seleccionada.
-      setSelectedCategory(categoryId);
 
-      //--Restablece el estado de ubicación y fecha
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
     setSelectedLocation("");
     setSelectedDate(null);
     setSearchText("¿A dónde vamos?");
     setOffersText("Ofertas Especiales");
-
-     //-- Desplaza hacia la sección de ofertas especiales
-      if (offersRef.current) {
+    if (offersRef.current) {
       offersRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  //-- Función para manejar el cambio de ubicación.
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
     if (e.target.value) {
@@ -104,9 +101,36 @@ const Home = () => {
     }
   };
 
+  const handleFavoriteToggle = async (tourId) => {
+    const userId = localStorage.getItem("userId");
+    const isFavorite = favorites.includes(tourId);
+
+    try {
+      if (isFavorite) {
+        // Eliminar favorito
+        await axios.delete(`http://localhost:8081/favoritos/eliminarFavorito`, {
+          data: { usuarioId: userId, productoId: tourId },
+        });
+        const updatedFavorites = favorites.filter((id) => id !== tourId);
+        setFavorites(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      } else {
+        // Agregar favorito
+        await axios.post(`http://localhost:8081/favoritos/agregarFavorito`, {
+          usuarioId: userId,
+          productoId: tourId,
+        });
+        const updatedFavorites = [...favorites, tourId];
+        setFavorites(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      }
+    } catch (error) {
+      console.error("Error handling favorites", error);
+    }
+  };
+
   return (
     <main className="container-main">
-      {/* CONTAINER SEARCH */}
       <section className="container-search">
         <p>¿Cuál va a ser tu próxima aventura?</p>
         <Form
@@ -114,12 +138,9 @@ const Home = () => {
           fields={[
             {
               type: "select",
-              value: selectedLocation, //---Actualiza el valor seleccionado
+              value: selectedLocation,
               onChange: handleLocationChange,
-              options: [
-                { value: "", label: searchText },
-                ...locationOptions,
-              ],
+              options: [{ value: "", label: searchText }, ...locationOptions],
             },
             {
               type: "custom",
@@ -141,7 +162,6 @@ const Home = () => {
           inputClassName={"input-select"}
         />
       </section>
-      {/* CONTAINER CATEGORIES */}
       <section className="container-categories">
         <p className="exp">Experiencias</p>
         <p className="subtitle-exp">
@@ -153,39 +173,32 @@ const Home = () => {
             <CardCategories
               key={index}
               item={item}
-              onClick={() => handleCategoryClick(item.id)} //---Maneja el clic en una categoría
+              onClick={() => handleCategoryClick(item.id)}
             />
           ))}
         </div>
-        </section>
+      </section>
 
       <section className="container-offers" ref={offersRef}>
         <p className="offers">{offersText}</p>
-        {/* --Cambia el texto a destinos seleccionados */}
         <p className="subtitle-offers">
           Consulta nuestras ofertas especiales y descuentos.
         </p>
         <div className="container-card-tour">
           {displayedTours.map((item, index) => (
             <CardTour key={index} item={item}>
-              {state.userActive ? (
-    <Button
-    className={`btn-fav ${state.favorites.some(fav => fav.id === item.id) ? 'clicked' : ''}`}
-    onClick={() => {
-      if (state.favorites.some(fav => fav.id === item.id)) {
-        dispatch({ type: "DELETE_FAVORITES", payload: item });
-      } else {
-        dispatch({ type: "ADD_FAVORITES", payload: item });
-      }
-    }}
-  >
-    <FontAwesomeIcon icon={faHeart} />
-  </Button>
-              ) : null}
+              {userActive && (
+                <Button
+                  className={`btn-fav ${favorites.includes(item.id) ? 'clicked' : ''}`}
+                  onClick={() => handleFavoriteToggle(item.id)}
+                >
+                  <FontAwesomeIcon icon={faHeart} />
+                </Button>
+              )}
             </CardTour>
           ))}
         </div>
-        </section>
+      </section>
     </main>
   );
 };

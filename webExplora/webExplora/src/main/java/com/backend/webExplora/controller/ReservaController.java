@@ -1,11 +1,13 @@
 package com.backend.webExplora.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.ReservaEntradaDto;
+import com.backend.webExplora.dto.salida.ProductoFechaDto;
 import com.backend.webExplora.dto.salida.ReservaSalidaDto;
 import com.backend.webExplora.entity.Reserva;
 import com.backend.webExplora.service.IReservaService;
@@ -62,6 +65,14 @@ public ResponseEntity<List<ReservaSalidaDto>> obtenerFechasReservadas(@PathVaria
         .collect(Collectors.toList());
     return ResponseEntity.ok(reservasDto);
 }
+
+
+    @GetMapping("/productosPorFecha/{fecha}")
+    public ResponseEntity<List<ProductoFechaDto>> obtenerProductoIdsYFechasPorFecha(
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
+        List<ProductoFechaDto> productosFechas = reservaService.obtenerProductoIdsYFechasPorFecha(fecha);
+        return ResponseEntity.ok(productosFechas);
+    }
 
     // /**
     // * Lista los productos disponibles para una fecha y ubicación específicas.

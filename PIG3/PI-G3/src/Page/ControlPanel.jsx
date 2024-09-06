@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useTourState } from '../Context/GlobalContext';
 import '../style/adminTools.css';
 
 const ControlPanel = () => {
-  const { state, dispatch } = useTourState(); // Acceder al estado global
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
@@ -15,10 +13,10 @@ const ControlPanel = () => {
     const storedAdminStatus = localStorage.getItem("userAdministrator");
     const isAdmin = storedAdminStatus === "true";
 
-    if (!state.userAdministrator && !isAdmin) {
+    if (!isAdmin) {
       navigate('/'); 
     }
-  }, [state.userAdministrator, navigate]);
+  }, [navigate]);
 
   // Cargar la lista de usuarios
   useEffect(() => {
@@ -44,9 +42,9 @@ const ControlPanel = () => {
       );
 
       // Verificar si el usuario actual se quita su propio rol de administrador
-      if (state.user.id === id && !esAdministrador) {
+      const userId = localStorage.getItem("userId");
+      if (userId === id.toString() && !esAdministrador) {
         // Actualizar el estado global y localStorage
-        dispatch({ type: "SET_USER_ADMINISTRATOR", payload: false });
         localStorage.setItem("userAdministrator", "false");
 
         // Redirigir después de la actualización

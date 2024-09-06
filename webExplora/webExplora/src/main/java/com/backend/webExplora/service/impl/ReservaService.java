@@ -1,13 +1,14 @@
 package com.backend.webExplora.service.impl;
 
 import java.time.LocalDate;
-import java.util.List;  
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend.webExplora.dto.salida.ProductoFechaDto;
 import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.dto.salida.ReservaSalidaDto;
 import com.backend.webExplora.entity.Producto;
@@ -29,14 +30,13 @@ public class ReservaService implements IReservaService {
     @Autowired
     private ReservaRepository reservaRepository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     @Autowired
-  public ReservaService(ProductoRepository productoRepository, ModelMapper modelMapper) {
-    this.productoRepository = productoRepository;
-    this.modelMapper = modelMapper;
-}
-
+    public ReservaService(ProductoRepository productoRepository, ModelMapper modelMapper) {
+        this.productoRepository = productoRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public ReservaSalidaDto reservarProducto(Long usuarioId, Long productoId, LocalDate fechaReserva) {
@@ -64,17 +64,24 @@ public class ReservaService implements IReservaService {
     }
     
     @Override
-public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
-    var reserva = reservaRepository.findById(reservaId)
+    public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
+        var reserva = reservaRepository.findById(reservaId)
                     .orElseThrow(() -> new IllegalArgumentException("Reserva no encontrada"));
-    return convertirAReservaSalidaDto(reserva);
-}
+        return convertirAReservaSalidaDto(reserva);
+    }
 
+    @Override
+    public List<ProductoFechaDto> obtenerProductoIdsYFechasPorFecha(LocalDate fechaReserva) {
+        List<Reserva> reservas = reservaRepository.findByFechaReserva(fechaReserva);
+        return reservas.stream()
+            .map(reserva -> new ProductoFechaDto(reserva.getProducto().getId(), reserva.getFechaReserva()))
+            .collect(Collectors.toList());
+    }
 
-@Override
-public List<Reserva> obtenerReservasPorProducto(Long productoId) {
-    return reservaRepository.findByProductoId(productoId);
- }
+    @Override
+    public List<Reserva> obtenerReservasPorProducto(Long productoId) {
+        return reservaRepository.findByProductoId(productoId);
+    }
 
     @Override
     public List<Producto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion) {
@@ -111,8 +118,4 @@ public List<Reserva> obtenerReservasPorProducto(Long productoId) {
             reserva.getFechaReserva()
         );
     }
-   
 }
-    
-
-

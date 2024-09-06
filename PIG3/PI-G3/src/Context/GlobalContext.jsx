@@ -14,7 +14,6 @@ const initialState = {
     userAdministrator: false,
     userId: "",
     categories:[],
-    favorites: JSON.parse(localStorage.getItem("favorites")) || []
 }
 
 const GlobalContext = ({ children }) => {

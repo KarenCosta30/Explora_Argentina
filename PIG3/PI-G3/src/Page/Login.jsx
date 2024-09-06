@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTourState } from '../Context/GlobalContext';
 import Form from '../Components/Form';
+import axios from 'axios';
 
 const Login = () => {
     const [error, setError] = useState(null);
@@ -30,6 +31,7 @@ const Login = () => {
             dispatch({ type: "SET_USER_SURNAME", payload: user.apellido });
             dispatch({ type: "SET_USER_EMAIL", payload: user.email });
             dispatch({ type: "SET_USER_ADMINISTRATOR", payload: user.esAdministrador });
+            dispatch({ type: "SET_USER_ID", payload: user.id });
 
             localStorage.setItem("userActive", true);
             localStorage.setItem("userName", user.nombre);
@@ -38,6 +40,10 @@ const Login = () => {
             localStorage.setItem("userAdministrator", user.esAdministrador);
             localStorage.setItem("userId", user.id);
 
+            // Obtener y guardar solo los IDs de los favoritos del usuario
+            const { data: favoritos } = await axios.get(`http://localhost:8081/favoritos/listarFavoritos/${user.id}`);
+            const favoriteIds = favoritos.map(fav => fav.productoId);
+            localStorage.setItem("favorites", JSON.stringify(favoriteIds));
             navigate('/');
         } catch (err) {
             setError("Email o contraseña incorrectos");
@@ -59,7 +65,7 @@ const Login = () => {
                             name: "email", 
                             value: data.email, 
                             onChange: handleChange,
-                            autoComplete: "email" // Añadir autocomplete para el email
+                            autoComplete: "email"
                         },
                         { 
                             type: "password", 
@@ -67,7 +73,7 @@ const Login = () => {
                             name: "password", 
                             value: data.password, 
                             onChange: handleChange,
-                            autoComplete: "current-password" // Añadir autocomplete para la contraseña
+                            autoComplete: "current-password"
                         },
                     ]}
                     buttonText="Iniciar Sesión"
