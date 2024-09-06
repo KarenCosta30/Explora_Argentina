@@ -15,7 +15,7 @@ import ProductAdmin from "./Page/ProductAdmin"
 
 function App() {
   return (
-    <div>
+    <div className="container-bigger">
       <Header />
       <ScrollToTop />
       <Routes>
