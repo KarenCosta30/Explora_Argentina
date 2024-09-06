@@ -36,12 +36,20 @@
     .drawer-trigger{
         width: 75vw;
     }
+    .scrollable-container {
+        max-height: 70vh; /* Reduce el alto máximo para pantallas pequeñas */
+        overflow-y: scroll; /* Asegura que el contenedor permita el scroll */
+    }
+    .policie {
+        flex: 1 1 100%; /* Cada div ocupará el 100% del ancho en pantallas pequeñas */
+    }
 }
 .scroll-indicator {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra las líneas horizontalmente */
     margin: 10px 0; /* Ajusta el margen superior e inferior según sea necesario */
+    pointer-events: none; /* Evita que el área táctil capture los eventos de scroll */
 }
 
 .scroll-indicator .line {
@@ -54,13 +62,34 @@
 .scrollable-container {
     flex: 1; /* Permite que el contenedor ocupe todo el espacio disponible dentro del Drawer */
     overflow-y: auto; /* Permite el desplazamiento vertical */
-
+    height: 100%; /* Asegura que ocupe toda la altura disponible */
+    max-height: 80vh; /* Ajusta el máximo de altura para asegurarse de que el contenido no se desborde */
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    
+    padding: 20px; /* Añade padding dentro del contenedor */
 }
+
+/* Contenedor para las políticas */
+.policies-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en filas */
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px;
+}
+
 .policie {
-    
-    padding-left: 15px;
+    flex: 1 1 calc(50% - 20px); /* Ocupa el 50% del ancho menos el espacio del gap */
+    margin-bottom: 20px; /* Espacio entre las filas de políticas */
+}
+
+/* Estilos para los títulos de las políticas */
+.policie h3 {
+    font-weight: bold;
+}
+
+/* Estilos para los párrafos dentro de cada política */
+.policie p {
+    font-size: 14px;
 }
 
 /* Estilos cuando el Drawer está abierto */
@@ -77,6 +106,7 @@
     background-color: #ffffff;
     border: none;
     color: #007bc7;
+    text-decoration: underline;
     cursor: pointer;
     padding: 5px;
     border-radius: 10px;

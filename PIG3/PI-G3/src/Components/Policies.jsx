@@ -14,6 +14,7 @@ const Policies = () => {
             <Drawer.Portal>
                 <Drawer.Overlay className="drawer-overlay" onClick={toggleDrawer} />
                 <Drawer.Content className="drawer-content" data-state={isOpen ? 'open' : 'closed'}>
+                
                     <button className="drawer-close-btn" onClick={toggleDrawer}></button>
                     <div className="scrollable-container">
                          <div className="scroll-indicator">
@@ -21,6 +22,7 @@ const Policies = () => {
                             <div className="line"></div>
                             <div className="line"></div>
                         </div>
+                        <div className="policies-grid">
                         <div className="policie">
                             <h3>Política de Reserva y Cancelación</h3>
                             <p>Las reservas para tours, actividades y paseos deben realizarse con al menos 24 horas de anticipación.</p>
@@ -47,6 +49,7 @@ const Policies = () => {
                         <div className="policie">
                             <h3>Política de Privacidad</h3>
                             <p>Los datos personales de los usuarios serán utilizados únicamente para la realización de la reserva y no serán compartidos con terceros.</p>
+                        </div>
                         </div>
                     </div>
                 </Drawer.Content>

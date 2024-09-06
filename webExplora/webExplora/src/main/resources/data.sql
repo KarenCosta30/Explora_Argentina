@@ -44,7 +44,7 @@ true,
 -54.7930,
 -68.2055),
 
-('Bodega Trapiche, Mendoza',
+('Bodega Trapiche',
 'Visita la famosa bodega Trapiche en Mendoza y disfruta de degustaciones de vino',
 'Este tour incluye una visita a la renombrada bodega Trapiche en Mendoza. Conocerás el proceso de elaboración del vino y podrás degustar una selección de vinos premium. Además, disfrutarás de un almuerzo gourmet en el restaurante de la bodega.',
 'Llegada y bienvenida.
@@ -85,7 +85,7 @@ Guía en directo: Portugués, Inglés, Español',
 -25.6953,
 -54.4367),
 
-('Cerro de los 7 Colores, Jujuy',
+('Cerro de los 7 Colores',
 'Admira el impresionante Cerro de los 7 Colores en Purmamarca, Jujuy',
 'Este tour te lleva al encantador pueblo de Purmamarca para ver el famoso Cerro de los 7 Colores. Aprenderás sobre la geología y la cultura local mientras disfrutas de vistas espectaculares y paseos por el pueblo.',
 'Llegada a Purmamarca.
@@ -106,7 +106,7 @@ Guía en directo: Portugués, Inglés, Español',
 -24.4171,
 -65.6985),
 
-('Mini Trekking Glaciar Perito Moreno, El Calafate',
+('Mini Trekking Glaciar Perito Moreno',
 'Experimenta una caminata única sobre el glaciar Perito Moreno en El Calafate',
 'Este tour te ofrece la oportunidad de realizar una caminata sobre el famoso glaciar Perito Moreno. Con la ayuda de guías experimentados, explorarás las formaciones de hielo y disfrutarás de vistas espectaculares del glaciar y el lago Argentino.',
 'Llegada al Parque Nacional Los Glaciares.
@@ -170,7 +170,7 @@ Guía en directo: Portugués, Inglés, Español',
 -34.6037,
 -58.3816),
 
-('Recorrido vinícola de día completo con almuerzo gourmet', 
+('Recorrido vinícola en el día más almuerzo Gourmet', 
 'Explore los vinos de la región vinícola más grande de Argentina',
 'Explore los vinos de la región vinícola más grande de Argentina en esta excursión de lujo de un día para grupos pequeños desde Mendoza. 
 Visitará tres o cuatro de las mejores bodegas de la región de Mendoza, con una guía para obtener información y anécdotas en la ruta. Disfruta de degustaciones guiadas en las bodegas mientras admiras sus 
@@ -245,7 +245,7 @@ true,
 -31.0276,
 -64.0959),
 
-('Excursión de día completo al glaciar Perito Moreno con navegación',
+('Excursión al glaciar Perito Moreno con navegación',
 'Visita al glaciar Perito Moreno.',
 'Visitar el glaciar Perito Moreno en un solo día es fácil en esta visita guiada desde El Calafate. 
 Una salida a primera hora de la mañana le ayudará a evitar las multitudes, así podrá pasear a lo largo de 
@@ -268,7 +268,7 @@ Guía en directo: Portugués, Inglés, Español',
 -73.2490),
 
 
-('Torres Del Paine Full Day Camioneta Terrestre 4x4 desde El Calafate',
+('Torres Del Paine Camioneta 4x4 desde El Calafate',
 'Viaja a Torres del Paine en un camión de aventura resistente',
 'Viaja a Torres del Paine en un camión de aventura resistente, utilizando un atajo sin pavimentar 
 para ahorrar horas de tu tiempo en tránsito. Eso significa más tiempo en el Parque Nacional Torres del Paine,
@@ -340,7 +340,7 @@ Guía en directo: Portugués, Inglés, Español',
 -41.1571,
 -71.3410),
 
-('Excursión de un día al monte Tronador y al glaciar Negro',
+('Excursión al monte Tronador y al glaciar Negro',
 'Descubra el encanto helado del monte Tronador y el glaciar Negro en una estimulante excursión de día completo al Parque Nacional Nahuel Huapi desde Bariloche.',
 'Esta excursión muy especial le lleva a conocer las partes más hermosas del Parque Nacional Nahuel Huapi. Visite bosques, lagos, playas, montañas e incluso cascadas. También verá la montaña más alta de la zona, monte Tronador, que se eleva 3478 metros (11 411 pies) por encima del nivel del mar formando un límite natural entre Argentina y Chile. Las vistas desde esta altura son espectaculares. Con un guía experto, viaje a través del espectacular paisaje de la región de Bariloche y disfrute de las vistas panorámicas del lago Gutiérrez. Y atraviese impresionantes bosques y espectaculares valles para ver el impresionante glaciar Negro.',
 'Después de la recogida en su hotel de Bariloche nos dirigiremos hacia el sur para conectar con la autopista nacional 258. A lo largo de esta ruta cruzaremos la Pampa de Huenuleu, llegando finalmente al lago Gutiérrez para disfrutar de unas vistas impresionantes y de oportunidades para hacer fotos. A medida que el viaje continúa y la carretera se bifurca, nos adentraremos en una zona menos transitada bajando por la carretera de grava hasta el Tronador. Después de pasar por valles y umbríos bosques llegaremos al Glaciar Negro, Ventisquero Negro. El glaciar tiene un llamativo color negro a pesar de ser alimentado por un pequeño río que fluye desde el inmaculado y blanco glaciar Río Manso, a solo unas decenas metros por encima en la cima de la montaña. Haremos una parada en el monte Tronador para ver todos los alrededores, incluyendo el país vecino, Chile. ',
@@ -452,7 +452,7 @@ Guía en vivo: inglés, Español',
 -40.7554,
 -71.6376),
 
-('Excursión de rafting en aguas bravas en Rio Chimehuin',
+('Experiencia Rafting en aguas bravas Rio Chimehuin',
 'Enfréntate a los rápidos espeluznantes movimientos de Clase II y III del Río Chimehuín en esta divertida excursión de rafting en aguas bravas desde San Martín de los Andes. ',
 'La Clase II enfrenta a cierta turbulencia con algunos remolinos pequeños y pozos de no más de 25 centímetros. La Clase III escala en complejidad, y es considerado el primero de la categoría “aguas blancas”, llamadas así por el color de la espuma al golpear en rocas o girar bruscamente en cañadones. Este nivel hace sentir su vértigo al atravesar rápidos con huecos y olas medianas de no más de un metro. Esté atento a los jabalíes, los buitres y los martines pescadores mientras se precipita a través de las olas, se tropieza con los escalones de piedra y baja la corriente. Este tour para grupos pequeños tiene un máximo de 12 personas para una experiencia personalizada y es ideal para los que realizan el primer balsismo, con instrucción completa y todo el equipo provisto.',
 'Saldremos desde San Martín de Los Andes hasta el punto de inicio en el Río Chimehuin.
@@ -475,7 +475,7 @@ Guía en vivo: inglés, Español',
 -71.3348),
 
 
-('Excursión a la Península Valdés con almuerzo más tour de la ciudad',
+('Excursión Península Valdés más tour de la ciudad',
 'Descubre la fauna de Península Valdés en un tour guiado. Visita el Centro de Visitantes, contempla los elefantes marinos del sur en Caleta Valdés, y observa una colonia de leones marinos en Punta Pirámides.',
 'Visita la Península Valdés, lugar declarado patrimonio de la humanidad por la UNESCO, un privilegiado santuario de vida salvaje en el corazón de la Patagonia. Recorre el Istmo Carlos Ameghino, una estrecha franja de tierra que une la península con el continente, desde donde podrás observar simultáneamente los golfos Nuevo y San José. Detente en el Centro de Visitantes, una introducción a los foros y la fauna locales. Dirígete a Caleta Valdés, una gran cala que alberga elefantes marinos del sur. Continúa hasta la pequeña y pintoresca localidad de Puerto Pirámides para hacer un tour de la ciudad y visitar Punta Pirámide, una impresionante colonia de leones marinos. Por último, regresa al muelle. Por el camino, podrás ver maras, guanacos y ñandúes.',
 'Contemplaremos la fauna de la Península Valdés.
@@ -503,7 +503,7 @@ Guía en vivo: inglés, Español',
 --('', '', '', '', '', '', '', 00.00, true, '', '', 2,'',''),
 
 
-(' Trekking con Raquetas de Nieve por el Día',
+('Trekking con Raquetas de Nieve por el Día',
 'Ponte las raquetas de nieve y prepárate para una aventura.',
 'Esta caminata de un día completo con guías experimentados lo llevará a través de hermosos bosques de montaña rebosantes de vida silvestre nativa hasta un increíble mirador donde se servirá un almuerzo complementario. Termine con un descenso pausado desde el mirador seguido de una agradable y cálida taza de delicioso chocolate caliente. ¡Raquetas de nieve y bastones están incluidos!',
 'Ascenderemos hasta ganar un punto panorámico donde armaremos un living de nieve para almorzar.
@@ -528,7 +528,7 @@ Guía en vivo: portugués, inglés, Español',
 -71.3103),
 
 
-('10 secretos de Bariloche, Nahuel Huapi y la Patagonia',
+('Secretos de Bariloche, Nahuel Huapi y la Patagonia',
 'Descubra los secretos mejor guardados de Bariloche en un recorrido a pie',
 'Este recorrido revela vistas e historias que es poco probable que haya encontrado por su cuenta. No tiene que navegar ni preocuparse por superar la barrera del idioma; en cambio, puede concentrarse en las atracciones del casco antiguo y la zona costera de Puerto San Carlos mientras explora a un ritmo relajado en un grupo pequeño limitado a 10 personas.',
 'Secretos e historias alrededor del Centro Cívico y el Museo de la Patagonia
@@ -554,7 +554,7 @@ Guía en vivo: inglés, Español',
 -41.1335,
 -71.3103),
 
-('Paseo a Caballo',
+('Paseo a Caballo por Viñedos',
 'Paseo por viñedos y un almuerzo gourmet',
 'Paseo junto al río Mendoza durante una excursión de 1,5 horas a caballo. Esta excursión del mediodía le ofrece una visión del sur de Maipú que de otro modo podría perderse, incluidos los viñedos, los olivares y los caminos arbolados. Siga con un asado gourmet (barbacoa argentina) en el restaurante y cava Divina Marga. Los pasajeros están limitados a ocho para garantizar una experiencia de grupos pequeños, incluida la comodidad del traslado en furgoneta desde su hotel.',
 'Inicio a las 11 am en su hotel / hostal en la ciudad de Mendoza o alrededores.
