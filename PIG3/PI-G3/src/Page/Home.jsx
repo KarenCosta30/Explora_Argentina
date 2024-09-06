@@ -18,9 +18,12 @@ const Home = () => {
   const offersRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [favorites, setFavorites] = useState([]);
-  const userActive = localStorage.getItem("userActive") === "true"; // Verificar si el usuario está activo
+  const userActive = localStorage.getItem("userActive") === "true";
   const [reservedProductIds, setReservedProductIds] = useState([]);
-  
+
+  // Estado para paginación
+  const [currentPage, setCurrentPage] = useState(1);
+  const toursPerPage = 10; // Cantidad de tours por página
 
   useEffect(() => {
     if (userActive) {
@@ -46,15 +49,20 @@ const Home = () => {
   useEffect(() => {
     if (selectedDate) {
       axios
-        .get(`http://localhost:8081/reservar/productosPorFecha/${selectedDate.toISOString().split('T')[0]}`)
+        .get(
+          `http://localhost:8081/reservar/productosPorFecha/${
+            selectedDate.toISOString().split("T")[0]
+          }`
+        )
         .then((response) => {
           const reservedIds = response.data.map((item) => item.productoId);
           setReservedProductIds(reservedIds);
         })
-        .catch((error) => console.error("Error fetching reserved products", error));
+        .catch((error) =>
+          console.error("Error fetching reserved products", error)
+        );
     }
   }, [selectedDate]);
-
 
   const getUniqueLocations = (tours) => {
     const locations = tours.map((tour) => tour.ubicacion);
@@ -78,35 +86,27 @@ const Home = () => {
     }
   };
 
-  const filteredByCategory = selectedCategory
-    ? state.tour.filter((tour) => tour.categoria.id === selectedCategory)
-    : state.tour;
+  // Filtra por categoría solo si no se ha seleccionado ubicación ni fecha
+  const filteredByCategory = (category) => 
+    category ? state.tour.filter((tour) => tour.categoria.id === category) : state.tour;
 
   const filteredByLocation = selectedLocation
     ? state.tour.filter(
         (tour) =>
-          tour.ubicacion.toLowerCase().replace(/\s+/g, "-") ===
-          selectedLocation
+          tour.ubicacion.toLowerCase().replace(/\s+/g, "-") === selectedLocation
       )
     : state.tour;
 
-    const filteredByDate = selectedDate
-    ? filteredByLocation.filter(
-        (tour) => !reservedProductIds.includes(tour.id)
-      )
+  const filteredByDate = selectedDate
+    ? filteredByLocation.filter((tour) => !reservedProductIds.includes(tour.id))
     : filteredByLocation;
 
-  const displayedTours = selectedLocation
-    ? filteredByDate
-    : selectedCategory
-    ? filteredByDate
-    : filteredByDate.slice(0, 10);
+  const displayedTours = selectedLocation || selectedDate ? filteredByDate : filteredByCategory(selectedCategory);
 
-/*   const displayedTours = selectedLocation
-    ? filteredByLocation
-    : selectedCategory
-    ? filteredByCategory
-    : state.tour.slice(0, 10); */
+  // Obtener tours de la página actual
+  const indexOfLastTour = currentPage * toursPerPage;
+  const indexOfFirstTour = indexOfLastTour - toursPerPage;
+  const currentTours = displayedTours.slice(indexOfFirstTour, indexOfLastTour);
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
@@ -114,6 +114,7 @@ const Home = () => {
     setSelectedDate(null);
     setSearchText("¿A dónde vamos?");
     setOffersText("Ofertas Especiales");
+    setCurrentPage(1); // Reiniciar paginación al cambiar categoría
     if (offersRef.current) {
       offersRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -121,6 +122,7 @@ const Home = () => {
 
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
+    setCurrentPage(1); // Reiniciar paginación al cambiar la ubicación
     if (e.target.value) {
       setSearchText("Destino seleccionado");
     } else {
@@ -134,7 +136,6 @@ const Home = () => {
 
     try {
       if (isFavorite) {
-        // Eliminar favorito
         await axios.delete(`http://localhost:8081/favoritos/eliminarFavorito`, {
           data: { usuarioId: userId, productoId: tourId },
         });
@@ -142,7 +143,6 @@ const Home = () => {
         setFavorites(updatedFavorites);
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       } else {
-        // Agregar favorito
         await axios.post(`http://localhost:8081/favoritos/agregarFavorito`, {
           usuarioId: userId,
           productoId: tourId,
@@ -154,6 +154,23 @@ const Home = () => {
     } catch (error) {
       console.error("Error handling favorites", error);
     }
+  };
+
+  // Lógica para cambiar de página
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(displayedTours.length / toursPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
@@ -212,11 +229,13 @@ const Home = () => {
           Consulta nuestras ofertas especiales y descuentos.
         </p>
         <div className="container-card-tour">
-          {displayedTours.map((item, index) => (
+          {currentTours.map((item, index) => (
             <CardTour key={index} item={item}>
               {userActive && (
                 <Button
-                  className={`btn-fav ${favorites.includes(item.id) ? 'clicked' : ''}`}
+                  className={`btn-fav ${
+                    favorites.includes(item.id) ? "clicked" : ""
+                  }`}
                   onClick={() => handleFavoriteToggle(item.id)}
                 >
                   <FontAwesomeIcon icon={faHeart} />
@@ -225,8 +244,34 @@ const Home = () => {
             </CardTour>
           ))}
         </div>
-      </section>
-    </main>
+        {/* Paginación */}
+        <div className="pagination">
+          <Button onClick={handlePrevPage} disabled={currentPage === 1}>
+            Atrás
+
+            </Button>
+      {Array.from(
+        { length: Math.ceil(displayedTours.length / toursPerPage) },
+        (_, index) => index + 1
+      ).map((number) => (
+        <Button
+          key={number}
+          onClick={() => handlePageClick(number)}
+          className={currentPage === number ? "active" : ""}
+        >
+          {number}
+        </Button>
+      ))}
+      <Button
+        onClick={handleNextPage}
+        disabled={currentPage === Math.ceil(displayedTours.length / toursPerPage)}
+      >
+        Siguiente
+      </Button>
+    </div>
+  </section>
+</main>
+
   );
 };
 

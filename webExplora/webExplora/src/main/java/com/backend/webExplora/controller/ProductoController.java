@@ -58,4 +58,10 @@ public class ProductoController {
         List<CategoriaSalidaDto> categorias = productoService.obtenerCategoriasAleatorias();
         return ResponseEntity.ok(categorias);
     }
+    @DeleteMapping("/eliminar/{id}")
+public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
+    productoService.eliminarProducto(id);
+    return ResponseEntity.noContent().build();
+}
+
 }

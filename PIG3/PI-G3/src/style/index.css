@@ -475,6 +475,33 @@ input::placeholder {
 }
 
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.pagination button.active {
+  background-color: #007bc7;
+  color: white;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+
 
 /* ------------------- ESTILOS FOOTER ---------------- */
 .container-footer {

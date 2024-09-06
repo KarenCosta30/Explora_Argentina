@@ -108,6 +108,14 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
+public void eliminarProducto(Long id) {
+    logger.info("Eliminando producto con id: {}", id);
+    Producto producto = productoRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Producto con id " + id + " no encontrado"));
+    productoRepository.delete(producto);
+}
+
+    @Override
     public List<CategoriaSalidaDto> obtenerCategoriasAleatorias() {
         List<Categoria> categorias = categoriaRepository.findAll();
         Collections.shuffle(categorias); // Mezcla las categorías para obtener una selección aleatoria.

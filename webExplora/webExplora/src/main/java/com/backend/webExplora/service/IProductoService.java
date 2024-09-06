@@ -23,5 +23,6 @@ public interface IProductoService {
     List<ProductoSalidaDto> obtenerProductosDisponibles(String ubicacion, List<Long> idsExcluidos);
     List<ProductoSalidaDto> obtenerProductosDisponibles(LocalDate fechaReserva, String ubicacion);
     ProductoSalidaDto asignarCategoria(Long productoId, Long categoriaId);
+    void eliminarProducto(Long id);
      
 }

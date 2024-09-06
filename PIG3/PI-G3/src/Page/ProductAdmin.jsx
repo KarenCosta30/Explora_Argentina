@@ -55,7 +55,24 @@ const ProductAdmin = () => {
   };
 
   const handleDelete = (id) => {
-    console.log(`Eliminar producto con ID: ${id}`);
+    const confirmDelete = window.confirm("¿Estás seguro de que quieres eliminar este producto?");
+    if (confirmDelete) {
+      axios.delete(`http://localhost:8081/api/productos/eliminar/${id}`)
+        .then(() => {
+          // Actualizar el estado local
+          setProductos(prevState => {
+            return prevState.filter(producto => producto.id !== id);
+          });
+    
+          // Actualizar el estado global
+          dispatch({ type: 'DELETE_PRODUCT', payload: id });
+    
+          console.log(`Producto con ID ${id} eliminado.`);
+        })
+        .catch(error => {
+          console.error("Error deleting product:", error);
+        });
+    }
   };
 
   const handleCategoryChange = (productoId, categoriaId) => {
@@ -85,7 +102,6 @@ const ProductAdmin = () => {
     setSearchTerm(e.target.value);
   };
 
-
   const handleAddProduct = () => {
     navigate('/registerproduct'); // Redirige a /registerproduct
   };
@@ -110,7 +126,7 @@ const ProductAdmin = () => {
             <th>ID</th>
             <th>Nombre</th>
             <th>Categoría</th>
-            {/* <th>Acciones</th> */}
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -131,10 +147,10 @@ const ProductAdmin = () => {
                   ))}
                 </select>
               </td>
-              {/* <td>
-                <button onClick={() => handleEdit(producto.id)} className="btn-edit">Editar</button>
+              <td>
+                {/* <button onClick={() => handleEdit(producto.id)} className="btn-edit">Editar</button> */}
                 <button onClick={() => handleDelete(producto.id)} className="btn-delete">Eliminar</button>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>

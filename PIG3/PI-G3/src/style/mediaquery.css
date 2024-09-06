@@ -6,7 +6,9 @@
     .container-header {
         display: flex;
         gap: 20px;
+        max-width: 100vw;
     }
+
     .container-logo{
         margin-left: 2vh;
         font-size: 0.8rem;
@@ -35,12 +37,14 @@
     .subtitle-exp{
         font-size: 1rem;
     }
-    .card-categories{
-        display: flex;
-        flex-direction: row;  
-        width: 95%;  
-        
-    }
+
+    .card-categories {
+        flex-direction: flex;
+        align-items: center;
+        padding: 0px;
+        padding-left: 10px;
+      }
+
     .img-card-categories{
         height: 25vw;
         width: 20vw;
@@ -119,6 +123,18 @@
     .map-container{
         max-width: 95vw;
     }
+    .pagination {
+        flex-direction: flex;
+        align-items: center;
+        max-width: 98px;
+      }
+    
+      .pagination button {
+        padding: 0.25rem 0.5rem; /* Reduce el padding de los botones */
+        font-size: 0.625rem; /* Reduce el tamaño de la fuente */
+        min-width: 2.5rem; /* Reduce el ancho mínimo de los botones */
+        min-height: 2.2rem; /* Reduce la altura mínima de los botones */
+      }
     .btn-back{
         margin-left: 50vw;
         margin: 0;

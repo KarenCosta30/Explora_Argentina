@@ -61,6 +61,12 @@ export const reducer = (state, action) => {
         ),
       };
 
+      case 'DELETE_PRODUCT':
+        return {
+          ...state,
+          tour: state.tour.filter(producto => producto.id !== action.payload),
+        };
+
     default:
       return state;
   }
