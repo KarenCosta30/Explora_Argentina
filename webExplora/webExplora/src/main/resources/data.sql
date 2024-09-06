@@ -20,7 +20,7 @@ Día 3: Actividades al aire libre y regreso.',
 'https://c0.wallpaperflare.com/preview/881/303/659/argentina-san-carlos-de-bariloche-lake-mountain.jpg',
 300.00,
 true,
-'San Carlos de Bariloche, Rio Negro',
+'San Carlos de Bariloche, Río Negro',
 'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1,
