@@ -924,6 +924,10 @@ div.copyright{
     margin-left: 0;
   }
 
+  .card-categories {
+    gap: 35px;
+  }
+
   .section-one {
     display: flex;
     justify-content: center;
@@ -1070,4 +1074,9 @@ div.copyright{
   .btn-detail {
     padding-bottom: 10vh;
   }
+
+  .visibility-popover{
+    display: none;
+  }
+  
 }

@@ -11,6 +11,7 @@ import Favorites from "./Page/Favorites";
 import RegisterProductForm from "./Page/RegisterProductForm";
 import ProductAdmin from "./Page/ProductAdmin"
 import Reservation from "./Page/Reservation";
+import {ReservationConfirmed} from "./Page/ReservationConfirmed";
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/productadmin" element={<ProductAdmin/>}/>
         <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
         <Route path="/reservation/:id" element={<Reservation/>}/>
+        <Route path="/reservationConfirmed/:id" element={<ReservationConfirmed/>}/>
       </Routes>
        <Footer /> 
     </div>

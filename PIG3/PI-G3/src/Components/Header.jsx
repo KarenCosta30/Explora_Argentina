@@ -44,6 +44,12 @@ const Header = () => {
       setShowPopover(false);
     };
 
+    const handleLogoClick = () => {
+      if (location.pathname === "/") {
+        window.location.reload(); // Solo recarga si ya estás en "/"
+      }
+    };
+
     /* Cambia el estado de showPopover de false a true y viceversa. 
     Se usa para mostrar u ocultar el popover cuando el usuario hace clic en su avatar. */
     const togglePopover = () => {
@@ -52,12 +58,13 @@ const Header = () => {
 
   return (
     <div className="container-header">
-      <div className="container-logo">
-        <Link to="/">
+<div className="container-logo">
+<Link to="/" onClick={handleLogoClick}>
           <img className="img-logo" src="/public/img/logo.png" alt="logo" />
         </Link>
-        <p>EXPLORA ARGENTINA</p>
-      </div>    
+  <p>EXPLORA ARGENTINA</p>
+</div>
+
      
         
       

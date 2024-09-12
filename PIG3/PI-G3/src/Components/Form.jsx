@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText, provinciasArgentinas }) => {
+const Form = ({ fields, buttonText, onSubmit, className, inputClassName, children, paragraphText }) => {
   return (
     <div>
       <form onSubmit={onSubmit} className={className}>
@@ -37,16 +37,10 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                   onChange={field.onChange}
                   
                 >
-                  {field.name === "ubicacion" && provinciasArgentinas.map((ciudadObj, idx) => (
-                      <option key={idx} value={ciudadObj.ciudad}>
-                        {ciudadObj.ciudad}
-                    </option>
-                  ))}
-
-                  {field.name === "categoria" && field.options.map((option, idx) => (
+                  {field.options && field.options.map((option, idx) => (
                     <option key={idx} value={option.value}>
                       {option.label}
-                      </option>
+                    </option>
                   ))}
                 </select>
               </label>
@@ -87,6 +81,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                     onChange={field.onChange}
                     value={field.value}
                     autoComplete={field.autoComplete}
+                    onClick={field.onClick}
                   />
                   
                 </label>
@@ -104,10 +99,7 @@ const Form = ({ fields, buttonText, onSubmit, className, inputClassName, childre
                 value={field.value}
                 onChange={field.onChange}
                 autoComplete={field.autoComplete}
-                
-                
-                
-                
+                onClick={field.onClick}
               />
              
             );

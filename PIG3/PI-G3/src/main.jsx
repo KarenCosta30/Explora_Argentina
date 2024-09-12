@@ -13,6 +13,7 @@ import './style/productAdmin.css';
 import './style/Policies.css'
 import './style/mediaquery.css'
 import './style/reservation.css'
+import './style/modalRegister.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(
