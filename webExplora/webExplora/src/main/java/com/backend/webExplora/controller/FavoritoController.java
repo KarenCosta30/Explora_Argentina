@@ -50,8 +50,7 @@ public class FavoritoController {
         producto.getImagenUrl(),producto.getImagenUrl2(),producto.getImagenUrl3(),producto.getPrecio(),producto.getDisponible(),
         producto.getUbicacion(),producto.getDetalleItinerario(),producto.getCategoria() != null ? new CategoriaSalidaDto(
         producto.getCategoria().getId(),producto.getCategoria().getNombre(),producto.getCategoria().getUbicacion(),
-        producto.getCategoria().getImagen()) : null,producto.getLongitud(),producto.getLatitud()
-    );
+        producto.getCategoria().getImagen()) : null );
     FavoritoSalidaDto responseDto = new FavoritoSalidaDto(
             favorito.getId(),
             favorito.getUsuario().getId(),

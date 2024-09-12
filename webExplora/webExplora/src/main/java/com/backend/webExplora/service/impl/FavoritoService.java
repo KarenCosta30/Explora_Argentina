@@ -75,9 +75,7 @@ public List<FavoritoSalidaDto> listarFavoritosPorUsuario(Long usuarioId) {
                     producto.getCategoria().getNombre(),
                     producto.getCategoria().getUbicacion(),
                     producto.getCategoria().getImagen()
-                ) : null,
-                producto.getLongitud(),
-                producto.getLatitud()
+                ) : null
             );
             FavoritoSalidaDto favoritoDto = new FavoritoSalidaDto(
                 favorito.getId(),

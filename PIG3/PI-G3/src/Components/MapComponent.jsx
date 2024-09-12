@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { provinciasArgentinas } from './utils/provinciasArgentinas';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,13 +15,13 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
-const MapComponent = () => {
-  const [tour, setTour] = useState(null); 
-  const params = useParams();
+const MapComponent = ({ ubicacion }) => {
+  //const [tour, setTour] = useState(null); 
+  //const params = useParams();
+  const [position, setPosition] = useState([0, 0]);
+  //const url = `http://localhost:8081/api/productos/${params.id}`;
 
-  const url = `http://localhost:8081/api/productos/${params.id}`;
-
-  useEffect(() => {
+ /*  useEffect(() => {
     axios.get(url)
       .then((res) => setTour(res.data))
       .catch((error) => {
@@ -34,6 +35,17 @@ const MapComponent = () => {
   }
 
   const position = [tour.latitud, tour.longitud];
+ */
+  useEffect(() => {
+    const ciudadSeleccionada = provinciasArgentinas.find(prov => prov.ciudad === ubicacion);
+    if (ciudadSeleccionada) {
+      setPosition([ciudadSeleccionada.latitud, ciudadSeleccionada.longitud]);
+    }
+  }, [ubicacion]);
+
+  if (position[0] === 0 && position[1] === 0) {
+    return <div>Cargando mapa...</div>;
+  }
 
   return (
     <MapContainer center={position} zoom={13} style={{ height: '280px', width: '100%' }} zoomControl={false}>
@@ -43,7 +55,7 @@ const MapComponent = () => {
       />
       <Marker position={position}>
         <Popup>
-          Usted está aquí.
+          Usted está aquí. Ubicación seleccionada: {ubicacion}
         </Popup>
       </Marker>
     </MapContainer>

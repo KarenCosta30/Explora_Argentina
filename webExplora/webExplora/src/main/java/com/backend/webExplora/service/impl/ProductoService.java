@@ -184,8 +184,6 @@ private ProductoSalidaDto convertirAProductoSalidaDto(Producto producto) {
     dto.setItinerario(producto.getItinerario());
     dto.setDetalleItinerario(producto.getDetalleItinerario());
     dto.setCategoria(convertirACategoriaSalidaDto(producto.getCategoria()));
-    dto.setLongitud(producto.getLongitud());
-    dto.setLatitud(producto.getLatitud());
     return dto;
 }
 

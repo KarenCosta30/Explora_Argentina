@@ -55,9 +55,6 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    private Float latitud;
-    private Float longitud;
-
     @Column(name = "criterio")
     private String criterio;
 
@@ -69,8 +66,7 @@ public class Producto {
 
     public Producto(Long id, String nombre, String descripcion, String descripcionLarga, String imagenUrl,
                     String itinerario, String imagenUrl2, String imagenUrl3, BigDecimal precio, Boolean disponible,
-                    String ubicacion, String detalleItinerario, Categoria categoria, Float latitud, Float longitud,
-                    LocalDate fechaReserva) {
+                    String ubicacion, String detalleItinerario, Categoria categoria, LocalDate fechaReserva) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -84,8 +80,6 @@ public class Producto {
         this.ubicacion = ubicacion;
         this.detalleItinerario = detalleItinerario;
         this.categoria = categoria;
-        this.latitud = latitud;
-        this.longitud = longitud;
         this.fechaReserva = fechaReserva;
     }
 
@@ -116,10 +110,6 @@ public class Producto {
     public void setDetalleItinerario(String detalleItinerario) { this.detalleItinerario = detalleItinerario; }
     public Categoria getCategoria() { return categoria; }
     public void setCategoria(Categoria categoria) { this.categoria = categoria; }
-    public Float getLatitud() { return latitud; }
-    public void setLatitud(Float latitud) { this.latitud = latitud; }
-    public Float getLongitud() { return longitud; }
-    public void setLongitud(Float longitud) { this.longitud = longitud; }
     public LocalDate getFechaReserva() { return fechaReserva; }
     public void setFechaReserva(LocalDate fechaReserva) { this.fechaReserva = fechaReserva; }
     public String getCriterio() { return criterio; }

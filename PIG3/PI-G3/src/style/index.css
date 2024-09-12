@@ -847,6 +847,16 @@ div.copyright{
   margin-bottom: 20px;
 }
 
+.list-item {
+  display: flex;
+  align-items: center;
+}
+
+.list-item svg {
+  margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+
+
 .map-container {
   height: 280px;
   /* Ajusta la altura según tus necesidades */
