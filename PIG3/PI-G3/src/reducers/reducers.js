@@ -66,6 +66,22 @@ export const reducer = (state, action) => {
           ...state,
           tour: state.tour.filter(producto => producto.id !== action.payload),
         };
+        case "SET_DATE_RESERVED":
+          return {
+            ...state,
+            dataReserved: action.payload,
+          };
+          case "SET_PEOPLE":
+            return {
+              ...state,
+              people: action.payload,
+            };
+            case "SET_PRICE_RESERVED":
+            return {
+              ...state,
+              priceReserved: action.payload,
+            };
+      
 
     default:
       return state;

@@ -443,6 +443,7 @@ input::placeholder {
 
 .info-card-tour {
   padding: 15px;
+  
 }
 
 .card-tour .btn-fav {
@@ -1008,9 +1009,9 @@ div.copyright{
     width: 50vw;
   }
 
-  .info-card-booking {
+/*   .info-card-booking {
     width: 300px;
-  }
+  } */
 
 
   .container-offers {
@@ -1044,6 +1045,7 @@ div.copyright{
 
   .container-footer {
     width: 105%;
+    
   }
 
   .footer-columns {

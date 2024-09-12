@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Components/Button";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
@@ -9,8 +9,9 @@ import MapComponent from "../Components/MapComponent";
 import Carrusel from "../Components/Carrusel";
 import Calendar from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker.css";
+
 import Policies from "../Components/Policies";
+import { format } from "date-fns";
 
 
 const Detail = () => {
@@ -30,7 +31,25 @@ const Detail = () => {
     if (activeUser) {
       dispatch({ type: "SET_USER_ACTIVE", payload: true });
     }
+
   }, [dispatch]);
+
+  // useEffect para guardar la fecha que selecciona el usuario en el contexto global, para esto necesitamos cambiarle el formato ya que react no guarda obejtos en estado global no los renderiza
+  useEffect(() => {
+    if (selectedDate) {
+      const formattedDate = format(selectedDate, 'dd/MM/yyyy');
+      dispatch({ type: "SET_DATE_RESERVED", payload: formattedDate });
+    }
+    const people = peopleCount
+    if(peopleCount)
+    dispatch({type: "SET_PEOPLE",payload: people})
+
+    if(totalPrice)
+    dispatch({type:"SET_PRICE_RESERVED",payload:totalPrice})
+
+}, [dispatch, selectedDate]);
+
+
 
   useEffect(() => {
     axios.get(url).then((res) => setTour(res.data));
@@ -57,19 +76,22 @@ const Detail = () => {
     setSelectedDate(date);
   };
 
+  
+
   const handleClick = () => {
     if (!state.userActive) {
       navigate("/login");
     } else if (selectedDate === null) {
       alert("Selecciona una fecha para reservar");
     } else {
-      alert("Reserva realizada con éxito");
-      // Aquí puedes agregar la lógica para completar la reserva.
+      navigate(`/reservation/${params.id}`);
+      
     }
-   /*  if(state.userActive && selectedDate !== null){
-      navigate("/reservations");
-    } */
+    
   };
+
+ 
+ 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   return (

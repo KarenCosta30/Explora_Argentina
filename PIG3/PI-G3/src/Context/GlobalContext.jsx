@@ -14,6 +14,9 @@ const initialState = {
     userAdministrator: false,
     userId: "",
     categories:[],
+    dataReserved: "",
+    people: null,
+    priceReserved:null
 }
 
 const GlobalContext = ({ children }) => {
