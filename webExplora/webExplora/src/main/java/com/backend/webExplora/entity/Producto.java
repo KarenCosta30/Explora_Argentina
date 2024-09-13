@@ -49,7 +49,7 @@ public class Producto {
     private String ubicacion;
 
     @Column(name = "detalle_itinerario", length = 2000)
-    private String detalleItinerario;
+    private String detalleItinerario;//carateristicas
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -83,7 +83,7 @@ public class Producto {
         this.fechaReserva = fechaReserva;
     }
 
-    // Getters y Setters
+   
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getNombre() { return nombre; }

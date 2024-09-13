@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.webExplora.dto.entrada.ReservaEntradaDto;
 import com.backend.webExplora.dto.salida.ProductoFechaDto;
+import com.backend.webExplora.dto.salida.ProductoSalidaDto;
 import com.backend.webExplora.dto.salida.ReservaSalidaDto;
 import com.backend.webExplora.entity.Reserva;
 import com.backend.webExplora.service.IReservaService;
@@ -33,6 +35,9 @@ public class ReservaController {
 
     @Autowired
     private IReservaService reservaService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @PostMapping("/registrar")
     public ResponseEntity<ReservaSalidaDto> reservarProducto(@RequestBody @Valid ReservaEntradaDto reservaDto) {
@@ -73,6 +78,28 @@ public ResponseEntity<List<ReservaSalidaDto>> obtenerFechasReservadas(@PathVaria
         List<ProductoFechaDto> productosFechas = reservaService.obtenerProductoIdsYFechasPorFecha(fecha);
         return ResponseEntity.ok(productosFechas);
     }
+
+    @GetMapping("/usuario/historial/{usuarioId}")
+    public ResponseEntity<List<ReservaSalidaDto>> obtenerHistorialReservasPorUsuario(@PathVariable Long usuarioId) {
+        List<Reserva> reservas = reservaService.obtenerReservasPorUsuario(usuarioId);
+
+        List<ReservaSalidaDto> reservasDto = reservas.stream()
+            .map(reserva -> {
+                ProductoSalidaDto productoDto = modelMapper.map(reserva.getProducto(), ProductoSalidaDto.class);
+                return new ReservaSalidaDto(
+                    reserva.getId(),
+                    reserva.getUsuario().getId(),
+                    productoDto,
+                    reserva.getFechaReserva());
+            })
+            .collect(Collectors.toList());
+
+        return ResponseEntity.ok(reservasDto);
+    }
+    
+
+
+
 
     // /**
     // * Lista los productos disponibles para una fecha y ubicación específicas.

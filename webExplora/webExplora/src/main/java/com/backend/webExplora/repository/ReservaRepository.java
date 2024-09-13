@@ -28,10 +28,13 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
     // Encuentra reservas por ID de producto
     List<Reserva> findByProductoId(Long productoId);
 
+
     // Verifica si existe una reserva para un producto en una fecha específica
     boolean existsByProductoIdAndFechaReserva(Long productoId, LocalDate fechaReserva);
      @EntityGraph(attributePaths = {"producto"})
      Optional<Reserva> findById(Long id);
+     
+
      
      
 }

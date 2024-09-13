@@ -60,8 +60,13 @@ public class ReservaService implements IReservaService {
 
     @Override
     public List<Reserva> obtenerReservasPorUsuario(Long usuarioId) {
-        return reservaRepository.findByUsuarioId(usuarioId);
+        List<Reserva> reservas = reservaRepository.findByUsuarioId(usuarioId);
+        return reservas.stream()
+                       .map(reserva -> modelMapper.map(reserva, Reserva.class))
+                       .collect(Collectors.toList());
     }
+    
+    
     
     @Override
     public ReservaSalidaDto obtenerReservaPorId(Long reservaId) {
@@ -118,4 +123,7 @@ public class ReservaService implements IReservaService {
             reserva.getFechaReserva()
         );
     }
+
+
+
 }
