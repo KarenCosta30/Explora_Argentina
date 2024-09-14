@@ -10,10 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Reservation = () => {
     const { state, dispatch } = useTourState();
     const [reserved,setReserved] = useState([])
+    const [error, setError] = useState(null);
     const params = useParams()
     const urlTourReserved = `http://localhost:8081/api/productos/${params.id}`;
-    const navigate = useNavigate()
-   
+    const navigate = useNavigate();
+  
     
     useEffect(()=>{
         axios(urlTourReserved)
@@ -21,6 +22,7 @@ const Reservation = () => {
     },[params.id])
 
     useEffect(()=>{
+       const userId = localStorage.getItem("userId")
         const userName = localStorage.getItem("userName");
         const userSurname = localStorage.getItem("userSurname");
         const userEmail = localStorage.getItem("userEmail");
@@ -28,7 +30,35 @@ const Reservation = () => {
         dispatch({ type: "SET_USER_NAME", payload: userName });
         dispatch({ type: "SET_USER_SURNAME", payload: userSurname });
         dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
+        dispatch({ type: "SET_USER_ID",payload:userId})
     },[dispatch])
+ 
+    console.log(state.userId);
+      console.log(params.id);
+      console.log(state.dataReserved);
+      console.log(typeof state.dataReserved);
+      
+      
+      
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+  
+      const dateReservation = new Date(state.dataReserved).toISOString().split('T')[0];  // Convierte a YYYY-MM-DD
+        const tourId = params.id
+        const usuarioId = state.userId
+      try {
+          await  axios.post('http://localhost:8081/reservar/registrar', {
+          usuarioId,
+          productoId:tourId,
+          fechaReserva:dateReservation,
+});
+        navigate('/login'); // Redirige al login después de un registro exitoso
+      } catch (err) {
+        setError("Error al realizar la reserva, por favor prueba mas tarde");
+        console.error(err);
+      } 
+      navigate(`/reservationConfirmed/${params.id}`)
+    }
   
     return (
     <div className="container-reservation">
@@ -48,7 +78,8 @@ const Reservation = () => {
             <p>Personas: {state.people}</p>
         </div>
         <p className='price-reserved'>Total: USD {state.priceReserved}</p>
-        <Button className={"btn-booking"}>Confirmar Reserva</Button>
+        <Button onClick={handleSubmit} className={"btn-booking"}>Confirmar Reserva</Button>
+        {error && <p className="error-message">{error}</p>}
         </div>
         <div className='container-btn-back'></div>
         <Button onClick={()=>navigate(-1)} className="btn-back-reserved">

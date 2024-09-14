@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import Modal from 'react-modal';
 
 // Configura el elemento de la aplicación para el modal
@@ -8,7 +8,7 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
     const [edades, setEdades] = useState('');
     const [duracion, setDuracion] = useState('');
     const [horario, setHorario] = useState('');
-    const [entrada, setEntrada] = useState('');
+    const [entrada, setEntrada] = useState(''); // Cambiado a una cadena vacía, "Sí" o "No"
     const [guia, setGuia] = useState('');
 
     const ensurePeriod = (value) => value.trim().endsWith('.') ? `${value.trim()} ` : `${value.trim()}. `;
@@ -18,7 +18,7 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
             edades && `Edades: ${ensurePeriod(edades)}`,
             duracion && `Duración: ${ensurePeriod(duracion)}`,
             horario && `Horario de inicio: ${ensurePeriod(horario)}`,
-            entrada && `Entrada para dispositivos móviles: ${ensurePeriod(entrada)}`,
+            entrada === 'Sí' && `Entrada para dispositivos móviles${ensurePeriod('')}`, // Texto fijo
             guia && `Guía en vivo: ${ensurePeriod(guia)}`
         ]
         .filter(Boolean)
@@ -82,13 +82,17 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
                         />
                     </label>
                     <br />
-                    <label>
+                    <label style={{ display: 'flex', alignItems: 'center' }}>
                         Entrada para dispositivos móviles:
-                        <input
-                            type="text"
+                        <select
                             value={entrada}
                             onChange={(e) => setEntrada(e.target.value)}
-                        />
+                            style={{ marginLeft: '10px' }}  // Agrega espaciado entre el texto y el select
+                        >
+                            <option value="">Seleccionar</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
                     </label>
                     <br />
                     <label>
@@ -106,6 +110,5 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
         </Modal>
     );
 };
-
 
 export default CaracteristicasModal;

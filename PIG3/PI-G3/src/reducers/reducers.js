@@ -50,6 +50,11 @@ export const reducer = (state, action) => {
         ...state,
         userAdministrator: action.payload,
       };
+      case "SET_USER_ID":
+        return {
+          ...state,
+          userId: action.payload,
+        };
 
     case "UPDATE_PRODUCT_CATEGORY":
       return {

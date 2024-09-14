@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Button from "../Components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faUser, faClock, faCalendarAlt, faComments, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faUser, faClock, faCalendarAlt, faComments, faMobileAlt , faShareAlt} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useTourState } from "../Context/GlobalContext";
 import MapComponent from "../Components/MapComponent";
 import Carrusel from "../Components/Carrusel";
 import Calendar from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
+import ShareModal from "../Components/ShareModal";
 
 import Policies from "../Components/Policies";
 import { format } from "date-fns";
@@ -25,6 +26,15 @@ const Detail = () => {
   const params = useParams();
   const url = `http://localhost:8081/api/productos/${params.id}`;
   const reservedDatesUrl = `http://localhost:8081/reservar/producto/${params.id}`; // URL para obtener las fechas reservadas
+  const [isShareModalOpen, setShareModalOpen] = useState(false);
+
+  const handleOpenShareModal = () => {
+    setShareModalOpen(true);
+  };
+
+  const handleCloseShareModal = () => {
+    setShareModalOpen(false);
+  };
 
   useEffect(() => {
     const activeUser = localStorage.getItem("userActive") === "true";
@@ -37,7 +47,7 @@ const Detail = () => {
   // useEffect para guardar la fecha que selecciona el usuario en el contexto global, para esto necesitamos cambiarle el formato ya que react no guarda obejtos en estado global no los renderiza
   useEffect(() => {
     if (selectedDate) {
-      const formattedDate = format(selectedDate, 'dd/MM/yyyy');
+      const formattedDate = format(selectedDate, 'yyyy/MM/dd');
       dispatch({ type: "SET_DATE_RESERVED", payload: formattedDate });
     }
     const people = peopleCount
@@ -47,7 +57,7 @@ const Detail = () => {
     if(totalPrice)
     dispatch({type:"SET_PRICE_RESERVED",payload:totalPrice})
 
-}, [dispatch, selectedDate]);
+}, [dispatch, selectedDate,peopleCount]);
 
 
 
@@ -137,7 +147,12 @@ const Detail = () => {
   tomorrow.setDate(tomorrow.getDate() + 1);
   return (
     <main className="container-detail">
+      <div className="detail-title">
       <h4>{tour.nombre}</h4>
+  <button className="btn-share" onClick={handleOpenShareModal}>
+    <FontAwesomeIcon icon={faShareAlt} />
+  </button>
+</div>
       <section className="section-one">
         <div className="carrusel">
           <div className="img-detail">
@@ -223,6 +238,11 @@ const Detail = () => {
         
       </div> 
       <Policies/>
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onRequestClose={handleCloseShareModal}
+        product={tour}
+      />
     </main>
   );
 };
