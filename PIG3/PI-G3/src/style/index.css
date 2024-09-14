@@ -592,6 +592,26 @@ div.copyright{
 
 /*----  DIV QUE CONTIENE TITULO E IMAGENES -----*/
 
+.detail-title{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.btn-share {
+  margin-top: 20vh;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; 
+  color: black; 
+  transition: color 0.3s ease;
+}
+
+.btn-share:hover {
+  color: #0056b3; 
+}
+
 .section-one {
   height: min-content;
   margin-top: 3vh;
@@ -1078,5 +1098,5 @@ div.copyright{
   .visibility-popover{
     display: none;
   }
-  
+
 }
