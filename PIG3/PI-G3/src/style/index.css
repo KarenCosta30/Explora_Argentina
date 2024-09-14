@@ -199,7 +199,7 @@ div.avatar:hover {
   background-image: url("/public/img/banner.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60vh;
+  height: 100vh;
   width: 100%;
   max-width: 100%;
 }
@@ -213,7 +213,7 @@ div.avatar:hover {
 }
 
 .container-search p {
-  margin-top: 19vh;
+  margin-top: 40vh;
   text-align: center;
   font-size: x-large;
   font-weight: bold;

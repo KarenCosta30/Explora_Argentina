@@ -47,7 +47,7 @@ const Detail = () => {
   // useEffect para guardar la fecha que selecciona el usuario en el contexto global, para esto necesitamos cambiarle el formato ya que react no guarda obejtos en estado global no los renderiza
   useEffect(() => {
     if (selectedDate) {
-      const formattedDate = format(selectedDate, 'dd/MM/yyyy');
+      const formattedDate = format(selectedDate, 'yyyy/MM/dd');
       dispatch({ type: "SET_DATE_RESERVED", payload: formattedDate });
     }
     const people = peopleCount
@@ -57,7 +57,7 @@ const Detail = () => {
     if(totalPrice)
     dispatch({type:"SET_PRICE_RESERVED",payload:totalPrice})
 
-}, [dispatch, selectedDate]);
+}, [dispatch, selectedDate,peopleCount]);
 
 
 
