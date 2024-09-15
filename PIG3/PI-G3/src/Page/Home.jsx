@@ -5,6 +5,7 @@ import CardTour from "../Components/CardTour";
 import Button from "../Components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
 import DatePicker from "react-datepicker";
 import { useTourState } from "../Context/GlobalContext";
 import axios from "axios";
@@ -272,6 +273,7 @@ const Home = () => {
       </Button>
     </div>
   </section>
+  
 </main>
 
   );

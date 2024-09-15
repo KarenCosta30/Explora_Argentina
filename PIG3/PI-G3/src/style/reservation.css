@@ -27,21 +27,34 @@
     padding: 1rem;
     border: 1px solid #0e2a33;
     border-radius: 8px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgb(126, 121, 121);
     width: 25vw;
     height: 65vh;
     text-align: center;
     margin-top: 10vh;
-    background-color: rgba(193,138, 41, 0.2);
+    background-color: #F5F5F5;
+}
+.title-reservation{
+    font-weight: bold;
+    padding-bottom: 3vh;
+    width: max-content;
+    border-bottom: 1px solid #B3B3B3 ;
+    width: 100%;
 }
 
-.info-card-booking {
+.info-card-booking-reservation {
     text-align: left;
+    border-bottom: 1px solid #B3B3B3 ;
+    width: 100%;
+
 }
 
 .price-reserved{
     font-size: 1.3rem;
     font-weight: bold;
     color: #007bc7;
+    
 }
 
 .container-btn-back{

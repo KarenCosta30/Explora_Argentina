@@ -33,10 +33,7 @@ const Reservation = () => {
         dispatch({ type: "SET_USER_ID",payload:userId})
     },[dispatch])
  
-    console.log(state.userId);
-      console.log(params.id);
-      console.log(state.dataReserved);
-      console.log(typeof state.dataReserved);
+   
       
       
       
@@ -47,17 +44,20 @@ const Reservation = () => {
         const tourId = params.id
         const usuarioId = state.userId
       try {
-          await  axios.post('http://localhost:8081/reservar/registrar', {
+         const response = await  axios.post('http://localhost:8081/reservar/registrar', {
           usuarioId,
           productoId:tourId,
-          fechaReserva:dateReservation,
-});
-        navigate('/login'); // Redirige al login después de un registro exitoso
+          fechaReserva:dateReservation
+          });
+          // GUARDAMOS EL ID DE LA RESERVA EN UNA CONSTANTE 
+          const reservationId = response.data.id;
+          dispatch({ type:"SET_ID_RESERVATION", payload:reservationId})
+          navigate('/login'); // Redirige al login después de un registro exitoso
       } catch (err) {
         setError("Error al realizar la reserva, por favor prueba mas tarde");
         console.error(err);
       } 
-      navigate(`/reservationConfirmed/${params.id}`)
+      navigate(`/reservationConfirmed/${state.reservationId}`)
     }
   
     return (
@@ -70,14 +70,14 @@ const Reservation = () => {
         </div>
        
         <div className="card-booking-reservation">
-          <h3>Reserva tu lugar</h3>
-          <div className="info-card-booking">
+          <p className='title-reservation'>RESERVA TU LUGAR</p>
+          <div className="info-card-booking-reservation ">
             <p>Nombre: {state.userName} {state.userSurname}</p>
             <p>Email: {state.userEmail}</p>
             <p>Fecha: {state.dataReserved}  </p>
             <p>Personas: {state.people}</p>
         </div>
-        <p className='price-reserved'>Total: USD {state.priceReserved}</p>
+       <p className='price-reserved'>Total: USD {state.priceReserved}</p>
         <Button onClick={handleSubmit} className={"btn-booking"}>Confirmar Reserva</Button>
         {error && <p className="error-message">{error}</p>}
         </div>
