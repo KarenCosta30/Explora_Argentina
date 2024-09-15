@@ -16,7 +16,8 @@ const initialState = {
     categories:[],
     dataReserved: "",
     people: null,
-    priceReserved:null
+    priceReserved:null,
+    reservationId:null
 }
 
 const GlobalContext = ({ children }) => {

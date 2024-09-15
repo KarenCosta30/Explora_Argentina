@@ -504,6 +504,7 @@ input::placeholder {
 
 
 
+
 /* ------------------- ESTILOS FOOTER ---------------- */
 .container-footer {
   display: flex;
@@ -563,6 +564,12 @@ input::placeholder {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 10px;
+}
+.wpp-icon{
+  cursor: pointer;
+}
+.link-wpp{
+  color: #ffffff;
 }
 
 /*PAGINA DETALLE*/

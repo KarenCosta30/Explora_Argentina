@@ -81,6 +81,11 @@ export const reducer = (state, action) => {
               ...state,
               people: action.payload,
             };
+            case "SET_ID_RESERVATION":
+              return {
+                ...state,
+                reservationId: action.payload,
+              };
             case "SET_PRICE_RESERVED":
             return {
               ...state,

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
 const Footer = () => {
   return (
     <div className='container-footer'>
@@ -30,7 +31,8 @@ const Footer = () => {
         </ul>
         <ul className='ul-footer'>
           <li className='info'>Info de contacto</li>
-          <li>+111 222 333</li>
+          <li></li>
+          <li><a className='link-wpp' href="https://api.whatsapp.com/send/?phone=97099356&text&type=phone_number&app_absent=0"><FontAwesomeIcon className='wpp-icon' icon={faWhatsapp} style={{color: "#ffffff",}} />  +111 222 333</a> </li>
           <li>info@exploraargentina.com</li>
           <li>1245, Bs. As. Argentina</li>
         </ul>
