@@ -4,12 +4,13 @@ import Button from '../Components/Button';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const ReservationConfirmed = () => {
   const { state, dispatch } = useTourState();
-  const [reservationConfirm,setReservationConfirm] = useState(null)
-  const params = useParams()
+  const [reservationConfirm,setReservationConfirm] = useState(null);
+  const params = useParams();
+  const navigate = useNavigate();
   const urlReservation = `http://localhost:8081/reservar/${params.id}`;
   console.log(urlReservation);
   console.log(reservationConfirm);
@@ -47,7 +48,7 @@ export const ReservationConfirmed = () => {
         <p>Por favor, presenta este comprobante al momento de realizar el tour. Es fundamental para garantizar el acceso a la actividad.</p>
         </div>
         <div className='container-btn-back'></div>
-        <Button onClick={()=>navigate(-1)} className="btn-back-reserved-confirm">
+        <Button onClick={()=>navigate('/')} className="btn-back-reserved-confirm">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
     </div>

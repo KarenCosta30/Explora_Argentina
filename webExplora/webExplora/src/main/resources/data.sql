@@ -21,7 +21,7 @@ Día 3: Actividades al aire libre y regreso.',
 300.00,
 true,
 'San Carlos de Bariloche, Río Negro',
-'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 99 años, máx 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1),
 
@@ -73,7 +73,7 @@ Visita a la Isla San Martín.',
 200.00,
 true,
 'Cataratas de Iguazú, Misiones',
-'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 99 años, máx 10 por grupo. Duración: 8-10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3),
 
@@ -92,7 +92,7 @@ Tiempo Libre y Regreso.',
 100.00,
 true,
 "Purmamarca, Jujuy",
-'Edad: 0 a 99 años. Máximo 27 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 99 años, máx 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3),
 
@@ -111,7 +111,7 @@ Regreso a El Calafate.',
 180.00,
 true,
 'El Calafate, Santa Cruz',
-'Edad: 8 a 65 años. Máximo 50 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 8 a 65 años, máx 10 por grupo. Duración: 10 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3),
 
@@ -130,7 +130,7 @@ Regreso a Salta o Jujuy.',
 120.00,
 true,
 'Salta, Salta',
-'Edad: 0 a 69 años. Máximo 23 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 69 años, máx 10 por grupo. Duración: 13 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3),
 
@@ -150,7 +150,7 @@ Recorrido por los principales puntos turísticos de Buenos Aires.',
 80.00,
 true,
 'CABA, Ciudad Autónoma de Buenos Aires',
-'Edad: 0 a 99 años. Máximo 30 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 99 años, máx 10 por grupo. Duración: 3-5 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 3),
 
@@ -168,7 +168,7 @@ Volverás al punto de partida',
 180.00,
 true,
 'Mendoza, Mendoza', 
-'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+'Edad: 18 a 90 años, máx 9 por grupo. Duración: 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4),
 
 ('Bodega Chandon más Almuerzo', 
@@ -183,7 +183,7 @@ Casa El enemigo (parada de 3 horas, entrada incluida).',
 265.00,
 true,
 'Mendoza, Mendoza',
-'Edad: 18 a 90 años. Máximo 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+'Edad: 18 a 90 años, máx 9 por grupo. Duración: de 5 a 7 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4),
 
 ('Experiencia en Bodega Renacer',
@@ -198,7 +198,7 @@ Bodega Renacer (parada 70 minutos - entrada incluida)',
 27.00,
 true,
 'Mendoza, Mendoza',
-'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+'Edad: 18 a 65 años, máx 10 por grupo. Duración: de 1 hora. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4),
 
 ('El Inicio WineTour x 2 Pax (Historia y Vinos)',
@@ -218,7 +218,7 @@ Volverás al punto de partida',
 88.00,
 true,
 'Córdoba, Córdoba',
-'Edad: 18 a 65 años. Máximo 50 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
+'Edad: 18 a 65 años, máx 10 por grupo. Duración: de 6 a 8 horas. Hora de inicio: ver disponibilidad. Guía en directo: Portugués, Inglés, Español',
 4),
 
 ('Excursión al glaciar Perito Moreno con navegación',
@@ -237,7 +237,7 @@ Volverás al punto de partida',
 170.00,
 true,
 'El Calafate, Santa Cruz',
-'Edad: 0 a 99 años. Máximo 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
+'Edad: 0 a 99 años, máx 6 por grupo. Duración: 3 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1),
 
@@ -265,7 +265,7 @@ Volverás al punto de partida',
 205.00,
 true,
 'El Calafate, Santa Cruz',
-'Edad: de 4 a 90 años. Máximo 45 por grupo. Duración: 14 horas. Hora de inicio: ver disponibilidad. 
+'Edad: de 4 a 90 años, máx 10 por grupo. Duración: 14 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1),
 
@@ -286,7 +286,7 @@ Volverás al punto de partida',
 73.00,
 true,
 'San Carlos de Bariloche, Río Negro',
-'Edad: de 0 a 90 años. Máximo 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
+'Edad: de 0 a 90 años, máx 10 por grupo. Duración: 12 horas. Hora de inicio: ver disponibilidad. 
 Guía en directo: Portugués, Inglés, Español',
 1),
 
@@ -338,7 +338,7 @@ Servicio de recogida en el hotel y traslado de ida y vuelta sin complicaciones d
 211.00,
 true,
 'San Martín, Mendoza',
-'Edades: de 2 a 99, máx. de 23 por grupo
+'Edades: de 2 a 99, máx. de 10 por grupo
 Duración: 12 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -385,7 +385,7 @@ Duración: 30 minutos',
 129.00,
 true,
 'Puerto Madryn, Chubut',
-'Edades: de 2 a 89, máx. de 17 por grupo
+'Edades: de 2 a 89, máx 10 por grupo
 Duración: 7 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -403,7 +403,7 @@ Guía en vivo: inglés, Español',
 103.00,
 true,
 'Neuquén, Neuquén',
-'Edades: de 0 a 99, máx. de 12 por grupo
+'Edades: de 0 a 99, máx. de 10 por grupo
 Duración: 4 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -445,7 +445,7 @@ Veremos una colonia de leones marinos en Punta Pirámides',
 135.00,
 true,
 'Puerto Madryn, Chubut',
-'Edades: de 2 a 99, máx. de 20 por grupo
+'Edades: de 2 a 99, máx. de 10 por grupo
 Duración: 6 h
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -497,7 +497,7 @@ Duración: 20 minutos',
 30.00,
 true,
 'San Carlos de Bariloche, Río Negro',
-'Edades: de 1 a 99, máx. de 20 por grupo
+'Edades: de 1 a 99, máx. de 10 por grupo
 Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -542,7 +542,7 @@ Disfrute de los comentarios y conozca los secretos de la producción de vino',
 21.00,
 true,
 'Luján de Cuyo, Mendoza',
-'Edades: de 0 a 99, máx. de 15 por grupo
+'Edades: de 0 a 99, máx. de 10 por grupo
 Duración: 1 h 30 m
 Horario de inicio: consultar disponibilidad
 Entrada para dispositivos móviles
@@ -605,50 +605,50 @@ VALUES
 
 INSERT IGNORE INTO reservas (usuario_id, producto_id, fecha_reserva)
 VALUES 
-(3, 1, '2024-09-19'),
-(5, 2, '2024-09-19'),
-(2, 3, '2024-09-19'),
-(6, 4, '2024-09-19'),
-(6, 5, '2024-09-19'),
-(1, 6, '2024-09-19'),
-(2, 7, '2024-09-19'),
-(3, 8, '2024-09-19'),
-(4, 9, '2024-09-19'),
-(5, 10, '2024-09-19'),
-(6, 11, '2024-09-19'),
-(7, 12, '2024-09-19'),
-(5, 13, '2024-09-19'),
-(5, 14, '2024-09-19'),
-(3, 15, '2024-09-19'),
-(2, 16, '2024-09-19'),
-(1, 17, '2024-09-19'),
-(1, 18, '2024-09-19'),
-(10, 19, '2024-09-19'),
-(10, 20, '2024-09-19'),
-(9, 23, '2024-09-19'),
-(9, 22, '2024-09-19'),
-(3, 23, '2024-09-10'),
-(5, 24, '2024-09-10'),
-(2, 25, '2024-09-10'),
-(6, 26, '2024-09-10'),
-(6, 27, '2024-09-10'),
-(1, 28, '2024-09-10'),
-(2, 29, '2024-09-10'),
-(3, 8, '2024-09-10'),
-(4, 9, '2024-09-10'),
-(5, 10, '2024-09-10'),
-(6, 11, '2024-09-10'),
-(7, 12, '2024-09-10'),
-(5, 13, '2024-09-10'),
-(5, 14, '2024-09-10'),
-(3, 15, '2024-09-10'),
-(2, 16, '2024-09-10'),
-(1, 17, '2024-09-10'),
-(1, 18, '2024-09-10'),
-(10, 19, '2024-09-10'),
-(10, 20, '2024-09-10'),
-(9, 21, '2024-09-10'),
-(9, 1, '2024-09-10'),
-(9, 2, '2024-09-10'),
-(9, 22, '2024-09-10'),
-(9, 22, '2024-09-13');
+(3, 1, '2024-09-21'),
+(5, 2, '2024-09-21'),
+(2, 3, '2024-09-21'),
+(6, 4, '2024-09-21'),
+(6, 5, '2024-09-21'),
+(1, 6, '2024-09-21'),
+(2, 7, '2024-09-21'),
+(3, 8, '2024-09-21'),
+(4, 9, '2024-09-21'),
+(5, 10, '2024-09-21'),
+(6, 11, '2024-09-21'),
+(7, 12, '2024-09-21'),
+(5, 13, '2024-09-21'),
+(5, 14, '2024-09-21'),
+(3, 15, '2024-09-21'),
+(2, 16, '2024-09-21'),
+(1, 17, '2024-09-21'),
+(1, 18, '2024-09-21'),
+(10, 19, '2024-09-21'),
+(10, 20, '2024-09-21'),
+(9, 23, '2024-09-21'),
+(9, 22, '2024-09-21'),
+(3, 23, '2024-09-30'),
+(5, 24, '2024-09-30'),
+(2, 25, '2024-09-30'),
+(6, 26, '2024-09-30'),
+(6, 27, '2024-09-30'),
+(1, 28, '2024-09-30'),
+(2, 29, '2024-09-30'),
+(3, 8, '2024-09-30'),
+(4, 9, '2024-09-30'),
+(5, 10, '2024-09-30'),
+(6, 11, '2024-09-30'),
+(7, 12, '2024-09-30'),
+(5, 13, '2024-09-30'),
+(5, 14, '2024-09-30'),
+(3, 15, '2024-09-30'),
+(2, 16, '2024-09-30'),
+(1, 17, '2024-09-30'),
+(1, 18, '2024-09-30'),
+(10, 19, '2024-09-30'),
+(10, 20, '2024-09-30'),
+(9, 21, '2024-09-30'),
+(9, 1, '2024-09-30'),
+(9, 2, '2024-09-30'),
+(9, 22, '2024-09-30'),
+(9, 22, '2024-09-23');

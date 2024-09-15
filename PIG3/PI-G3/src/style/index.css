@@ -839,7 +839,7 @@ div.copyright{
   font-size: 12px;
   font-weight: 900;
   list-style-type: none;
-  padding: 0;
+  padding: 10px;
   text-transform: uppercase;
 }
 
@@ -881,7 +881,7 @@ div.copyright{
 }
 
 .list-item svg {
-  margin-right: 8px; /* Espacio entre el ícono y el texto */
+  margin-right: 12px; /* Espacio entre el ícono y el texto */
 }
 
 
@@ -1003,7 +1003,7 @@ div.copyright{
   }
 
   .property-list li {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
   }
 
   .travel {

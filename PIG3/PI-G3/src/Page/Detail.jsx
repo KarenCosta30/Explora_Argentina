@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../Components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faUser, faClock, faCalendarAlt, faComments, faMobileAlt , faShareAlt} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faUser, faClock, faCalendarAlt, faComments, faMobileAlt , faShareAlt, faPaw } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useTourState } from "../Context/GlobalContext";
 import MapComponent from "../Components/MapComponent";
@@ -111,7 +111,8 @@ const Detail = () => {
     duracion: faClock,
     horario: faCalendarAlt,
     guia: faComments,
-    entrada: faMobileAlt  // Icono para 'entrada'
+    entrada: faMobileAlt,  // Icono para 'entrada'
+    animal: faPaw
   };
 
   // Separar por salto de línea y puntos
@@ -132,6 +133,8 @@ const Detail = () => {
         icon = icons.guia;
       } else if (itemLowerCase.includes("entrada")) {
         icon = icons.entrada;
+      } else if (itemLowerCase.includes("animal")) {
+        icon = icons.animal;
       }
 
       return (
