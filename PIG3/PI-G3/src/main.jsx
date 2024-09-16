@@ -16,6 +16,7 @@ import './style/reservation.css'
 import './style/modalRegister.css'
 import './style/shareModal.css'
 import './style/reservationConfirm.css'
+import './style/historialReservas.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(

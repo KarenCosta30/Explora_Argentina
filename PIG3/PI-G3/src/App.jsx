@@ -12,6 +12,7 @@ import RegisterProductForm from "./Page/RegisterProductForm";
 import ProductAdmin from "./Page/ProductAdmin"
 import Reservation from "./Page/Reservation";
 import {ReservationConfirmed} from "./Page/ReservationConfirmed";
+import HistorialReservas from "./Page/HistorialReservas";
 
 
 
@@ -29,9 +30,10 @@ function App() {
         <Route path="/registerproduct" element={<RegisterProductForm/>}/>
         <Route path="/favorites" element={<Favorites/>}/>
         <Route path="/productadmin" element={<ProductAdmin/>}/>
-        <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
         <Route path="/reservation/:id" element={<Reservation/>}/>
         <Route path="/reservationConfirmed/:id" element={<ReservationConfirmed/>}/>
+        <Route path="/historial/:usuarioId" element={<HistorialReservas/>} />
+        <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
       </Routes>
        <Footer /> 
     </div>

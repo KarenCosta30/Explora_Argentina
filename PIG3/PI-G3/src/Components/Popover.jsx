@@ -32,6 +32,7 @@ const Popover = ({ show, onClose, onLogout, name, surname, email, isAdmin }) => 
         <hr className="hr-custom"/>
         
         <button onClick={() => handleNavigation('/favorites')}>Mis favoritos</button>
+        <button onClick={() => handleNavigation('/historial/:usuarioId')}>Mi historial de Reservas</button>
         <hr className="hr-custom"/>
         
         {isAdmin && (     

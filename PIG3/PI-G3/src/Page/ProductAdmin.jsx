@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useTourState } from '../Context/GlobalContext';
 
 const ProductAdmin = () => {
@@ -133,7 +133,7 @@ const ProductAdmin = () => {
           {filteredProductos.map(producto => (
             <tr key={producto.id}>
               <td>{producto.id}</td>
-              <td>{producto.nombre}</td>
+              <td><Link to= {`/detail/${producto.id}`}>{producto.nombre}</Link></td>
               <td>
                 <select 
                   value={producto.categoria?.id || ''} 
