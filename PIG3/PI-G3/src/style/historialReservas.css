@@ -49,7 +49,9 @@
 }
 
 .historial-reservas-table .product-image {
-    width: 80%
+    width: 80%;
+    height: 10vh;
+    
 }
 
 .historial-reservas-table .product-precio{
