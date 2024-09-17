@@ -100,22 +100,21 @@
 /* Estilos para el Trigger del Drawer */
 .drawer-trigger {
     cursor: pointer; /* Muestra el cursor como puntero */
-    margin-bottom: 3rem; /* Añade espacio entre el trigger y el contenido */
     margin-top: 3rem; /* Añade espacio entre el trigger y el contenido */
     height: 3rem;
-    background-color: #ffffff;
+    background-color: #f5f5f5;
     border: none;
     color: #007bc7;
     text-decoration: underline;
     cursor: pointer;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px 10px 0px 0px;
     font-weight: bold;
     font-size: 1rem;
 }
 
 .drawer-trigger:hover {
-    background-color: #007bc7;
+    background-color: #172432;
     color: #ffffff;
 }
 

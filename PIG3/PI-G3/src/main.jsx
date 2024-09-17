@@ -17,6 +17,7 @@ import './style/modalRegister.css'
 import './style/shareModal.css'
 import './style/reservationConfirm.css'
 import './style/historialReservas.css'
+import './style/detail.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
   root.render(
@@ -28,5 +29,3 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
       </React.StrictMode>
     </BrowserRouter>
 );
-
-
