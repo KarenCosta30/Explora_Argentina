@@ -57,7 +57,7 @@
 }
 
 .btn-back-container{
-    padding-bottom: 5vh;
+    padding-top: auto;
 }
 
 .btn-back-historial {
@@ -67,7 +67,7 @@
     border-radius: 90px;
     border: 1px solid #007bc7;
     cursor: pointer;
-    margin-top: 30px;
-    margin-left: 68vw;
+    margin-top: 10vh;
+    margin-left: 70vw;
     
 }

@@ -4,10 +4,11 @@ import Button from '../Components/Button';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export const ReservationConfirmed = () => {
   const { state, dispatch } = useTourState();
+  const { userId } = useTourState();
   const [reservationConfirm,setReservationConfirm] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -47,10 +48,22 @@ export const ReservationConfirmed = () => {
         </div>
         <p>Por favor, presenta este comprobante al momento de realizar el tour. Es fundamental para garantizar el acceso a la actividad.</p>
         </div>
-        <div className='container-btn-back'></div>
-        <Button onClick={()=>navigate('/')} className="btn-back-reserved-confirm">
+
+        <div className='container-btn-r-confirm'>
+          <Link to={`/historial/${userId}`} state={{ fromReservationConfirmed: true }}>
+            <Button className="btn-reserv-confirm">Ir a mis Reservas</Button>
+          </Link>
+
+          <Link to={`/`}>
+            <Button className="btn-reserv-confirm">Ir al Inicio</Button>
+          </Link>
+          {/* <Button onClick={()=>navigate('/')} className="btn-back-reserved-confirm">
             <FontAwesomeIcon icon={faArrowLeft} />
-          </Button>
+          </Button> */}
+
+        </div>
+
+        
     </div>
   )
 }

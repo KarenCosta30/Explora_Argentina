@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTourState } from '../Context/GlobalContext';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Components/Button';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,7 @@ const HistorialReservas = () => {
   const [reservas, setReservas] = useState([]);
   const { userId } = useTourState();
   const navigate = useNavigate();
+  const location = useLocation(); // Obtiene el estado pasado en el Link
 
   useEffect(() => {
     const userActive = localStorage.getItem("userActive", state.userActive);
@@ -27,6 +28,14 @@ const HistorialReservas = () => {
     }
   }, [state.userActive, userId]);
 
+  const handleBackClick = () => {
+    // Verifica si se accedió desde la página de confirmación de reserva
+    if (location.state?.fromReservationConfirmed) {
+      navigate('/'); // Redirige al inicio
+    } else {
+      navigate(-1); // Navega a la página anterior
+    }
+  };
 
   return (
     <div className="historial-reservas-container">
@@ -73,8 +82,9 @@ const HistorialReservas = () => {
             })}
         </tbody>
       </table>
+      
       <div className='btn-back-container'>
-                <Button onClick={() => navigate(-1)} className="btn-back-historial">
+                <Button onClick={handleBackClick} className="btn-back-historial">
                     <FontAwesomeIcon icon={faArrowLeft} />
                 </Button>
             </div>
