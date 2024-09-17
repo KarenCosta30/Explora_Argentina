@@ -96,33 +96,6 @@
     .price {
         font-size: 1.1rem;
     }
-    /* --DETAIL */
-    .container-detail h4{
-        font-size: 1.5rem;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 100%;
-    }
-    .card-booking{
-        width: 90%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .itinerary-list{
-        margin-left: -5vh;
-    }
-    .section-two{
-        margin-top: 8vw;
-    }
-    .map-container{
-        max-width: 95vw;
-    }
     .pagination {
         flex-direction: flex;
         align-items: center;
@@ -157,6 +130,18 @@
     div.copyright{
         display: none;
   } 
+  .pagination {
+    flex-direction: flex;
+    align-items: center;
+    max-width: 98px;
+  }
+
+  .pagination button {
+    padding: 0.25rem 0.5rem; /* Reduce el padding de los botones */
+    font-size: 0.625rem; /* Reduce el tamaño de la fuente */
+    min-width: 2.5rem; /* Reduce el ancho mínimo de los botones */
+    min-height: 2.2rem; /* Reduce la altura mínima de los botones */
+  }
 }
 
 /* --DISPOSITIVOS PEQUEÑOS */
@@ -277,45 +262,6 @@
     .price{
         font-size: 1.2rem;
     }
-    /* --DETAIL */
-    
-    .container-detail h4{
-        font-size: 1.5rem;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 100%;
-    }
-    .card-booking{
-        width: 90%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .section-two{
-        margin-top: 8vw;
-        
-    }   
-    .itinerary-list{
-        margin-left: -5vh;
-        width: 65vw;        
-    }
-    .itinerary-list p {
-        text-align: justify;
-        width: 95%;
-    }
-    .map-container{
-        max-width: 95vw;
-    }
-    .btn-back{
-        margin-left: 50vw;
-        margin: 0;
-        padding: 0;        
-    }
     /* --FOOTER */
     .container-footer{
         width: 100%;
@@ -346,7 +292,7 @@
         margin: 0; /* Elimina márgenes que podrían afectar el ancho */
         padding: 0; /* Elimina padding que podría afectar el ancho */
         box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
-        overflow-x: hidden; /
+        overflow-x: hidden;
     }
     .container-header {
         display: flex;
@@ -480,51 +426,7 @@
     .price{
         font-size: 1.2rem;
     }
-    /* --DETAIL */
-    .container-detail h4{
-        font-size: 1.5rem;
-        
-    }
-    .section-one{
-        width: 93%;
-        margin-left: -4vw;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 95%;
-    }
-    .card-booking{
-        width: 90%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .section-two{
-        margin-top: 8vw;
-    }
-    .itinerary-list{
-        margin-left: -5vh;
-        width: 65vw;        
-    }
-    .itinerary-list p {
-        text-align: justify;
-        width: 95%;
-    }
-    .property-list{
-        margin-left: -5vh;
-    }
-    .map-container{
-        max-width: 80vw;
-    }
-    .btn-back{
-        margin-left: 50vw;
-        margin: 0;
-        padding: 0;        
-    }
+
     /* --FOOTER */
     .container-footer{
         width: 100vw;
@@ -655,52 +557,7 @@
     .price{
         font-size: 1.2rem;
     }
-    /* --DETAIL */
-    .container-detail{
-        display: flex;
-        flex-direction: column;
-        gap: 5vh;
-    }
- 
-    .container-detail h4{
-        font-size: 1.5rem;
-        margin-left: 1vw;
-        
-    }
-    .section-one{
-        width: 93%;
-        margin-left: -8vw;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 80%;
-    }
-   
-    .card-booking{
-        width: 60%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .section-two{
-        margin-top: 8vw;
-    }
-    .itinerary-list p {
-        text-align: justify;
-        width: 80%;
-    }   
-    .map-container{
-        width: 60vw;
-    }
-    .btn-back{
-        margin-left: 50vw;
-        margin: 0;
-        padding: 0;        
-    }
+
     /* --FOOTER */
     .container-footer{
         width: 100vw;
@@ -827,59 +684,11 @@
     .price{
         font-size: 1.2rem;
     }
-    /* --DETAIL */
-    .container-detail{
-        display: flex;
-        flex-direction: column;
-        gap: 5vh;
-    }
-    .container-detail h4{
-        font-size: 1.5rem;
-        margin-left: 1vw;
-        
-    }
-    .section-one{
-        width: 93%;
-        margin-left: -8vw;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 80%;
-    }
-    .card-booking{
-        width: 60%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .section-two{
-        margin-top: 8vw;
-        
-    }
-    .itinerary-list p {
-        text-align: justify;
-        width: 80%;
-    }
-    .map-container{
-        width: 45vw;
-        
-    }
-    .btn-back{
-        margin-left: 50vw;
-        margin: 0;
-        padding: 0;        
-    }
+
     /* --FOOTER */
     .footer-columns{
         display: grid;
         flex-direction: wrap;
     }    
-
-
 }
-
 

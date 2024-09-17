@@ -10,6 +10,7 @@ import Carrusel from "../Components/Carrusel";
 import Calendar from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 import ShareModal from "../Components/ShareModal";
+import { useInView } from 'react-intersection-observer';
 
 import Policies from "../Components/Policies";
 import { format } from "date-fns";
@@ -27,6 +28,10 @@ const Detail = () => {
   const url = `http://localhost:8081/api/productos/${params.id}`;
   const reservedDatesUrl = `http://localhost:8081/reservar/producto/${params.id}`; // URL para obtener las fechas reservadas
   const [isShareModalOpen, setShareModalOpen] = useState(false);
+  const { ref: sectionTwoRef, inView: sectionTwoInView } = useInView({
+    triggerOnce: false, // La animación se activa solo una vez en true 
+    threshold: 0.2,    // Porcentaje del elemento visible para activar la animación
+  });
 
   const handleOpenShareModal = () => {
     setShareModalOpen(true);
@@ -148,6 +153,8 @@ const Detail = () => {
  
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
+
+
   return (
     <main className="container-detail">
       <div className="detail-title">
@@ -157,15 +164,24 @@ const Detail = () => {
   </button>
 </div>
       <section className="section-one">
-        <div className="carrusel">
-          <div className="img-detail">
+
+          <div className="img-carrusel">
             <Carrusel
               images={[tour.imagenUrl, tour.imagenUrl2, tour.imagenUrl3]}
             />
           </div>
+          <div className="img-detalle">
+          <img src={tour.imagenUrl} alt="Imagen 1" className="img-principal" />
+          <div className="img-secundarias">
+          <img src={tour.imagenUrl2} alt="Imagen 2" class="img-secundaria secundaria1"/>
+          <img src={tour.imagenUrl3} alt="Imagen 3" class="img-secundaria secundaria2"/>
+          </div>
+
+        </div>
           <div className="info-booking">
             <div>
-              <span>{tour.descripcionLarga}</span>
+            <h3>Descripción general</h3>
+              <span className="descripcion-larga">{tour.descripcionLarga}</span>
               <p>
                 Desde: USD {" "}
                 <span className="price-info-booking">{tour.precio}</span> por
@@ -173,9 +189,8 @@ const Detail = () => {
               </p>
             </div>
           </div>
-        </div>
 
-        <div className="card-booking">
+          <div className="card-booking">
           <h3>Reserva tu lugar</h3>
           <div className="info-card-booking">
             <Calendar
@@ -213,9 +228,17 @@ const Detail = () => {
             El precio incluye impuestos y tarifas de reservación.
           </span>
         </div>
-      </section>
 
-      <section className="section-two">
+
+        
+      </section>
+      
+
+
+      <section
+        ref={sectionTwoRef}
+        className={`section-two ${sectionTwoInView ? 'animate visible' : 'animate'}`}
+      >
         <div className="travel">
           <div className="itinerary">
             <h3>Itinerario</h3>
@@ -229,18 +252,16 @@ const Detail = () => {
             {itineraryItems}
           </ul>
         </div>
-
         <div className="map-container">
           <MapComponent ubicacion={tour.ubicacion} />
         </div>
       </section>
-       <div className="btn-detail">
-        <Button onClick={()=>navigate(-1)} className="btn-back">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Button>
-        
-      </div> 
-      <Policies/>
+      <div className="btn-detail">
+        <Button onClick={() => navigate(-1)} className="btn-back">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </Button>
+      </div>
+      <Policies />
       <ShareModal
         isOpen={isShareModalOpen}
         onRequestClose={handleCloseShareModal}
