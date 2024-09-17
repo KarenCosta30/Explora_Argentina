@@ -566,8 +566,15 @@ input::placeholder {
   margin-bottom: 10px;
 }
 .wpp-icon{
+  background-color:#10e610 ;
+  margin-left: 90vw;
+  width: 3vw;
+  height: 5vh;
   cursor: pointer;
+  padding: 1vh;
+  border-radius: 50%;
+  margin-bottom: 5vh;
+  margin-top: 3vh;
+  
 }
-.link-wpp{
-  color: #ffffff;
-}
+

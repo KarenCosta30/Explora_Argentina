@@ -13,6 +13,7 @@ import ProductAdmin from "./Page/ProductAdmin"
 import Reservation from "./Page/Reservation";
 import {ReservationConfirmed} from "./Page/ReservationConfirmed";
 import HistorialReservas from "./Page/HistorialReservas";
+import Wpp from "./Components/wpp";
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/historial/:usuarioId" element={<HistorialReservas/>} />
         <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
       </Routes>
+       <Wpp/>
        <Footer /> 
     </div>
   );
