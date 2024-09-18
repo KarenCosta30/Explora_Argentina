@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { useTourState } from "../Context/GlobalContext";
 import Popover from "./Popover";
 import Avatar from "./Avatar"
@@ -10,6 +10,23 @@ import Avatar from "./Avatar"
 const Header = () => {
   const { state, dispatch } = useTourState();
   const [showPopover, setShowPopover] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // Estado para manejar el scroll
+  const handleSearchClick = () => {
+    dispatch({ type: "TOGGLE_SEARCH_FORM", payload:!state.showSearchForm}); // Alternar entre true y false
+};
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // Si se hace scroll más de 50px
+        setScrolled(true); // Cambia el estado a "scrolled"
+      } else {
+        setScrolled(false); // Si el scroll es menor a 50px, vuelve a estado original
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll); // Agregar event listener de scroll
+    return () => window.removeEventListener("scroll", handleScroll); // Limpiar event listener
+  }, []);
   
        // Recuperar el estado de userActive y usuario de localStorage
        useEffect(() => {
@@ -57,7 +74,7 @@ const Header = () => {
     };
 
   return (
-    <div className="container-header">
+    <div className={`container-header ${scrolled ? "scrolled" : ""}`}>
 <div className="container-logo">
 <Link to="/" onClick={handleLogoClick}>
           <img className="img-logo" src="/public/img/logo.png" alt="logo" />
@@ -65,7 +82,13 @@ const Header = () => {
   <p>EXPLORA ARGENTINA</p>
 </div>
 
-     
+     <div className="menu">
+     <Link to="/" onClick={handleLogoClick}>
+          <span className="navbar">Inicio</span>
+        </Link>
+      <span  className="navbar" onClick={handleSearchClick}> Buscar</span> {/* PASAR FUNCION PARA MOSTROAR O NO LE FORMULARIO */}
+      <span  className="navbar">Contacto</span>
+     </div>
         
       
       <div className="container-button">
