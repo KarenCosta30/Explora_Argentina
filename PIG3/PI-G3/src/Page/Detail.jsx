@@ -29,7 +29,7 @@ const Detail = () => {
   const reservedDatesUrl = `http://localhost:8081/reservar/producto/${params.id}`; // URL para obtener las fechas reservadas
   const [isShareModalOpen, setShareModalOpen] = useState(false);
   const { ref: sectionTwoRef, inView: sectionTwoInView } = useInView({
-    triggerOnce: false, // La animación se activa solo una vez en true 
+    triggerOnce: true, // La animación se activa solo una vez en true 
     threshold: 0.2,    // Porcentaje del elemento visible para activar la animación
   });
 
@@ -173,8 +173,8 @@ const Detail = () => {
           <div className="img-detalle">
           <img src={tour.imagenUrl} alt="Imagen 1" className="img-principal" />
           <div className="img-secundarias">
-          <img src={tour.imagenUrl2} alt="Imagen 2" class="img-secundaria secundaria1"/>
-          <img src={tour.imagenUrl3} alt="Imagen 3" class="img-secundaria secundaria2"/>
+          <img src={tour.imagenUrl2} alt="Imagen 2" className="img-secundaria secundaria1"/>
+          <img src={tour.imagenUrl3} alt="Imagen 3" className="img-secundaria secundaria2"/>
           </div>
 
         </div>

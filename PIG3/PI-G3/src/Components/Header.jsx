@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { Link, Navigate } from "react-router-dom"
 import { useTourState } from "../Context/GlobalContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import Popover from "./Popover";
 import Avatar from "./Avatar"
 
@@ -13,6 +15,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false); // Estado para manejar el scroll
   const handleSearchClick = () => {
     dispatch({ type: "TOGGLE_SEARCH_FORM", payload:!state.showSearchForm}); // Alternar entre true y false
+};
+
+const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar el menú hamburguesa
+const toggleMenu = () => {
+  setMenuOpen(!menuOpen);
 };
 
   useEffect(() => {
@@ -75,20 +82,27 @@ const Header = () => {
 
   return (
     <div className={`container-header ${scrolled ? "scrolled" : ""}`}>
+       <div className="hamburger-menu" onClick={toggleMenu}>
+  <FontAwesomeIcon 
+    icon={menuOpen ? faTimes : faBars} 
+    className="hamburger-icon" // Clase para personalizar
+  />
+</div>
 <div className="container-logo">
 <Link to="/" onClick={handleLogoClick}>
           <img className="img-logo" src="/public/img/logo.png" alt="logo" />
         </Link>
-  <p>EXPLORA ARGENTINA</p>
+  <p className="logo-name">EXPLORA ARGENTINA</p>
 </div>
 
-     <div className="menu">
-     <Link to="/" onClick={handleLogoClick}>
+      {/* Menu que aparece/desaparece en móviles */}
+      <div className={`menu ${menuOpen ? 'active' : ''} ${scrolled ? 'scrolled' : ''}`}>
+        <Link to="/" onClick={handleLogoClick}>
           <span className="navbar">Inicio</span>
         </Link>
-      <span  className="navbar" onClick={handleSearchClick}> Buscar</span> {/* PASAR FUNCION PARA MOSTROAR O NO LE FORMULARIO */}
-      <span  className="navbar">Contacto</span>
-     </div>
+        <span className="navbar" onClick={handleSearchClick}>Buscar</span>
+        <span className="navbar">Contacto</span>
+      </div>
         
       
       <div className="container-button">

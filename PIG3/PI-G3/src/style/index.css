@@ -8,57 +8,75 @@ body {
   font-style: normal;
 }
 
-link{
+link {
   text-decoration: none;
 }
 
-
-
-
 /* HEADER ------------------*/
 .container-header {
-  background-color:transparent ;
+  background-color: transparent;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 13vh;
   margin: 0;
   position: fixed;
   gap: 10px;
   z-index: 1000;
-  
+
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.btn-avatar {
+  margin-left: 150px;
+}
+
+.menu.active {
+  background-color: white;
+}
+
+/* Estilo del menú cuando está abierto y hay scroll */
+.menu.active.scrolled {
+  background-color: #0E2A33;
 }
 
 .container-header.scrolled {
-  background-color: #0E2A33; /* Color de fondo cuando se hace scroll */
+  background-color: #0E2A33;
+  /* Color de fondo cuando se hace scroll */
 }
 
-.container-header.scrolled span{
+.container-header.scrolled span {
   color: #ffffff;
 }
-.container-header.scrolled p{
- color: #ffffff;
+
+.container-header.scrolled .logo-name {
+  color: #ffffff;
 }
-.menu{
+
+.menu {
   display: flex;
   justify-content: center;
   gap: 4rem;
   color: #007bc7;
-  margin-left: 20vw;
 }
 
-
-.navbar{
+.navbar {
+  display: inline-block;
   gap: 10vw;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #007bc7;
   font-weight: bold;
   cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
-.navbar:hover{
+.navbar:hover {
   transform: scale(1.5);
-  
 }
 
 .container-header p {
@@ -79,12 +97,10 @@ link{
   margin-left: 30px;
 }
 
-
 .container-button {
   display: flex;
   gap: 10px;
-  margin-left: auto;
-  margin-right: 5vw;
+  padding-right: 30px;
   flex-wrap: wrap;
 }
 
@@ -132,25 +148,29 @@ div.avatar:hover {
   position: relative;
   display: inline-block;
 }
+
 .visibility-popover {
   visibility: hidden;
   background-color: #007bc7;
-    height: 11vh;
-    padding: 3px;
-    border-radius: 3px;
-    text-align: center;
-    padding-top: 10px; 
-    
+  height: 11vh;
+  padding: 3px;
+  border-radius: 3px;
+  text-align: center;
+  padding-top: 10px;
+
 }
+
 .visibility-popover p {
   font-weight: lighter;
-  font-size: 0.9rem;  
-  
+  font-size: 0.9rem;
+
 }
-#txt-popover{
+
+#txt-popover {
   color: #ffffff;
 
 }
+
 .popover-content {
   position: absolute;
   top: 100%;
@@ -219,7 +239,6 @@ div.avatar:hover {
   z-index: 50;
 }
 
-
 /* MAIN ------------*/
 .container-main {
   display: flex;
@@ -231,7 +250,7 @@ div.avatar:hover {
 
 /* ----------- ESTILOS SECCION SEARCH ---------- */
 .container-search {
- /*  background-image: url("/public/img/banner.webp");
+  /*  background-image: url("/public/img/banner.webp");
   background-repeat: no-repeat;
   background-size: cover; */
   height: 100vh;
@@ -282,7 +301,8 @@ input::placeholder {
   text-align: center;
 }
 
-.btn-search, .btn-reset {
+.btn-search,
+.btn-reset {
   color: #ffffff;
   background-color: #39afe5;
   border: none;
@@ -291,8 +311,6 @@ input::placeholder {
   width: 103px;
   height: 42px;
 }
-
-
 
 .btn-search:hover {
   opacity: 0.9;
@@ -310,37 +328,42 @@ input::placeholder {
   overflow: hidden;
 }
 
-
 .video-background video {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;  /* Opcional, para ajustar el video al contenedor */
+  object-fit: cover;
+  /* Opcional, para ajustar el video al contenedor */
   transform: translate(-50%, -50%);
 }
+
 .video-background video {
   position: absolute;
 
   left: 50%;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;  /* Ajusta el video para que cubra el contenedor */
+  object-fit: cover;
+  /* Ajusta el video para que cubra el contenedor */
   transform: translate(-50%, -50%);
 }
-.video-fondo{
-  width: 100vw; /* Ocupar el 100% del ancho de la pantalla */
-  height: 100vh; /* Ocupar el 100% del alto de la pantalla */
-  object-fit:scale-down; /* Asegurar que el video cubra toda la pantalla sin dejar bordes */
+
+.video-fondo {
+  width: 100vw;
+  /* Ocupar el 100% del ancho de la pantalla */
+  height: 100vh;
+  /* Ocupar el 100% del alto de la pantalla */
+  object-fit: scale-down;
+  /* Asegurar que el video cubra toda la pantalla sin dejar bordes */
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; 
+  z-index: -1;
 }
 
 /* ------------ SECCION EXPERIENCIAS-----------------------*/
-
 .container-categories {
   display: flex;
   flex-direction: column;
@@ -383,7 +406,6 @@ input::placeholder {
   transform: scale(1.1);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 
 .img-card-categories {
   height: 35vh;
@@ -433,8 +455,6 @@ input::placeholder {
 }
 
 /* ----------- CARD TOUR-----------------*/
-
-
 .card-tour {
   color: #ffffff;
   display: flex;
@@ -495,11 +515,11 @@ input::placeholder {
   text-align: center;
   max-width: 150px;
   box-sizing: border-box;
-  font-weight:bolder;
+  font-weight: bolder;
   margin-top: auto;
 }
 
-.btn-card-tour:hover{
+.btn-card-tour:hover {
   background-color: #0e2a33;
 }
 
@@ -517,13 +537,15 @@ input::placeholder {
 
 .info-card-tour {
   padding: 15px;
-  
+
 }
 
 .card-tour .btn-fav {
   position: absolute;
-  top: 10px; /* Ajusta la distancia desde la parte superior de la imagen */
-  right: 10px; /* Ajusta la distancia desde el lado derecho de la imagen */
+  top: 10px;
+  /* Ajusta la distancia desde la parte superior de la imagen */
+  right: 10px;
+  /* Ajusta la distancia desde el lado derecho de la imagen */
   background-color: #ffffff00;
   color: whit;
   cursor: pointer;
@@ -531,24 +553,27 @@ input::placeholder {
   border-radius: 5px;
   font-weight: bolder;
   text-align: center;
-  z-index: 10; /* Asegura que el botón esté sobre la imagen */
+  z-index: 10;
+  /* Asegura que el botón esté sobre la imagen */
 }
-
 
 .btn-fav {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem; /* Ajusta el tamaño según tu diseño */
-  color: #ccc; /* Color del corazón cuando no está activo */
-  transition: color 0.3s, transform 0.3s; /* Transiciones para el color y la animación */
+  font-size: 1.5rem;
+  /* Ajusta el tamaño según tu diseño */
+  color: #ccc;
+  /* Color del corazón cuando no está activo */
+  transition: color 0.3s, transform 0.3s;
+  /* Transiciones para el color y la animación */
 }
 
 .btn-fav.clicked {
-  color: #e74c3c; /* Color del corazón cuando está en favoritos */
+  color: #e74c3c;
+  /* Color del corazón cuando está en favoritos */
   transform: scale(1.2);
 }
-
 
 .pagination {
   display: flex;
@@ -576,19 +601,22 @@ input::placeholder {
   background-color: #ccc;
 }
 
-
-
-
-
-.wpp-icon{
-  background-color:#10e610 ;
-  margin-left: 90vw;
-  width: 3vw;
-  height: 5vh;
-  cursor: pointer;
-  padding: 1vh;
+.wpp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
   border-radius: 50%;
-  margin-bottom: 5vh;
-  margin-top: 3vh;
-  
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.wpp-icon:hover {
+  background-color: #128C7E;
 }

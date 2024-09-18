@@ -111,6 +111,18 @@ footer {
     position: relative;
     background-color: #fbfbfd;
   }
+
+  .footer-logo{
+    width: 40px;
+  }
+
+  .container-footer-logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 10px;
+}
   
   .footer_bg {
     position: absolute;
@@ -142,3 +154,69 @@ footer {
       left:100%;
   }
   }
+
+  /* Estilos para pantallas pequeñas (celulares) */
+@media only screen and (max-width: 768px) {
+
+  
+  .foot-box {
+    width: 50%; /* Tomar el 100% del ancho */
+    margin-bottom: 20px; /* Añadir margen entre las secciones */
+    text-align: center; /* Centrar el texto */
+  }
+
+  .container-footer-logo {
+    justify-content: center;
+}
+
+  .container-footer-box{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .foot-box ul {
+    padding-left: 0;
+  }
+
+  .foot-box p:nth-child(1) {
+    font-size: 16px;
+  }
+
+  .foot-box p:nth-child(2),
+  .foot-box p:nth-child(3) {
+    font-size: 14px; 
+  }
+
+  .logo-footer {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .iconos {
+    justify-content: center;
+    gap: 15px; 
+  }
+}
+
+/* Estilos para pantallas extra pequeñas (muy pequeños dispositivos móviles) */
+@media only screen and (max-width: 375px) {
+
+  .footer_bg {
+    height: 100px; /* Reducir la altura de fondo en móviles */
+  }
+
+  .foot-box {
+    width: 100%;
+  }
+
+  .footer_bg_two {
+    width: 72px;
+    height: 80px;
+  }
+
+  .foot-box li a {
+    font-size: 12px; /* Reducir el tamaño del texto en los enlaces */
+  }
+
+}

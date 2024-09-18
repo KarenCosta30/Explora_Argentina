@@ -11,11 +11,14 @@ const Footer = () => {
     <footer id="footer">
       <div className="container-footer-box">
         <div className='foot-box'>
-          <p>Sobre Nosotros</p>
+<div className='container-footer-logo'>
+<p>Sobre Nosotros</p>
+<img className='footer-logo' src="/img/logo.png" alt="logo" />
+</div>
+
           <p className='footer-about'>Explora Argentina te lleva a descubrir los mejores destinos del país con experiencias únicas.</p>
           <p className='footer-about'>Copyright © Explora Argentina 2024 All rights reserved</p>
           <Link to={"/"}>
-        <img className='logo-footer' src="/img/logo.png" alt="logo" />
         </Link>
         </div>
 
@@ -23,10 +26,10 @@ const Footer = () => {
           <p>Acceso rápido</p>
           <ul>
             <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/tours">Tours</Link></li>
-            <li><Link to="/paquetes">Paquetes</Link></li>
-            <li><Link to="/por-que-nosotros">Por qué nosotros</Link></li>
+            <li><Link to="/">Buscar</Link></li>
+            <li><Link to="/">Tours</Link></li>
+            <li><Link to="/">Paquetes</Link></li>
+
 
           </ul>
         </div>
@@ -34,11 +37,11 @@ const Footer = () => {
         <div className='foot-box'>
           <p>Destinos Populares</p>
           <ul>
-            <li><Link to="/bariloche">Bodega Trapiche</Link></li>
-            <li><Link to="/santiago-del-estero">San Carlos de Bariloche</Link></li>
-            <li><Link to="/tierra-del-fuego">Excursión a Cataratas de Iguazú</Link></li>
-            <li><Link to="/messi">Paseo a Caballo por Viñedos</Link></li>
-            <li><Link to="/novedades">Teleferico Cerro Otto</Link></li>
+          <li><Link to="/detail/1">San Carlos de Bariloche</Link></li>
+          <li><Link to="/detail/4">Excursión a Cataratas de Iguazú</Link></li>
+            <li><Link to="/detail/3">Bodega Trapiche</Link></li>
+            <li><Link to="/detail/5">Cerro de los 7 Colores</Link></li>
+            <li><Link to="/detail/16">Teleferico Cerro Otto</Link></li>
 
           </ul>
         </div>
@@ -47,9 +50,21 @@ const Footer = () => {
           <p>Contacto</p>
           <ul>
           <div className='iconos'>
-            <li><FontAwesomeIcon icon={faFacebook} style={{color: "grey"}} /></li>
-            <li><FontAwesomeIcon icon={faInstagram} style={{color: "grey"}}/></li>
-            <li><FontAwesomeIcon icon={faXTwitter} style={{color: "grey"}}/></li>
+          <li>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faFacebook} style={{ color: "grey" }} />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faInstagram} style={{ color: "grey" }} />
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faXTwitter} style={{ color: "grey" }} />
+        </a>
+      </li>
           </div>
           <li>+111 222 333</li>
           <li>info@exploraargentina.com</li>
