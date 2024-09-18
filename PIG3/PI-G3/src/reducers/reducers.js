@@ -91,7 +91,8 @@ export const reducer = (state, action) => {
               ...state,
               priceReserved: action.payload,
             };
-      
+            case "TOGGLE_SEARCH_FORM":  // Nueva acción para manejar la visibilidad del formulario
+            return { ...state, showSearchForm: action.payload };
 
     default:
       return state;

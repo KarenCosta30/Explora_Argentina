@@ -5,7 +5,6 @@ import CardTour from "../Components/CardTour";
 import Button from "../Components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-
 import DatePicker from "react-datepicker";
 import { useTourState } from "../Context/GlobalContext";
 import axios from "axios";
@@ -21,6 +20,7 @@ const Home = () => {
   const [favorites, setFavorites] = useState([]);
   const userActive = localStorage.getItem("userActive") === "true";
   const [reservedProductIds, setReservedProductIds] = useState([]);
+  const { showSearchForm } = state;
 
   // Estado para paginación
   const [currentPage, setCurrentPage] = useState(1);
@@ -78,6 +78,7 @@ const Home = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    dispatch({ type: "TOGGLE_SEARCH_FORM", payload: false }); // Ocultar el formulario después de buscar (opcional)
     if (selectedLocation) {
       setSearchText("Destino seleccionado");
       setOffersText("Destinos Seleccionados");
@@ -137,14 +138,14 @@ const Home = () => {
 
     try {
       if (isFavorite) {
-        await axios.delete(`http://localhost:8081/favoritos/eliminarFavorito`, {
+        await axios.delete('http://localhost:8081/favoritos/eliminarFavorito', {
           data: { usuarioId: userId, productoId: tourId },
         });
         const updatedFavorites = favorites.filter((id) => id !== tourId);
         setFavorites(updatedFavorites);
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       } else {
-        await axios.post(`http://localhost:8081/favoritos/agregarFavorito`, {
+        await axios.post('http://localhost:8081/favoritos/agregarFavorito', {
           usuarioId: userId,
           productoId: tourId,
         });
@@ -177,8 +178,24 @@ const Home = () => {
   return (
     <main className="container-main">
       <section className="container-search">
-        <p>¿Cuál va a ser tu próxima aventura?</p>
-        <Form
+      <div className="video-background">
+      <video
+        className="video-fondo"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls={false} // Opcional, puedes eliminar este atributo si no quieres mostrar controles
+      >
+        <source src="/img/PortadaExploraArgentina4.mp4" type="video/mp4" />
+        Tu navegador no soporta el formato de video.
+      </video>
+    </div>
+ {/* ACA VA EL ESTADO DE MOSTRAR EL FORMULARIO O NO  */}
+ {showSearchForm && (
+    <div className="container-form">
+    <p>¿Cuál va a ser tu próxima aventura?</p>
+        <Form 
           className={"form"}
           fields={[
             {
@@ -208,6 +225,8 @@ const Home = () => {
           onSubmit={handleSearchSubmit}
           inputClassName={"input-select"}
         />
+    </div>
+    )}
       </section>
       <section className="container-categories">
         <p className="exp">Experiencias</p>

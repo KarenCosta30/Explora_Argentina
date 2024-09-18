@@ -17,13 +17,14 @@ const initialState = {
     dataReserved: "",
     people: null,
     priceReserved:null,
-    reservationId:null
+    reservationId:null,
+    showSearchForm: false  // Estado para controlar si el formulario de búsqueda se muestra
 }
 
 const GlobalContext = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const tourUrl = `http://localhost:8081/api/productos/aleatorios`
-    const urlCategories = `http://localhost:8081/api/productos/categorias/aleatorias`
+    const tourUrl = 'http://localhost:8081/api/productos/aleatorios'
+    const urlCategories = 'http://localhost:8081/api/productos/categorias/aleatorias'
     
     useEffect(() => {
       axios.get(tourUrl)

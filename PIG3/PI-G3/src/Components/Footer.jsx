@@ -1,60 +1,74 @@
-
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import '../style/footer.css';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faXTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <div className='container-footer'>
-      <div className='copyright'>
-        <p>Copyright © Explora Argentina 2024 All rights reserved</p>
-        <Link to={"/"}>
-        <img className='logo-footer' src="/img/logo.png" alt="" />
+    <footer id="footer">
+      <div className="container-footer-box">
+        <div className='foot-box'>
+          <p>Sobre Nosotros</p>
+          <p className='footer-about'>Explora Argentina te lleva a descubrir los mejores destinos del país con experiencias únicas.</p>
+          <p className='footer-about'>Copyright © Explora Argentina 2024 All rights reserved</p>
+          <Link to={"/"}>
+        <img className='logo-footer' src="/img/logo.png" alt="logo" />
         </Link>
-        
-      </div>
-      <div className='footer-columns'>
-        <ul className='ul-footer'>
-          <li className='info'>Menu</li>
-          <li>Home</li>
-          <li>Experiencias</li>
-        </ul>
-        <ul className='ul-footer'>
-          <li className='info'>Información</li>
-          <li>Destino</li>
-          <li>Soporte</li>
-          <li>Terminos y condiciones</li>
-          <li>Privacidad</li>
-        </ul>
-        <ul className='ul-footer'>
-          <li className='info'>Info de contacto</li>
-          <li></li>
-          <li> +111 222 333</li>
+        </div>
+
+        <div className='foot-box'>
+          <p>Acceso rápido</p>
+          <ul>
+            <li><Link to="/">Inicio</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/tours">Tours</Link></li>
+            <li><Link to="/paquetes">Paquetes</Link></li>
+            <li><Link to="/por-que-nosotros">Por qué nosotros</Link></li>
+
+          </ul>
+        </div>
+
+        <div className='foot-box'>
+          <p>Destinos Populares</p>
+          <ul>
+            <li><Link to="/bariloche">Bodega Trapiche</Link></li>
+            <li><Link to="/santiago-del-estero">San Carlos de Bariloche</Link></li>
+            <li><Link to="/tierra-del-fuego">Excursión a Cataratas de Iguazú</Link></li>
+            <li><Link to="/messi">Paseo a Caballo por Viñedos</Link></li>
+            <li><Link to="/novedades">Teleferico Cerro Otto</Link></li>
+
+          </ul>
+        </div>
+
+        <div className='foot-box'>
+          <p>Contacto</p>
+          <ul>
+          <div className='iconos'>
+            <li><FontAwesomeIcon icon={faFacebook} style={{color: "grey"}} /></li>
+            <li><FontAwesomeIcon icon={faInstagram} style={{color: "grey"}}/></li>
+            <li><FontAwesomeIcon icon={faXTwitter} style={{color: "grey"}}/></li>
+          </div>
+          <li>+111 222 333</li>
           <li>info@exploraargentina.com</li>
           <li>1245, Bs. As. Argentina</li>
-        </ul>
-
-        <ul className='ul-footer'>
-          <li className='info'>Seguinos en</li>
-          <div className='iconos'>
-            <li><FontAwesomeIcon icon={faFacebook} style={{color: "#ffffff"}} /></li>
-            <li><FontAwesomeIcon icon={faInstagram} style={{color: "#fafcff"}}/></li>
-            <li><FontAwesomeIcon icon={faXTwitter} style={{color: "#ffffff"}}/></li>
-          </div>
-        </ul>
-
-
-
-
+          </ul>
+          <div className='clearfix'></div>
+        </div>
       </div>
 
+      <div className='new_footer_area bg_color'>
+        <div className='new_footer_top'>
+          <div className='footer_bg'>
+            <div className='footer_bg_one'></div>
+            <div className='footer_bg_two'></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-
-    </div >
-  )
-}
-
-export default Footer
+export default Footer;
