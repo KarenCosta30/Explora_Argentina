@@ -221,6 +221,11 @@
             width: 30px;
           }
 
+          .btn-avatar{
+            padding-right: 20px;
+            margin: 0;
+        }
+
 .container-logo img{
     display: none;
 }
@@ -394,7 +399,10 @@
             color: white;  /* Cambia el color del icono */
             padding-left: 10px;
           }
-
+.btn-avatar{
+    padding-right: 20px;
+    margin: 0;
+}
 
         
 
@@ -549,38 +557,20 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     /* --HOME */
         /* --HEADER*/
-        .hamburger-menu {
-            display: block;
-          }
-        
-          .menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px; /* Ajusta según la altura del header */
-            left: 0;
-            width: 100%;
-            background-color: white;
-            text-align: center;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-          }
-        
-          .menu.active {
-            display: flex;
 
-          }
-        
-          .menu .navbar {
-            padding: 10px 0;
-            font-size: 18px;
-          }
 
-          .hamburger-icon {
-            color: white;  /* Cambia el color del icono */
-          }
-        
+.card-categories {
+    display: flex;
+    padding: 0rem;
+    gap: 15px;
+}
+.container-header{
+    max-width: 100vw;
+}
 
+.container-button{
+    padding: 0;
+}
     
     .visibility-popover{
         visibility: visible;
