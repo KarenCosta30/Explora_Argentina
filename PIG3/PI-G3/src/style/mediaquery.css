@@ -31,8 +31,12 @@
           }
 
           .hamburger-icon {
+            color: #007bc7;  /* Cambia el color del icono */
+            padding-left: 10px;
+          }
+          .hamburger-icon.scrolled {
             color: white;  /* Cambia el color del icono */
-            width: 30px;
+            padding-left: 10px;
           }
 
           .container-header{
@@ -225,8 +229,12 @@
           }
 
           .hamburger-icon {
+            color: #007bc7;  /* Cambia el color del icono */
+            padding-left: 10px;
+          }
+          .hamburger-icon.scrolled {
             color: white;  /* Cambia el color del icono */
-            width: 30px;
+            padding-left: 10px;
           }
 
           .btn-avatar{
