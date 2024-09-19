@@ -34,7 +34,7 @@ function App() {
         <Route path="/productadmin" element={<ProductAdmin/>}/>
         <Route path="/reservation/:id" element={<Reservation/>}/>
         <Route path="/reservationConfirmed/:id" element={<ReservationConfirmed/>}/>
-        <Route path="/historial/:usuarioId" element={<HistorialReservas/>} />
+        <Route path="/historial" element={<HistorialReservas/>} />
         <Route path="*" element={<h1>Error 404 - Page not found</h1>}/>
       </Routes>
        <Wpp/>

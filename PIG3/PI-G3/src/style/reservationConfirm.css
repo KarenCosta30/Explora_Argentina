@@ -60,26 +60,43 @@
 @media (min-width: 320px) and (max-width: 426px) {
   .container-reservation{
     height: 150vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0;
   }
   .card-booking-reservation-confirm{
-    width: 70vw;
-    height: 100vh;
+    width: 80vw;
+    height: 120vh;
+    padding: 10px;
+    margin: 0;
     
   }
   .container-btn-r-confirm{
     padding: 0;
+    margin: 0;
+  }
+
+  .btn-reserv-confirm{
+    margin: 0;
   }
 
 }
 
 @media (min-width: 768px) and (max-width:1024px) {
   .card-booking-reservation-confirm{
-    height: 100vh;
+    height: 110vh;
     width: 30vw;
     margin-top: 35vh;
   }
 .container-reservation{
   padding-bottom: 25vh;
 }
+
+
 
 }

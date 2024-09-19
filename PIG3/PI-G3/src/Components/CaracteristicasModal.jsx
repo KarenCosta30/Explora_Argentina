@@ -10,6 +10,7 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
     const [horario, setHorario] = useState('');
     const [entrada, setEntrada] = useState(''); // Cambiado a una cadena vacía, "Sí" o "No"
     const [guia, setGuia] = useState('');
+    const [bienestarAnimal, setBienestarAnimal] = useState(''); // Nuevo campo
 
     const ensurePeriod = (value) => value.trim().endsWith('.') ? `${value.trim()} ` : `${value.trim()}. `;
 
@@ -19,6 +20,7 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
             duracion && `Duración: ${ensurePeriod(duracion)}`,
             horario && `Horario de inicio: ${ensurePeriod(horario)}`,
             entrada === 'Sí' && `Entrada para dispositivos móviles${ensurePeriod('')}`, // Texto fijo
+            bienestarAnimal === 'Sí' && `Cumple con las especificaciones de bienestar animal${ensurePeriod('')}`, // Nuevo texto
             guia && `Guía en vivo: ${ensurePeriod(guia)}`
         ]
         .filter(Boolean)
@@ -87,6 +89,19 @@ const CaracteristicasModal = ({ isOpen, onClose, onSave }) => {
                         <select
                             value={entrada}
                             onChange={(e) => setEntrada(e.target.value)}
+                            style={{ marginLeft: '10px' }}  // Agrega espaciado entre el texto y el select
+                        >
+                            <option value="">Seleccionar</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </label>
+                    <br />
+                    <label style={{ display: 'flex', alignItems: 'center' }}>
+                        Cumple con las especificaciones de bienestar animal:
+                        <select
+                            value={bienestarAnimal}
+                            onChange={(e) => setBienestarAnimal(e.target.value)}
                             style={{ marginLeft: '10px' }}  // Agrega espaciado entre el texto y el select
                         >
                             <option value="">Seleccionar</option>

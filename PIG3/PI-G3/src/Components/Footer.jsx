@@ -12,19 +12,24 @@ const Footer = () => {
 
   const handleSearchClick = () => {
     if (location.pathname === "/") {
-      dispatch({ type: "TOGGLE_SEARCH_FORM", payload: !state.showSearchForm });
+      if (!state.showSearchForm) {
+        dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+      }
       const searchElement = document.getElementById("buscador-inicio");
       if (searchElement) {
         searchElement.scrollIntoView({ behavior: "smooth" });
       }
     } else {
+      navigate("/");
       setTimeout(() => {
-        dispatch({ type: "TOGGLE_SEARCH_FORM", payload: !state.showSearchForm });
+        if (!state.showSearchForm) {
+          dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+        }
         const searchElement = document.getElementById("buscador-inicio");
         if (searchElement) {
           searchElement.scrollIntoView({ behavior: "smooth" });
         }
-      }, 500); // Dar tiempo para que la página se cargue antes de hacer scroll
+      }, 500);
     }
   };
 

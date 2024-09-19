@@ -53,7 +53,7 @@ export const ReservationConfirmed = () => {
         </div>
 
         <div className='container-btn-r-confirm'>
-          <Link to={`/historial/${userId}`} state={{ fromReservationConfirmed: true }}>
+          <Link to={`/historial`} state={{ fromReservationConfirmed: true }}>
             <Button className="btn-reserv-confirm">Ir a mis Reservas</Button>
           </Link>
           

@@ -102,11 +102,23 @@ const Header = () => {
 
   const handleBuscadorClick = () => {
     if (location.pathname === "/") {
-      scrollToSearch();
+      if (!state.showSearchForm) {
+        dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+      }
+      const searchElement = document.getElementById("buscador-inicio");
+      if (searchElement) {
+        searchElement.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
       navigate("/");
       setTimeout(() => {
-        scrollToSearch();
+        if (!state.showSearchForm) {
+          dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+        }
+        const searchElement = document.getElementById("buscador-inicio");
+        if (searchElement) {
+          searchElement.scrollIntoView({ behavior: "smooth" });
+        }
       }, 500);
     }
   };

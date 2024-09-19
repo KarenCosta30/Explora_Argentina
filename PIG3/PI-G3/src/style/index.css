@@ -101,6 +101,7 @@ link {
 
 .container-button {
   display: flex;
+  flex-direction: row;
   gap: 10px;
   padding-right: 30px;
   flex-wrap: wrap;
@@ -529,7 +530,10 @@ input::placeholder {
   position: relative;
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .img-card-tour {
   width: 100%;

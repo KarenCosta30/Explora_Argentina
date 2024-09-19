@@ -95,10 +95,11 @@ const Reservation = () => {
         <Button onClick={handleSubmit} className={"btn-booking"}>Confirmar Reserva</Button>
         {error && <p className="error-message">{error}</p>}
         </div>
-        <div className='container-btn-back'></div>
+        <div className='container-btn-back'>
         <Button onClick={()=>navigate(-1)} className="btn-back-reserved">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
+          </div>
     </div>
   )
 }

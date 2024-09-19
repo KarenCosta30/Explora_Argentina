@@ -41,12 +41,15 @@
   .card-favorites{
     margin-left: -11vw;
   }
+  .card-favorites p{margin-left: 20px;}
 }
 @media (min-width: 375px) and (max-width: 424px) {
   .card-favorites{
     margin-left: -12.5vw;
     gap: 10vw;
   }
+
+  .card-favorites p{margin-left: 50px;}
 }
 
 @media (min-width: 425px) and (max-width: 768px) {
