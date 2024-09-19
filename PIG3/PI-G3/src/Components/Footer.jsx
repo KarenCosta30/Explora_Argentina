@@ -67,7 +67,7 @@ const Footer = () => {
       </li>
           </div>
           <li>+111 222 333</li>
-          <li>info@exploraargentina.com</li>
+          <li>info@explorarg.com</li>
           <li>1245, Bs. As. Argentina</li>
           </ul>
           <div className='clearfix'></div>
