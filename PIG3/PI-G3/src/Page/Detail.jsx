@@ -200,6 +200,7 @@ const Detail = () => {
               excludeDates={reservedDates} // Excluir las fechas reservadas
               /* minDate={new Date()} */ // Opcional: Evita seleccionar fechas pasadas
               minDate={tomorrow}
+              dateFormat="dd-MM-yyyy" // Formato de la fecha
             />
             <div className="people-selection">
               <label htmlFor="people-count">Personas:</label>

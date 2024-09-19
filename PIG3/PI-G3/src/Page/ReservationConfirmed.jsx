@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useTourState } from '../Context/GlobalContext';
 import Button from '../Components/Button';
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const ReservationConfirmed = () => {
   const { state, dispatch } = useTourState();
   const { userId } = useTourState();
   const [reservationConfirm,setReservationConfirm] = useState(null);
   const params = useParams();
-  const navigate = useNavigate();
   const urlReservation = `http://localhost:8081/reservar/${params.id}`;
   console.log(urlReservation);
   console.log(reservationConfirm);
@@ -31,6 +28,15 @@ export const ReservationConfirmed = () => {
      dispatch({ type: "SET_USER_ID",payload:userId})
  },[dispatch])
   
+ // Formatear la fecha con toLocaleDateString
+ const formatToLocaleDate = (dateString) => {
+  return new Date(dateString).toLocaleDateString('es-ES', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+};
+
  return (
     <div className="container-reservation">
          <div className="card-booking-reservation-confirm">
@@ -42,7 +48,12 @@ export const ReservationConfirmed = () => {
             <p>N° de Reserva: <span>{state.reservationId}</span> </p>
             <p>Nombre: <span>{state.userName} {state.userSurname}</span></p>
             <p>Email: <span>{state.userEmail}</span></p>
-            <p>Fecha: <span>{state.dataReserved}</span>  </p>
+            {/* Formatear la fecha en DD/MM/YYYY para mostrarla */}
+            <p>Fecha: <span>{new Date(state.dataReserved).toLocaleDateString('es-ES', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+            })}</span></p>
             <p>Personas: <span>{state.people}</span></p>
             <p className='price-reserved'>Total: USD {state.priceReserved}</p>
         </div>
@@ -53,14 +64,7 @@ export const ReservationConfirmed = () => {
           <Link to={`/historial/${userId}`} state={{ fromReservationConfirmed: true }}>
             <Button className="btn-reserv-confirm">Ir a mis Reservas</Button>
           </Link>
-
-          <Link to={`/`}>
-            <Button className="btn-reserv-confirm">Ir al Inicio</Button>
-          </Link>
-          {/* <Button onClick={()=>navigate('/')} className="btn-back-reserved-confirm">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Button> */}
-
+          
         </div>
 
         

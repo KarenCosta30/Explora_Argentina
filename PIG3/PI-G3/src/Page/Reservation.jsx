@@ -32,22 +32,31 @@ const Reservation = () => {
         dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
         dispatch({ type: "SET_USER_ID",payload:userId})
     },[dispatch])
- 
-   
       
-      
+    // Formatear la fecha con toLocaleDateString
+    const formatToLocaleDate = (dateString) => {
+      return new Date(dateString).toLocaleDateString('es-ES', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+      });
+    };  
       
     const handleSubmit = async (e) =>{
       e.preventDefault();
   
-      const dateReservation = new Date(state.dataReserved).toISOString().split('T')[0];  // Convierte a YYYY-MM-DD
-        const tourId = params.id
-        const usuarioId = state.userId
+    // Formatear la fecha en dos formatos: 
+    // - Para mostrar al usuario en DD/MM/YYYY
+    // - Para enviar al backend en YYYY-MM-DD
+      const dateReservation = new Date(state.dataReserved).toISOString().split('T')[0];  // Enviar como YYYY-MM-DD
+      const tourId = params.id;
+      const usuarioId = state.userId; 
+
       try {
          const response = await  axios.post('http://localhost:8081/reservar/registrar', {
           usuarioId,
           productoId:tourId,
-          fechaReserva:dateReservation
+          fechaReserva:dateReservation // Enviar como YYYY-MM-DD
           });
           // GUARDAMOS EL ID DE LA RESERVA EN UNA CONSTANTE 
           const reservationId = response.data.id;
@@ -74,7 +83,12 @@ const Reservation = () => {
           <div className="info-card-booking-reservation ">
             <p>Nombre: {state.userName} {state.userSurname}</p>
             <p>Email: {state.userEmail}</p>
-            <p>Fecha: {state.dataReserved}  </p>
+            {/* Mostrar la fecha en formato DD/MM/YYYY */}
+            <p>Fecha: {new Date(state.dataReserved).toLocaleDateString('es-ES', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+            })}</p>
             <p>Personas: {state.people}</p>
         </div>
        <p className='price-reserved'>Total: USD {state.priceReserved}</p>
@@ -89,4 +103,4 @@ const Reservation = () => {
   )
 }
 
-export default Reservation
+export default Reservation;
