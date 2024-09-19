@@ -27,16 +27,8 @@ export const ReservationConfirmed = () => {
      dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
      dispatch({ type: "SET_USER_ID",payload:userId})
  },[dispatch])
-  
- // Formatear la fecha con toLocaleDateString
- const formatToLocaleDate = (dateString) => {
-  return new Date(dateString).toLocaleDateString('es-ES', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
-};
 
+ 
  return (
     <div className="container-reservation">
          <div className="card-booking-reservation-confirm">
