@@ -148,3 +148,38 @@ a .span:hover {
 }
 
 
+@media (min-width: 320px) and (max-width: 374px) {
+  
+  .container-form-create {
+    padding: 0px;
+    overflow: hidden;
+  }
+
+    .main-create-account::before{
+      height: 130vh;
+    }
+}
+
+
+
+@media (min-width: 375px) and (max-width: 424px) {
+  .main-create-account::before{
+    height: 130vh;
+  }
+}
+
+/* --DISPOSITIVOS MEDIANOS */
+@media (min-width: 425px) and (max-width: 768px) {
+  .main-create-account::before{
+    height: 130vh;
+  }
+}
+
+/* --DISPOSITIVOS GRANDES */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .main-create-account::before{
+    height: 130vh;
+  }
+}
+
+
