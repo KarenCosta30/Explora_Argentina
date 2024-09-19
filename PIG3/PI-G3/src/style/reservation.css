@@ -75,6 +75,11 @@
 
 }
 
+.btn-back-reserved:hover {
+    background-color: #007bc7;
+    color: #ffffff;
+}
+
 @media (min-width: 320px) and (max-width: 426px) {
   .container-reservation {
     gap: none;

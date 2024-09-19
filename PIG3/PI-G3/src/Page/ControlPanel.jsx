@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTourState } from '../Context/GlobalContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../style/adminTools.css';
 
 const ControlPanel = () => {
+  const { state } = useTourState();
   const [usuarios, setUsuarios] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const ControlPanel = () => {
     if (!isAdmin) {
       navigate('/'); 
     }
-  }, [navigate]);
+  }, [state.userAdministrator, navigate]);
 
   // Cargar la lista de usuarios
   useEffect(() => {

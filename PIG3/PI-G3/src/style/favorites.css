@@ -37,6 +37,12 @@
   margin-left: 75vw;
   
 }
+
+.btn-back-favorites:hover {
+  background-color: #007bc7;
+  color: #ffffff;
+}
+
 @media (min-width: 320px) and (max-width: 374px) {
   .card-favorites{
     margin-left: -11vw;

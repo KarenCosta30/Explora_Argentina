@@ -77,7 +77,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <main className="main">
+    <main className="main-create-account">
       <div className="container-form-create">
         <p className="title-form-create">Registrate</p>
         <p className="subtitle-form-create">Es rápido y fácil</p>

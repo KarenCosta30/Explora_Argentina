@@ -32,7 +32,14 @@ const Reservation = () => {
         dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
         dispatch({ type: "SET_USER_ID",payload:userId})
     },[dispatch])
-      
+
+    useEffect(() => {
+      const userActive = localStorage.getItem("userActive", state.userActive);
+      if (!userActive ) {
+        navigate('/'); // Redirigir al Home si Cierra sesión.
+      }
+    }, [state.userActive]);
+    
     // Formatear la fecha con toLocaleDateString
     const formatToLocaleDate = (dateString) => {
       return new Date(dateString).toLocaleDateString('es-ES', {

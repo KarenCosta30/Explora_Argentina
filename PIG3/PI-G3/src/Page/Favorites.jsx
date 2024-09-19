@@ -16,7 +16,7 @@ const Favorites = () => {
     useEffect(() => {
       const userActive = localStorage.getItem("userActive", state.userActive);
       if (!userActive ) {
-        navigate('/'); // Redirigir fuera del panel de administración
+        navigate('/'); // Redirigir al Home si Cierra sesión.
       }
 
         // Obtener favoritos del localStorage y cargar los detalles
