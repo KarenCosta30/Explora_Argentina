@@ -40,7 +40,15 @@
           }
 
 .container-logo {
-    display: none;
+    padding-right: 6vw;
+    width: 5vw;
+    margin-left: 2vw;
+}
+.img-logo{
+    height: 8vh;
+}
+.logo-name{
+    font-size: medium;
 }
 
     .visibility-popover{
@@ -227,7 +235,7 @@
         }
 
 .container-logo img{
-    display: none;
+    height: 8vh;
 }
 
     .container-button{
@@ -332,6 +340,9 @@
     /* --FOOTER */
     .container-footer{
         width: 100%;
+    }
+    .container-footer-box{
+        margin-top: 10vh;
     }
     .footer-columns{
           display: grid;
