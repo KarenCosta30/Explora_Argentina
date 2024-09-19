@@ -43,7 +43,7 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === "/") {
       // Si estamos en la página de inicio, asegurarnos de que el buscador esté visible
-      dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+      dispatch({ type: "TOGGLE_SEARCH_FORM", payload: state.showSearchForm });
     }
   }, [location.pathname, dispatch]);
 
