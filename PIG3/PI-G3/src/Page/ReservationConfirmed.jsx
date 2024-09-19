@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { useTourState } from '../Context/GlobalContext';
 import Button from '../Components/Button';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 export const ReservationConfirmed = () => {
   const { state, dispatch } = useTourState();
   const { userId } = useTourState();
   const [reservationConfirm,setReservationConfirm] = useState(null);
   const params = useParams();
+  const navigate = useNavigate();
   const urlReservation = `http://localhost:8081/reservar/${params.id}`;
   console.log(urlReservation);
   console.log(reservationConfirm);
   
+  // Verificar si el usuario ha cerrado sesión y redirigir al Home
+  useEffect(() => {
+    const userActive = localStorage.getItem("userActive"); // Obtener de localStorage
+    if (!userActive) {
+      navigate('/'); // Redirigir al Home si el usuario cierra sesión
+    }
+  }, [state.userActive, navigate]);
+
   useEffect(()=>{
-    axios(urlReservation).then((res) => setReservationConfirm(res.data))
+    axios(urlReservation).then((res) => setReservationConfirm(res.data));
   },[params.id])
+  
   useEffect(()=>{
     const userId = localStorage.getItem("userId")
      const userName = localStorage.getItem("userName");
@@ -31,7 +41,7 @@ export const ReservationConfirmed = () => {
  
  return (
     <div className="container-reservation">
-         <div className="card-booking-reservation-confirm">
+        <div className="card-booking-reservation-confirm">
           <img className='logo-reservation-confirm' src="/public/img/logo.png" alt="logo" />
           <h3>YA TENES RESERVADO TU TOUR !!!</h3>
           <p>Estas listo/a ?</p>
@@ -48,8 +58,8 @@ export const ReservationConfirmed = () => {
             })}</span></p>
             <p>Personas: <span>{state.people}</span></p>
             <p className='price-reserved'>Total: USD {state.priceReserved}</p>
-        </div>
-        <p>Por favor, presenta este comprobante al momento de realizar el tour. Es fundamental para garantizar el acceso a la actividad.</p>
+          </div>
+          <p>Por favor, presenta este comprobante al momento de realizar el tour. Es fundamental para garantizar el acceso a la actividad.</p>
         </div>
 
         <div className='container-btn-r-confirm'>
@@ -61,5 +71,7 @@ export const ReservationConfirmed = () => {
 
         
     </div>
-  )
-}
+  );
+};
+
+export default ReservationConfirmed;

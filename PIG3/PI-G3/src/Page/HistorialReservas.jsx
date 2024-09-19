@@ -16,7 +16,7 @@ const HistorialReservas = () => {
   useEffect(() => {
     const userActive = localStorage.getItem("userActive", state.userActive);
     if (!userActive ) {
-      navigate('/'); // Redirigir fuera del panel de administración
+      navigate('/'); // Redirigir al Home si Cierra sesión.
     }
 
     const userId = localStorage.getItem("userId");

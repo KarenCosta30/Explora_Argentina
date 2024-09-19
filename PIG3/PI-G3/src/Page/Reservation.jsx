@@ -32,7 +32,14 @@ const Reservation = () => {
         dispatch({ type: "SET_USER_EMAIL", payload: userEmail });
         dispatch({ type: "SET_USER_ID",payload:userId})
     },[dispatch])
-      
+
+    useEffect(() => {
+      const userActive = localStorage.getItem("userActive", state.userActive);
+      if (!userActive ) {
+        navigate('/'); // Redirigir al Home si Cierra sesión.
+      }
+    }, [state.userActive]);
+    
     // Formatear la fecha con toLocaleDateString
     const formatToLocaleDate = (dateString) => {
       return new Date(dateString).toLocaleDateString('es-ES', {
@@ -95,7 +102,7 @@ const Reservation = () => {
         <Button onClick={handleSubmit} className={"btn-booking"}>Confirmar Reserva</Button>
         {error && <p className="error-message">{error}</p>}
         </div>
-        <div className='container-btn-back'></div>
+        <div className='container-btn-back-reserved'></div>
         <Button onClick={()=>navigate(-1)} className="btn-back-reserved">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>

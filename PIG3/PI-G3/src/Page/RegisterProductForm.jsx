@@ -135,11 +135,13 @@ const RegisterProductForm = () => {
     };
 
     useEffect(() => {
-        const userActive = localStorage.getItem("userAdministrator", state.userAdministrator);
-        if (!userActive) {
-            navigate('/'); // Redirigir fuera del panel de administración
+        // Recupera el valor del localStorage y convierte a booleano
+        const userAdministrator = localStorage.getItem("userAdministrator") === "true";
+        // Verifica si el usuario es administrador y redirige si no lo es
+        if (!userAdministrator) {
+          navigate('/'); // Redirigir fuera del panel de administración
         }
-    }, [state.userAdministrator]);
+    }, [state.userAdministrator, navigate]);
 
     const fields = [
         { type: 'label', label: "Nombre", className: "create-account-input", name: 'nombre', value: productData.nombre, onChange: handleChange },

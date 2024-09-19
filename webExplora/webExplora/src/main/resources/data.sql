@@ -656,3 +656,9 @@ VALUES
 (9, 2, '2024-09-30'),
 (9, 22, '2024-09-30'),
 (9, 22, '2024-09-23');
+
+INSERT IGNORE INTO favoritos (producto_id, usuario_id)
+VALUES 
+(9, 1),
+(15, 1),
+(19, 1);

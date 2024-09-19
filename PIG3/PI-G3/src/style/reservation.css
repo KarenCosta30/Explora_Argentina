@@ -57,7 +57,7 @@
     
 }
 
-.container-btn-back{
+.container-btn-back-reserved{
     padding-bottom: 15vh;
 }
 
@@ -72,6 +72,11 @@
     margin-top: 95vh;
     margin-left: -20vw;
     
+}
+
+.btn-back-reserved:hover {
+    background-color: #007bc7;
+    color: #ffffff;
 }
 
 @media (min-width: 320px) and (max-width: 426px) {
