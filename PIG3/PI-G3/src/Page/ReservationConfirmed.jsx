@@ -54,12 +54,7 @@ export const ReservationConfirmed = () => {
             <Button className="btn-reserv-confirm">Ir a mis Reservas</Button>
           </Link>
 
-          <Link to={`/`}>
-            <Button className="btn-reserv-confirm">Ir al Inicio</Button>
-          </Link>
-          {/* <Button onClick={()=>navigate('/')} className="btn-back-reserved-confirm">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Button> */}
+          
 
         </div>
 

@@ -37,3 +37,27 @@
   margin-left: 75vw;
   
 }
+@media (min-width: 320px) and (max-width: 374px) {
+  .card-favorites{
+    margin-left: -11vw;
+  }
+}
+@media (min-width: 375px) and (max-width: 424px) {
+  .card-favorites{
+    margin-left: -12.5vw;
+    gap: 10vw;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .card-favorites{
+    margin-left: -10vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-favorites{
+    margin-left: 3vw;
+  }
+}
+
