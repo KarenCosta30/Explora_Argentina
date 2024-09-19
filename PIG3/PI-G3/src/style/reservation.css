@@ -84,11 +84,15 @@
     }
   .info-tour-reserved{
     width: 80vw;
+    margin-top: 20vh;
   }
   .card-booking-reservation{
     width: 80vw;
     margin-left: -8vw;
     margin-top: -5vh;
+  }
+  .container-btn-back{
+    padding-bottom: 0;
   }
   .btn-back-reserved{
     margin-top: 0;
