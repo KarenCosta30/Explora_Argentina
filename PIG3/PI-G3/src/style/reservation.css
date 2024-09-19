@@ -80,6 +80,7 @@
    height: 200vh;
    display: flex;
    flex-direction: column;
+    padding-top: 25vh;
     }
   .info-tour-reserved{
     width: 80vw;

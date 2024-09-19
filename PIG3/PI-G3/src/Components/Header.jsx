@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTourState } from "../Context/GlobalContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +11,9 @@ const Header = () => {
   const { state, dispatch } = useTourState();
   const [showPopover, setShowPopover] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar el menú hamburguesa
-  const location = useLocation(); // Para obtener la ruta actual
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +40,13 @@ const Header = () => {
     }
   }, [dispatch]);
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      // Si estamos en la página de inicio, asegurarnos de que el buscador esté visible
+      dispatch({ type: "TOGGLE_SEARCH_FORM", payload: true });
+    }
+  }, [location.pathname, dispatch]);
+
   const handleLogout = () => {
     localStorage.removeItem("userActive");
     localStorage.removeItem("userName");
@@ -60,7 +68,10 @@ const Header = () => {
   };
 
   const handleSearchClick = () => {
-    dispatch({ type: "TOGGLE_SEARCH_FORM", payload: !state.showSearchForm });
+    // Solo cambiar el estado si estamos en la página de inicio
+    if (location.pathname === "/") {
+      dispatch({ type: "TOGGLE_SEARCH_FORM", payload: !state.showSearchForm });
+    }
   };
 
   const toggleMenu = () => {
@@ -75,17 +86,42 @@ const Header = () => {
     setShowPopover(!showPopover);
   };
 
+  const scrollToFooter = () => {
+    const footerElement = document.getElementById("footer");
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToSearch = () => {
+    const searchElement = document.getElementById("buscador-inicio");
+    if (searchElement) {
+      searchElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleBuscadorClick = () => {
+    if (location.pathname === "/") {
+      scrollToSearch();
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToSearch();
+      }, 500);
+    }
+  };
+
   return (
     <div className={`container-header ${scrolled ? "scrolled" : ""}`}>
       <div className="hamburger-menu" onClick={toggleMenu}>
         <FontAwesomeIcon
           icon={menuOpen ? faTimes : faBars}
-          className="hamburger-icon"
-        />
+          className={`hamburger-icon ${scrolled ? "scrolled" : ""}`}
+                  />
       </div>
       <div className="container-logo">
         <Link to="/" onClick={handleLogoClick}>
-          <img className="img-logo" src="/public/img/logo.png" alt="logo" />
+          <img className="img-logo" src="/img/logo.png" alt="logo" />
         </Link>
         <p className="logo-name">EXPLORA ARGENTINA</p>
       </div>
@@ -94,8 +130,8 @@ const Header = () => {
         <Link to="/" onClick={() => { handleLogoClick(); closeMenu(); }}>
           <span className="navbar">Inicio</span>
         </Link>
-        <span className="navbar" onClick={() => { handleSearchClick(); closeMenu(); }}>Buscar</span>
-        <span className="navbar" onClick={closeMenu}>Contacto</span>
+        <span className="navbar" onClick={() => { handleSearchClick(); closeMenu(); handleBuscadorClick(); }}>Buscar</span>
+        <span className="navbar" onClick={() => { scrollToFooter(); closeMenu(); }}>Contacto</span>
       </div>
 
       <div className="container-button">
@@ -119,7 +155,7 @@ const Header = () => {
             <Link to="/login">
               <Button className={"btn-header"}>INICIAR SESION</Button>
             </Link>
-            <Link to={"/createaccount"}>
+            <Link to="/createaccount">
               <Button className={"btn-header"}>CREAR CUENTA</Button>
             </Link>
           </>

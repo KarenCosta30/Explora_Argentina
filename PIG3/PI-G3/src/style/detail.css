@@ -634,164 +634,6 @@ div.copyright {
 
 }
 
-/*--DISPOSITIVOS MUY GRANDES  */
-@media screen and (min-width: 1025) {
-    /* --HOME */
-        /* --HEADER*/
-    .container-header {
-        display: flex;
-        gap: 5px;
-
-    }
-    .container-logo{
-        margin-left: 5vh;
-        font-size: 1.1rem;
-    }
-    .avatar{
-        margin-left: -25vh;
-    }
-    .visibility-popover{
-        visibility: visible;
-    }
-    .admin-menu{
-        display: none;
-    }
-    .container-search p{
-        font-size: 1.2rem;
-    }
-    .input-select, .date{
-        width: 60%;    
-        
-    }
-    
-        /*--CATEGORIES*/
-    .exp{
-        font-size: 15rem;
-    }
-    .container-categories{
-        width: 98%;
-    }
-    .container-card-categories{
-       width: 20vw;
-    }
-    .subtitle-exp{
-        font-size: 1rem;
-        width: 75vw;
-    }
-    .card-categories{
-        display: flex;
-        flex-direction: row;  
-        width: 98%;  
-        
-    }
-    .img-card-categories{
-        height: 25vw;
-        width: 20vw;
-    }
-    .title-card-categories{
-        font-size: small;
-        text-align: center;
-    }
-    .container-offers{
-        width: 90%;        
-    }
-    .offers {
-        font-size: 2.8rem;
-        margin-left: -5vw;
-    }
-    .subtitle-offers{
-        font-size: 1.1rem;
-        margin-left: 1vw;
-    }
-    .container-card-tour{
-        display: grid;
-        gap: 5vh;
-        margin-top: 5vh;
-        width: 98%;   
-        margin-right: 40px; 
-        
-    }
-    .card-tour{
-        width: 65vw;
-    }
-    .title-card-tour{
-        text-align: center;
-    }
-    .info-card-tour{
-        display: flex;
-        flex-direction: column;
-        gap: 10vh;
-    }
-    .img-card-tour{
-        height: 35vw;
-        width: 39vw;
-    }
-    .subtitle-card-tour{
-        display: none;
-    }
-    .price-card-tour{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-            
-    }
-    .price{
-        font-size: 1.2rem;
-    }
-    /* --DETAIL */
-    .container-detail{
-        display: flex;
-        flex-direction: column;
-        gap: 5vh;
-    }
-    .container-detail h4{
-        font-size: 1.5rem;
-        margin-left: 1vw;
-        
-    }
-    .section-one{
-        width: 93%;
-        margin-left: -8vw;
-    }
-    .carrusel{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .info-booking{
-        width: 80%;
-    }
-    .card-booking{
-        width: 60%;
-        height: max-content;
-    }
-    .itinerary h3 {
-        text-align: center;
-    }
-    .section-two{
-        margin-top: 8vw;
-        
-    }
-    .itinerary-list p {
-        text-align: justify;
-        width: 80%;
-    }
-    .map-container{
-        width: 45vw;
-        
-    }
-    .btn-back{
-        margin-left: 50vw;
-        margin: 0;
-        padding: 0;        
-    }
-
-
-}
-
-
-
-
-
 /*-------------------------     MEDIAS QUERYS      --------------------*/
 @media screen and (min-width: 1025px) {
 
@@ -806,52 +648,60 @@ div.copyright {
     .img-detalle {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr;
         gap: 10px;
         width: 100%;
         height: auto;
     }
-
+    
+    .img-detalle {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        gap: 10px;
+        width: 100%;
+        max-height: 620px;
+    }
+    
     .img-principal {
         grid-column: 1 / 2;
-        grid-row: 1 / 2;
         width: 100%;
-        height: 100%;
-        max-height: 570px;
         object-fit: cover;
         border-radius: 10px 0px 0px 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease-in-out;
+        height: 550px;
     }
-
+    
     .img-secundarias {
         grid-column: 2 / 3;
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
         gap: 10px;
-        height: 100%;
+        height: 550px;
     }
-
+    
     .img-secundaria {
         width: 100%;
-        flex: 1;
         object-fit: cover;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease-in-out;
+        flex: 1; 
+        min-height: 0;
     }
-
+    
     .secundaria1 {
-        border-radius: 0px 10px 0px 0px;
+        border-radius: 0px 10px 0px 0px; 
     }
-
+    
     .secundaria2 {
         border-radius: 0px 0px 10px 0px;
     }
-
+    
+    
+    
     .img-principal:hover,
     .img-secundaria:hover {
         transform: scale(1.02);
     }
+    
+    
 
     .container-detail h4 {
         font-size: 2rem;

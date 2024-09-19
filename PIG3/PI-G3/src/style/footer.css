@@ -106,6 +106,19 @@ footer {
     background-color: #005a99;
     transform: scale(1.05); 
   }
+
+  .footer-search {
+    text-decoration: none;
+    color: grey;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; 
+  }
+
+  .footer-search:hover {
+    color: #007bc7;
+  }
   
   .new_footer_area {
     position: relative;

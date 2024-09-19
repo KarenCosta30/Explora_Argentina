@@ -177,7 +177,7 @@ const Home = () => {
 
   return (
     <main className="container-main">
-      <section className="container-search">
+      <section className="container-search " id="buscador-inicio">
       <div className="video-background">
       <video
         className="video-fondo"
@@ -193,7 +193,7 @@ const Home = () => {
     </div>
  {/* ACA VA EL ESTADO DE MOSTRAR EL FORMULARIO O NO  */}
  {showSearchForm && (
-    <div className="container-form">
+    <div className="container-form" >
     <p>¿Cuál va a ser tu próxima aventura?</p>
         <Form 
           className={"form"}

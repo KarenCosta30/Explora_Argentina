@@ -398,9 +398,14 @@
           }
 
           .hamburger-icon {
+            color: #007bc7;  /* Cambia el color del icono */
+            padding-left: 10px;
+          }
+          .hamburger-icon.scrolled {
             color: white;  /* Cambia el color del icono */
             padding-left: 10px;
           }
+          
 .btn-avatar{
     padding-right: 20px;
     margin: 0;

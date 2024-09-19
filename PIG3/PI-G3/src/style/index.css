@@ -31,6 +31,8 @@ link {
   display: none;
 }
 
+
+
 .btn-avatar {
   margin-left: 150px;
 }
@@ -566,7 +568,7 @@ input::placeholder {
   color: #ccc;
   /* Color del corazón cuando no está activo */
   transition: color 0.3s, transform 0.3s;
-  /* Transiciones para el color y la animación */
+
 }
 
 .btn-fav.clicked {
@@ -574,6 +576,11 @@ input::placeholder {
   /* Color del corazón cuando está en favoritos */
   transform: scale(1.2);
 }
+
+.btn-fav:hover{
+    transform: scale(1.2);
+}
+
 
 .pagination {
   display: flex;
