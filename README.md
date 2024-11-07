@@ -29,9 +29,10 @@ Gestión de Cuenta: Los usuarios pueden modificar su perfil o eliminar su cuenta
 Roles de Usuario: Los administradores pueden agregar y quitar permisos, como acceso a secciones específicas del panel de administración.
 
 Tecnologías Utilizadas 🛠️
-Frontend: React, HTML, CSS
-Backend: Java
-Base de Datos: MySql 
+Frontend:  HTML, CSS ,React, Vite, OpenStreetMap
+Backend: Java, Spring Boot, APIs REST
+Base de Datos: MySQL, MySQL Workbench
+Infraestructura: AWS (EC2, S3)
 Autenticación y Autorización: JWT, bcrypt
 
 Testing 🔍
